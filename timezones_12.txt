@@ -1,0 +1,23 @@
+!tag create timezones_12 {let(input):{args(1)}}{let(ampm):{args(2)}}{let(offset):{lower:{args(3)}}}
+{let(input):{all({input}==|{ampm}==|{offset}==):{strf:%I%M}|{input}}}
+{let(ampm):{all({ampm}==|{offset}==):{strf:%p}|{ampm}}}
+
+{let(minute):{math:{input}%100}}{let(hour):{math:{input}/100}}
+{let(hour):{all({lower:{ampm}}==pm|{hour}!=12.0):{math:{hour}+12}|{hour}}}
+{let(hour):{math:trunc({all({offset}==aedt|{minute}!=0.0|{hour}<10):{hour}-1|{hour}})}}
+{let(hour):{math:trunc({hour}{if({offset}==pst):+7|{if({offset}==est):+4|{if({offset}==ist):-5|{if({offset}==aest):-10}}}})}}
+{let(minute):{if({offset}==ist):{math:{minute}-30}|{minute}}}
+{let(hour):{if({minute}<0):{math:{hour}-1}|{hour}}}
+{let(minute):{if({minute}<0):{math:{minute}+60}|{minute}}}
+{let(minute):{math:trunc({minute})}}
+{all({args(1)}==|{args(2)}==):No input time was given. Using current time *({strf:%H}:{strf:%M})*.}
+`Local time   :` <t:{strf({strf:%Y-%m-%d {math:trunc({hour}%24)}:{minute}:%S}):%s}:t>
+`UTC  [GMT+0] :` {if({math:trunc({hour}%12)}==0):12|{math:trunc({hour}%12)}}:{if({minute}==0):00|{if({minute}<10):0{minute}|{minute}}} {if({math:{hour}%24}<12):AM|PM} {if({offset}==utc):*(obviously)*}
+`PDT  [GMT-7] :` {if({math:trunc(({hour}-7)%12)}==0):12|{math:trunc(({hour}-7)%12)}}:{if({minute}==0):00|{if({minute}<10):0{minute}|{minute}}} {if({math:{math:({hour}-7)}%24}<12):AM|PM} {if({offset}==pst):*(obviously)*}
+`EDT  [GMT-4] :` {if({math:trunc(({hour}-4)%12)}==0):12|{math:trunc(({hour}-4)%12)}}:{if({minute}==0):00|{if({minute}<10):0{minute}|{minute}}} {if({math:{math:({hour}-4)}%24}<12):AM|PM} {if({offset}==est):*(obviously)*}
+`IST [GMT+5.5]:` {if({math:{minute}+30}>59):{math:trunc(({hour}+6)%12)}|{math:trunc(({hour}+5)%12)}}:{if({minute}==30):0}{if({math:{minute}+30}>59):{math:trunc({minute}-30)}|{math:trunc({minute}+30)}} 
+
+{all({math:{minute}+30}>59|{math:{math:({hour}+5)}%24}<11):AM|{if({math:{math:({hour}+5)}%24}<12):AM|PM}}
+
+{if({offset}==ist):*(obviously)*}
+`AEST [GMT+10]:` {if({math:trunc(({hour}+10)%12)}==0):12|{math:trunc(({hour}+10)%12)}}:{if({minute}==0):00|{if({minute}<10):0{minute}|{minute}}} {if({math:{math:({hour}+10)}%24}<12):AM|PM} {if({offset}==aedt):*(obviously)*}
