@@ -1,5 +1,6 @@
 import pickle
 import datetime
+import argparse
 
 class player():
     def __init__(self, name, tag):
@@ -9,7 +10,6 @@ class player():
         self.strikes = []
         self.missed_hit_clans = []
         self.missed_hit_dates = []
-        self.immune = False
 
     def output(self): 
         print('Name         : %s' % self.name)
@@ -29,6 +29,15 @@ def import_pickle():
             players = pickle.load(f)
     except: players = []
     return players
+
+# Create an argparse argument. By default, we will use command line (manual) entry. 
+# If the user specifies a file, we will use that instead.
+# Command line is easier to use, but is more tedious and slower to use. 
+# File input is faster, but requires the user to create a file with the correct format. This might result in more errors, so this should only be used by experienced users.
+parser = argparse.ArgumentParser(description='Process strikes.')
+parser.add_argument('-m', '--mode', type=str, default='manual', help='Mode to use. Can be manual or file.')
+parser.add_argument('-f', '--file', type=str, default='strikes_input.csv', help='File to use. Only used if mode is file.')
+args = parser.parse_args()
 
 players = import_pickle()
 
@@ -69,9 +78,6 @@ def add_strike():
             players[i].output()
             confirm = input('Is this the right player? Y/N: ').lower()
             if confirm == 'y' or confirm == 'yes': 
-                if players[i].immune: 
-                    print('This player is immune to strikes! No strike will be awarded.')
-                    return
                 print('')
                 print('What kind of strike is this?')
                 print('[1] Missed FWA attack')
@@ -281,25 +287,8 @@ def clear_strikes():
             players[i].num_strikes = 0
             players[i].strikes = []
 
-def immune(): 
-    name = input('Enter name of player to immune / de-immune: ')
-    if name == '': return
-    found = False
-    for i in range(len(players)): 
-        if players[i].name.lower().startswith(name.lower()): 
-            found = True
-            players[i].output()
-            confirm = input('Is this the right player? Y/N ').lower()
-            if confirm == 'y' or confirm == 'yes': 
-                if players[i].immune: 
-                    print('This player is no longer immune to strikes.')
-                    players[i].immune = False
-                else: 
-                    print('This player is now immune to strikes.')
-                    players[i].immune = True
-
 players = import_pickle()
-while(True): 
+while(args.mode == 'manual'): 
     print('---- Reddit X-ray Strike Automation System ----')
     print('[1] Add a new player')
     print('[2] Remove a player')
@@ -308,7 +297,6 @@ while(True):
     print('[5] Clear all strikes for a given player')
     print('[6] Reset all strikes')
     print('[7] Output strikes list')
-    print('[8] Immune / de-immune a player')
     print('[9] Exit')
     sel = input('Selection: ')
     try: sel = int(sel)
@@ -334,7 +322,6 @@ while(True):
 
                     file.write('\n')
                     print('')
-    elif sel == 8: immune()
     if sel != 9: 
         players.sort(key = lambda x: (-x.num_strikes, x.name))
         print('')
