@@ -37,7 +37,37 @@ def import_pickle():
 parser = argparse.ArgumentParser(description='Process strikes.')
 parser.add_argument('-m', '--mode', type=str, default='manual', help='Mode to use. Can be manual or file.')
 parser.add_argument('-f', '--file', type=str, default='strikes_input.csv', help='File to use. Only used if mode is file.')
+parser.add_argument("--debug", "-d", help="Enable debug mode.", action="store_true")
 args = parser.parse_args()
+
+import requests
+import datetime
+
+def up_to_date(): 
+    # Get repository details from the GitHub API.
+    url = "https://api.github.com/repos/DrNekoSenpai/x-ray"
+    response = requests.get(url)
+    data = response.json()
+
+    # Get the date of the latest commit.
+    last_commit_date = datetime.datetime.strptime(data['pushed_at'], "%Y-%m-%dT%H:%M:%SZ")
+
+    # Grab the current date, and adjust for UTC time. 
+    current_date = datetime.datetime.utcnow()
+
+    if args.debug: 
+        print("Last commit date", last_commit_date)
+        print("Current date", current_date)
+
+    return last_commit_date < current_date
+
+if not up_to_date():
+    print("Error: the local repository is not up to date. Please pull the latest changes before running this script.")
+    print("To pull the latest changes, simply run the command 'git pull' in this terminal.")
+    exit(1)
+
+if args.debug:
+    print("The local repository is up to date.")
 
 players = import_pickle()
 
@@ -86,8 +116,7 @@ def add_strike():
                 print('[4] War base')
                 print('[5] Base errors')
                 print('[6] Directions not followed')
-                print('[7] No league badge')
-                print('[8] Other')
+                print('[7] Other')
                 sel = input('Selection: ')
                 try: sel = int(sel)
                 except: sel = 0
@@ -115,19 +144,10 @@ def add_strike():
                     try: num_wars = int(num_wars)
                     except: num_wars = 0
                     if num_wars < 0: print('Either this player missed no hits, or something went wrong. No strike will be awarded.')
-                    elif num_wars < 3: print('This player hasn\'t missed enough wars to be awarded strikes!')
-                    elif num_wars < 5: 
+                    elif num_wars < 4: print('This player hasn\'t missed enough wars to be awarded strikes!')
+                    else: 
                         players[i].strikes.append('(1) Missed 3 or 4 hits during CWL week.')
                         players[i].num_strikes += 1
-                    elif num_wars < 7: 
-                        players[i].strikes.append('(2) Missed 5 or 6 hits during CWL week.')
-                        players[i].num_strikes += 2
-                    elif num_wars == 7: 
-                        players[i].strikes.append('(3) Missed 7 hits during CWL week.')
-                        players[i].num_strikes += 3
-                    else: 
-                        print('Invalid number of hits entered. No strike will be awarded.')
-                        return
                 elif sel == 3: 
                     clan = input('Enter name of opponent blacklist clan: ')
                     win = input('Did we win? Y/N: ').lower()
@@ -189,22 +209,6 @@ def add_strike():
                         players[i].strikes.append('(1) Sniped for more than 1 star during a loss war against `%s`.' % clan)
                         players[i].num_strikes += 1
                 elif sel == 7: 
-                    current_month = datetime.datetime.now().strftime('%B')
-                    deadline = input('Is this the 24 or the 48 hour deadline? ')
-                    try: deadline = int(deadline)
-                    except: deadline = 0
-                    if deadline == 24: 
-                        message = 'Failed to obtain league badge 24 hours after %s CWL ended.' % current_month
-                        players[i].strikes.append('(1) %s' % message)
-                        players[i].num_strikes += 1
-                    elif deadline == 48: 
-                        message = 'Failed to obtain league badge 48 hours after %s CWL ended.' % current_month
-                        players[i].strikes.append('(2) %s' % message)
-                        players[i].num_strikes += 2
-                    else: 
-                        print('Invalid input entered. No strikes will be awarded.')
-                        return
-                elif sel == 8: 
                     clan = input('Enter opponent clan name for when this player disobeyed instructions: ')
                     message = input('Enter strike message here. Use <clan> to substitute the opponent clan name: ')
                     message = message.split('<clan>')
