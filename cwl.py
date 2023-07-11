@@ -11,9 +11,9 @@ ineligible = []
 for ind,row in enumerate(sheets.iter_rows(values_only=True)): 
     if ind == 0: headers = row
     else: 
-        if row[0] is not None: eligible.append(row[0])
-        if row[1] is not None: already_received.append(row[1])
-        if row[2] is not None: ineligible.append(row[2])
+        if row[0] is not None and row[0] != '': eligible.append(row[0])
+        if row[1] is not None and row[1] != '': already_received.append(row[1])
+        if row[2] is not None and row[2] != '': ineligible.append(row[2])
 
 from datetime import datetime
 import calendar
@@ -28,7 +28,7 @@ if len(eligible) == 0 and len(ineligible) == 0:
         if player == '': break
         player = player.rsplit(' ', 1)
         
-        if player[0] in already_received: continue
+        if player[0].lower() in [i.lower() for i in already_received]: continue
         try: player[1] = int(player[1])
         except: 
             print('Invalid input for number of hits used.')
