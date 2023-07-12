@@ -140,14 +140,10 @@ def add_strike():
                             players[i].strikes.append('(1) Missed hits in two consecutive wars against `%s` and `%s`.' % (players[i].missed_hit_clans[previous_war], players[i].missed_hit_clans[this_war]))
                             players[i].num_strikes += 1
                 elif sel == 2: 
-                    num_wars = input('How many hits did this player miss? ')
-                    try: num_wars = int(num_wars)
-                    except: num_wars = 0
-                    if num_wars < 0: print('Either this player missed no hits, or something went wrong. No strike will be awarded.')
-                    elif num_wars < 4: print('This player hasn\'t missed enough wars to be awarded strikes!')
-                    else: 
-                        players[i].strikes.append('(1) Missed 3 or 4 hits during CWL week.')
-                        players[i].num_strikes += 1
+                    confirm = input('Please confirm you wish to award CWL strikes to this player. Y/N: ').lower()
+                    if confirm != 'y' and confirm != 'yes': return
+                    players[i].strikes.append('(1) Missed 4 or more hits during CWL week.')
+                    players[i].num_strikes += 1
                 elif sel == 3: 
                     clan = input('Enter name of opponent blacklist clan: ')
                     win = input('Did we win? Y/N: ').lower()
