@@ -1,3 +1,24 @@
+[5] peacekeeper #LG0JL8VRL:
+- (1) Missed hits during war against `R.R2`.
+- (1) Missed hits during war against `JOHOR`.
+- (1) Missed hits in two consecutive wars against `R.R2` and `JOHOR`.
+- (1) Missed hits during war against `#Kethumathi#`.
+- (1) Missed hits in two consecutive wars against `JOHOR` and `#Kethumathi#`.
+
+[5] syazani #922R2CUP:
+- (1) Missed hits during war against `R.R2`.
+- (1) Missed hits during war against `JOHOR`.
+- (1) Missed hits in two consecutive wars against `R.R2` and `JOHOR`.
+- (1) Missed hits during war against `#Kethumathi#`.
+- (1) Missed hits in two consecutive wars against `JOHOR` and `#Kethumathi#`.
+
+[5] ~CLUNK~ #JC8LGULV:
+- (1) Missed hits during war against `R.R2`.
+- (1) Missed hits during war against `JOHOR`.
+- (1) Missed hits in two consecutive wars against `R.R2` and `JOHOR`.
+- (1) Missed hits during war against `#Kethumathi#`.
+- (1) Missed hits in two consecutive wars against `JOHOR` and `#Kethumathi#`.
+
 [4] Randyl #LVGVPRRCV:
 - (1) Missed 4 or more hits during CWL week.
 - (1) Missed hits during war against `R.R2`.
@@ -7,33 +28,27 @@
 [3] Lord Zameow #Q98QV0JR9:
 - (3) Had war base during battle day against `R.R2`.
 
-[3] peacekeeper #LG0JL8VRL:
-- (1) Missed hits during war against `R.R2`.
+[3] Sir Noble #GRV08CCY:
 - (1) Missed hits during war against `JOHOR`.
-- (1) Missed hits in two consecutive wars against `R.R2` and `JOHOR`.
+- (1) Missed hits during war against `#Kethumathi#`.
+- (1) Missed hits in two consecutive wars against `JOHOR` and `#Kethumathi#`.
 
-[3] syazani #922R2CUP:
+[2] luis #L9YVULJP8:
 - (1) Missed hits during war against `R.R2`.
-- (1) Missed hits during war against `JOHOR`.
-- (1) Missed hits in two consecutive wars against `R.R2` and `JOHOR`.
-
-[3] ~CLUNK~ #JC8LGULV:
-- (1) Missed hits during war against `R.R2`.
-- (1) Missed hits during war against `JOHOR`.
-- (1) Missed hits in two consecutive wars against `R.R2` and `JOHOR`.
+- (1) Missed hits during war against `#Kethumathi#`.
 
 [1] ANBU #80U9VGUU9:
 - (1) Missed hits during war against `JOHOR`.
 
-[1] Sir Noble #GRV08CCY:
-- (1) Missed hits during war against `JOHOR`.
+[1] Arcohol #G029QVPGJ:
+- (1) Missed hits during war against `#Kethumathi#`.
+
+[1] Sivankh39 #2U9YCGVU2:
+- (1) Missed hits during war against `#Kethumathi#`.
 
 [1] iigo #9Y9L2GJL:
 - (1) Three-starred during a loss war against `JOHOR`.
 
 [1] jy #8L9QLJJP:
 - (1) Three-starred during a loss war against `JOHOR`.
-
-[1] luis #L9YVULJP8:
-- (1) Missed hits during war against `R.R2`.
 
