@@ -1,3 +1,10 @@
+[5] Randyl #LVGVPRRCV:
+- (1) Missed 4 or more hits during CWL week.
+- (1) Missed hits during war against `R.R2`.
+- (1) Missed hits during war against `JOHOR`.
+- (1) Missed hits in two consecutive wars against `R.R2` and `JOHOR`.
+- (1) Missed hits during war against `No Mercy`.
+
 [5] peacekeeper #LG0JL8VRL:
 - (1) Missed hits during war against `R.R2`.
 - (1) Missed hits during war against `JOHOR`.
@@ -19,12 +26,6 @@
 - (1) Missed hits during war against `#Kethumathi#`.
 - (1) Missed hits in two consecutive wars against `JOHOR` and `#Kethumathi#`.
 
-[4] Randyl #LVGVPRRCV:
-- (1) Missed 4 or more hits during CWL week.
-- (1) Missed hits during war against `R.R2`.
-- (1) Missed hits during war against `JOHOR`.
-- (1) Missed hits in two consecutive wars against `R.R2` and `JOHOR`.
-
 [3] Lord Zameow #Q98QV0JR9:
 - (3) Had war base during battle day against `R.R2`.
 
@@ -43,12 +44,24 @@
 [1] Arcohol #G029QVPGJ:
 - (1) Missed hits during war against `#Kethumathi#`.
 
+[1] Big Daddy T #9V0PCRR00:
+- (1) Three-starred during a loss war against `No Mercy`.
+
+[1] Kouba #JL2RGVJL:
+- (1) Missed hits during war against `No Mercy`.
+
 [1] Sivankh39 #2U9YCGVU2:
 - (1) Missed hits during war against `#Kethumathi#`.
+
+[1] chopTX III #QRGGCJ9RY:
+- (1) Missed hits during war against `No Mercy`.
 
 [1] iigo #9Y9L2GJL:
 - (1) Three-starred during a loss war against `JOHOR`.
 
 [1] jy #8L9QLJJP:
 - (1) Three-starred during a loss war against `JOHOR`.
+
+[1] katsu #RCUY2PYV:
+- (1) Missed hits during war against `No Mercy`.
 
