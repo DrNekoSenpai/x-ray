@@ -287,6 +287,10 @@ def clear_strikes():
             players[i].num_strikes = 0
             players[i].strikes = []
 
+def regular_keyboard(input_string): 
+    pattern = r"^[A-Za-z0-9 !@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
+    return re.match(pattern, input_string) is not None 
+
 players = import_pickle()
 while(args.mode == 'manual'): 
     print('---- Reddit X-ray Strike Automation System ----')
@@ -297,6 +301,7 @@ while(args.mode == 'manual'):
     print('[5] Clear all strikes for a given player')
     print('[6] Reset all strikes')
     print('[7] Output strikes list')
+    print('[8] Mass import from Minion Bot \'/clan villages search\' command')
     print('[9] Exit')
     sel = input('Selection: ')
     try: sel = int(sel)
@@ -322,6 +327,60 @@ while(args.mode == 'manual'):
 
                     file.write('\n')
                     print('')
+    elif sel == 8: 
+        """Add a new player to the database, provided that they do not already exist."""
+        # in_str = input('Enter name and tag, separated by spaces: ').strip()
+        # if in_str == '': continue
+        # in_str = in_str.rsplit(' ', 1)
+        # for i in range(len(players)): 
+        #     if players[i].name.lower().startswith(in_str[0].lower()): 
+        #         print('This player already exists! Duplicates are not allowed.')
+        # p = player(in_str[0], in_str[1].upper())
+        # players.append(p)
+
+        # Check if a file named "minion.txt" exists in the current directory
+        import os 
+        import re
+
+        if not os.path.isfile('minion.txt'):
+            print('No file named "minion.txt" exists in the current directory.')
+            continue
+
+        # Open the file and read the contents, line by line
+        with open('minion.txt', 'r', encoding='utf-8', errors='replace') as file:
+            for line in file: 
+                # Line format: 
+                # #P2UPPVYL    15 Senpai™
+                # Tag is 7-9 alphanumeric characters long 
+                # The number is 1-2 digits long, and is the town hall level -- we can ignore this
+                # Everything else is the name 
+                # We can use regex to extract the tag and name
+                match = re.search(r'#([A-Z0-9]{7,9})\s+\d{1,2}\s+(.+)', line)
+                if match:
+                    # Extract the tag and name
+                    tag = match.group(1)
+                    name = match.group(2)
+
+                    # Check if the player's name is alphanumeric, including spaces and regular punctuation
+                    # If not, we need to ask the user to input the name manually. 
+                    if not regular_keyboard(name):
+                        print(f"Player name {name} is not valid. Please input the name manually.")
+                        name = input("Name: ")
+
+                    # Check if the player already exists in the database
+                    found = False
+                    for i in range(len(players)):
+                        if players[i].name.lower().startswith(name.lower()):
+                            found = True
+                            print(f"Player {name} already exists in the database. Skipping...")
+                            break
+
+                    # If the player does not exist, add them to the database
+                    if not found:
+                        p = player(name, tag)
+                        players.append(p)
+                        print(f"Added player {name} #{tag} to the database.")
+
     if sel != 9: 
         players.sort(key = lambda x: (-x.num_strikes, x.name))
         print('')
