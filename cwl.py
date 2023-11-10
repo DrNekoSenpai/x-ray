@@ -1,125 +1,114 @@
-from openpyxl import load_workbook
-from datetime import datetime
-import calendar
 from argparse import ArgumentParser
+import datetime
+import requests
+import re
 
 parser = ArgumentParser()
 parser.add_argument('-i', '--input', help='Command line input', default=None)
-parser.add_argument('-n', '--num_bonuses', help='Number of bonuses available', default=0, type=int)
 args = parser.parse_args()
 
-cwl_filename = 'Reddit X-ray CWL Random Distribution.xlsx'
-wb = load_workbook(filename=cwl_filename)
-sheet_name = wb.sheetnames[0]
-sheets = wb[sheet_name]
+with open("cwl-input.txt", "r", encoding="utf-8") as f: 
+    cwl = f.readlines()
+    cwl = [x.strip().rsplit(" ", 1) for x in cwl]
 
-eligible = []
-already_received = []
-ineligible = []
+players = []
 
-for ind, row in enumerate(sheets.iter_rows(values_only=True)):
-    if ind == 0:
-        headers = row
-    else:
-        if row[0]:
-            eligible.append(row[0])
-        if row[1]:
-            already_received.append(row[1])
-        if row[2]:
-            ineligible.append(row[2])
+def regular_keyboard(input_string): 
+    pattern = r"^[A-Za-z0-9 !@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
+    return re.match(pattern, input_string) is not None 
 
-this_month = calendar.month_name[datetime.today().month]
-this_year = datetime.today().year
+with open("minion.txt", "r", encoding="utf-8") as f: 
+    minion = f.readlines()
+    pattern = re.compile(r"#([0-9A-Z]{5,9})\s+\d+\s+(.*)")
+    for line in minion: 
+        match = pattern.match(line)
+        if match: 
+            tag, player = match.groups()
+            player = player.replace("\\_", "_")
+            player = player.replace("™", "")
 
-if not eligible and not ineligible:
-    # If args.input is provided, use that to input data
-    if args.input:
-        with open(args.input, 'r') as f:
-            errors = []
-            try: 
-                lines = f.readlines()
-                for line in lines:
-                    line = line.strip()
-                    if line == '':
-                        continue
-                    player = line.rsplit(' ', 1)
-                    if player[0].lower() in [i.lower() for i in already_received]:
-                        continue
-                    try:
-                        player[1] = int(player[1])
-                    except:
-                        print('Invalid input for number of hits used.')
-                        continue
+            if player == "JALVIN ø": player = "JALVIN"
+            if player == "★ıċєʏקѧṅṭś★": player = "IceyPants"
+            if "✨" in player: player = player.replace("✨", "")
 
-                    missed_hits = player[1]
-                    if missed_hits > 2:
-                        ineligible.append(player[0])
-                    else:
-                        eligible.append(player[0])
+            if not regular_keyboard(player):
+                print(f"Error: {player} #{tag} contains invalid characters")
+                continue
 
-            except Exception as e: 
-                errors.append(e)
+            if player not in [p[1] for p in players]:
+                players.append((player, tag))
+        else: 
+            print(f"Error: {line} does not match pattern")
 
-        if len(errors) != 0: 
-            print('Errors encountered: ')
-            for error in errors: 
-                print(error)
-            raise Exception('Errors encountered. Please check input file.')
+entries = {}
+hit_entries = {}
+loyalty_entries = {}
+
+for player,hits in cwl: 
+    if hits == "0":
+        entries[player] = 0
+        hit_entries[player] = 0
+    else: 
+        entries[player] = int(hits)
+        hit_entries[player] = int(hits)
+
+    # Find the player in the list of players, as well as their player tag. 
+    for i in range(len(players)):
+        if players[i][0] == player: 
+            tag = players[i][1]
+            break
+    
+    # Send a GET request to the player's profile page.
+    html = requests.get(f"https://fwa.chocolateclash.com/cc_n/member.php?tag={tag}").text
+
+    pattern = re.compile(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})</a></td><td>Joined clan  as <span style=\"background-color:#eee;\">a member</span>")
+    match = pattern.search(html)
+
+    if match: 
+        timedelta = datetime.datetime.now() - datetime.datetime.strptime(match.group(1), "%Y-%m-%d %H:%M:%S")
+        months = timedelta.days // 30
+
+        if months > 6: 
+            entries[player] += 6
+            loyalty_entries[player] = 6
+        else: 
+            entries[player] += months
+            loyalty_entries[player] = months
 
     else: 
-        print('Enter in names of participating players, with number of hits missed: ')
-        for i in range(50):
-            player = input(f"[{i+1}] ")
-            if player == '':
-                break
-            player = player.rsplit(' ', 1)
+        entries[player] += 6
+        loyalty_entries[player] = 6
 
-            if player[0].lower() in [i.lower() for i in already_received]:
-                continue
-            try:
-                player[1] = int(player[1])
-            except:
-                print('Invalid input for number of hits used.')
-                continue
+# Sort entries by weight in descending order, then by hit entries, then by loyalty entries 
+entries = {k: v for k, v in sorted(entries.items(), key=lambda item: (item[1], hit_entries[item[0]], loyalty_entries[item[0]]), reverse=True)}
 
-            missed_hits = player[1]
-            if missed_hits > 2:
-                ineligible.append(player[0])
-            else:
-                eligible.append(player[0])
+# for player,weight in entries.items(): 
+#     if weight != 0: print(f"{player}: {weight} entries ({hit_entries[player]} entries from hits, {loyalty_entries[player]} entries from loyalty)")
 
-    print(eligible)
-    print(already_received)
-    print(ineligible)
+from datetime import datetime
+month = datetime.now().strftime("%B")
+year = datetime.now().year
+dists_possible = 4
 
-    from openpyxl import Workbook
-    wb = Workbook()
-    ws1 = wb.active
-    ws1.title = sheet_name
+print(f"**Reddit X-ray {month} {year} Weighted Distribution** \n ({dists_possible} available bonuses, total) \n ")
 
-    ws1.append(headers)
-    for ind, val in enumerate(eligible):
-        ws1[f"A{ind+2}"] = val
-    for ind, val in enumerate(already_received):
-        ws1[f"B{ind+2}"] = val
-    for ind, val in enumerate(ineligible):
-        ws1[f"C{ind+2}"] = val
+pool = []
 
-    wb.save(filename=cwl_filename)
+for i in range(15, 0, -1): 
+    # Get the tier, that is, all the players who have this amount of entries. 
+    tier = [k for k,v in entries.items() if v == i]
+    if len(tier) == 0: continue
+    print(f"{i} entries:")
+    for player in tier: 
+        print(f"- {player} ({hit_entries[player]} entries from hits, {loyalty_entries[player]} entries from loyalty)")
+        for _ in range(i): 
+            pool.append(player)
+    print("")
 
-else:
-    num_bonuses = int(input("How many bonuses are available this month? "))
-    if num_bonuses <= 0: 
-        raise ValueError("Number of bonuses must be greater than 0.")
+import random
 
-    print(f'**---- {this_month} {this_year} CWL Pseudo-random Distribution ----**')
-    print(f'({num_bonuses} available bonuses, total)\n')
-    
-    print('**Eligible**: ', end='')
-    print(', '.join(eligible))
-    
-    print('**Ineligible (already received)**: ', end='')
-    print(', '.join(already_received))
-    
-    print('**Ineligible (missed hits)**: ', end='')
-    print(', '.join(ineligible))
+for _ in range(dists_possible): 
+    choice = random.choice(pool)
+    # Remove all instances of this player from the pool.
+    pool = [p for p in pool if p != choice]
+    print(choice)

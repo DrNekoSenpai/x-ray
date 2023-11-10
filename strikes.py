@@ -117,7 +117,8 @@ def add_strike():
                 print('[5] War base')
                 print('[6] Base errors')
                 print('[7] Directions not followed')
-                print('[8] Other')
+                print('[8] Repeat offender in sanctions')
+                print('[9] Other')
                 sel = input('Selection: ')
                 try: sel = int(sel)
                 except: sel = 0
@@ -216,6 +217,10 @@ def add_strike():
                         players[i].strikes.append('(1) Sniped for more than 1 star during a loss war against `%s`.' % clan)
                         players[i].num_strikes += 1
                 elif sel == 8: 
+                    clan = input('Enter opponent clan name who initiated sanctions against us: ')
+                    players[i].strikes.append('(1) Repeat offender in sanctions during war against `%s`.' % clan)
+                    players[i].num_strikes += 1
+                elif sel == 9: 
                     clan = input('Enter opponent clan name for when this player disobeyed instructions: ')
                     message = input('Enter strike message here. Use <clan> to substitute the opponent clan name: ')
                     message = message.split('<clan>')
@@ -366,17 +371,21 @@ while(args.mode == 'manual'):
                 # The number is 1-2 digits long, and is the town hall level -- we can ignore this
                 # Everything else is the name 
                 # We can use regex to extract the tag and name
-                match = re.search(r'#([A-Z0-9]{7,9})\s+\d{1,2}\s+(.+)', line)
+                match = re.search(r"#([0-9A-Z]{5,9})\s+\d+\s+(.*)", line)
                 if match:
                     # Extract the tag and name
                     tag = match.group(1)
                     name = match.group(2)
 
+                    if name == "JALVIN ø": name = "JALVIN"
+                    if name == "★ıċєʏקѧṅṭś★": name = "IceyPants"
+                    if "™" in name: name = name.replace("™", "")
+                    if "✨" in name: name = name.replace("✨", "")
+
                     # Check if the player's name is alphanumeric, including spaces and regular punctuation
                     # If not, we need to ask the user to input the name manually. 
                     if not regular_keyboard(name):
                         print(f"Player name {name} is not valid. Please input the name manually.")
-                        name = input("Name: ")
 
                     # Check if the player already exists in the database
                     found = False

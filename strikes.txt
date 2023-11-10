@@ -10,10 +10,6 @@
 - (3) Had FWA base during a blacklist war against `BLACK BLUE`, and cost us the victory.
 - (5) Missed two attacks during a blacklist war against `BLACK BLUE`, and cost us the victory.
 
-[8] Sivankh39 #2U9YCGVU2:
-- (3) Had FWA base during a blacklist war against `BLACK BLUE`, and cost us the victory.
-- (5) Missed two attacks during a blacklist war against `BLACK BLUE`, and cost us the victory.
-
 [8] Specs #Y2YURQ999:
 - (3) Had FWA base during a blacklist war against `BLACK BLUE`, and cost us the victory.
 - (5) Missed two attacks during a blacklist war against `BLACK BLUE`, and cost us the victory.
@@ -27,6 +23,10 @@
 
 [3] Hokage #J2CUYQG8:
 - (3) Had FWA base during a blacklist war against `BLACK BLUE`, and cost us the victory.
+
+[3] Sir Noble #GRV08CCY:
+- (2) Missed one attack during a blacklist war against `BLACK BLUE`, and cost us the victory.
+- (1) Missed hits during war against `AnokmeK Jr`.
 
 [2] Bad Apple #GPYCGRQ8:
 - (2) Missed one attack during a blacklist war against `BLACK BLUE`, and cost us the victory.
@@ -43,9 +43,18 @@
 [2] Shomeer #G2LGL80PL:
 - (2) Missed one attack during a blacklist war against `BLACK BLUE`, and cost us the victory.
 
-[2] Sir Noble #GRV08CCY:
-- (2) Missed one attack during a blacklist war against `BLACK BLUE`, and cost us the victory.
-
 [2] tre sedicesimi #29RL8PR88:
 - (2) Missed one attack during a blacklist war against `BLACK BLUE`, and cost us the victory.
+
+[1] BoilingShadows #9LLJRQYC:
+- (1) Missed 4 or more hits during CWL week.
+
+[1] Nate#4 #CP9LQG:
+- (1) Missed hits during war against `AnokmeK Jr`.
+
+[1] a tsundere #LQYGLPQVP:
+- (1) Missed 4 or more hits during CWL week.
+
+[1] katsu #RCUY2PYV:
+- (1) Repeat offender in sanctions during war against `AnokmeK Jr`.
 
