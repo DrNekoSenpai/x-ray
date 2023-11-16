@@ -1,60 +1,62 @@
-[8] DRACARYS #PRVCQ2L0V:
-- (3) Had FWA base during a blacklist war against `BLACK BLUE`, and cost us the victory.
-- (5) Missed two attacks during a blacklist war against `BLACK BLUE`, and cost us the victory.
+[4] Samantha #LRCGJ99Y:
+- (1) Missed 4 or more hits during CWL week.
+- (1) Missed hits during war against `REBEL HORDE`.
+- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
 
-[8] Nick #JP2PQQJY:
-- (3) Had FWA base during a blacklist war against `BLACK BLUE`, and cost us the victory.
-- (5) Missed two attacks during a blacklist war against `BLACK BLUE`, and cost us the victory.
+[3] Alentes #LGCCG8CQ:
+- (1) Missed hits during war against `REBEL HORDE`.
+- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
 
-[8] Ryan #829RJC0QY:
-- (3) Had FWA base during a blacklist war against `BLACK BLUE`, and cost us the victory.
-- (5) Missed two attacks during a blacklist war against `BLACK BLUE`, and cost us the victory.
+[3] Bad Apple #GPYCGRQ8:
+- (1) Missed hits during war against `REBEL HORDE`.
+- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
 
-[8] Specs #Y2YURQ999:
-- (3) Had FWA base during a blacklist war against `BLACK BLUE`, and cost us the victory.
-- (5) Missed two attacks during a blacklist war against `BLACK BLUE`, and cost us the victory.
+[3] E-BASE COC.PH #QUC2920V:
+- (1) Missed hits during war against `REBEL HORDE`.
+- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
 
-[5] luis #L9YVULJP8:
-- (3) Had FWA base during a blacklist war against `BLACK BLUE`, and cost us the victory.
-- (2) Missed one attack during a blacklist war against `BLACK BLUE`, and cost us the victory.
-
-[3] ANBU #80U9VGUU9:
-- (3) Had FWA base during a blacklist war against `BLACK BLUE`, and cost us the victory.
+[3] GravityFall #2JUJVYCJ9:
+- (1) Missed hits during war against `REBEL HORDE`.
+- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
 
 [3] Hokage #J2CUYQG8:
-- (3) Had FWA base during a blacklist war against `BLACK BLUE`, and cost us the victory.
+- (1) Missed hits during war against `REBEL HORDE`.
+- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
 
-[3] Sir Noble #GRV08CCY:
-- (2) Missed one attack during a blacklist war against `BLACK BLUE`, and cost us the victory.
-- (1) Missed hits during war against `AnokmeK Jr`.
+[3] Smitty #9LCPQ0QR:
+- (1) Missed hits during war against `REBEL HORDE`.
+- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
 
-[2] Bad Apple #GPYCGRQ8:
-- (2) Missed one attack during a blacklist war against `BLACK BLUE`, and cost us the victory.
+[3] Trunx #UQ8U200J:
+- (1) Missed hits during war against `REBEL HORDE`.
+- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
 
-[2] E-BASE COC.PH #QUC2920V:
-- (2) Missed one attack during a blacklist war against `BLACK BLUE`, and cost us the victory.
-
-[2] RoyalOne #RV920PR9:
-- (2) Missed one attack during a blacklist war against `BLACK BLUE`, and cost us the victory.
-
-[2] Samantha #LRCGJ99Y:
-- (2) Missed one attack during a blacklist war against `BLACK BLUE`, and cost us the victory.
-
-[2] Shomeer #G2LGL80PL:
-- (2) Missed one attack during a blacklist war against `BLACK BLUE`, and cost us the victory.
+[3] mstar27 #8V8GY28G:
+- (1) Missed hits during war against `REBEL HORDE`.
+- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
 
 [2] tre sedicesimi #29RL8PR88:
-- (2) Missed one attack during a blacklist war against `BLACK BLUE`, and cost us the victory.
-
-[1] BoilingShadows #9LLJRQYC:
 - (1) Missed 4 or more hits during CWL week.
+- (1) Missed hits during war against `FWA Avengers`.
 
-[1] Nate#4 #CP9LQG:
-- (1) Missed hits during war against `AnokmeK Jr`.
+[1] Golden Unicorn #LP0R0UUG8:
+- (1) Missed hits during war against `FWA Avengers`.
 
-[1] a tsundere #LQYGLPQVP:
+[1] IceyPants #2U8GQPLVY:
+- (1) Missed hits during war against `REBEL HORDE`.
+
+[1] JALVIN #22R8VVGPJ:
+- (1) Missed hits during war against `FWA Avengers`.
+
+[1] Shomeer #G2LGL80PL:
 - (1) Missed 4 or more hits during CWL week.
-
-[1] katsu #RCUY2PYV:
-- (1) Repeat offender in sanctions during war against `AnokmeK Jr`.
 
