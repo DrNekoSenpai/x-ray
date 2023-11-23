@@ -1,55 +1,119 @@
-[4] Samantha #LRCGJ99Y:
+[5] Alentes #LGCCG8CQ:
+- (1) Missed hits during war against `REBEL HORDE`.
+- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
+- (1) Missed hits during war against `ALIANCA BRASIL3`.
+- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
+- (1) Missed hits during war against `We The Living`.
+- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
+- (1) Missed hits during war against `MINI LORDS`.
+- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
+
+[5] Bad Apple #GPYCGRQ8:
+- (1) Missed hits during war against `REBEL HORDE`.
+- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
+- (1) Missed hits during war against `ALIANCA BRASIL3`.
+- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
+- (1) Missed hits during war against `ALIANCA BRASIL3`.
+- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `ALIANCA BRASIL3`.
+- (1) Missed hits during war against `We The Living`.
+- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
+- (1) Missed hits during war against `MINI LORDS`.
+- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
+
+[5] E-BASE COC.PH #QUC2920V:
+- (1) Missed hits during war against `REBEL HORDE`.
+- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
+- (1) Missed hits during war against `ALIANCA BRASIL3`.
+- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
+- (1) Missed hits during war against `MINI LORDS`.
+
+[5] Golden Unicorn #LP0R0UUG8:
+- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits during war against `ALIANCA BRASIL3`.
+- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
+- (1) Missed hits during war against `We The Living`.
+- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
+- (1) Missed hits during war against `MINI LORDS`.
+- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
+
+[5] GravityFall #2JUJVYCJ9:
+- (1) Missed hits during war against `REBEL HORDE`.
+- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
+- (1) Missed hits during war against `ALIANCA BRASIL3`.
+- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
+- (1) Missed hits during war against `We The Living`.
+- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
+- (1) Missed hits during war against `MINI LORDS`.
+- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
+
+[5] Samantha #LRCGJ99Y:
 - (1) Missed 4 or more hits during CWL week.
 - (1) Missed hits during war against `REBEL HORDE`.
 - (1) Missed hits during war against `FWA Avengers`.
 - (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
+- (1) Missed hits during war against `ALIANCA BRASIL3`.
+- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
+- (1) Missed hits during war against `We The Living`.
+- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
+- (1) Missed hits during war against `MINI LORDS`.
+- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
 
-[3] Alentes #LGCCG8CQ:
+[5] Trunx #UQ8U200J:
 - (1) Missed hits during war against `REBEL HORDE`.
 - (1) Missed hits during war against `FWA Avengers`.
 - (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
+- (1) Missed hits during war against `ALIANCA BRASIL3`.
+- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
+- (1) Missed hits during war against `We The Living`.
+- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
+- (1) Missed hits during war against `MINI LORDS`.
+- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
 
-[3] Bad Apple #GPYCGRQ8:
+[5] mstar27 #8V8GY28G:
 - (1) Missed hits during war against `REBEL HORDE`.
 - (1) Missed hits during war against `FWA Avengers`.
 - (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
+- (1) Missed hits during war against `ALIANCA BRASIL3`.
+- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
+- (1) Missed hits during war against `We The Living`.
+- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
+- (1) Missed hits during war against `MINI LORDS`.
+- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
 
-[3] E-BASE COC.PH #QUC2920V:
-- (1) Missed hits during war against `REBEL HORDE`.
+[5] tre sedicesimi #29RL8PR88:
+- (1) Missed 4 or more hits during CWL week.
 - (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
-
-[3] GravityFall #2JUJVYCJ9:
-- (1) Missed hits during war against `REBEL HORDE`.
-- (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
+- (1) Missed hits during war against `ALIANCA BRASIL3`.
+- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
+- (1) Missed hits during war against `We The Living`.
+- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
 
 [3] Hokage #J2CUYQG8:
 - (1) Missed hits during war against `REBEL HORDE`.
 - (1) Missed hits during war against `FWA Avengers`.
 - (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
 
-[3] Smitty #9LCPQ0QR:
-- (1) Missed hits during war against `REBEL HORDE`.
-- (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
+[3] Peril-sama #Y0C8L0VV:
+- (1) Missed hits during war against `We The Living`.
+- (1) Missed hits during war against `MINI LORDS`.
+- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
 
-[3] Trunx #UQ8U200J:
-- (1) Missed hits during war against `REBEL HORDE`.
-- (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
+[2] eric is a girl #8J2RRJ0Y:
+- (1) Missed hits during war against `ALIANCA BRASIL3`.
+- (1) Missed hits during war against `MINI LORDS`.
 
-[3] mstar27 #8V8GY28G:
-- (1) Missed hits during war against `REBEL HORDE`.
-- (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
+[1] 7Ate9 #PRLP2J2R2:
+- (1) Missed hits during war against `MINI LORDS`.
 
-[2] tre sedicesimi #29RL8PR88:
-- (1) Missed 4 or more hits during CWL week.
-- (1) Missed hits during war against `FWA Avengers`.
+[1] ANBU #80U9VGUU9:
+- (1) Missed hits during war against `ALIANCA BRASIL3`.
 
-[1] Golden Unicorn #LP0R0UUG8:
-- (1) Missed hits during war against `FWA Avengers`.
+[1] Chief_Lou #9VL2L8PPJ:
+- (1) Missed hits during war against `MINI LORDS`.
 
 [1] IceyPants #2U8GQPLVY:
 - (1) Missed hits during war against `REBEL HORDE`.
@@ -57,6 +121,18 @@
 [1] JALVIN #22R8VVGPJ:
 - (1) Missed hits during war against `FWA Avengers`.
 
+[1] Luke #LPRPP9LGU:
+- (1) Missed hits during war against `We The Living`.
+
 [1] Shomeer #G2LGL80PL:
 - (1) Missed 4 or more hits during CWL week.
+
+[1] Sivankh39 #2U9YCGVU2:
+- (1) Missed hits during war against `MINI LORDS`.
+
+[1] bran6 #Y8P82GJJ:
+- (1) Missed hits during war against `MINI LORDS`.
+
+[1] katsu #RCUY2PYV:
+- (1) Missed hits during war against `MINI LORDS`.
 

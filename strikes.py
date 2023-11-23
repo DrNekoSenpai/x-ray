@@ -1,23 +1,24 @@
 import pickle
 import datetime
 import argparse
+import requests
+import os 
+import re
 
 class player():
     def __init__(self, name, tag):
         self.name = name
         self.tag = tag
+        self._leadership = False
         self.num_strikes = 0
         self.strikes = []
         self.missed_hit_clans = []
         self.missed_hit_dates = []
 
-    def output(self): 
-        print('Name         : %s' % self.name)
-        print('Tag          : %s' % self.tag)
-        print('# of strikes : %i' % self.num_strikes)
-        if self.num_strikes != 0: 
-            for i in range(len(self.strikes)):
-                print('- %s' % self.strikes[i])
+    def output(self):
+        print('Name: %s' % self.name)
+        print('Tag: %s' % self.tag)
+        print('Strikes: %i' % self.num_strikes)
 
 def export_pickle(): 
     with open('player_data.pickle', 'wb') as f:
@@ -39,9 +40,6 @@ parser.add_argument('-m', '--mode', type=str, default='manual', help='Mode to us
 parser.add_argument('-f', '--file', type=str, default='strikes_input.csv', help='File to use. Only used if mode is file.')
 parser.add_argument("--debug", "-d", help="Enable debug mode.", action="store_true")
 args = parser.parse_args()
-
-import requests
-import datetime
 
 def up_to_date(): 
     # Get repository details from the GitHub API.
@@ -73,15 +71,60 @@ players = import_pickle()
 
 def add_player(): 
     """Add a new player to the database, provided that they do not already exist."""
-    in_str = input('Enter name and tag, separated by spaces: ').strip()
-    if in_str == '': return
-    in_str = in_str.rsplit(' ', 1)
-    for i in range(len(players)): 
-        if players[i].name.lower().startswith(in_str[0].lower()): 
-            print('This player already exists! Duplicates are not allowed.')
-            return
-    p = player(in_str[0], in_str[1].upper())
-    players.append(p)
+    # in_str = input('Enter name and tag, separated by spaces: ').strip()
+    # if in_str == '': continue
+    # in_str = in_str.rsplit(' ', 1)
+    # for i in range(len(players)): 
+    #     if players[i].name.lower().startswith(in_str[0].lower()): 
+    #         print('This player already exists! Duplicates are not allowed.')
+    # p = player(in_str[0], in_str[1].upper())
+    # players.append(p)
+
+    # Check if a file named "minion.txt" exists in the current directory
+
+    if not os.path.isfile('minion.txt'):
+        print('No file named "minion.txt" exists in the current directory.')
+        return
+
+    # Open the file and read the contents, line by line
+    with open('minion.txt', 'r', encoding='utf-8', errors='replace') as file:
+        for line in file: 
+            # Line format: 
+            # #P2UPPVYL    15 Senpai™
+            # Tag is 7-9 alphanumeric characters long 
+            # The number is 1-2 digits long, and is the town hall level -- we can ignore this
+            # Everything else is the name 
+            # We can use regex to extract the tag and name
+            match = re.search(r"#([0-9A-Z]{5,9})\s+\d+\s+(.*)", line)
+            if match:
+                # Extract the tag and name
+                tag = match.group(1)
+                name = match.group(2)
+
+                if name == "JALVIN ø": name = "JALVIN"
+                if name == "★ıċєʏקѧṅṭś★": name = "IceyPants"
+                if "™" in name: name = name.replace("™", "")
+                if "✨" in name: name = name.replace("✨", "")
+
+                # Check if the player's name is alphanumeric, including spaces and regular punctuation
+                # If not, we need to ask the user to input the name manually. 
+                if not regular_keyboard(name):
+                    print(f"Player name {name} is not valid. Please input the name manually.")
+
+                # Check if the player already exists in the database
+                found = False
+                for i in range(len(players)):
+                    if players[i].name.lower().startswith(name.lower()):
+                        found = True
+                        print(f"Player {name} already exists in the database. Skipping...")
+                        break
+
+                # If the player does not exist, add them to the database
+                if not found:
+                    p = player(name, tag)
+                    players.append(p)
+                    print(f"Added player {name} #{tag} to the database.")
+
 	
 def remove_player(): 
     """Given an existing player in the database, remove them from the database."""
@@ -99,7 +142,7 @@ def remove_player():
     if not found: print('No such player with name %s exists.' % name.lower())
 	
 def add_strike(): 
-    name = input('Enter name of player to award a strike to: ')
+    name = input('Enter name of player to award a strike to: ').strip()
     name = name.split("#")[0] # Remove any comments
     if name == '': return
     found = False
@@ -325,6 +368,20 @@ def clear_strikes():
             players[i].num_strikes = 0
             players[i].strikes = []
 
+def output_strikes():
+    with open('strikes.txt', 'w') as file: 
+        for i in range(len(players)): 
+            if players[i].num_strikes != 0: 
+                file.write('[%i] %s #%s:\n' % (players[i].num_strikes, players[i].name, players[i].tag))
+                print('[%i] %s #%s:' % (players[i].num_strikes, players[i].name, players[i].tag))
+
+                for j in range(len(players[i].strikes)): 
+                    file.write('- %s\n' % (players[i].strikes[j]))
+                    print('- %s' % (players[i].strikes[j]))
+
+                file.write('\n')
+                print('')
+
 def regular_keyboard(input_string): 
     pattern = r"^[A-Za-z0-9 !@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
     return re.match(pattern, input_string) is not None 
@@ -339,7 +396,7 @@ while(args.mode == 'manual'):
     print('[5] Clear all strikes for a given player')
     print('[6] Reset all strikes')
     print('[7] Output strikes list')
-    print('[8] Mass import from Minion Bot \'/clan villages search\' command')
+    # print('[8] Mark a player as part of Leadership')
     print('[9] Exit')
     sel = input('Selection: ')
     try: sel = int(sel)
@@ -352,78 +409,15 @@ while(args.mode == 'manual'):
     elif sel == 4: remove_strike()
     elif sel == 5: remove_all_strikes()
     elif sel == 6: clear_strikes()
-    elif sel == 7: 
-        with open('strikes.txt', 'w') as file: 
-            for i in range(len(players)): 
-                if players[i].num_strikes != 0: 
-                    file.write('[%i] %s #%s:\n' % (players[i].num_strikes, players[i].name, players[i].tag))
-                    print('[%i] %s #%s:' % (players[i].num_strikes, players[i].name, players[i].tag))
-
-                    for j in range(len(players[i].strikes)): 
-                        file.write('- %s\n' % (players[i].strikes[j]))
-                        print('- %s' % (players[i].strikes[j]))
-
-                    file.write('\n')
-                    print('')
-    elif sel == 8: 
-        """Add a new player to the database, provided that they do not already exist."""
-        # in_str = input('Enter name and tag, separated by spaces: ').strip()
-        # if in_str == '': continue
-        # in_str = in_str.rsplit(' ', 1)
-        # for i in range(len(players)): 
-        #     if players[i].name.lower().startswith(in_str[0].lower()): 
-        #         print('This player already exists! Duplicates are not allowed.')
-        # p = player(in_str[0], in_str[1].upper())
-        # players.append(p)
-
-        # Check if a file named "minion.txt" exists in the current directory
-        import os 
-        import re
-
-        if not os.path.isfile('minion.txt'):
-            print('No file named "minion.txt" exists in the current directory.')
-            continue
-
-        # Open the file and read the contents, line by line
-        with open('minion.txt', 'r', encoding='utf-8', errors='replace') as file:
-            for line in file: 
-                # Line format: 
-                # #P2UPPVYL    15 Senpai™
-                # Tag is 7-9 alphanumeric characters long 
-                # The number is 1-2 digits long, and is the town hall level -- we can ignore this
-                # Everything else is the name 
-                # We can use regex to extract the tag and name
-                match = re.search(r"#([0-9A-Z]{5,9})\s+\d+\s+(.*)", line)
-                if match:
-                    # Extract the tag and name
-                    tag = match.group(1)
-                    name = match.group(2)
-
-                    if name == "JALVIN ø": name = "JALVIN"
-                    if name == "★ıċєʏקѧṅṭś★": name = "IceyPants"
-                    if "™" in name: name = name.replace("™", "")
-                    if "✨" in name: name = name.replace("✨", "")
-
-                    # Check if the player's name is alphanumeric, including spaces and regular punctuation
-                    # If not, we need to ask the user to input the name manually. 
-                    if not regular_keyboard(name):
-                        print(f"Player name {name} is not valid. Please input the name manually.")
-
-                    # Check if the player already exists in the database
-                    found = False
-                    for i in range(len(players)):
-                        if players[i].name.lower().startswith(name.lower()):
-                            found = True
-                            print(f"Player {name} already exists in the database. Skipping...")
-                            break
-
-                    # If the player does not exist, add them to the database
-                    if not found:
-                        p = player(name, tag)
-                        players.append(p)
-                        print(f"Added player {name} #{tag} to the database.")
+    elif sel == 7: output_strikes()
+    elif sel == 8: pass
 
     if sel != 9: 
+        for p in players: 
+            if p._leadership: continue
+            if p.num_strikes > 5: p.num_strikes = 5
+
         players.sort(key = lambda x: (-x.num_strikes, x.name))
         print('')
+
     else: break
