@@ -52,11 +52,19 @@ for player,hits in cwl:
         entries[player] = int(hits)
         hit_entries[player] = int(hits)
 
+    tag = ""
+
     # Find the player in the list of players, as well as their player tag. 
     for i in range(len(players)):
         if players[i][0] == player: 
             tag = players[i][1]
             break
+
+    if tag == "":
+        print(f"Error: {player} not found in list of players")
+        entries[player] = 0
+        loyalty_entries[player] = 0
+        continue
     
     # Send a GET request to the player's profile page.
     html = requests.get(f"https://fwa.chocolateclash.com/cc_n/member.php?tag={tag}").text
@@ -88,8 +96,8 @@ entries = {k: v for k, v in sorted(entries.items(), key=lambda item: (item[1], h
 from datetime import datetime
 month = datetime.now().strftime("%B")
 year = datetime.now().year
-dists_possible = 4
-
+dists_possible = 7
+print("")
 print(f"**Reddit X-ray {month} {year} Weighted Distribution** \n ({dists_possible} available bonuses, total) \n ")
 
 pool = []
@@ -106,9 +114,16 @@ for i in range(15, 0, -1):
     print("")
 
 import random
-
+# Satan
+# Trunx
+# Hokage
+# Lord Zameow
+last_month = ["Satan", "Trunx", "Hokage", "Lord Zameow"]
+# Remove last month's winners from the pool
+pool = [p for p in pool if p not in last_month]
+print(f"**This month's {dists_possible} selected winners are**:")
 for _ in range(dists_possible): 
     choice = random.choice(pool)
     # Remove all instances of this player from the pool.
     pool = [p for p in pool if p != choice]
-    print(choice)
+    print(f"- {choice}")

@@ -7,6 +7,7 @@ class player():
         self.name = name
         self.tag = tag
         self.num_strikes = 0
+        self._leadership = False
         self.strikes = []
         self.missed_hit_clans = []
         self.missed_hit_dates = []
@@ -332,40 +333,21 @@ def regular_keyboard(input_string):
 players = import_pickle()
 while(args.mode == 'manual'): 
     print('---- Reddit X-ray Strike Automation System ----')
-    print('[1] Add a new player')
+    print('[1] Add new players')
     print('[2] Remove a player')
     print('[3] Award a strike')
     print('[4] Remove a strike')
     print('[5] Clear all strikes for a given player')
     print('[6] Reset all strikes')
     print('[7] Output strikes list')
-    print('[8] Mass import from Minion Bot \'/clan villages search\' command')
+    print('[8] Mark a member as part of Leadership')
     print('[9] Exit')
     sel = input('Selection: ')
     try: sel = int(sel)
     except: break
     export_pickle()
     if sel != 9: print('')
-    if sel == 1: add_player()
-    elif sel == 2: remove_player()
-    elif sel == 3: add_strike()
-    elif sel == 4: remove_strike()
-    elif sel == 5: remove_all_strikes()
-    elif sel == 6: clear_strikes()
-    elif sel == 7: 
-        with open('strikes.txt', 'w') as file: 
-            for i in range(len(players)): 
-                if players[i].num_strikes != 0: 
-                    file.write('[%i] %s #%s:\n' % (players[i].num_strikes, players[i].name, players[i].tag))
-                    print('[%i] %s #%s:' % (players[i].num_strikes, players[i].name, players[i].tag))
-
-                    for j in range(len(players[i].strikes)): 
-                        file.write('- %s\n' % (players[i].strikes[j]))
-                        print('- %s' % (players[i].strikes[j]))
-
-                    file.write('\n')
-                    print('')
-    elif sel == 8: 
+    if sel == 1: 
         """Add a new player to the database, provided that they do not already exist."""
         # in_str = input('Enter name and tag, separated by spaces: ').strip()
         # if in_str == '': continue
@@ -422,6 +404,24 @@ while(args.mode == 'manual'):
                         p = player(name, tag)
                         players.append(p)
                         print(f"Added player {name} #{tag} to the database.")
+    elif sel == 2: remove_player()
+    elif sel == 3: add_strike()
+    elif sel == 4: remove_strike()
+    elif sel == 5: remove_all_strikes()
+    elif sel == 6: clear_strikes()
+    elif sel == 7: 
+        with open('strikes.txt', 'w') as file: 
+            for i in range(len(players)): 
+                if players[i].num_strikes != 0: 
+                    file.write('[%i] %s #%s:\n' % (players[i].num_strikes, players[i].name, players[i].tag))
+                    print('[%i] %s #%s:' % (players[i].num_strikes, players[i].name, players[i].tag))
+
+                    for j in range(len(players[i].strikes)): 
+                        file.write('- %s\n' % (players[i].strikes[j]))
+                        print('- %s' % (players[i].strikes[j]))
+
+                    file.write('\n')
+                    print('')
 
     if sel != 9: 
         players.sort(key = lambda x: (-x.num_strikes, x.name))
