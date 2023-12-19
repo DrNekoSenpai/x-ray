@@ -13,9 +13,6 @@
 - (1) Three-starred during a loss war against `Nub Farm`.
 - (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
 
-[1] Satan #YJU92GY:
-- (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
-
 [2] jack551055 #P2RYLQ0Q:
 - (1) Missed hits during war against `SINS & SORROWS`.
 - (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
@@ -48,6 +45,9 @@
 - (1) Missed hits during war against `SINS & SORROWS`.
 
 [1] RoyalOne #RV920PR9:
+- (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
+
+[1] Satan #YJU92GY:
 - (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
 
 [1] ViperX56 #U2LJ0QVP:
