@@ -65,6 +65,12 @@ for player,hits in cwl:
         entries[player] = 0
         loyalty_entries[player] = 0
         continue
+
+    # Override: BumblinMumbler has 6 months of loyalty, no matter what
+    if player == "BumblinMumbler": 
+        entries[player] += 6
+        loyalty_entries[player] = 6
+        continue
     
     # Send a GET request to the player's profile page.
     html = requests.get(f"https://fwa.chocolateclash.com/cc_n/member.php?tag={tag}").text
@@ -102,25 +108,26 @@ print(f"**Reddit X-ray {month} {year} Weighted Distribution** \n ({dists_possibl
 
 pool = []
 
+already_received = """
+Satan
+Trunx
+Hokage
+Lord Zameow
+""".strip().split("\n")
+
 for i in range(15, 0, -1): 
     # Get the tier, that is, all the players who have this amount of entries. 
     tier = [k for k,v in entries.items() if v == i]
     if len(tier) == 0: continue
     print(f"{i} entries:")
     for player in tier: 
+        if player in already_received: continue
         print(f"- {player} ({hit_entries[player]} entries from hits, {loyalty_entries[player]} entries from loyalty)")
         for _ in range(i): 
             pool.append(player)
     print("")
 
 import random
-# Satan
-# Trunx
-# Hokage
-# Lord Zameow
-last_month = ["Satan", "Trunx", "Hokage", "Lord Zameow"]
-# Remove last month's winners from the pool
-pool = [p for p in pool if p not in last_month]
 print(f"**This month's {dists_possible} selected winners are**:")
 for _ in range(dists_possible): 
     choice = random.choice(pool)

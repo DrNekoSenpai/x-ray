@@ -1,138 +1,61 @@
-[5] Alentes #LGCCG8CQ:
-- (1) Missed hits during war against `REBEL HORDE`.
-- (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
-- (1) Missed hits during war against `ALIANCA BRASIL3`.
-- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
-- (1) Missed hits during war against `We The Living`.
-- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
-- (1) Missed hits during war against `MINI LORDS`.
-- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
+[3] Golden Unicorn #LP0R0UUG8:
+- (1) Missed hits during war against `SINS & SORROWS`.
+- (1) Missed hits during war against `Nub Farm`.
+- (1) Missed hits in two consecutive wars against `SINS & SORROWS` and `Nub Farm`.
 
-[5] Bad Apple #GPYCGRQ8:
-- (1) Missed hits during war against `REBEL HORDE`.
-- (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
-- (1) Missed hits during war against `ALIANCA BRASIL3`.
-- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
-- (1) Missed hits during war against `ALIANCA BRASIL3`.
-- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `ALIANCA BRASIL3`.
-- (1) Missed hits during war against `We The Living`.
-- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
-- (1) Missed hits during war against `MINI LORDS`.
-- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
+[3] Sir Noble #GRV08CCY:
+- (1) Missed hits during war against `SINS & SORROWS`.
+- (1) Missed hits during war against `Nub Farm`.
+- (1) Missed hits in two consecutive wars against `SINS & SORROWS` and `Nub Farm`.
 
-[5] E-BASE COC.PH #QUC2920V:
-- (1) Missed hits during war against `REBEL HORDE`.
-- (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
-- (1) Missed hits during war against `ALIANCA BRASIL3`.
-- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
-- (1) Missed hits during war against `MINI LORDS`.
+[3] tsku #Q2P92PJQL:
+- (1) Three-starred during a loss war against `SINS & SORROWS`.
+- (1) Three-starred during a loss war against `Nub Farm`.
+- (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
 
-[5] Golden Unicorn #LP0R0UUG8:
-- (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits during war against `ALIANCA BRASIL3`.
-- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
-- (1) Missed hits during war against `We The Living`.
-- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
-- (1) Missed hits during war against `MINI LORDS`.
-- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
+[1] Satan #YJU92GY:
+- (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
 
-[5] GravityFall #2JUJVYCJ9:
-- (1) Missed hits during war against `REBEL HORDE`.
-- (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
-- (1) Missed hits during war against `ALIANCA BRASIL3`.
-- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
-- (1) Missed hits during war against `We The Living`.
-- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
-- (1) Missed hits during war against `MINI LORDS`.
-- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
-
-[5] Samantha #LRCGJ99Y:
-- (1) Missed 4 or more hits during CWL week.
-- (1) Missed hits during war against `REBEL HORDE`.
-- (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
-- (1) Missed hits during war against `ALIANCA BRASIL3`.
-- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
-- (1) Missed hits during war against `We The Living`.
-- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
-- (1) Missed hits during war against `MINI LORDS`.
-- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
-
-[5] Trunx #UQ8U200J:
-- (1) Missed hits during war against `REBEL HORDE`.
-- (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
-- (1) Missed hits during war against `ALIANCA BRASIL3`.
-- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
-- (1) Missed hits during war against `We The Living`.
-- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
-- (1) Missed hits during war against `MINI LORDS`.
-- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
-
-[5] mstar27 #8V8GY28G:
-- (1) Missed hits during war against `REBEL HORDE`.
-- (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
-- (1) Missed hits during war against `ALIANCA BRASIL3`.
-- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
-- (1) Missed hits during war against `We The Living`.
-- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
-- (1) Missed hits during war against `MINI LORDS`.
-- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
-
-[5] tre sedicesimi #29RL8PR88:
-- (1) Missed 4 or more hits during CWL week.
-- (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits during war against `ALIANCA BRASIL3`.
-- (1) Missed hits in two consecutive wars against `FWA Avengers` and `ALIANCA BRASIL3`.
-- (1) Missed hits during war against `We The Living`.
-- (1) Missed hits in two consecutive wars against `ALIANCA BRASIL3` and `We The Living`.
-
-[3] Hokage #J2CUYQG8:
-- (1) Missed hits during war against `REBEL HORDE`.
-- (1) Missed hits during war against `FWA Avengers`.
-- (1) Missed hits in two consecutive wars against `REBEL HORDE` and `FWA Avengers`.
-
-[3] Peril-sama #Y0C8L0VV:
-- (1) Missed hits during war against `We The Living`.
-- (1) Missed hits during war against `MINI LORDS`.
-- (1) Missed hits in two consecutive wars against `We The Living` and `MINI LORDS`.
-
-[2] eric is a girl #8J2RRJ0Y:
-- (1) Missed hits during war against `ALIANCA BRASIL3`.
-- (1) Missed hits during war against `MINI LORDS`.
+[2] jack551055 #P2RYLQ0Q:
+- (1) Missed hits during war against `SINS & SORROWS`.
+- (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
 
 [1] 7Ate9 #PRLP2J2R2:
-- (1) Missed hits during war against `MINI LORDS`.
+- (1) Missed hits during war against `Nub Farm`.
 
 [1] ANBU #80U9VGUU9:
-- (1) Missed hits during war against `ALIANCA BRASIL3`.
+- (1) Sniped for more than 1 star during a loss war against `SINS & SORROWS`.
+
+[1] Ben TH9 #9GJPJ9UYP:
+- (1) Three-starred during a loss war against `Nub Farm`.
+
+[1] BoilingShadows #9LLJRQYC:
+- (1) Three-starred during a loss war against `Nub Farm`.
+
+[1] BumblinMumbler #JCCLVR8R:
+- (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
 
 [1] Chief_Lou #9VL2L8PPJ:
-- (1) Missed hits during war against `MINI LORDS`.
+- (1) Sniped for more than 1 star during a loss war against `SINS & SORROWS`.
 
 [1] IceyPants #2U8GQPLVY:
-- (1) Missed hits during war against `REBEL HORDE`.
+- (1) Missed hits during war against `SINS & SORROWS`.
 
 [1] JALVIN #22R8VVGPJ:
-- (1) Missed hits during war against `FWA Avengers`.
+- (1) Missed hits during war against `Nub Farm`.
 
-[1] Luke #LPRPP9LGU:
-- (1) Missed hits during war against `We The Living`.
+[1] Peril-sama #Y0C8L0VV:
+- (1) Missed hits during war against `SINS & SORROWS`.
 
-[1] Shomeer #G2LGL80PL:
-- (1) Missed 4 or more hits during CWL week.
+[1] RoyalOne #RV920PR9:
+- (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
 
-[1] Sivankh39 #2U9YCGVU2:
-- (1) Missed hits during war against `MINI LORDS`.
+[1] ViperX56 #U2LJ0QVP:
+- (1) Sniped for more than 1 star during a loss war against `SINS & SORROWS`.
 
 [1] bran6 #Y8P82GJJ:
-- (1) Missed hits during war against `MINI LORDS`.
+- (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
 
-[1] katsu #RCUY2PYV:
-- (1) Missed hits during war against `MINI LORDS`.
+[1] jy #8L9QLJJP:
+- (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
 

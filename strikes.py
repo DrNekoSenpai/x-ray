@@ -106,11 +106,13 @@ def add_player():
                 if name == "★ıċєʏקѧṅṭś★": name = "IceyPants"
                 if "™" in name: name = name.replace("™", "")
                 if "✨" in name: name = name.replace("✨", "")
+                if "\_" in name: name = name.replace("\_", "_")
 
                 # Check if the player's name is alphanumeric, including spaces and regular punctuation
                 # If not, we need to ask the user to input the name manually. 
                 if not regular_keyboard(name):
                     print(f"Player name {name} is not valid. Please input the name manually.")
+                    name = input("Name: ")
 
                 # Check if the player already exists in the database
                 found = False
