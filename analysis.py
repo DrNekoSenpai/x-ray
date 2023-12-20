@@ -58,6 +58,7 @@ for line in lines:
 
     if attack_list == 2: 
         player_name = line.strip()[8:]
+        print(f"{player_name} missed two hits")
 
         if player_name == "JALVIN ø": player_name = "JALVIN"
         if player_name == "★ıċєʏקѧṅṭś★": player_name = "IceyPants"
@@ -72,6 +73,7 @@ for line in lines:
 
     if attack_list == 1:
         player_name = line.strip()[8:]
+        print(f"{player_name} missed one hit")
 
         if player_name == "JALVIN ø": player_name = "JALVIN"
         if player_name == "★ıċєʏקѧṅṭś★": player_name = "IceyPants"
@@ -87,7 +89,7 @@ for line in lines:
 with open("strikes-input.txt", "w", encoding="utf-8") as file: 
     for entry in log: 
         player_name, attacker, defender, stars = entry
-        if player_name in skip: continue
+        if player_name in skip or "Unicorn" in player_name: continue
         if win_loss == "l": 
             mirror = attacker == defender 
             if mirror and stars > 2: 
@@ -104,15 +106,15 @@ with open("strikes-input.txt", "w", encoding="utf-8") as file:
 
     for entry in one_missed_hit: 
         # Find the corresponding entry in the log; find their other hit 
-        if entry in skip: continue
+        if entry in skip or "Unicorn" in player_name: continue
         for log_entry in log: 
             if log_entry[0] == entry: 
                 mirror = log_entry[1] == log_entry[2]
-                if not mirror and int(defender) < 6: 
-                    print(f"Warning: {player_name} missed one hit, and used the other to snipe")
-                    file.write(f"3\n{player_name}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
+                if not mirror and int(log_entry[2]) < 6: 
+                    print(f"Warning: {entry} missed one hit, and used the other to snipe")
+                    file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
 
     for entry in two_missed_hits: 
-        if entry in skip: continue
+        if entry in skip or "Unicorn" in player_name: continue
         print(f"Warning: {entry} missed two hits")
         file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")

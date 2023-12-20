@@ -1,27 +1,31 @@
-[3] Golden Unicorn #LP0R0UUG8:
+[5] Sir Noble #GRV08CCY:
 - (1) Missed hits during war against `SINS & SORROWS`.
 - (1) Missed hits during war against `Nub Farm`.
 - (1) Missed hits in two consecutive wars against `SINS & SORROWS` and `Nub Farm`.
+- (1) Missed hits during war against `Web Rage Farm 3`.
+- (1) Missed hits in two consecutive wars against `Nub Farm` and `Web Rage Farm 3`.
 
-[3] Sir Noble #GRV08CCY:
-- (1) Missed hits during war against `SINS & SORROWS`.
-- (1) Missed hits during war against `Nub Farm`.
-- (1) Missed hits in two consecutive wars against `SINS & SORROWS` and `Nub Farm`.
-
-[3] tsku #Q2P92PJQL:
+[4] tsku #Q2P92PJQL:
 - (1) Three-starred during a loss war against `SINS & SORROWS`.
 - (1) Three-starred during a loss war against `Nub Farm`.
 - (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
+- (1) Missed hits during war against `Web Rage Farm 3`.
 
-[2] jack551055 #P2RYLQ0Q:
+[3] jack551055 #P2RYLQ0Q:
 - (1) Missed hits during war against `SINS & SORROWS`.
 - (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
+- (1) Missed hits during war against `Web Rage Farm 3`.
+
+[2] ANBU #80U9VGUU9:
+- (1) Sniped for more than 1 star during a loss war against `SINS & SORROWS`.
+- (1) Missed hits during war against `Web Rage Farm 3`.
+
+[2] Peril-sama #Y0C8L0VV:
+- (1) Missed hits during war against `SINS & SORROWS`.
+- (1) Missed hits during war against `Web Rage Farm 3`.
 
 [1] 7Ate9 #PRLP2J2R2:
 - (1) Missed hits during war against `Nub Farm`.
-
-[1] ANBU #80U9VGUU9:
-- (1) Sniped for more than 1 star during a loss war against `SINS & SORROWS`.
 
 [1] Ben TH9 #9GJPJ9UYP:
 - (1) Three-starred during a loss war against `Nub Farm`.
@@ -35,14 +39,17 @@
 [1] Chief_Lou #9VL2L8PPJ:
 - (1) Sniped for more than 1 star during a loss war against `SINS & SORROWS`.
 
+[1] Hokage #J2CUYQG8:
+- (1) Missed hits during war against `Web Rage Farm 3`.
+
 [1] IceyPants #2U8GQPLVY:
 - (1) Missed hits during war against `SINS & SORROWS`.
 
 [1] JALVIN #22R8VVGPJ:
 - (1) Missed hits during war against `Nub Farm`.
 
-[1] Peril-sama #Y0C8L0VV:
-- (1) Missed hits during war against `SINS & SORROWS`.
+[1] Luke #LPRPP9LGU:
+- (1) Missed hits during war against `Web Rage Farm 3`.
 
 [1] RoyalOne #RV920PR9:
 - (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
