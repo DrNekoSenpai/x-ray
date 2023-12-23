@@ -5,27 +5,37 @@
 - (1) Missed hits during war against `Web Rage Farm 3`.
 - (1) Missed hits in two consecutive wars against `Nub Farm` and `Web Rage Farm 3`.
 
-[4] tsku #Q2P92PJQL:
+[5] tsku #Q2P92PJQL:
 - (1) Three-starred during a loss war against `SINS & SORROWS`.
 - (1) Three-starred during a loss war against `Nub Farm`.
 - (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
 - (1) Missed hits during war against `Web Rage Farm 3`.
+- (1) Three-starred during a loss war against `Latitude C`.
+- (1) Sniped for more than 1 star during a loss war against `Latitude C`.
+
+[4] Peril-sama #Y0C8L0VV:
+- (1) Missed hits during war against `SINS & SORROWS`.
+- (1) Missed hits during war against `Web Rage Farm 3`.
+- (1) Missed hits during war against `Latitude C`.
+- (1) Missed hits in two consecutive wars against `Web Rage Farm 3` and `Latitude C`.
+
+[3] ANBU #80U9VGUU9:
+- (1) Sniped for more than 1 star during a loss war against `SINS & SORROWS`.
+- (1) Missed hits during war against `Web Rage Farm 3`.
+- (1) Sniped for more than 1 star during a loss war against `Latitude C`.
 
 [3] jack551055 #P2RYLQ0Q:
 - (1) Missed hits during war against `SINS & SORROWS`.
 - (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
 - (1) Missed hits during war against `Web Rage Farm 3`.
 
-[2] ANBU #80U9VGUU9:
-- (1) Sniped for more than 1 star during a loss war against `SINS & SORROWS`.
-- (1) Missed hits during war against `Web Rage Farm 3`.
-
-[2] Peril-sama #Y0C8L0VV:
-- (1) Missed hits during war against `SINS & SORROWS`.
-- (1) Missed hits during war against `Web Rage Farm 3`.
-
-[1] 7Ate9 #PRLP2J2R2:
+[2] 7Ate9 #PRLP2J2R2:
 - (1) Missed hits during war against `Nub Farm`.
+- (1) Sniped for more than 1 star during a loss war against `Latitude C`.
+
+[2] bran6 #Y8P82GJJ:
+- (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
+- (1) Missed hits during war against `Latitude C`.
 
 [1] Ben TH9 #9GJPJ9UYP:
 - (1) Three-starred during a loss war against `Nub Farm`.
@@ -38,6 +48,9 @@
 
 [1] Chief_Lou #9VL2L8PPJ:
 - (1) Sniped for more than 1 star during a loss war against `SINS & SORROWS`.
+
+[1] Golden Unicorn #LP0R0UUG8:
+- (1) Missed hits during war against `Latitude C`.
 
 [1] Hokage #J2CUYQG8:
 - (1) Missed hits during war against `Web Rage Farm 3`.
@@ -59,9 +72,6 @@
 
 [1] ViperX56 #U2LJ0QVP:
 - (1) Sniped for more than 1 star during a loss war against `SINS & SORROWS`.
-
-[1] bran6 #Y8P82GJJ:
-- (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
 
 [1] jy #8L9QLJJP:
 - (1) Sniped for more than 1 star during a loss war against `Nub Farm`.
