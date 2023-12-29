@@ -24,6 +24,9 @@ skip = [
     "Hostile Doctor", 
     "Kami", 
     "I Sofa King",
+    "BumblinMumbler",
+    "Bran6",
+    "Senpai",
 ]
 
 for line in lines:
