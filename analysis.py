@@ -8,9 +8,13 @@ def regular_keyboard(input_string):
     pattern = r"^[A-Za-z0-9 !@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
     return re.match(pattern, input_string) is not None 
 
-win_loss = input("Win or loss (w/l): ").lower()
-enemy_clan = input("Enemy clan: ")
-war_end_date = input("War end date: ")
+win_loss_pattern = re.compile(r"Win/loss: (win|loss)")
+enemy_clan_pattern = re.compile(r"Enemy clan: (.*)")
+war_end_date_pattern = re.compile(r"War end date: (\d{4})")
+
+win_loss = re.search(win_loss_pattern, lines[0]).group(1)
+enemy_clan = re.search(enemy_clan_pattern, lines[1]).group(1)
+war_end_date = re.search(war_end_date_pattern, lines[2]).group(1)
 
 attack_list = None
 
@@ -109,7 +113,7 @@ with open("strikes-input.txt", "w", encoding="utf-8") as file:
 
     for entry in one_missed_hit: 
         # Find the corresponding entry in the log; find their other hit 
-        if entry in skip or "Unicorn" in player_name: continue
+        if entry in skip or "Unicorn" in entry: continue
         for log_entry in log: 
             if log_entry[0] == entry: 
                 mirror = log_entry[1] == log_entry[2]
@@ -118,6 +122,6 @@ with open("strikes-input.txt", "w", encoding="utf-8") as file:
                     file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
 
     for entry in two_missed_hits: 
-        if entry in skip or "Unicorn" in player_name: continue
+        if entry in skip or "Unicorn" in entry: continue
         print(f"Warning: {entry} missed two hits")
         file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
