@@ -113,6 +113,13 @@ Satan
 Trunx
 Hokage
 Lord Zameow
+katsu
+Jonas
+BumblinMumbler
+Eddy
+IceyPants
+Senpai
+Shomeer
 """.strip().split("\n")
 
 for i in range(15, 0, -1): 
