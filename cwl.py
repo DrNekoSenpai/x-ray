@@ -102,7 +102,7 @@ entries = {k: v for k, v in sorted(entries.items(), key=lambda item: (item[1], h
 from datetime import datetime
 month = datetime.now().strftime("%B")
 year = datetime.now().year
-dists_possible = 7
+dists_possible = 9
 print("")
 print(f"**Reddit X-ray {month} {year} Weighted Distribution** \n ({dists_possible} available bonuses, total) \n ")
 
@@ -141,3 +141,10 @@ for _ in range(dists_possible):
     # Remove all instances of this player from the pool.
     pool = [p for p in pool if p != choice]
     print(f"- {choice}")
+
+with open("strikes-input.txt", "w") as file: 
+    for player,hits in cwl: 
+        if int(hits) > 3: continue
+        else: 
+            file.write(f"3\n{player}\ny\n2\ny\n")
+            print(f"Player {player} missed {7-int(hits)} CWL hits; assigning strikes.")
