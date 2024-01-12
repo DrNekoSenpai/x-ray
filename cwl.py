@@ -125,11 +125,21 @@ Coolguyagent
 Kaselcap
 Annayake
 Protips
-Jayce
+mysterydeath
 kallikrein
 Arcohol
 Nitin 4.0
 """.strip().split("\n")
+
+eligible = [p for p in entries.keys() if p not in already_received]
+# Print a warning if there are less eligible people than there are possible distributions. 
+if len(eligible) < dists_possible: 
+    print(f"Warning: There are only {len(eligible)} eligible people, but {dists_possible} distributions are available.")
+    print("By default, this means that the following people will receive a distribution:")
+    for player in eligible: 
+        print(f"- {player}")
+        
+    exit(0)
 
 for i in range(15, 0, -1): 
     # Get the tier, that is, all the players who have this amount of entries. 

@@ -3,7 +3,7 @@ import os, pyautogui
 if not os.path.exists("./screenshots/war"): os.makedirs("./screenshots/war")
 if not os.path.exists("./screenshots/fwa"): os.makedirs("./screenshots/fwa")
 
-war_base = True
+war_base = False
 
 if war_base: 
     # Find the number of items in the war folder. 
