@@ -6,20 +6,20 @@ import os
 import re
 
 class player():
-    def __init__(self, name, tag):
+    def __init__(self, name, tag, clan):
         self.name = name
         self.tag = tag
-        self._leadership = False
+        self.clan = clan
         self.num_strikes = 0
-        self._leadership = False
         self.strikes = []
         self.missed_hit_clans = []
         self.missed_hit_dates = []
 
     def output(self):
-        print('Name: %s' % self.name)
-        print('Tag: %s' % self.tag)
-        print('Strikes: %i' % self.num_strikes)
+        print(f'Name: {self.name}')
+        print(f'Tag: {self.tag}')
+        print(f'Clan: {self.clan}')
+        print(f'Strikes: {self.num_strikes}')
 
 def export_pickle(): 
     with open('player_data.pickle', 'wb') as f:
@@ -70,7 +70,7 @@ if args.debug:
 
 players = import_pickle()
 
-def add_player(): 
+def add_player(clan): 
     """Add a new player to the database, provided that they do not already exist."""
     # in_str = input('Enter name and tag, separated by spaces: ').strip()
     # if in_str == '': continue
@@ -83,12 +83,12 @@ def add_player():
 
     # Check if a file named "minion.txt" exists in the current directory
 
-    if not os.path.isfile('minion.txt'):
-        print('No file named "minion.txt" exists in the current directory.')
+    if not os.path.isfile(f'minion-{clan}.txt'):
+        print(f'No file named "minion-{clan}.txt" exists in the current directory.')
         return
 
     # Open the file and read the contents, line by line
-    with open('minion.txt', 'r', encoding='utf-8', errors='replace') as file:
+    with open(f'minion-{clan}.txt', 'r', encoding='utf-8', errors='replace') as file:
         for line in file: 
             # Line format: 
             # #P2UPPVYL    15 Senpai™
@@ -107,6 +107,7 @@ def add_player():
                 if "™" in name: name = name.replace("™", "")
                 if "✨" in name: name = name.replace("✨", "")
                 if "\_" in name: name = name.replace("\_", "_")
+                if "\~" in name: name = name.replace("\~", "~")
 
                 # Check if the player's name is alphanumeric, including spaces and regular punctuation
                 # If not, we need to ask the user to input the name manually. 
@@ -124,7 +125,8 @@ def add_player():
 
                 # If the player does not exist, add them to the database
                 if not found:
-                    p = player(name, tag)
+                    player_clan = "Reddit X-ray" if clan == "xray" else "Faint Outlaws"
+                    p = player(name, tag, player_clan)
                     players.append(p)
                     print(f"Added player {name} #{tag} to the database.")
 
@@ -406,7 +408,7 @@ while(args.mode == 'manual'):
     except: break
     export_pickle()
     if sel != 9: print('')
-    if sel == 1: add_player()
+    if sel == 1: add_player("xray"); add_player("outlaws")
     elif sel == 2: remove_player()
     elif sel == 3: add_strike()
     elif sel == 4: remove_strike()
@@ -416,10 +418,6 @@ while(args.mode == 'manual'):
     elif sel == 8: pass
 
     if sel != 9: 
-        for p in players: 
-            if p._leadership: continue
-            if p.num_strikes > 5: p.num_strikes = 5
-
         players.sort(key = lambda x: (-x.num_strikes, x.name))
         print('')
 
