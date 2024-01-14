@@ -55,11 +55,11 @@ for line in lines:
         
         log.append((player_name, attacker, defender, stars))
 
-    if line.strip() == "2 Remaining Attacks": 
+    if "2 Remaining Attacks" in line.strip(): 
         attack_list = 2
         continue
     
-    if line.strip() == "1 Remaining Attack":
+    if "1 Remaining Attack" in line.strip():
         attack_list = 1
         continue
 

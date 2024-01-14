@@ -1,341 +1,255 @@
 Win/loss: win
-Enemy clan: Augmentum Farm
-War end date: 1230
+Enemy clan: Terengganu COC
+War end date: 0113
 
 Minion Bot
 BOT
- — Yesterday at 2:23 PM
-+48  :Receive: ‭⁦Big Daddy T⁩‬
--48  :Donate: ‭⁦Nitin 4.0⁩‬
-Minion Bot
-BOT
- — Yesterday at 2:30 PM
-:16::15::Sword::16::14::Star::Star::Star::100:💥 ‭⁦Nitin 4.0⁩‬
-:16::15::Sword::01::16::FadedStar::Blank::Blank::21: ‭⁦Nitin 4.0⁩‬
-Minion Bot
-BOT
- — Yesterday at 2:47 PM
-:24::14::Sword::24::14::Star::Star::Star::100:💥 ‭⁦Coolguyagent⁩‬
-:24::14::Sword::01::16::FadedStar::Blank::Blank::44: ‭⁦Coolguyagent⁩‬
-+45  :Receive: ‭⁦ANBU⁩‬
--45  :Donate: ‭⁦BoilingShadows⁩‬
-Minion Bot
-BOT
- — Yesterday at 2:57 PM
-+50  :Receive: ‭⁦jy⁩‬
--50  :Donate: ‭⁦pg⁩‬
-:11::15::Sword::11::15::Star::Star::Star::100:💥 ‭⁦jy⁩‬
-:11::15::Sword::01::16::FadedStar::Blank::Blank::35: ‭⁦jy⁩‬
-Minion Bot
-BOT
- — Yesterday at 3:15 PM
-+30  :Receive: ‭⁦pg⁩‬
--30  :Donate: ‭⁦Seven Thunders⁩‬
-+37  :Receive: ‭⁦pg⁩‬
--37  :Donate: ‭⁦tylr⁩‬
-Minion Bot
-BOT
- — Yesterday at 3:55 PM
+ — Yesterday at 7:36 PM
++30  :Receive: ‭⁦wako238⁩‬
++72  :Receive: ‭⁦RAJE⁩‬
+-102 :Donate: ‭⁦SkullCrusher49⁩‬
++30  :Receive: ‭⁦ANBU⁩‬
+-30  :Donate: ‭⁦SkullCrusher49⁩‬
 +05  :Receive: ‭⁦ANBU⁩‬
-+67  :Receive: ‭⁦pg⁩‬
--72  :Donate: ‭⁦Big Daddy T⁩‬
-+33  :Receive: ‭⁦Big Daddy T⁩‬
--33  :Donate: ‭⁦Arc Symphony⁩‬
+-05  :Donate: ‭⁦Arc Symphony⁩‬
 Minion Bot
 BOT
- — Yesterday at 4:13 PM
-:22::14::Sword::22::14::Star::Star::Star::100:💥 ‭⁦The Op Squad⁩‬
-:22::14::Sword::01::16::FadedStar::Blank::Blank::04: ‭⁦The Op Squad⁩‬
-:50::11::Sword::50::11::Star::Star::Star::100:💥 ‭⁦Ben TH9⁩‬
+ — Yesterday at 7:59 PM
++01  :Receive: ‭⁦wako238⁩‬
++15  :Receive: ‭⁦ANBU⁩‬
++44  :Receive: ‭⁦BumblinMumbler⁩‬
+-60  :Donate: ‭⁦Senpai™⁩‬
+:35::13::Shield::35::12::Star::Star::Blank::54: ‭⁦eRaZoR⁩‬
 Minion Bot
 BOT
- — Yesterday at 4:29 PM
-:14::15::Sword::14::14::Star::Star::Star::100:💥 ‭⁦ViperX56⁩‬
-:49::11::Sword::49::11::Star::Star::Star::100:💥 ‭⁦Kakashi Hatake⁩‬
-Minion Bot
-BOT
- — Yesterday at 4:38 PM
-:49::11::Sword::01::16::FadedStar::Blank::Blank::33: ‭⁦Kakashi Hatake⁩‬
-Minion Bot
-BOT
- — Yesterday at 5:06 PM
-:21::14::Sword::21::14::Star::Star::Star::100:💥 ‭⁦Big Daddy T⁩‬
-:21::14::Sword::01::16::FadedStar::Blank::Blank::05: ‭⁦Big Daddy T⁩‬
-+45  :Receive: ‭⁦Big Daddy T⁩‬
--45  :Donate: ‭⁦pg⁩‬
-Minion Bot
-BOT
- — Yesterday at 5:28 PM
-:47::12::Sword::47::12::Star::Star::Star::100:💥 ‭⁦Shomeer⁩‬
-:47::12::Sword::01::16::FadedStar::FadedStar::Blank::81: ‭⁦Shomeer⁩‬
-Minion Bot
-BOT
- — Yesterday at 5:43 PM
-:38::12::Shield::38::12::Star::Star::Blank::52: ‭⁦eRaZoR⁩‬
-+06  :Receive: ‭⁦RAJE⁩‬
-+37  :Receive: ‭⁦pg⁩‬
--43  :Donate: ‭⁦tylr⁩‬
-Minion Bot
-BOT
- — Yesterday at 5:54 PM
-:17::15::Shield::17::15::Star::Star::Blank::60: ‭⁦SkullCrusher49⁩‬
-:42::12::Shield::42::14::Star::Star::Blank::55: ‭⁦Luke⁩‬
-:01::16::Shield::42::14::FadedStar::FadedStar::Blank::52: ‭⁦Blump⁩‬
-Minion Bot
-BOT
- — Yesterday at 6:06 PM
-+30  :Receive: ‭⁦pg⁩‬
-+66  :Receive: ‭⁦RAJE⁩‬
--96  :Donate: ‭⁦Blump⁩‬
-+30  :Receive: ‭⁦Kakashi Hatake⁩‬
--30  :Donate: ‭⁦Arc Symphony⁩‬
-Minion Bot
-BOT
- — Yesterday at 6:15 PM
-+37  :Receive: ‭⁦Kakashi Hatake⁩‬
--01  :Donate: ‭⁦Blump⁩‬
--36  :Donate: ‭⁦BoilingShadows⁩‬
-+03  :Receive: ‭⁦BoilingShadows⁩‬
--03  :Donate: ‭⁦Kakashi Hatake⁩‬
-+50  :Receive: ‭⁦BoilingShadows⁩‬
--50  :Donate: ‭⁦Kakashi Hatake⁩‬
-Minion Bot
-BOT
- — Yesterday at 6:22 PM
-+30  :Receive: ‭⁦BoilingShadows⁩‬
--30  :Donate: ‭⁦Blump⁩‬
-+78  :Receive: ‭⁦Big Daddy T⁩‬
--30  :Donate: ‭⁦Arc Symphony⁩‬
--48  :Donate: ‭⁦pg⁩‬
-Minion Bot
-BOT
- — Yesterday at 6:34 PM
-:01::16::Shield::17::15::FadedStar::FadedStar::Blank::61: ‭⁦Blump⁩‬
-Minion Bot
-BOT
- — Yesterday at 7:03 PM
-:06::16::Shield::28::13::Star::Star::Blank::70: ‭⁦Annayake⁩‬
-Minion Bot
-BOT
- — Yesterday at 7:13 PM
-+32  :Receive: ‭⁦pg⁩‬
--32  :Donate: ‭⁦Kaselcap⁩‬
-+35  :Receive: ‭⁦pg⁩‬
--35  :Donate: ‭⁦Kaselcap⁩‬
-:46::12::Sword::46::12::Star::Star::Star::100:💥 ‭⁦RAJE⁩‬
-Minion Bot
-BOT
- — Yesterday at 7:20 PM
-:46::12::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦RAJE⁩‬
-+06  :Receive: ‭⁦RAJE⁩‬
--06  :Donate: ‭⁦pg⁩‬
-Minion Bot
-BOT
- — Yesterday at 7:31 PM
-+66  :Receive: ‭⁦RAJE⁩‬
--66  :Donate: ‭⁦Big Daddy T⁩‬
-:50::11::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦Ben TH9⁩‬
-Minion Bot
-BOT
- — Yesterday at 7:46 PM
-:40::12::Shield::40::12::Star::Star::Blank::55: ‭⁦tylr⁩‬
-Minion Bot
-BOT
- — Yesterday at 7:54 PM
-:21::14::Shield::21::14::Star::Star::Blank::57: ‭⁦Big Daddy T⁩‬
-:01::16::Shield::40::12::FadedStar::FadedStar::Blank::52: ‭⁦Blump⁩‬
-:02::16::Shield::21::14::FadedStar::FadedStar::Blank::59: ‭⁦BumblinMumbler⁩‬
-Minion Bot
-BOT
- — Yesterday at 8:08 PM
-+03  :Receive: ‭⁦Big Daddy T⁩‬
--03  :Donate: ‭⁦BumblinMumbler⁩‬
-+72  :Receive: ‭⁦Master21⁩‬
--72  :Donate: ‭⁦BumblinMumbler⁩‬
-:14::15::Sword::01::16::FadedStar::FadedStar::Blank::53: ‭⁦ViperX56⁩‬
-Minion Bot
-BOT
- — Yesterday at 8:18 PM
-:02::16::Sword::02::16::FadedStar::FadedStar::Star::100: ‭⁦BumblinMumbler⁩‬
-:02::16::Sword::01::16::FadedStar::FadedStar::Blank::52: ‭⁦BumblinMumbler⁩‬
-Minion Bot
-BOT
- — Yesterday at 8:31 PM
-:33::13::Sword::33::13::Star::Star::Star::100:💥 ‭⁦JALVIN ø⁩‬
-:33::13::Sword::01::16::FadedStar::FadedStar::Blank::99: ‭⁦JALVIN ø⁩‬
-Minion Bot
-BOT
- — Yesterday at 8:44 PM
-:32::13::Sword::32::13::Star::Star::Star::100:💥 ‭⁦wako238⁩‬
-Minion Bot
-BOT
- — Yesterday at 9:06 PM
+ — Yesterday at 8:15 PM
+:32::13::Sword::01::16::FadedStar::FadedStar::Blank::88: ‭⁦JALVIN ø⁩‬
+:09::15::Sword::01::16::FadedStar::Blank::Blank::07: ‭⁦Senpai™⁩‬
 :09::15::Sword::09::15::Star::Star::Star::100:💥 ‭⁦Senpai™⁩‬
-:09::15::Sword::01::16::FadedStar::Blank::Blank::09: ‭⁦Senpai™⁩‬
 Minion Bot
 BOT
- — Yesterday at 9:19 PM
-:30::13::Sword::30::13::Star::Star::Star::100:💥 ‭⁦bran6⁩‬
-:30::13::Sword::01::16::FadedStar::FadedStar::Blank::53: ‭⁦bran6⁩‬
+ — Yesterday at 8:32 PM
+:29::13::Sword::29::13::Star::Star::Star::100:💥 ‭⁦bran6⁩‬
+:29::13::Sword::01::16::FadedStar::FadedStar::Blank::59: ‭⁦bran6⁩‬
 Minion Bot
 BOT
- — Yesterday at 9:29 PM
-+73  :Receive: ‭⁦Big Daddy T⁩‬
--73  :Donate: ‭⁦Protips⁩‬
-+05  :Receive: ‭⁦Big Daddy T⁩‬
--05  :Donate: ‭⁦Protips⁩‬
+ — Yesterday at 8:40 PM
+:06::16::Sword::01::16::FadedStar::Blank::Blank::49: ‭⁦BoilingShadows⁩‬
 Minion Bot
 BOT
- — Yesterday at 9:47 PM
-+50  :Receive: ‭⁦Protips⁩‬
--50  :Donate: ‭⁦BumblinMumbler⁩‬
+ — Yesterday at 8:51 PM
+:23::14::Shield::24::14::Star::Star::Blank::54: ‭⁦katsu⁩‬
+:26::14::Sword::26::14::Star::Star::Star::100:💥 ‭⁦Anas⁩‬
+:26::14::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦Anas⁩‬
 Minion Bot
 BOT
- — Yesterday at 10:14 PM
-+23  :Receive: ‭⁦Master21⁩‬
--23  :Donate: ‭⁦Kaselcap⁩‬
-+19  :Receive: ‭⁦Master21⁩‬
--19  :Donate: ‭⁦Kaselcap⁩‬
+ — Yesterday at 9:11 PM
+:33::13::Sword::33::13::Blank::Blank::Blank::00: ‭⁦Chief_Lou⁩‬
+:33::13::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦Chief_Lou⁩‬
 Minion Bot
 BOT
- — Yesterday at 10:41 PM
-+30  :Receive: ‭⁦Master21⁩‬
--30  :Donate: ‭⁦Shomeer⁩‬
+ — Yesterday at 9:33 PM
+:22::14::Shield::07::16::Star::Star::Blank::52: ‭⁦The Op Squad⁩‬
 Minion Bot
 BOT
- — Yesterday at 11:03 PM
-:27::13::Shield::27::14::Star::Star::Blank::53: ‭⁦RoyalOne⁩‬
-:10::15::Shield::27::14::Star::Star::Blank::54: ‭⁦ANBU⁩‬
-:10::15::Shield::10::15::FadedStar::Blank::Blank::01: ‭⁦ANBU⁩‬
-:01::16::Shield::10::15::FadedStar::Blank::Blank::02: ‭⁦Blump⁩‬
-:41::12::Sword::41::12::Star::Star::Star::100:💥 ‭⁦7Ate9⁩‬
+ — Yesterday at 9:46 PM
++53  :Receive: ‭⁦BumblinMumbler⁩‬
+-53  :Donate: ‭⁦Nitin 4.0⁩‬
++53  :Receive: ‭⁦BumblinMumbler⁩‬
+-53  :Donate: ‭⁦Nitin 4.0⁩‬
 Minion Bot
 BOT
- — Yesterday at 11:10 PM
-+03  :Receive: ‭⁦BumblinMumbler⁩‬
--03  :Donate: ‭⁦Ben TH9⁩‬
+ — Yesterday at 9:55 PM
+:01::16::Shield::26::14::FadedStar::Blank::Blank::05: ‭⁦Blump⁩‬
+:02::16::Shield::26::14::FadedStar::Blank::Blank::05: ‭⁦BumblinMumbler⁩‬
+:18::15::Shield::44::12::Star::Star::Star::100:💥 ‭⁦Nitin 4.0⁩‬
+:30::13::Shield::44::12::Star::Blank::Blank::02: ‭⁦ethan⁩‬
 Minion Bot
 BOT
- — Yesterday at 11:31 PM
-:38::12::Sword::38::12::Star::Star::Star::100:💥 ‭⁦eRaZoR⁩‬
-:38::12::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦eRaZoR⁩‬
+ — Yesterday at 10:06 PM
+:38::12::Shield::18::15::Star::Star::Blank::54: ‭⁦Golden Unicorn✨⁩‬
+:42::12::Shield::18::15::Star::Star::Blank::62: ‭⁦gdfan75⁩‬
 Minion Bot
 BOT
- — Yesterday at 11:58 PM
-:02::16::Shield::06::16::FadedStar::FadedStar::Blank::57: ‭⁦BumblinMumbler⁩‬
+ — Yesterday at 11:26 PM
+:44::12::Sword::44::12::Star::Star::Star::100:💥 ‭⁦RAJE⁩‬
+:44::12::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦RAJE⁩‬
 Minion Bot
 BOT
- — Today at 12:00 AM
-:01::16::Shield::06::16::FadedStar::FadedStar::Blank::57: ‭⁦Blump⁩‬
-+50  :Receive: ‭⁦BumblinMumbler⁩‬
-+52  :Receive: ‭⁦Arcohol⁩‬
-+67  :Receive: ‭⁦pg⁩‬
--57  :Donate: ‭⁦Big Daddy T⁩‬
--112 :Donate: ‭⁦Arcohol⁩‬
+ — Yesterday at 11:36 PM
++52  :Receive: ‭⁦RAJE⁩‬
+-52  :Donate: ‭⁦RoyalOne⁩‬
 Minion Bot
 BOT
- — Today at 12:17 AM
-:01::16::Shield::19::14::FadedStar::Blank::Blank::03: ‭⁦Blump⁩‬
-:19::14::Shield::19::14::Star::Star::Blank::50: ‭⁦Eddy⁩‬
-:32::13::Sword::01::16::FadedStar::Blank::Blank::99: ‭⁦wako238⁩‬
-:31::13::Shield::31::13::Star::Star::Blank::74: ‭⁦ethan⁩‬
+ — Today at 12:12 AM
++20  :Receive: ‭⁦RAJE⁩‬
+-20  :Donate: ‭⁦kallikrein⁩‬
 Minion Bot
 BOT
- — Today at 12:33 AM
-+76  :Receive: ‭⁦wako238⁩‬
--76  :Donate: ‭⁦Big Daddy T⁩‬
-Minion Bot
-BOT
- — Today at 12:59 AM
-:09::15::Shield::09::15::Star::Star::Blank::52: ‭⁦Senpai™⁩‬
-:08::16::Shield::09::15::Star::Star::Blank::53: ‭⁦Protips⁩‬
-:35::13::Sword::37::13::Star::Star::Star::100:💥 ‭⁦Chief_Lou⁩‬
-:35::13::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦Chief_Lou⁩‬
-Minion Bot
-BOT
- — Today at 1:07 AM
-+48  :Receive: ‭⁦Big Daddy T⁩‬
--48  :Donate: ‭⁦RAJE⁩‬
-:01::16::Shield::08::15::FadedStar::FadedStar::Blank::52: ‭⁦Blump⁩‬
-:02::16::Shield::08::15::FadedStar::FadedStar::Blank::52: ‭⁦BumblinMumbler⁩‬
-Minion Bot
-BOT
- — Today at 1:18 AM
-:25::14::Sword::25::15::Star::Star::Star::100:💥 ‭⁦Anas⁩‬
-:25::14::Sword::01::16::FadedStar::Blank::Blank::04: ‭⁦Anas⁩‬
-:12::16::Sword::12::15::Star::Star::Star::100:💥 ‭⁦Arcohol⁩‬
-:12::16::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦Arcohol⁩‬
-Minion Bot
-BOT
- — Today at 1:32 AM
-:49::11::Shield::49::11::Star::Star::Blank::58: ‭⁦Kakashi Hatake⁩‬
-Minion Bot
-BOT
- — Today at 1:50 AM
-+30  :Receive: ‭⁦Big Daddy T⁩‬
--30  :Donate: ‭⁦Sivankh39⁩‬
-:15::15::Sword::15::14::Star::Star::Star::100:💥 ‭⁦Sivankh39⁩‬
-:15::15::Sword::03::16::FadedStar::FadedStar::Blank::52: ‭⁦Sivankh39⁩‬
+ — Today at 12:38 AM
+:15::15::Sword::15::15::Star::Star::Star::100:💥 ‭⁦ViperX56⁩‬
+:15::15::Sword::01::16::FadedStar::FadedStar::Blank::56: ‭⁦ViperX56⁩‬
 Minion Bot
 BOT
  — Today at 2:02 AM
-+01  :Receive: ‭⁦wako238⁩‬
-+74  :Receive: ‭⁦Sivankh39⁩‬
--75  :Donate: ‭⁦katsu⁩‬
++30  :Receive: ‭⁦kallikrein⁩‬
++40  :Receive: ‭⁦pg⁩‬
+-70  :Donate: ‭⁦eRaZoR⁩‬
 Minion Bot
 BOT
- — Today at 2:17 AM
-:23::14::Sword::23::14::Star::Star::Star::100:💥 ‭⁦katsu⁩‬
-:23::14::Sword::01::16::FadedStar::FadedStar::Blank::57: ‭⁦katsu⁩‬
+ — Today at 2:11 AM
++32  :Receive: ‭⁦pg⁩‬
++45  :Receive: ‭⁦kallikrein⁩‬
+-77  :Donate: ‭⁦Senpai™⁩‬
 Minion Bot
 BOT
- — Today at 3:06 AM
-+08  :Receive: ‭⁦Sivankh39⁩‬
--08  :Donate: ‭⁦Big Daddy T⁩‬
+ — Today at 2:41 AM
+:28::14::Sword::04::16::FadedStar::Blank::Blank::95: ‭⁦Arc Symphony⁩‬
 Minion Bot
 BOT
- — Today at 3:15 AM
-:01::16::Shield::31::13::FadedStar::FadedStar::Blank::53: ‭⁦Blump⁩‬
-+30  :Receive: ‭⁦Big Daddy T⁩‬
--30  :Donate: ‭⁦Sivankh39⁩‬
+ — Today at 2:56 AM
+:11::15::Shield::08::16::Star::Star::Blank::51: ‭⁦jy⁩‬
 Minion Bot
 BOT
- — Today at 3:29 AM
-+03  :Receive: ‭⁦Sivankh39⁩‬
-+18  :Receive: ‭⁦Big Daddy T⁩‬
--03  :Donate: ‭⁦ViperX56⁩‬
--18  :Donate: ‭⁦Sivankh39⁩‬
+ — Today at 3:19 AM
++32  :Receive: ‭⁦pg⁩‬
+-32  :Donate: ‭⁦Protips⁩‬
+:08::16::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦Protips⁩‬
++02  :Receive: ‭⁦JALVIN ø⁩‬
++40  :Receive: ‭⁦pg⁩‬
+-42  :Donate: ‭⁦Protips⁩‬
+:08::16::Sword::08::16::Star::Star::Star::100:💥 ‭⁦Protips⁩‬
 Minion Bot
 BOT
- — Today at 3:41 AM
-:37::12::Shield::37::13::Star::Star::Blank::50: ‭⁦Hokage⁩‬
-+30  :Receive: ‭⁦Big Daddy T⁩‬
-+50  :Receive: ‭⁦Sivankh39⁩‬
-+50  :Receive: ‭⁦Protips⁩‬
--130 :Donate: ‭⁦pg⁩‬
-:11::15::Shield::37::13::Star::Star::Blank::51: ‭⁦jy⁩‬
+ — Today at 3:43 AM
+:10::15::Shield::11::15::Star::Star::Blank::52: ‭⁦ANBU⁩‬
+:14::15::Shield::11::15::Star::Star::Blank::71: ‭⁦Sivankh39⁩‬
 Minion Bot
 BOT
- — Today at 4:19 AM
-:13::15::Shield::22::14::Star::Star::Blank::54: ‭⁦Seven Thunders⁩‬
+ — Today at 3:53 AM
+:36::12::Shield::36::13::Star::Star::Blank::52: ‭⁦Hokage⁩‬
+:01::16::Shield::36::13::FadedStar::Blank::Blank::02: ‭⁦Blump⁩‬
 Minion Bot
 BOT
- — Today at 5:02 AM
-War with #98YR2JVG ‭⁦Augmentum Farm⁩‬ ends in 59 minutes.
-:10::15::Sword::10::15::Star::Star::Star::100:💥 ‭⁦ANBU⁩‬
-:10::15::Sword::01::16::FadedStar::Blank::Blank::44: ‭⁦ANBU⁩‬
-Minion Bot
-BOT
- — Today at 5:34 AM
+ — Today at 4:09 AM
+:14::15::Sword::14::15::Star::Star::Star::100:💥 ‭⁦Sivankh39⁩‬
++45  :Receive: ‭⁦JALVIN ø⁩‬
+-45  :Donate: ‭⁦pg⁩‬
+:14::15::Sword::04::16::FadedStar::FadedStar::Blank::59: ‭⁦Sivankh39⁩‬
 +30  :Receive: ‭⁦pg⁩‬
--30  :Donate: ‭⁦Seven Thunders⁩‬
++53  :Receive: ‭⁦Sivankh39⁩‬
+-30  :Donate: ‭⁦Sivankh39⁩‬
+-53  :Donate: ‭⁦pg⁩‬
+Minion Bot
+BOT
+ — Today at 4:18 AM
++30  :Receive: ‭⁦Sivankh39⁩‬
++40  :Receive: ‭⁦pg⁩‬
+-70  :Donate: ‭⁦kallikrein⁩‬
+:12::15::Shield::14::15::Star::Star::Blank::54: ‭⁦Seven Thunders⁩‬
+:06::16::Shield::10::15::Star::Star::Blank::55: ‭⁦BoilingShadows⁩‬
+:15::15::Shield::14::15::Star::Star::Blank::54: ‭⁦ViperX56⁩‬
+:50::11::Shield::10::15::Star::Star::Blank::75: ‭⁦mysterydeath⁩‬
+Minion Bot
+BOT
+ — Today at 4:33 AM
+:35::13::Sword::35::12::Star::Star::Star::100:💥 ‭⁦eRaZoR⁩‬
+:35::13::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦eRaZoR⁩‬
+Minion Bot
+BOT
+ — Today at 4:48 AM
+:16::15::Sword::16::15::Star::Star::Star::100:💥 ‭⁦SkullCrusher49⁩‬
+:16::15::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦SkullCrusher49⁩‬
+:41::12::Shield::41::12::Star::Star::Blank::52: ‭⁦Master21⁩‬
+Minion Bot
+BOT
+ — Today at 4:56 AM
+:01::16::Shield::41::12::FadedStar::Blank::Blank::02: ‭⁦Blump⁩‬
+Minion Bot
+BOT
+ — Today at 5:03 AM
++12  :Receive: ‭⁦kallikrein⁩‬
+-12  :Donate: ‭⁦pg⁩‬
+Minion Bot
+BOT
+ — Today at 5:38 AM
+:01::16::Shield::06::16::FadedStar::Blank::Blank::17: ‭⁦Blump⁩‬
+:13::16::Shield::06::16::Star::Star::Blank::52: ‭⁦Arcohol⁩‬
+:40::12::Sword::40::12::Star::Star::Star::100:💥 ‭⁦Luke⁩‬
+:40::12::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦Luke⁩‬
+Minion Bot
+BOT
+ — Today at 5:51 AM
+:34::13::Sword::34::12::Star::Star::Star::100:💥 ‭⁦El Jeffe⁩‬
++32  :Receive: ‭⁦pg⁩‬
+-32  :Donate: ‭⁦jy⁩‬
+:34::13::Sword::01::16::FadedStar::Blank::Blank::47: ‭⁦El Jeffe⁩‬
+Minion Bot
+BOT
+ — Today at 6:09 AM
++40  :Receive: ‭⁦pg⁩‬
+-40  :Donate: ‭⁦mysterydeath⁩‬
+:13::16::Sword::13::15::Star::Star::Star::100:💥 ‭⁦Arcohol⁩‬
+:13::16::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦Arcohol⁩‬
+Minion Bot
+BOT
+ — Today at 6:24 AM
++27  :Receive: ‭⁦jy⁩‬
+-27  :Donate: ‭⁦Kaselcap⁩‬
+Minion Bot
+BOT
+ — Today at 6:34 AM
++02  :Receive: ‭⁦Kaselcap⁩‬
++21  :Receive: ‭⁦jy⁩‬
++36  :Receive: ‭⁦kallikrein⁩‬
++59  :Receive: ‭⁦Annayake⁩‬
+-02  :Donate: ‭⁦mysterydeath⁩‬
+-21  :Donate: ‭⁦Annayake⁩‬
+-29  :Donate: ‭⁦Kaselcap⁩‬
+-66  :Donate: ‭⁦Seven Thunders⁩‬
++02  :Receive: ‭⁦jy⁩‬
+-02  :Donate: ‭⁦Seven Thunders⁩‬
+:19::14::Sword::19::14::Star::Star::Star::100:💥 ‭⁦Eddy⁩‬
+:19::14::Sword::01::16::FadedStar::Blank::Blank::14: ‭⁦Eddy⁩‬
+Minion Bot
+BOT
+ — Today at 6:52 AM
+:04::16::Sword::04::16::FadedStar::FadedStar::Blank::99: ‭⁦Satan⁩‬
+:04::16::Sword::01::16::FadedStar::FadedStar::Blank::52: ‭⁦Satan⁩‬
+Minion Bot
+BOT
+ — Today at 7:06 AM
++20  :Receive: ‭⁦Annayake⁩‬
+-20  :Donate: ‭⁦ANBU⁩‬
+Minion Bot
+BOT
+ — Today at 7:32 AM
+War with #9RGRU2Q0 ‭⁦Terengganu COC⁩‬ ends in 59 minutes.
++15  :Receive: ‭⁦ANBU⁩‬
+-15  :Donate: ‭⁦Mr Kay⁩‬
+Minion Bot
+BOT
+ — Today at 7:40 AM
+:01::16::Shield::29::13::FadedStar::FadedStar::Blank::52: ‭⁦Blump⁩‬
+:18::15::Sword::18::15::Star::Star::Star::100:💥 ‭⁦Nitin 4.0⁩‬
+:18::15::Sword::01::16::FadedStar::Blank::Blank::05: ‭⁦Nitin 4.0⁩‬
+Minion Bot
+BOT
+ — Today at 8:27 AM
++03  :Receive: ‭⁦Annayake⁩‬
++03  :Receive: ‭⁦kallikrein⁩‬
++50  :Receive: ‭⁦Protips⁩‬
++72  :Receive: ‭⁦Jonas⁩‬
+-51  :Donate: ‭⁦Protips⁩‬
+-77  :Donate: ‭⁦pg⁩‬
 
 2 Remaining Attacks
-:s: :s: Peril-sama
+:s: :s: Blump
+:s: :s: Big Daddy T
+:s: :s: katsu
 :s: :s: ethan
 :s: :s: Hokage
-:s: :s: Golden Unicorn✨
-1 Remaining Attack
-:s: :s: RoyalOne
 :s: :s: 7Ate9
+:s: :s: Kakashi Hatake
+1 Remaining Attack
 :s: :s: 360​

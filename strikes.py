@@ -375,8 +375,35 @@ def clear_strikes():
 
 def output_strikes():
     with open('strikes.txt', 'w') as file: 
+        xray_printed = False 
+        outlaws_printed = False
+
         for i in range(len(players)): 
+            if players[i].clan != "Reddit X-ray": continue
             if players[i].num_strikes != 0: 
+                if not xray_printed:
+                    file.write('**Reddit X-ray**:\n\n')
+                    print('**Reddit X-ray**:\n')
+                    xray_printed = True
+
+                file.write('[%i] %s #%s:\n' % (players[i].num_strikes, players[i].name, players[i].tag))
+                print('[%i] %s #%s:' % (players[i].num_strikes, players[i].name, players[i].tag))
+
+                for j in range(len(players[i].strikes)): 
+                    file.write('- %s\n' % (players[i].strikes[j]))
+                    print('- %s' % (players[i].strikes[j]))
+
+                file.write('\n')
+                print('')
+
+        for i in range(len(players)): 
+            if players[i].clan != "Faint Outlaws": continue
+            if players[i].num_strikes != 0: 
+                if not outlaws_printed:
+                    file.write('**Faint Outlaws**:\n\n')
+                    print('**Faint Outlaws**:\n')
+                    outlaws_printed = True
+
                 file.write('[%i] %s #%s:\n' % (players[i].num_strikes, players[i].name, players[i].tag))
                 print('[%i] %s #%s:' % (players[i].num_strikes, players[i].name, players[i].tag))
 
@@ -388,7 +415,7 @@ def output_strikes():
                 print('')
 
 def regular_keyboard(input_string): 
-    pattern = r"^[A-Za-z0-9 !@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
+    pattern = r"^[A-Za-z0-9 \~!@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
     return re.match(pattern, input_string) is not None 
 
 players = import_pickle()
@@ -401,7 +428,6 @@ while(args.mode == 'manual'):
     print('[5] Clear all strikes for a given player')
     print('[6] Reset all strikes')
     print('[7] Output strikes list')
-    # print('[8] Mark a player as part of Leadership')
     print('[9] Exit')
     sel = input('Selection: ')
     try: sel = int(sel)
@@ -415,7 +441,6 @@ while(args.mode == 'manual'):
     elif sel == 5: remove_all_strikes()
     elif sel == 6: clear_strikes()
     elif sel == 7: output_strikes()
-    elif sel == 8: pass
 
     if sel != 9: 
         players.sort(key = lambda x: (-x.num_strikes, x.name))
