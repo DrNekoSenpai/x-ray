@@ -4,27 +4,50 @@
 - (3) Had war base during battle day against `Terengganu COC`.
 - (1) Missed hits during war against `Terengganu COC`.
 
-[3] ANBU #80U9VGUU9:
+[4] ANBU #80U9VGUU9:
 - (3) Had war base during battle day against `Terengganu COC`.
+- (1) Missed hits during war against `phenomenal`.
+
+[4] Hokage #J2CUYQG8:
+- (1) Missed hits during war against `Terengganu COC`.
+- (1) Missed hits during war against `PLAYGROUND`.
+- (1) Missed hits during war against `phenomenal`.
+- (1) Missed hits in two consecutive wars against `PLAYGROUND` and `phenomenal`.
+
+[3] JALVIN #22R8VVGPJ:
+- (1) Missed hits during war against `PLAYGROUND`.
+- (1) Missed hits during war against `phenomenal`.
+- (1) Missed hits in two consecutive wars against `PLAYGROUND` and `phenomenal`.
+
+[2] Blump #RJ0GQGQ9:
+- (1) Missed hits during war against `Terengganu COC`.
+- (1) Missed hits during war against `phenomenal`.
+
+[2] Kakashi Hatake #R2YUGRJ9:
+- (1) Missed hits during war against `Terengganu COC`.
+- (1) Missed hits during war against `phenomenal`.
+
+[2] ethan #PGJ8VGJU8:
+- (1) Missed hits during war against `Terengganu COC`.
+- (1) Missed hits during war against `PLAYGROUND`.
 
 [1] Big Daddy T #9V0PCRR00:
 - (1) Missed hits during war against `Terengganu COC`.
 
-[1] Blump #RJ0GQGQ9:
-- (1) Missed hits during war against `Terengganu COC`.
-
-[1] Hokage #J2CUYQG8:
-- (1) Missed hits during war against `Terengganu COC`.
-
-[1] Kakashi Hatake #R2YUGRJ9:
-- (1) Missed hits during war against `Terengganu COC`.
+[1] Chief_Lou #9VL2L8PPJ:
+- (1) Missed hits during war against `phenomenal`.
 
 [1] Shomeer #G2LGL80PL:
 - (1) Missed 4 or more hits during CWL week.
 
-[1] ethan #PGJ8VGJU8:
-- (1) Missed hits during war against `Terengganu COC`.
+[1] Sivankh39 #2U9YCGVU2:
+- (1) Missed hits during war against `phenom enal`.
 
 [1] katsu #RCUY2PYV:
 - (1) Missed hits during war against `Terengganu COC`.
+
+**Faint Outlaws**:
+
+[1] Hardcastle #Q089Q9PRG:
+- (1) Missed hits during war against `phenomenal`.
 
