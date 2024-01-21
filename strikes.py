@@ -118,7 +118,7 @@ def add_player(clan):
                 # Check if the player's name is alphanumeric, including spaces and regular punctuation
                 # If not, we need to ask the user to input the name manually. 
                 if not regular_keyboard(name):
-                    print(f"Player name {name} is not valid. Please input the name manually.")
+                    print(f"Player name '{name}' is not valid. Please input the name manually.")
                     name = input("Name: ")
 
                 # Check if the player already exists in the database

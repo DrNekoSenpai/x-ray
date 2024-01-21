@@ -110,7 +110,7 @@ for line in lines:
         if "\~" in name: name = name.replace("\~", "~")
 
         if not regular_keyboard(player_name):
-            print(f"Player name {player_name} is not valid. Please input the name manually.")
+            print(f"Player name '{player_name}' is not valid. Please input the name manually.")
             player_name = input("Name: ")
         
         log.append((player_name, attacker, defender, stars, time_remaining))
