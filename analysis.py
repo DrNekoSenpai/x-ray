@@ -96,10 +96,18 @@ for line in lines:
         stars = len([star for star in [star1, star2, star3] if star != ":Blank:"])
         player_name = match.group(6)
 
-        if player_name == "JALVIN ø": player_name = "JALVIN"
-        if player_name == "★ıċєʏקѧṅṭś★": player_name = "IceyPants"
-        if "™" in player_name: player_name = player_name.replace("™", "")
-        if "✨" in player_name: player_name = player_name.replace("✨", "")
+        if name == "JALVIN ø": name = "JALVIN"
+        if name == "★ıċєʏקѧṅṭś★": name = "IceyPants"
+        if name == "General⚡️Mc0⚡️": name = "General Mc0"
+        if name == "༺༃༼SEV༽༃༻": name = "SEV"
+        if name == "「 NightEye 」": name = "NightEye"
+        if name == "Mini @ñ@$": name = "Mini Anas"
+
+        if "’" in name: name = name.replace("’", "'")
+        if "™" in name: name = name.replace("™", "")
+        if "✨" in name: name = name.replace("✨", "")
+        if "\_" in name: name = name.replace("\_", "_")
+        if "\~" in name: name = name.replace("\~", "~")
 
         if not regular_keyboard(player_name):
             print(f"Player name {player_name} is not valid. Please input the name manually.")
