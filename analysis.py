@@ -37,15 +37,34 @@ one_missed_hit = []
 
 invalid_mirror = []
 
-skip = [
-    "Tenth Situation", 
-    "Dark Hell Mutt", 
-    "Hostile Doctor", 
+skip = [ 
+    "Senpai",
     "Kami", 
     "I Sofa King",
     "BumblinMumbler",
     "Bran6",
-    "Senpai",
+    "Chalk Outl", 
+    "Hardcastle",
+    "A Teen",
+    "Your Angry",
+    "Perfect",
+    "Stunted Na",
+    "Demeter's",
+    "Loo Czar",
+    "SickSix6",
+    "Procrastin",
+    "Vixi's Cur",
+    "TENENTEN",
+    "DisasterBa",
+    "Thumb Salu",
+    "Opposable",
+    "Sulfur",
+    "Tenth Situ",
+    "Seven Thun",
+    "Not My Nam",
+    "Clone Cast",
+    "Dark Hell",
+    "Hostile Do",
 ]
 
 war_start_announcement = True
