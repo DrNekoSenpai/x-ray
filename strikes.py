@@ -104,6 +104,12 @@ def add_player(clan):
 
                 if name == "JALVIN ø": name = "JALVIN"
                 if name == "★ıċєʏקѧṅṭś★": name = "IceyPants"
+                if name == "General⚡️Mc0⚡️": name = "General Mc0"
+                if name == "༺༃༼SEV༽༃༻": name = "SEV"
+                if name == "「 NightEye 」": name = "NightEye"
+                if name == "Mini @ñ@$": name = "Mini Anas"
+
+                if "’" in name: name = name.replace("’", "'")
                 if "™" in name: name = name.replace("™", "")
                 if "✨" in name: name = name.replace("✨", "")
                 if "\_" in name: name = name.replace("\_", "_")
@@ -187,9 +193,11 @@ def add_strike():
                     players[i].missed_hit_dates.append(date)
                     players[i].strikes.append('(1) Missed hits during war against `%s`.' % clan)
                     players[i].num_strikes += 1
-                    if len(players[i].missed_hit_dates) != 1: 
+                    if len(players[i].missed_hit_dates) > 1: 
                         this_war = len(players[i].missed_hit_dates) - 1
                         previous_war = len(players[i].missed_hit_dates) - 2
+                        # Check if this war and previous war are the same. If so, return. 
+                        if players[i].missed_hit_dates[this_war] == players[i].missed_hit_dates[previous_war]: return
                         if players[i].missed_hit_dates[previous_war] + 3 >= players[i].missed_hit_dates[this_war]: 
                             players[i].strikes.append('(1) Missed hits in two consecutive wars against `%s` and `%s`.' % (players[i].missed_hit_clans[previous_war], players[i].missed_hit_clans[this_war]))
                             players[i].num_strikes += 1
@@ -262,6 +270,7 @@ def add_strike():
                     print('[1] Three-starred during a loss war')
                     print('[2] Sniped for more than 2 stars during a win war')
                     print('[3] Sniped for more than 1 star during a loss war')
+                    print('[4] Attacked someone else than mirror')
                     sel = input('Selection: ')
                     sel = sel.split("#")[0] # Remove any comments
                     try: sel = int(sel)
@@ -284,6 +293,12 @@ def add_strike():
                         clan = clan.split("#")[0] # Remove any comments
                         players[i].strikes.append('(1) Sniped for more than 1 star during a loss war against `%s`.' % clan)
                         players[i].num_strikes += 1
+                    elif sel == 4:
+                        clan = input('Enter opponent clan name for when this player disobeyed instructions: ')
+                        clan = clan.split("#")[0]
+                        players[i].strikes.append('(1) Attacked someone else than mirror during a war against `%s`.' % clan)
+                        players[i].num_strikes += 1
+                                    
                 elif sel == 8: 
                     clan = input('Enter opponent clan name who initiated sanctions against us: ')
                     clan = clan.split("#")[0] # Remove any comments
@@ -372,6 +387,8 @@ def clear_strikes():
         for i in range(len(players)): 
             players[i].num_strikes = 0
             players[i].strikes = []
+            players[i].missed_hit_clans = []
+            players[i].missed_hit_dates = []
 
 def output_strikes():
     with open('strikes.txt', 'w') as file: 
@@ -431,7 +448,8 @@ while(args.mode == 'manual'):
     print('[9] Exit')
     sel = input('Selection: ')
     try: sel = int(sel)
-    except: break
+    except: continue
+
     export_pickle()
     if sel != 9: print('')
     if sel == 1: add_player("xray"); add_player("outlaws")
@@ -441,6 +459,7 @@ while(args.mode == 'manual'):
     elif sel == 5: remove_all_strikes()
     elif sel == 6: clear_strikes()
     elif sel == 7: output_strikes()
+    elif sel == 9: break
 
     if sel != 9: 
         players.sort(key = lambda x: (-x.num_strikes, x.name))

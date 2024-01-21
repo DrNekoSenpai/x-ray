@@ -1,18 +1,16 @@
 **Reddit X-ray**:
 
-[4] 7Ate9 #PRLP2J2R2:
-- (3) Had war base during battle day against `Terengganu COC`.
-- (1) Missed hits during war against `Terengganu COC`.
-
-[4] ANBU #80U9VGUU9:
-- (3) Had war base during battle day against `Terengganu COC`.
-- (1) Missed hits during war against `phenomenal`.
-
 [4] Hokage #J2CUYQG8:
 - (1) Missed hits during war against `Terengganu COC`.
 - (1) Missed hits during war against `PLAYGROUND`.
 - (1) Missed hits during war against `phenomenal`.
 - (1) Missed hits in two consecutive wars against `PLAYGROUND` and `phenomenal`.
+
+[4] Master21 #LVRJC8CY2:
+- (1) Attacked someone else than mirror during a war against `PLAYGROUND`.
+- (1) Attacked someone else than mirror during a war against `PLAYGROUND`.
+- (1) Attacked someone else than mirror during a war against `phenomenal`.
+- (1) Sniped for more than 1 star during a loss war against `phenomenal`.
 
 [3] JALVIN #22R8VVGPJ:
 - (1) Missed hits during war against `PLAYGROUND`.
@@ -27,24 +25,41 @@
 - (1) Missed hits during war against `Terengganu COC`.
 - (1) Missed hits during war against `phenomenal`.
 
-[2] ethan #PGJ8VGJU8:
+[1] 360 #VVPL2GRU:
 - (1) Missed hits during war against `Terengganu COC`.
-- (1) Missed hits during war against `PLAYGROUND`.
+
+[1] ANBU #80U9VGUU9:
+- (1) Missed hits during war against `phenomenal`.
 
 [1] Big Daddy T #9V0PCRR00:
 - (1) Missed hits during war against `Terengganu COC`.
 
 [1] Chief_Lou #9VL2L8PPJ:
-- (1) Missed hits during war against `phenomenal`.
+- (1) Attacked someone else than mirror during a war against `phenomenal`.
+
+[1] RoyalOne #RV920PR9:
+- (1) Sniped for more than 1 star during a loss war against `phenomenal`.
 
 [1] Shomeer #G2LGL80PL:
 - (1) Missed 4 or more hits during CWL week.
 
 [1] Sivankh39 #2U9YCGVU2:
-- (1) Missed hits during war against `phenom enal`.
+- (1) Missed hits during war against `phenomenal`.
+
+[1] bran6 #Y8P82GJJ:
+- (1) Sniped for more than 1 star during a loss war against `phenomenal`.
+
+[1] jy #8L9QLJJP:
+- (1) Sniped for more than 1 star during a loss war against `phenomenal`.
 
 [1] katsu #RCUY2PYV:
 - (1) Missed hits during war against `Terengganu COC`.
+
+[1] mysterydeath #YVCLJCU2:
+- (1) Sniped for more than 1 star during a loss war against `phenomenal`.
+
+[1] tylr #89YYV8V2:
+- (1) Sniped for more than 1 star during a loss war against `phenomenal`.
 
 **Faint Outlaws**:
 
