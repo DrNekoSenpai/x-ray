@@ -137,7 +137,7 @@ with open("strikes-input.txt", "w", encoding="utf-8") as file:
             if not mirror: 
                 # First, check if this looks to be a snipe. 
                 # Snipes are defined as 1 star on a loss, or 1-2 stars on a win. 
-                if win_loss == "loss" and stars < 1: 
+                if win_loss == "loss" and stars < 2: 
                     print(f"Bypass: {player_name} hit someone not their own mirror, but this appears to be a snipe")
                 
                 elif win_loss == "win" and stars < 3:
