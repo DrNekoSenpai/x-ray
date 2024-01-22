@@ -1,6 +1,41 @@
 import os
 logs = [file[:-4] for file in os.listdir("./logs/") if not "_input" in file]
 
+immune = [ 
+    "Senpai",
+    "Kami", 
+    "I Sofa King",
+    "BumblinMumbler",
+    "Bran6",
+    "Chalk Outl", 
+    "Hardcastle",
+    "A Teen",
+    "Your Angry",
+    "Perfect",
+    "Stunted Na",
+    "Demeter's",
+    "Loo Czar",
+    "SickSix6",
+    "Procrastin",
+    "Vixi's Cur",
+    "TENENTEN",
+    "DisasterBa",
+    "Thumb Salu",
+    "Opposable",
+    "Sulfur",
+    "Tenth Situ",
+    "Seven Thun",
+    "Not My Nam",
+    "Clone Cast",
+    "Dark Hell",
+    "Hostile Do",
+    "Sivankh39"
+]
+
+def regular_keyboard(input_string): 
+    pattern = r"^[A-Za-z0-9 !@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
+    return re.match(pattern, input_string) is not None 
+
 for log_file in logs: 
     with open(f"./logs/{log_file}.txt", "r", encoding="utf-8") as file: 
         lines = file.readlines()
@@ -8,15 +43,10 @@ for log_file in logs:
     import re, datetime
     hit_pattern = re.compile(r":(\d{2})::\d{2}::Sword::(\d{2})::\d{2}:(:Star:|:FadedStar:|:Blank:)(:Star:|:FadedStar:|:Blank:)(:Star:|:FadedStar:|:Blank:):\d{2,3}:[💥]? .{2}(.*).{2}")
 
-    def regular_keyboard(input_string): 
-        pattern = r"^[A-Za-z0-9 !@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
-        return re.match(pattern, input_string) is not None 
-
     win_loss_pattern = re.compile(r"Win/loss: (win|loss)")
     enemy_clan_pattern = re.compile(r"Enemy clan: (.*)")
     war_end_date_pattern = re.compile(r"War end date: (\d{4})")
 
-    # 01/16/2024 12:03 PM
     time_pattern = re.compile(r"(\d{2}/\d{2}/\d{4}) (\d{1,2}:\d{2}) ([AP]M)")
 
     win_loss = re.search(win_loss_pattern, lines[0]).group(1)
@@ -40,36 +70,6 @@ for log_file in logs:
     one_missed_hit = []
 
     invalid_mirror = []
-
-    skip = [ 
-        "Senpai",
-        "Kami", 
-        "I Sofa King",
-        "BumblinMumbler",
-        "Bran6",
-        "Chalk Outl", 
-        "Hardcastle",
-        "A Teen",
-        "Your Angry",
-        "Perfect",
-        "Stunted Na",
-        "Demeter's",
-        "Loo Czar",
-        "SickSix6",
-        "Procrastin",
-        "Vixi's Cur",
-        "TENENTEN",
-        "DisasterBa",
-        "Thumb Salu",
-        "Opposable",
-        "Sulfur",
-        "Tenth Situ",
-        "Seven Thun",
-        "Not My Nam",
-        "Clone Cast",
-        "Dark Hell",
-        "Hostile Do",
-    ]
 
     war_start_announcement = True
     
@@ -161,7 +161,7 @@ for log_file in logs:
         for entry in log: 
             player_name, attacker, defender, stars, time_remaining = entry
             # print(f"Player: {player_name}, Attacker: {attacker}, Defender: {defender}, Stars: {stars}, Time Remaining: {time_remaining:.2f}")
-            if player_name in skip or "Unicorn" in player_name: continue
+            if player_name in immune or "Unicorn" in player_name: continue
             if int(defender) > 5: 
                 # Check if this hit was not a mirror 
                 mirror = attacker == defender
@@ -225,7 +225,7 @@ for log_file in logs:
                 continue
 
             # Find the corresponding entry in the log; find their other hit 
-            if entry in skip or "Unicorn" in entry: continue
+            if entry in immune or "Unicorn" in entry: continue
             for log_entry in log: 
                 if log_entry[0] == entry: 
                     mirror = log_entry[1] == log_entry[2]
@@ -234,7 +234,7 @@ for log_file in logs:
                         file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
 
         for entry in two_missed_hits: 
-            if entry in skip or "Unicorn" in entry: continue
+            if entry in immune or "Unicorn" in entry: continue
             print(f"Warning: {entry} missed two hits")
             file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
 
