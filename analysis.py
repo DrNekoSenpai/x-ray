@@ -204,7 +204,7 @@ for log_file in logs:
                         print(f"Bypass: {player_name} sniped for more than one star on a loss, but this base was already hit")
                     else: 
                         print(f"Warning: {player_name} sniped for more than one star on a loss")
-                        # file.write(f"3\n{player_name}\ny\n7\n3\n{enemy_clan}\n")
+                        file.write(f"3\n{player_name}\ny\n7\n3\n{enemy_clan}\n")
                         invalid_mirror.append(defender)
 
             if win_loss == "win": 
@@ -214,7 +214,7 @@ for log_file in logs:
                         print(f"Bypass: {player_name} sniped for more than two stars on a win, but this base was already hit")
                     else:
                         print(f"Warning: {player_name} sniped for more than two stars on a win")
-                        # file.write(f"3\n{player_name}\ny\n7\n2\n{enemy_clan}\n")
+                        file.write(f"3\n{player_name}\ny\n7\n2\n{enemy_clan}\n")
                         invalid_mirror.append(defender)
 
         for entry in one_missed_hit: 
