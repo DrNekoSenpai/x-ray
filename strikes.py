@@ -447,6 +447,8 @@ while(args.mode == 'manual'):
     print('[7] Output strikes list')
     print('[9] Exit')
     sel = input('Selection: ')
+    if sel == "": break 
+    
     try: sel = int(sel)
     except: continue
 

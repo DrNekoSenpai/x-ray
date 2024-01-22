@@ -28,14 +28,17 @@
 #YRY898YYL   12 Kelly
 #JC9PUPV0    12 jwong
 #Q089Q9PRG   12 Hardcastle
+#Q2J82YPRU   12 Durp
 #QQUGVVJV    12 Chrispy
+#9RPCGPQYC   12 CatoTomato
 #L8LU2YQ2Y   12 Blumper
 #LUCLUJ988   12 A Teen
 #GCJG9CVY    11 Vishesh
 #Q9YQPCCC9   11 Tiny Blump
+#2LCJRCV82   11 puize
 #QYJQPQ9LY   11 Megablump
 #29UL0QGL8   11 frosche
-#Q2J82YPRU   11 Durp
+#G9UP0Y88Q   11 Chalk Outline
 #9U02RUVYQ   11 Bounce Jr
 #GLQY2JGVJ   11 ANT
 #GQQ82U829   11 ༺༃༼SEV༽༃༻
@@ -45,5 +48,3 @@
 #L9Y9J88LL   10 Kami
 #QLJCQYJQU   10 charlie
 #YPQ2UJUQR   10 BumblinMumbler2
-#2LCJRCV82   0 puize
-#9RPCGPQYC   0 CatoTomato
