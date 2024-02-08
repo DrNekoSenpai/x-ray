@@ -17,7 +17,9 @@ def regular_keyboard(input_string):
     pattern = r"^[A-Za-z0-9 !@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
     return re.match(pattern, input_string) is not None 
 
-with open("minion.txt", "r", encoding="utf-8") as f: 
+clan = "outlaws"
+
+with open(f"minion-{clan}.txt", "r", encoding="utf-8") as f: 
     minion = f.readlines()
     pattern = re.compile(r"#([0-9A-Z]{5,9})\s+\d+\s+(.*)")
     for line in minion: 
@@ -29,6 +31,12 @@ with open("minion.txt", "r", encoding="utf-8") as f:
 
             if player == "JALVIN ø": player = "JALVIN"
             if player == "★ıċєʏקѧṅṭś★": player = "IceyPants"
+            if player == "༺༃༼SEV༽༃༻": player = "SEV"
+            if player == "\~CLUNK\~": player = "CLUNK"
+            if player == "❤️lav❤️": player = "lav"
+            if player == "Lil’ Blump": player = "Lil' Blump"
+            if player == "「 NightEye 」": player = "NightEye"
+
             if "✨" in player: player = player.replace("✨", "")
 
             if not regular_keyboard(player):
@@ -75,23 +83,28 @@ for player,hits in cwl:
     # Send a GET request to the player's profile page.
     html = requests.get(f"https://fwa.chocolateclash.com/cc_n/member.php?tag={tag}").text
 
-    pattern = re.compile(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})</a></td><td>Joined clan  as <span style=\"background-color:#eee;\">a member</span>")
-    match = pattern.search(html)
+    joined_pattern = re.compile(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})</a></td><td>Joined clan")
+    scan_pattern = re.compile(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})</a></td><td>Seen in clan")
+    join_matches = joined_pattern.findall(html)
+    scan_matches = scan_pattern.findall(html)
+    matches = (join_matches + scan_matches)
+    matches.sort(key=lambda x: datetime.datetime.strptime(x, "%Y-%m-%d %H:%M:%S"), reverse=True)
 
-    if match: 
-        timedelta = datetime.datetime.now() - datetime.datetime.strptime(match.group(1), "%Y-%m-%d %H:%M:%S")
-        months = timedelta.days // 30
-
-        if months > 6: 
-            entries[player] += 6
-            loyalty_entries[player] = 6
-        else: 
-            entries[player] += months
-            loyalty_entries[player] = months
-
-    else: 
+    if len(matches) == 0:
         entries[player] += 6
         loyalty_entries[player] = 6
+        continue
+
+    timedelta = datetime.datetime.now() - datetime.datetime.strptime(matches[0], "%Y-%m-%d %H:%M:%S")
+    months = timedelta.days // 30
+
+    if months > 6:
+        entries[player] += 6
+        loyalty_entries[player] = 6
+
+    else:
+        entries[player] += months
+        loyalty_entries[player] = months
 
 # Sort entries by weight in descending order, then by hit entries, then by loyalty entries 
 entries = {k: v for k, v in sorted(entries.items(), key=lambda item: (item[1], hit_entries[item[0]], loyalty_entries[item[0]]), reverse=True)}
@@ -104,11 +117,11 @@ month = datetime.now().strftime("%B")
 year = datetime.now().year
 dists_possible = 9
 print("")
-print(f"**Reddit X-ray {month} {year} Weighted Distribution** \n ({dists_possible} available bonuses, total) \n ")
+print(f"**{'Reddit X-ray' if clan == 'xray' else 'Faint Outlaws'} {month} {year} Weighted Distribution** \n ({dists_possible} available bonuses, total) \n ")
 
 pool = []
 
-already_received = """
+already_received_xray = """
 Satan
 Trunx
 Hokage
@@ -118,7 +131,7 @@ Jonas
 BumblinMumbler
 Eddy
 IceyPants
-Senpai
+Sned
 Shomeer
 Ben TH9
 Coolguyagent
@@ -129,9 +142,27 @@ mysterydeath
 kallikrein
 Arcohol
 Nitin 4.0
+ViperX56
+K.L.A.U.S
+Bounce_04
+Big Daddy T
+Sivankh39
+RAJE
 """.strip().split("\n")
 
-eligible = [p for p in entries.keys() if p not in already_received]
+already_received_outlaws = """  
+Durp
+SEV
+Chrispy
+Clone Castle
+Camo
+CatoTomato
+DisasterBaiter
+Your Angry Ex
+Dark Hell Mutt
+""".strip().split("\n")
+
+eligible = [p for p in entries.keys() if p not in already_received_xray and p not in already_received_outlaws]
 # Print a warning if there are less eligible people than there are possible distributions. 
 if len(eligible) < dists_possible: 
     print(f"Warning: There are only {len(eligible)} eligible people, but {dists_possible} distributions are available.")
@@ -141,13 +172,15 @@ if len(eligible) < dists_possible:
         
     exit(0)
 
+entries = {k: v for k, v in entries.items() if k in eligible}
+
 for i in range(15, 0, -1): 
     # Get the tier, that is, all the players who have this amount of entries. 
     tier = [k for k,v in entries.items() if v == i]
     if len(tier) == 0: continue
     print(f"{i} entries:")
     for player in tier: 
-        if player in already_received: continue
+        if player in already_received_xray or player in already_received_outlaws: continue
         print(f"- {player} ({hit_entries[player]} entries from hits, {loyalty_entries[player]} entries from loyalty)")
         for _ in range(i): 
             pool.append(player)
