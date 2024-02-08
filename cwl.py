@@ -87,7 +87,7 @@ for player,hits in cwl:
     scan_pattern = re.compile(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})</a></td><td>Seen in clan")
     join_matches = joined_pattern.findall(html)
     scan_matches = scan_pattern.findall(html)
-    matches = (join_matches + scan_matches)
+    matches = join_matches + scan_matches
     matches.sort(key=lambda x: datetime.datetime.strptime(x, "%Y-%m-%d %H:%M:%S"), reverse=True)
 
     if len(matches) == 0:
@@ -115,7 +115,7 @@ entries = {k: v for k, v in sorted(entries.items(), key=lambda item: (item[1], h
 from datetime import datetime
 month = datetime.now().strftime("%B")
 year = datetime.now().year
-dists_possible = 9
+dists_possible = int(input("How many distributions are available? "))
 print("")
 print(f"**{'Reddit X-ray' if clan == 'xray' else 'Faint Outlaws'} {month} {year} Weighted Distribution** \n ({dists_possible} available bonuses, total) \n ")
 
