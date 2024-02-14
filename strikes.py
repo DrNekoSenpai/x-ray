@@ -108,6 +108,7 @@ def add_player(clan):
                 if name == "༺༃༼SEV༽༃༻": name = "SEV"
                 if name == "「 NightEye 」": name = "NightEye"
                 if name == "Mini @ñ@$": name = "Mini Anas"
+                if name == "❤️lav❤️": name = "lav"
 
                 if "’" in name: name = name.replace("’", "'")
                 if "™" in name: name = name.replace("™", "")
@@ -210,7 +211,7 @@ def add_strike():
                 elif sel == 3: 
                     clan = input('Enter name of opponent blacklist clan: ')
                     win = input('Did we win? Y/N: ').lower()
-                    num = input("How many hits did this player miss?")
+                    num = input("How many hits did this player miss? ")
                     clan, win, num = clan.split("#")[0], win.split("#")[0], num.split("#")[0] # Remove any comments
 
                     try: num = int(num)

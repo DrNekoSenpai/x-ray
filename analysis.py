@@ -2,9 +2,8 @@ import os
 logs = [file[:-4] for file in os.listdir("./logs/") if not "_input" in file]
 
 immune = [ 
-    "Senpai",
+    "Sned",
     "Kami", 
-    "I Sofa King",
     "BumblinMumbler",
     "Bran6",
     "Chalk Outl", 
@@ -29,7 +28,7 @@ immune = [
     "Clone Cast",
     "Dark Hell",
     "Hostile Do",
-    "Sivankh39"
+    "Fearless TH9"
 ]
 
 def regular_keyboard(input_string): 
@@ -43,7 +42,7 @@ for log_file in logs:
     import re, datetime
     hit_pattern = re.compile(r":(\d{2})::\d{2}::Sword::(\d{2})::\d{2}:(:Star:|:FadedStar:|:Blank:)(:Star:|:FadedStar:|:Blank:)(:Star:|:FadedStar:|:Blank:):\d{2,3}:[💥]? .{2}(.*).{2}")
 
-    win_loss_pattern = re.compile(r"Win/loss: (win|loss)")
+    win_loss_pattern = re.compile(r"Win/loss: (win|loss|blacklist win|blacklist loss)")
     enemy_clan_pattern = re.compile(r"Enemy clan: (.*)")
     war_end_date_pattern = re.compile(r"War end date: (\d{4})")
 
@@ -158,85 +157,105 @@ for log_file in logs:
             one_missed_hit.append(player_name)
 
     with open(f"./inputs/{log_file}.txt", "w", encoding="utf-8") as file: 
-        for entry in log: 
-            player_name, attacker, defender, stars, time_remaining = entry
-            # print(f"Player: {player_name}, Attacker: {attacker}, Defender: {defender}, Stars: {stars}, Time Remaining: {time_remaining:.2f}")
-            if player_name in immune or "Unicorn" in player_name: continue
-            if int(defender) > 5: 
-                # Check if this hit was not a mirror 
-                mirror = attacker == defender
-                if not mirror: 
-                    # First, check if this looks to be a snipe. 
-                    # Snipes are defined as 1 star on a loss, or 1-2 stars on a win. 
-                    if win_loss == "loss" and stars < 2: 
-                        print(f"Bypass: {player_name} hit someone not their own mirror, but this appears to be a snipe")
-                    
-                    elif win_loss == "win" and stars < 3:
-                        print(f"Bypass: {player_name} hit someone not their own mirror, but this appears to be a snipe")
-                    
-                    # If not, first check if the defender's number is in the invalid_mirror list. 
-                    # This means that their own mirror was already taken, and thus we should not penalize. 
-                    elif attacker in invalid_mirror:
-                        print(f"Bypass: {player_name} hit someone not their own mirror, but their mirror was already taken")
+        if win_loss == "win" or win_loss == "loss": 
+            # FWA war
+            for entry in log: 
+                player_name, attacker, defender, stars, time_remaining = entry
+                # print(f"Player: {player_name}, Attacker: {attacker}, Defender: {defender}, Stars: {stars}, Time Remaining: {time_remaining:.2f}")
+                if player_name in immune or "Unicorn" in player_name: continue
+                if int(defender) > 5: 
+                    # Check if this hit was not a mirror 
+                    mirror = attacker == defender
+                    if not mirror: 
+                        # First, check if this looks to be a snipe. 
+                        # Snipes are defined as 1 star on a loss, or 1-2 stars on a win. 
+                        if win_loss == "loss" and stars < 2: 
+                            print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but this appears to be a snipe")
                         
-                    # If the defender's number is not in the invalid_mirror list, then we should add it.
-                    # This means that their own mirror was not taken, and thus we should penalize.
-                    else:
-                        # First, we should check if there are less than four hours remaining in the war.
-                        if time_remaining < 4: 
-                            print(f"Bypass: {player_name} hit someone not their own mirror, but there are less than four hours remaining")
+                        elif win_loss == "win" and stars < 3:
+                            print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but this appears to be a snipe")
+                        
+                        # If not, first check if the defender's number is in the invalid_mirror list. 
+                        # This means that their own mirror was already taken, and thus we should not penalize. 
+                        elif attacker in invalid_mirror:
+                            print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but their mirror was already taken")
+                            
+                        # If the defender's number is not in the invalid_mirror list, then we should add it.
+                        # This means that their own mirror was not taken, and thus we should penalize.
+                        else:
+                            # First, we should check if there are less than four hours remaining in the war.
+                            if time_remaining < 4: 
+                                print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but there are less than four hours remaining")
 
-                        else: 
-                            invalid_mirror.append(defender)
-                            print(f"Warning: {player_name} hit someone not their own mirror")
-                            file.write(f"3\n{player_name}\ny\n7\n4\n{enemy_clan}\n")
-                else: 
-                    # Add this base to the invalid_mirror list, since it was taken by a mirror.
-                    if not defender in invalid_mirror: invalid_mirror.append(defender)
-
-            if win_loss == "loss": 
-                mirror = attacker == defender 
-                if mirror and stars > 2: 
-                    print(f"Warning: {player_name} three-starred on a loss")
-                    file.write(f"3\n{player_name}\ny\n7\n1\n{enemy_clan}\n")
-                elif not mirror and not int(attacker) < 6 and int(defender) < 6 and stars > 1: 
-                    if defender in invalid_mirror: 
-                        print(f"Bypass: {player_name} sniped for more than one star on a loss, but this base was already hit")
+                            else: 
+                                invalid_mirror.append(defender)
+                                print(f"Warning: #{attacker} {player_name} hit someone not their own mirror")
+                                file.write(f"3\n{player_name}\ny\n7\n4\n{enemy_clan}\n")
                     else: 
-                        print(f"Warning: {player_name} sniped for more than one star on a loss")
-                        file.write(f"3\n{player_name}\ny\n7\n3\n{enemy_clan}\n")
-                        invalid_mirror.append(defender)
+                        # Add this base to the invalid_mirror list, since it was taken by a mirror.
+                        if not defender in invalid_mirror: invalid_mirror.append(defender)
 
-            if win_loss == "win": 
-                mirror = attacker == defender 
-                if not mirror and not int(attacker) < 6 and int(defender) < 6 and stars > 2: 
-                    if defender in invalid_mirror: 
-                        print(f"Bypass: {player_name} sniped for more than two stars on a win, but this base was already hit")
-                    else:
-                        print(f"Warning: {player_name} sniped for more than two stars on a win")
-                        file.write(f"3\n{player_name}\ny\n7\n2\n{enemy_clan}\n")
-                        invalid_mirror.append(defender)
+                if win_loss == "loss": 
+                    mirror = attacker == defender 
+                    if mirror and stars > 2: 
+                        print(f"Warning: #{attacker} {player_name} three-starred on a loss")
+                        file.write(f"3\n{player_name}\ny\n7\n1\n{enemy_clan}\n")
+                    elif not mirror and not int(attacker) < 6 and int(defender) < 6 and stars > 1: 
+                        if defender in invalid_mirror: 
+                            print(f"Bypass: #{attacker} {player_name} sniped for more than one star on a loss, but this base was already hit")
+                        else: 
+                            print(f"Warning: #{attacker} {player_name} sniped for more than one star on a loss")
+                            file.write(f"3\n{player_name}\ny\n7\n3\n{enemy_clan}\n")
+                            invalid_mirror.append(defender)
 
-        for entry in one_missed_hit: 
-            # First, check if there are TWO entries in the log with the same name.
-            # If so, Minion Bot made an error; ignore this entry. 
-            if len([log_entry for log_entry in log if log_entry[0] == entry]) > 1: 
-                print(f"Bypass: {entry} missed one hit, but Minion Bot made an error")
-                continue
+                if win_loss == "win": 
+                    mirror = attacker == defender 
+                    if not mirror and not int(attacker) < 6 and int(defender) < 6 and stars > 2: 
+                        if defender in invalid_mirror: 
+                            print(f"Bypass: #{attacker} {player_name} sniped for more than two stars on a win, but this base was already hit")
+                        else:
+                            print(f"Warning: #{attacker} {player_name} sniped for more than two stars on a win")
+                            file.write(f"3\n{player_name}\ny\n7\n2\n{enemy_clan}\n")
+                            invalid_mirror.append(defender)
 
-            # Find the corresponding entry in the log; find their other hit 
-            if entry in immune or "Unicorn" in entry: continue
-            for log_entry in log: 
-                if log_entry[0] == entry: 
-                    mirror = log_entry[1] == log_entry[2]
-                    if not mirror and int(log_entry[2]) < 6: 
-                        print(f"Warning: {entry} missed one hit, and used the other to snipe")
-                        file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
+            for entry in one_missed_hit: 
+                # First, check if there are TWO entries in the log with the same name.
+                # If so, Minion Bot made an error; ignore this entry. 
+                if len([log_entry for log_entry in log if log_entry[0] == entry]) > 1: 
+                    print(f"Bypass: #{attacker} {entry} missed one hit, but Minion Bot made an error")
+                    continue
 
-        for entry in two_missed_hits: 
-            if entry in immune or "Unicorn" in entry: continue
-            print(f"Warning: {entry} missed two hits")
-            file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
+                # Find the corresponding entry in the log; find their other hit 
+                if entry in immune or "Unicorn" in entry: continue
+                for log_entry in log: 
+                    if log_entry[0] == entry: 
+                        mirror = log_entry[1] == log_entry[2]
+                        if not mirror and int(log_entry[2]) < 6: 
+                            print(f"Warning: #{log_entry[1]} {entry} missed one hit, and used the other to snipe")
+                            file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
+
+            for entry in two_missed_hits: 
+                if entry in immune or "Unicorn" in entry: continue
+                print(f"Warning: {entry} missed two hits")
+                file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
+
+        elif win_loss == "blacklist win" or win_loss == "blacklist loss":
+            victory = "y" if win_loss.split(" ")[1] == "win" else "n"
+            for entry in one_missed_hit: 
+                if entry in immune or "Unicorn" in entry: continue
+                if victory == "y": 
+                    print(f"Bypass: {entry} missed one hit on a blacklist war, but we won anyway")
+                else: 
+                    print(f"Warning: {entry} missed one hit on a blacklist war")
+                    file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\nn\n1\n")
+            for entry in two_missed_hits: 
+                if entry in immune or "Unicorn" in entry: continue
+                if victory == "y": 
+                    print(f"Warning: {entry} missed two hits on a blacklist war, but we still won")
+                    file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\ny\n2\n")
+                else:
+                    print(f"Warning: {entry} missed two hits on a blacklist war, which cost us the win")
+                    file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\nn\n2\n")
 
     # press any key to continue 
     input("Press any key to continue...")

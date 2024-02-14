@@ -1,55 +1,34 @@
 **Reddit X-ray**:
 
-[6] Hokage #J2CUYQG8:
-- (1) Missed hits during war against `Terengganu COC`.
-- (1) Missed hits during war against `PLAYGROUND`.
-- (1) Missed hits during war against `phenomenal`.
-- (1) Missed hits in two consecutive wars against `PLAYGROUND` and `phenomenal`.
-- (1) Missed hits during war against `Warring Gods`.
-- (1) Missed hits in two consecutive wars against `phenomenal` and `Warring Gods`.
+[3] Chief_Lou #9VL2L8PPJ:
+- (1) Attacked someone else than mirror during a war against `Reckless Hell`.
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 
-[4] Blump #RJ0GQGQ9:
-- (1) Missed hits during war against `Terengganu COC`.
-- (1) Missed hits during war against `phenomenal`.
-- (1) Missed hits during war against `Warring Gods`.
-- (1) Missed hits in two consecutive wars against `phenomenal` and `Warring Gods`.
+[3] SkullCrusher49 #LJ2YUVUL2:
+- (1) Missed hits during war against `Reckless Hell`.
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 
-[4] Kakashi Hatake #R2YUGRJ9:
-- (1) Missed hits during war against `Terengganu COC`.
-- (1) Missed hits during war against `phenomenal`.
-- (1) Missed hits during war against `Warring Gods`.
-- (1) Missed hits in two consecutive wars against `phenomenal` and `Warring Gods`.
+[2] Blump #RJ0GQGQ9:
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 
-[3] JALVIN #22R8VVGPJ:
-- (1) Missed hits during war against `PLAYGROUND`.
-- (1) Missed hits during war against `phenomenal`.
-- (1) Missed hits in two consecutive wars against `PLAYGROUND` and `phenomenal`.
+[2] Cryptic Helix #280YYUJ8V:
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 
-[3] Sivankh39 #2U9YCGVU2:
-- (1) Missed hits during war against `phenomenal`.
-- (1) Missed hits during war against `Warring Gods`.
-- (1) Missed hits in two consecutive wars against `phenomenal` and `Warring Gods`.
+[2] JALVIN #22R8VVGPJ:
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 
-[2] 360 #VVPL2GRU:
-- (1) Missed hits during war against `Terengganu COC`.
-- (1) Three-starred during a loss war against `PLAYGROUND`.
+[2] Lil Ank #LCGRC09U8:
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 
-[2] Chief_Lou #9VL2L8PPJ:
-- (1) Attacked someone else than mirror during a war against `phenomenal`.
-- (1) Attacked someone else than mirror during a war against `Warring Gods`.
+[2] Shomeer #G2LGL80PL:
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 
-[1] ANBU #80U9VGUU9:
-- (1) Missed hits during war against `phenomenal`.
+[2] Wolfy #YQ2YVYG8:
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 
-[1] Big Daddy T #9V0PCRR00:
-- (1) Missed hits during war against `Terengganu COC`.
+[2] katsu #RCUY2PYV:
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 
-[1] RAJE #2ULYGULCR:
-- (1) Missed hits during war against `Warring Gods`.
-
-[1] SkullCrusher49 #LJ2YUVUL2:
-- (1) Missed hits during war against `Warring Gods`.
-
-[1] katsu #RCUY2PYV:
-- (1) Missed hits during war against `Terengganu COC`.
+[1] mysterydeath #YVCLJCU2:
+- (1) Missed hits during war against `Reckless Hell`.
 
