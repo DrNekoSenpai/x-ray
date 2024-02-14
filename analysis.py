@@ -1,9 +1,8 @@
-import os
+import os, re, datetime, pickle
 logs = [file[:-4] for file in os.listdir("./logs/") if not "_input" in file]
 
 immune = [ 
     "Sned",
-    "Kami", 
     "BumblinMumbler",
     "Bran6",
     "Chalk Outl", 
@@ -30,6 +29,16 @@ immune = [
     "Hostile Do",
     "Fearless TH9"
 ]
+# To be deprecated, claims system in progress.
+
+with open("claims-xray.txt", "r", encoding="utf-8") as file: 
+    xray_claims = file.readlines()
+
+with open("claims-outlaws.txt", "r", encoding="utf-8") as file:
+    outlaws_claims = file.readlines()
+
+# 15 #P2UPPVYL    ‭⁦Sned      ⁩‬ Sned | PST
+pattern = re.compile(r"\d{1,2} #([A-Z0-9]{5,9})\s+‭⁦(.*)⁩‬(.*)")
 
 def regular_keyboard(input_string): 
     pattern = r"^[A-Za-z0-9 !@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
@@ -39,7 +48,6 @@ for log_file in logs:
     with open(f"./logs/{log_file}.txt", "r", encoding="utf-8") as file: 
         lines = file.readlines()
 
-    import re, datetime
     hit_pattern = re.compile(r":(\d{2})::\d{2}::Sword::(\d{2})::\d{2}:(:Star:|:FadedStar:|:Blank:)(:Star:|:FadedStar:|:Blank:)(:Star:|:FadedStar:|:Blank:):\d{2,3}:[💥]? .{2}(.*).{2}")
 
     win_loss_pattern = re.compile(r"Win/loss: (win|loss|blacklist win|blacklist loss)")
