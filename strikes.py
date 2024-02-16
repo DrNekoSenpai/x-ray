@@ -1,6 +1,5 @@
 import pickle
 import datetime
-import argparse
 import requests
 import os 
 import re
@@ -32,16 +31,6 @@ def import_pickle():
     except: players = []
     return players
 
-# Create an argparse argument. By default, we will use command line (manual) entry. 
-# If the user specifies a file, we will use that instead.
-# Command line is easier to use, but is more tedious and slower to use. 
-# File input is faster, but requires the user to create a file with the correct format. This might result in more errors, so this should only be used by experienced users.
-parser = argparse.ArgumentParser(description='Process strikes.')
-parser.add_argument('-m', '--mode', type=str, default='manual', help='Mode to use. Can be manual or file.')
-parser.add_argument('-f', '--file', type=str, default='strikes_input.csv', help='File to use. Only used if mode is file.')
-parser.add_argument("--debug", "-d", help="Enable debug mode.", action="store_true")
-args = parser.parse_args()
-
 def up_to_date(): 
     # Get repository details from the GitHub API.
     url = "https://api.github.com/repos/DrNekoSenpai/x-ray"
@@ -54,19 +43,12 @@ def up_to_date():
     # Grab the current date, and adjust for UTC time. 
     current_date = datetime.datetime.utcnow()
 
-    if args.debug: 
-        print("Last commit date", last_commit_date)
-        print("Current date", current_date)
-
     return last_commit_date < current_date
 
 if not up_to_date():
     print("Error: the local repository is not up to date. Please pull the latest changes before running this script.")
     print("To pull the latest changes, simply run the command 'git pull' in this terminal.")
     exit(1)
-
-if args.debug:
-    print("The local repository is up to date.")
 
 players = import_pickle()
 
@@ -437,7 +419,7 @@ def regular_keyboard(input_string):
     return re.match(pattern, input_string) is not None 
 
 players = import_pickle()
-while(args.mode == 'manual'): 
+while(True): 
     print('---- Reddit X-ray Strike Automation System ----')
     print('[1] Add new players')
     print('[2] Remove a player')

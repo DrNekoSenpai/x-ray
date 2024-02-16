@@ -14,7 +14,7 @@ with open("cwl-input.txt", "r", encoding="utf-8") as f:
 players = []
 
 def regular_keyboard(input_string): 
-    pattern = r"^[A-Za-z0-9 !@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
+    pattern = r"^[A-Za-z0-9 \~!@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
     return re.match(pattern, input_string) is not None 
 
 clan = "outlaws"
