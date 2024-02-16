@@ -242,7 +242,6 @@ for log_file in logs:
 
         if attack_list == 2: 
             player_name = line.strip()[8:]
-            print(f"{player_name} missed two hits")
 
             if player_name == "JALVIN ø": player_name = "JALVIN"
             if player_name == "★ıċєʏקѧṅṭś★": player_name = "IceyPants"
@@ -257,7 +256,6 @@ for log_file in logs:
 
         if attack_list == 1:
             player_name = line.strip()[8:]
-            print(f"{player_name} missed one hit")
 
             if player_name == "JALVIN ø": player_name = "JALVIN"
             if player_name == "★ıċєʏקѧṅṭś★": player_name = "IceyPants"
@@ -276,7 +274,8 @@ for log_file in logs:
             for entry in log: 
                 player_name, attacker, defender, stars, time_remaining = entry
                 # print(f"Player: {player_name}, Attacker: {attacker}, Defender: {defender}, Stars: {stars}, Time Remaining: {time_remaining:.2f}")
-                if player_name in immune or "Unicorn" in player_name: continue
+                if player_name in immune or "Unicorn" in player_name: 
+                    continue
 
                 is_main = True
                 for claimer in claims_dictionary: 
@@ -303,6 +302,11 @@ for log_file in logs:
                         # This means that their own mirror was already taken, and thus we should not penalize. 
                         elif attacker in invalid_mirror:
                             print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but their mirror was already taken")
+
+                        # Next, check if they already hit their mirror, but the defender's number is not in the invalid_mirror list.
+                        # This can occur if they hit their mirror second; and thus we should not penalize.
+                        elif attacker in [entry[2] for entry in log if entry[1] == attacker]: 
+                            print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but they already hit their mirror")
                             
                         # If the defender's number is not in the invalid_mirror list, then we should add it.
                         # This means that their own mirror was not taken, and thus we should penalize.
@@ -350,7 +354,9 @@ for log_file in logs:
                     continue
 
                 # Find the corresponding entry in the log; find their other hit 
-                if entry in immune or "Unicorn" in entry: continue
+                if entry in immune or "Unicorn" in entry: 
+                    print(f"Bypass: {entry} missed one hit, but they are immune")
+                    continue
 
                 is_main = True
                 for claimer in claims_dictionary:
@@ -358,7 +364,9 @@ for log_file in logs:
                         if account.name == entry: 
                             if not account.is_main: 
                                 is_main = False
-                if not is_main: continue
+                if not is_main: 
+                    print(f"Bypass: {entry} missed one hit, but they are not a main account")
+                    continue
 
                 for log_entry in log: 
                     if log_entry[0] == entry: 
@@ -368,7 +376,9 @@ for log_file in logs:
                             file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
 
             for entry in two_missed_hits: 
-                if entry in immune or "Unicorn" in entry: continue
+                if entry in immune or "Unicorn" in entry: 
+                    print(f"Bypass: {entry} missed two hits, but they are immune")
+                    continue
 
                 is_main = True
                 for claimer in claims_dictionary:
@@ -376,7 +386,9 @@ for log_file in logs:
                         if account.name == entry: 
                             if not account.is_main: 
                                 is_main = False
-                if not is_main: continue
+                if not is_main: 
+                    print(f"Bypass: {entry} missed two hits, but they are not a main account")
+                    continue
 
                 print(f"Warning: {entry} missed two hits")
                 file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
@@ -384,7 +396,9 @@ for log_file in logs:
         elif win_loss == "blacklist win" or win_loss == "blacklist loss":
             victory = "y" if win_loss.split(" ")[1] == "win" else "n"
             for entry in one_missed_hit: 
-                if entry in immune or "Unicorn" in entry: continue
+                if entry in immune or "Unicorn" in entry: 
+                    print(f"Bypass: {entry} missed one hit on a blacklist war, but they are immune")
+                    continue
 
                 is_main = True
                 for claimer in claims_dictionary:
@@ -392,15 +406,20 @@ for log_file in logs:
                         if account.name == entry: 
                             if not account.is_main: 
                                 is_main = False
-                if not is_main: continue
+                if not is_main: 
+                    print(f"Bypass: {entry} missed one hit on a blacklist war, but they are not a main account")
+                    continue
 
                 if victory == "y": 
                     print(f"Bypass: {entry} missed one hit on a blacklist war, but we won anyway")
                 else: 
                     print(f"Warning: {entry} missed one hit on a blacklist war")
                     file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\nn\n1\n")
+
             for entry in two_missed_hits: 
-                if entry in immune or "Unicorn" in entry: continue
+                if entry in immune or "Unicorn" in entry: 
+                    print(f"Bypass: {entry} missed two hits on a blacklist war, but they are immune")
+                    continue
 
                 is_main = True
                 for claimer in claims_dictionary:
@@ -408,8 +427,10 @@ for log_file in logs:
                         if account.name == entry: 
                             if not account.is_main: 
                                 is_main = False
-                if not is_main: continue
-                
+                if not is_main: 
+                    print(f"Bypass: {entry} missed two hits on a blacklist war, but they are not a main account")
+                    continue
+
                 if victory == "y": 
                     print(f"Warning: {entry} missed two hits on a blacklist war, but we still won")
                     file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\ny\n2\n")
