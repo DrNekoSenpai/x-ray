@@ -6,7 +6,6 @@ immune = [
     "BumblinMumbler",
     "Glowy Gore"
 ]
-# To be deprecated, claims system in progress.
 
 with open("claims-xray.txt", "r", encoding="utf-8") as file: 
     xray_claims = file.readlines()
