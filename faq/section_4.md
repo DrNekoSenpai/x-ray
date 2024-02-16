@@ -1,0 +1,5 @@
+Strikes are how we enforce the rules. You can see the most recent strikes awarded in #strikes, and what actions incur strikes. Gaining one or two is okay - or even four. However, as soon as you gain five, you'll be kicked from the clan - but not the server - until the next CWL ends. 
+
+If you disobey the rules in a way that makes you a potential danger to the clan - whether it's having a war base set, or missing attacks, or disobeying instructions as discussed in Section 2, you will receive strikes. Therefore, try not to do this and you'll be fine.
+
+Sometimes, you will see that strikes are not updated for a while. I decide as a whole for each month whether enforcing strikes at all is worth it or not; usually they get overlooked if we have a lot of alt accounts in the clan; as having too few accounts can jeopardize our ability to spin. If this is true, it is likely we will not enforce strikes at all.

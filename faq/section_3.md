@@ -1,0 +1,7 @@
+How does matching work? It's simple, when two FWA clans match, the representatives of those clans meet and decide who's supposed to win that matchup. We do this by comparing the number of points each clan has, and the clan with more points wins. 
+
+When a clan wins a war, they lose a point for the next war. Similarly, when a clan loses a war, they gain a point for the next war. 
+
+During a blacklisted match (again, see section 6), we gain 1 point if we have 30 or more war bases, a second point if we achieve 60% or more cumulative destruction, and a third point if we win the war. This can translate into up to three bonus wins. This is awesome, right? Yes, it is - but this is why we are very strict during blacklisted wars in terms of attacking instructions, and intolerance towards missed attacks. 
+
+What if both clans have the same number of points? This is where the **low/high sync tiebreaker** comes into play. The system designates each war as a LOW or a HIGH sync war, and it swaps every war. During a low sync war, the clan with the clan tag closer to 0 wins, and during a high sync war, the clan with the clan tag closer to Z wins. This is done in relation to the following scale: [0-9, A-Z].
