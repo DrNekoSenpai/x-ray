@@ -325,6 +325,20 @@ for log_file in logs:
                                 
                 if not is_main: continue
 
+                # Check if an account with the same name exists in the claims dictionary.
+                # If not, they probably left the clan. 
+                account_found = False
+                for claimer in claims_dictionary:
+                    for account in claims_dictionary[claimer]: 
+                        if account.name == player_name: 
+                            account_found = True
+                            break
+                    if account_found: break
+
+                if not account_found:
+                    print(f"Bypass: {player_name} appears to have left")
+                    continue
+
                 if int(defender) > 5: 
                     # Check if this hit was not a mirror 
                     mirror = attacker == defender
@@ -440,6 +454,20 @@ for log_file in logs:
                     print(f"Bypass: {entry} missed one hit on a blacklist war, but they are immune")
                     continue
 
+                # Check if an account with the same name exists in the claims dictionary.
+                # If not, they probably left the clan. 
+                account_found = False
+                for claimer in claims_dictionary:
+                    for account in claims_dictionary[claimer]: 
+                        if account.name == entry: 
+                            account_found = True
+                            break
+                    if account_found: break
+
+                if not account_found:
+                    print(f"Bypass: {entry} appears to have left")
+                    continue
+
                 is_main = True
                 for claimer in claims_dictionary:
                     for account in claims_dictionary[claimer]: 
@@ -459,6 +487,20 @@ for log_file in logs:
             for entry in two_missed_hits: 
                 if entry in immune or "Unicorn" in entry: 
                     print(f"Bypass: {entry} missed two hits on a blacklist war, but they are immune")
+                    continue
+
+                # Check if an account with the same name exists in the claims dictionary.
+                # If not, they probably left the clan. 
+                account_found = False
+                for claimer in claims_dictionary:
+                    for account in claims_dictionary[claimer]: 
+                        if account.name == entry: 
+                            account_found = True
+                            break
+                    if account_found: break
+
+                if not account_found:
+                    print(f"Bypass: {entry} appears to have left")
                     continue
 
                 is_main = True
