@@ -1,15 +1,30 @@
 **Reddit X-ray**:
 
+[4] SkullCrusher49 #LJ2YUVUL2:
+- (1) Missed hits during war against `Reckless Hell`.
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
+- (1) Missed hits during war against `Art of Farm`.
+
+[4] Wolfy #YQ2YVYG8:
+- (1) Missed hits during war against `Reckless Hell`.
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
+- (1) Missed hits during war against `Art of Farm`.
+
+[3] Blump #RJ0GQGQ9:
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
+- (1) Missed hits during war against `Art of Farm`.
+
 [3] Chief_Lou #9VL2L8PPJ:
 - (1) Attacked someone else than mirror during a war against `Reckless Hell`.
 - (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 
-[3] SkullCrusher49 #LJ2YUVUL2:
-- (1) Missed hits during war against `Reckless Hell`.
+[3] Lil Ank #LCGRC09U8:
 - (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
+- (1) Missed hits during war against `Art of Farm`.
 
-[2] Blump #RJ0GQGQ9:
+[3] katsu #RCUY2PYV:
 - (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
+- (1) Missed hits during war against `Art of Farm`.
 
 [2] Cryptic Helix #280YYUJ8V:
 - (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
@@ -17,18 +32,16 @@
 [2] JALVIN #22R8VVGPJ:
 - (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 
-[2] Lil Ank #LCGRC09U8:
-- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
-
 [2] Shomeer #G2LGL80PL:
 - (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 
-[2] Wolfy #YQ2YVYG8:
-- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
-
-[2] katsu #RCUY2PYV:
-- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
-
-[1] mysterydeath #YVCLJCU2:
+[2] mysterydeath #YVCLJCU2:
 - (1) Missed hits during war against `Reckless Hell`.
+- (1) Missed hits during war against `Art of Farm`.
+
+[1] Kaselcap #LU2YC0L:
+- (1) Missed hits during war against `Art of Farm`.
+
+[1] Mr Kay #92GGRJQGG:
+- (1) Missed hits during war against `Art of Farm`.
 
