@@ -39,9 +39,6 @@
 - (1) Missed hits during war against `Reckless Hell`.
 - (1) Missed hits during war against `Art of Farm`.
 
-[1] An___ #QJ002VLYV:
-- (1) Missed hits during war against `Art of Farm`.
-
 [1] Kaselcap #LU2YC0L:
 - (1) Missed hits during war against `Art of Farm`.
 

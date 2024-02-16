@@ -20,6 +20,10 @@ with open("minion-xray.txt", "r", encoding="utf-8") as file:
 with open("minion-outlaws.txt", "r", encoding="utf-8") as file:
     outlaws_data = file.readlines()
 
+def regular_keyboard(input_string): 
+    pattern = r"^[A-Za-z0-9 \~!@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
+    return re.match(pattern, input_string) is not None 
+
 # 15 #P2UPPVYL    ‭⁦Sned      ⁩‬ Sned | PST
 claims_pattern = re.compile(r"(\d{1,2})\s+#([A-Z0-9]{5,9})\s+‭⁦(.*)⁩‬(.*)")
 
@@ -44,10 +48,30 @@ for claim in xray_claims:
     claimer = claimer.strip()
 
     for account in xray_data: 
+
         account_tag, account_name = re.search(full_account_name_pattern, account).groups()
 
         account_tag = account_tag.strip()
         account_name = account_name.strip()
+
+        if account_name == "JALVIN ø": account_name = "JALVIN"
+        if account_name == "★ıċєʏקѧṅṭś★": account_name = "IceyPants"
+        if account_name == "General⚡️Mc0⚡️": account_name = "General Mc0"
+        if account_name == "༺༃༼SEV༽༃༻": account_name = "SEV"
+        if account_name == "「 NightEye 」": account_name = "NightEye"
+        if account_name == "Mini @ñ@$": account_name = "Mini Anas"
+        if account_name == "❤️lav❤️": account_name = "lav"
+        if account_name == "$õckÕ": account_name = "Socko"
+        
+        if "’" in account_name: account_name = account_name.replace("’", "'")
+        if "™" in account_name: account_name = account_name.replace("™", "")
+        if "✨" in account_name: account_name = account_name.replace("✨", "")
+        if "\_" in account_name: account_name = account_name.replace("\_", "_")
+        if "\~" in account_name: account_name = account_name.replace("\~", "~")
+
+        if not regular_keyboard(account_name):
+            print(f"Player name '{account_name}' is not valid. Please input the name manually.")
+            account_name = input("Name: ")
 
         if account_tag == claim_tag: 
             if claimer not in claims_dictionary: claims_dictionary[claimer] = []
@@ -66,6 +90,25 @@ for claim in outlaws_claims:
 
         account_tag = account_tag.strip()
         account_name = account_name.strip()
+
+        if account_name == "JALVIN ø": account_name = "JALVIN"
+        if account_name == "★ıċєʏקѧṅṭś★": account_name = "IceyPants"
+        if account_name == "General⚡️Mc0⚡️": account_name = "General Mc0"
+        if account_name == "༺༃༼SEV༽༃༻": account_name = "SEV"
+        if account_name == "「 NightEye 」": account_name = "NightEye"
+        if account_name == "Mini @ñ@$": account_name = "Mini Anas"
+        if account_name == "❤️lav❤️": account_name = "lav"
+        if account_name == "$õckÕ": account_name = "Socko"
+        
+        if "’" in account_name: account_name = account_name.replace("’", "'")
+        if "™" in account_name: account_name = account_name.replace("™", "")
+        if "✨" in account_name: account_name = account_name.replace("✨", "")
+        if "\_" in account_name: account_name = account_name.replace("\_", "_")
+        if "\~" in account_name: account_name = account_name.replace("\~", "~")
+
+        if not regular_keyboard(account_name):
+            print(f"Player name '{account_name}' is not valid. Please input the name manually.")
+            account_name = input("Name: ")
 
         if account_tag == claim_tag: 
             if claimer not in claims_dictionary: claims_dictionary[claimer] = []
@@ -145,10 +188,6 @@ with open("claims_output.txt", "w", encoding="utf-8") as file:
             file.write("\n")
 
         file.write("\n")
-
-def regular_keyboard(input_string): 
-    pattern = r"^[A-Za-z0-9 !@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
-    return re.match(pattern, input_string) is not None 
 
 for log_file in logs: 
     with open(f"./logs/{log_file}.txt", "r", encoding="utf-8") as file: 
@@ -298,16 +337,16 @@ for log_file in logs:
                         elif win_loss == "win" and stars < 3:
                             print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but this appears to be a snipe")
                         
-                        # If not, first check if the defender's number is in the invalid_mirror list. 
-                        # This means that their own mirror was already taken, and thus we should not penalize. 
-                        elif attacker in invalid_mirror:
-                            print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but their mirror was already taken")
-
                         # Next, check if they already hit their mirror, but the defender's number is not in the invalid_mirror list.
                         # This can occur if they hit their mirror second; and thus we should not penalize.
                         elif attacker in [entry[2] for entry in log if entry[1] == attacker]: 
                             print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but they already hit their mirror")
                             
+                        # If not, first check if the defender's number is in the invalid_mirror list. 
+                        # This means that their own mirror was already taken, and thus we should not penalize. 
+                        elif attacker in invalid_mirror:
+                            print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but their mirror was already taken")
+
                         # If the defender's number is not in the invalid_mirror list, then we should add it.
                         # This means that their own mirror was not taken, and thus we should penalize.
                         else:
@@ -364,6 +403,7 @@ for log_file in logs:
                         if account.name == entry: 
                             if not account.is_main: 
                                 is_main = False
+
                 if not is_main: 
                     print(f"Bypass: {entry} missed one hit, but they are not a main account")
                     continue
