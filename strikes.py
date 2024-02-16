@@ -374,7 +374,7 @@ def clear_strikes():
             players[i].missed_hit_dates = []
 
 def output_strikes():
-    with open('strikes.txt', 'w') as file: 
+    with open('strikes.txt', 'w', encoding="utf-8") as file: 
         xray_printed = False 
         outlaws_printed = False
 

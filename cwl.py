@@ -1,11 +1,6 @@
-from argparse import ArgumentParser
 import datetime
 import requests
 import re
-
-parser = ArgumentParser()
-parser.add_argument('-i', '--input', help='Command line input', default=None)
-args = parser.parse_args()
 
 with open("cwl-input.txt", "r", encoding="utf-8") as f: 
     cwl = f.readlines()

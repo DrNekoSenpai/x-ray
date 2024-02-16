@@ -1,4 +1,4 @@
-import os, re, datetime, pickle
+import os, re, datetime
 logs = [file[:-4] for file in os.listdir("./logs/") if not "_input" in file]
 
 immune = [ 
