@@ -47,7 +47,6 @@ for claim in xray_claims:
     claimer = claimer.strip()
 
     for account in xray_data: 
-
         account_tag, account_name = re.search(full_account_name_pattern, account).groups()
 
         account_tag = account_tag.strip()
@@ -118,13 +117,6 @@ known_mains = ["Glowy Gore", "Lil Ank"]
 
 with open("claims_output.txt", "w", encoding="utf-8") as file:
     for claimer in claims_dictionary: 
-        # main_exists is a tuple of two booleans. 
-        # The first is whether or not the claimer has a main in Reddit X-ray. 
-        # The second is whether or not the claimer has a main in Faint Outlaws.
-        # None -- no accounts in this clan
-        # True -- a main account has been identified
-        # False -- no main account has been identified
-
         for claim in claims_dictionary[claimer]:
             accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.clan == "Reddit X-Ray"]
             accounts_outlaws = [claim for claim in claims_dictionary[claimer] if claim.clan == "Faint Outlaws"]
@@ -399,6 +391,20 @@ for log_file in logs:
                             invalid_mirror.append(defender)
 
             for entry in one_missed_hit: 
+                # Check if an account with the same name exists in the claims dictionary.
+                # If not, they probably left the clan. 
+                account_found = False
+                for claimer in claims_dictionary:
+                    for account in claims_dictionary[claimer]: 
+                        if account.name == entry: 
+                            account_found = True
+                            break
+                    if account_found: break
+
+                if not account_found:
+                    print(f"Bypass: {entry} appears to have left")
+                    continue
+
                 # First, check if there are TWO entries in the log with the same name.
                 # If so, Minion Bot made an error; ignore this entry. 
                 if len([log_entry for log_entry in log if log_entry[0] == entry]) > 1: 
@@ -429,6 +435,20 @@ for log_file in logs:
                             file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
 
             for entry in two_missed_hits: 
+                # Check if an account with the same name exists in the claims dictionary.
+                # If not, they probably left the clan. 
+                account_found = False
+                for claimer in claims_dictionary:
+                    for account in claims_dictionary[claimer]: 
+                        if account.name == entry: 
+                            account_found = True
+                            break
+                    if account_found: break
+
+                if not account_found:
+                    print(f"Bypass: {entry} appears to have left")
+                    continue
+
                 if entry in immune or "Unicorn" in entry: 
                     print(f"Bypass: {entry} missed two hits, but they are immune")
                     continue
