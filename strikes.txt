@@ -1,5 +1,23 @@
 **Reddit X-ray**:
 
+[8] Blump #RJ0GQGQ9:
+- (3) Had war base during battle day against `Warring Gods`.
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
+- (1) Missed hits during war against `Art of Farm`.
+- (1) Missed hits during war against `Warring Gods`.
+- (1) Missed hits in two consecutive wars against `Art of Farm` and `Warring Gods`.
+
+[5] katsu #RCUY2PYV:
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
+- (1) Missed hits during war against `Art of Farm`.
+- (1) Missed hits during war against `Warring Gods`.
+- (1) Missed hits in two consecutive wars against `Art of Farm` and `Warring Gods`.
+
+[4] Chief_Lou #9VL2L8PPJ:
+- (1) Attacked someone else than mirror during a war against `Reckless Hell`.
+- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
+- (1) Missed hits during war against `Warring Gods`.
+
 [4] SkullCrusher49 #LJ2YUVUL2:
 - (1) Missed hits during war against `Reckless Hell`.
 - (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
@@ -10,21 +28,20 @@
 - (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 - (1) Missed hits during war against `Art of Farm`.
 
-[3] Blump #RJ0GQGQ9:
-- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
+[4] mysterydeath #YVCLJCU2:
+- (1) Missed hits during war against `Reckless Hell`.
 - (1) Missed hits during war against `Art of Farm`.
-
-[3] Chief_Lou #9VL2L8PPJ:
-- (1) Attacked someone else than mirror during a war against `Reckless Hell`.
-- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
+- (1) Missed hits during war against `Warring Gods`.
+- (1) Missed hits in two consecutive wars against `Art of Farm` and `Warring Gods`.
 
 [3] Lil Ank #LCGRC09U8:
 - (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 - (1) Missed hits during war against `Art of Farm`.
 
-[3] katsu #RCUY2PYV:
-- (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
+[3] Mr Kay #92GGRJQGG:
 - (1) Missed hits during war against `Art of Farm`.
+- (1) Missed hits during war against `Warring Gods`.
+- (1) Missed hits in two consecutive wars against `Art of Farm` and `Warring Gods`.
 
 [2] Cryptic Helix #280YYUJ8V:
 - (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
@@ -35,13 +52,12 @@
 [2] Shomeer #G2LGL80PL:
 - (2) Missed two attacks during a blacklist war against `DANGER PLAYER`, but we won.
 
-[2] mysterydeath #YVCLJCU2:
-- (1) Missed hits during war against `Reckless Hell`.
-- (1) Missed hits during war against `Art of Farm`.
+[1] ANBU #80U9VGUU9:
+- (1) Missed hits during war against `Warring Gods`.
+
+[1] DeAndre Lopez #80C0PRCJ:
+- (1) Missed hits during war against `Warring Gods`.
 
 [1] Kaselcap #LU2YC0L:
-- (1) Missed hits during war against `Art of Farm`.
-
-[1] Mr Kay #92GGRJQGG:
 - (1) Missed hits during war against `Art of Farm`.
 

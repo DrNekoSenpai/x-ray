@@ -1,21 +1,10 @@
-mema224: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
-  - Mema224 (12) -- Reddit X-Ray (main)
-
-under gamer: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
-  - under gamer (12) -- Reddit X-Ray (main)
-
-Lil Ank/A____/An___: 3 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
-  - Lil Ank (12) -- Reddit X-Ray (main)
-  - An___ (11) -- Reddit X-Ray
-  - A____ (11) -- Reddit X-Ray
-
-deandrelopez: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
-  - DeAndre Lopez (11) -- Reddit X-Ray (main)
-
-Seven Thunders | CST: 3 accounts in Reddit X-Ray, 17 accounts in Faint Outlaws
+Seven Thunders | CST: 4 accounts in Reddit X-Ray, 18 accounts in Faint Outlaws
   - Glowy Gore (13) -- Reddit X-Ray (main)
+  - Loo Czar (10) -- Reddit X-Ray
   - Perfect (10) -- Reddit X-Ray
   - Demeter's Demon (10) -- Reddit X-Ray
+  - Dark Hell Mutt (15) -- Faint Outlaws
+  - Stunted Nazgul (9) -- Faint Outlaws
   - Chalk Outline (11) -- Faint Outlaws
   - Outlaw In-Law (13) -- Faint Outlaws
   - Vixi's Curse (13) -- Faint Outlaws
@@ -31,8 +20,24 @@ Seven Thunders | CST: 3 accounts in Reddit X-Ray, 17 accounts in Faint Outlaws
   - Seven Thunders (15) -- Faint Outlaws
   - Not My Name (14) -- Faint Outlaws
   - Clone Castle (13) -- Faint Outlaws
-  - Dark Hell Mutt (14) -- Faint Outlaws
   - Hostile Doctor (13) -- Faint Outlaws
+
+under gamer: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
+  - under gamer (12) -- Reddit X-Ray (main)
+
+chizu_hara: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
+  - Arc Symphony (14) -- Reddit X-Ray (main)
+
+mema224: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
+  - Mema224 (12) -- Reddit X-Ray (main)
+
+Lil Ank/A____/An___: 3 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
+  - Lil Ank (12) -- Reddit X-Ray (main)
+  - An___ (11) -- Reddit X-Ray
+  - A____ (11) -- Reddit X-Ray
+
+deandrelopez: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
+  - DeAndre Lopez (11) -- Reddit X-Ray (main)
 
 mysterydeath/Kelly: 1 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
   - mysterydeath (11) -- Reddit X-Ray (main)
@@ -56,9 +61,6 @@ gdfan75: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
 
 Sivankh39: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
   - Sivankh39 (15) -- Reddit X-Ray (main)
-
-chizu_hara: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
-  - Arc Symphony (14) -- Reddit X-Ray (main)
 
 Kaselcap | CST: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
   - Kaselcap (15) -- Reddit X-Ray (main)
@@ -115,12 +117,6 @@ saurabhraje96: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
 Master21: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
   - Master21 (12) -- Reddit X-Ray (main)
 
-blumplestiltskin: 1 accounts in Reddit X-Ray, 3 accounts in Faint Outlaws
-  - Blump (16) -- Reddit X-Ray (main)
-  - Lumpkinbay (14) -- Faint Outlaws
-  - Kin (15) -- Faint Outlaws
-  - Lil' Blump (13) -- Faint Outlaws
-
 360__: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
   - 360 (11) -- Reddit X-Ray (main)
 
@@ -168,6 +164,14 @@ jy: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
 JALVIN: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
   - JALVIN (13) -- Reddit X-Ray (main)
 
+IPayForWinRAR: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
+  - IPayForWinRAR (12) -- Faint Outlaws (main)
+
+blumplestiltskin: 0 accounts in Reddit X-Ray, 3 accounts in Faint Outlaws
+  - Kin (15) -- Faint Outlaws (main)
+  - Lumpkinbay (14) -- Faint Outlaws
+  - Lil' Blump (13) -- Faint Outlaws
+
 wanzl: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
   - Wanzl (14) -- Faint Outlaws (main)
 
@@ -194,11 +198,8 @@ boilingshadows: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
 Arcohol | CST: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
   - Arcohol (16) -- Faint Outlaws (main)
 
-levi_tate.: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
-  - younis dar (16) -- Faint Outlaws (main)
-
-Hisoka: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
-  - HISOKA (14) -- Faint Outlaws (main)
+Cow-E: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
+  - Cow-E (14) -- Faint Outlaws (main)
 
 Darryl: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
   - Darryl (15) -- Faint Outlaws (main)
@@ -226,7 +227,4 @@ ant1greeny: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
 
 _clunkhhh: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
   - ~CLUNK~ (14) -- Faint Outlaws (main)
-
-F@RH@N: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
-  - Socko (15) -- Faint Outlaws (main)
 

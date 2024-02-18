@@ -3,7 +3,6 @@
 #92GGRJQGG   16 Mr Kay
 #280YYUJ8V   16 Cryptic Helix
 #JCCLVR8R    16 BumblinMumbler
-#RJ0GQGQ9    16 Blump
 #PQJQGRYL0   16 Annayake
 #YQ2YVYG8    15 Wolfy
 #U2LJ0QVP    15 ViperX56
@@ -47,4 +46,5 @@
 #QCQ8V2UL9   11 A\_\_\_\_
 #VVPL2GRU    11 360
 #QVJU0V2UR   10 Perfect
+#G88CQLVY0   10 Loo Czar
 #GPYP9RJP0   10 Demeter's Demon

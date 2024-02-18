@@ -60,6 +60,7 @@ for claim in xray_claims:
         if account_name == "Mini @ñ@$": account_name = "Mini Anas"
         if account_name == "❤️lav❤️": account_name = "lav"
         if account_name == "$õckÕ": account_name = "Socko"
+        if account_name == "Stunted Nazgûl": account_name = "Stunted Nazgul"
         
         if "’" in account_name: account_name = account_name.replace("’", "'")
         if "™" in account_name: account_name = account_name.replace("™", "")
@@ -97,6 +98,7 @@ for claim in outlaws_claims:
         if account_name == "Mini @ñ@$": account_name = "Mini Anas"
         if account_name == "❤️lav❤️": account_name = "lav"
         if account_name == "$õckÕ": account_name = "Socko"
+        if account_name == "Stunted Nazgûl": account_name = "Stunted Nazgul"
         
         if "’" in account_name: account_name = account_name.replace("’", "'")
         if "™" in account_name: account_name = account_name.replace("™", "")
@@ -249,7 +251,10 @@ for log_file in logs:
             if player_name == "༺༃༼SEV༽༃༻": player_name = "SEV"
             if player_name == "「 NightEye 」": player_name = "NightEye"
             if player_name == "Mini @ñ@$": player_name = "Mini Anas"
-
+            if player_name == "❤️lav❤️": player_name = "lav"
+            if player_name == "$õckÕ": player_name = "Socko"
+            if player_name == "Stunted Nazgûl": player_name = "Stunted Nazgul"
+            
             if "’" in player_name: player_name = player_name.replace("’", "'")
             if "™" in player_name: player_name = player_name.replace("™", "")
             if "✨" in player_name: player_name = player_name.replace("✨", "")
@@ -275,8 +280,19 @@ for log_file in logs:
 
             if player_name == "JALVIN ø": player_name = "JALVIN"
             if player_name == "★ıċєʏקѧṅṭś★": player_name = "IceyPants"
+            if player_name == "General⚡️Mc0⚡️": player_name = "General Mc0"
+            if player_name == "༺༃༼SEV༽༃༻": player_name = "SEV"
+            if player_name == "「 NightEye 」": player_name = "NightEye"
+            if player_name == "Mini @ñ@$": player_name = "Mini Anas"
+            if player_name == "❤️lav❤️": player_name = "lav"
+            if player_name == "$õckÕ": player_name = "Socko"
+            if player_name == "Stunted Nazgûl": player_name = "Stunted Nazgul"
+            
+            if "’" in player_name: player_name = player_name.replace("’", "'")
             if "™" in player_name: player_name = player_name.replace("™", "")
             if "✨" in player_name: player_name = player_name.replace("✨", "")
+            if "\_" in player_name: player_name = player_name.replace("\_", "_")
+            if "\~" in player_name: player_name = player_name.replace("\~", "~")
 
             if not regular_keyboard(player_name):
                 print(f"Player name {player_name} is not valid. Please input the name manually.")
@@ -289,8 +305,19 @@ for log_file in logs:
 
             if player_name == "JALVIN ø": player_name = "JALVIN"
             if player_name == "★ıċєʏקѧṅṭś★": player_name = "IceyPants"
+            if player_name == "General⚡️Mc0⚡️": player_name = "General Mc0"
+            if player_name == "༺༃༼SEV༽༃༻": player_name = "SEV"
+            if player_name == "「 NightEye 」": player_name = "NightEye"
+            if player_name == "Mini @ñ@$": player_name = "Mini Anas"
+            if player_name == "❤️lav❤️": player_name = "lav"
+            if player_name == "$õckÕ": player_name = "Socko"
+            if player_name == "Stunted Nazgûl": player_name = "Stunted Nazgul"
+            
+            if "’" in player_name: player_name = player_name.replace("’", "'")
             if "™" in player_name: player_name = player_name.replace("™", "")
             if "✨" in player_name: player_name = player_name.replace("✨", "")
+            if "\_" in player_name: player_name = player_name.replace("\_", "_")
+            if "\~" in player_name: player_name = player_name.replace("\~", "~")
 
             if not regular_keyboard(player_name):
                 print(f"Player name {player_name} is not valid. Please input the name manually.")
@@ -326,9 +353,9 @@ for log_file in logs:
                             break
                     if account_found: break
 
-                if not account_found:
-                    print(f"Bypass: {player_name} appears to have left")
-                    continue
+                # if not account_found:
+                #     print(f"Bypass: {player_name} appears to have left")
+                #     continue
 
                 if int(defender) > 5: 
                     # Check if this hit was not a mirror 
@@ -401,9 +428,9 @@ for log_file in logs:
                             break
                     if account_found: break
 
-                if not account_found:
-                    print(f"Bypass: {entry} appears to have left")
-                    continue
+                # if not account_found:
+                #     print(f"Bypass: {entry} appears to have left")
+                #     continue
 
                 # First, check if there are TWO entries in the log with the same name.
                 # If so, Minion Bot made an error; ignore this entry. 
@@ -445,9 +472,9 @@ for log_file in logs:
                             break
                     if account_found: break
 
-                if not account_found:
-                    print(f"Bypass: {entry} appears to have left")
-                    continue
+                # if not account_found:
+                #     print(f"Bypass: {entry} appears to have left")
+                #     continue
 
                 if entry in immune or "Unicorn" in entry: 
                     print(f"Bypass: {entry} missed two hits, but they are immune")
@@ -483,9 +510,9 @@ for log_file in logs:
                             break
                     if account_found: break
 
-                if not account_found:
-                    print(f"Bypass: {entry} appears to have left")
-                    continue
+                # if not account_found:
+                #     print(f"Bypass: {entry} appears to have left")
+                #     continue
 
                 is_main = True
                 for claimer in claims_dictionary:
@@ -518,9 +545,9 @@ for log_file in logs:
                             break
                     if account_found: break
 
-                if not account_found:
-                    print(f"Bypass: {entry} appears to have left")
-                    continue
+                # if not account_found:
+                #     print(f"Bypass: {entry} appears to have left")
+                #     continue
 
                 is_main = True
                 for claimer in claims_dictionary:
