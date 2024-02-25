@@ -108,8 +108,18 @@ def add_player(clan):
                 found = False
                 for i in range(len(players)):
                     if players[i].name.lower().startswith(name.lower()):
+                        if players[i].clan != "Reddit X-ray" and clan == "xray":
+                            players[i].clan = "Reddit X-ray"
+                            print(f"Player {name} already exists in the database, but in the wrong clan. Changing clan to Reddit X-ray.")
+
+                        elif players[i].clan != "Faint Outlaws" and clan == "outlaws":
+                            players[i].clan = "Faint Outlaws"
+                            print(f"Player {name} already exists in the database, but in the wrong clan. Changing clan to Faint Outlaws.")
+
+                        else: 
+                            print(f"Player {name} already exists in the database. Skipping...")
+                            
                         found = True
-                        print(f"Player {name} already exists in the database. Skipping...")
                         break
 
                 # If the player does not exist, add them to the database

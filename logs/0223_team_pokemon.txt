@@ -1,0 +1,364 @@
+Win/loss: win
+Enemy clan: Téam Pokémon
+War end date: 0223
+
+Minion Bot
+BOT
+ — 02/22/2024 4:29 PM
+War with #2PV0CC98V ‭⁦Téam Pokémon⁩‬ starts in 59 minutes.
+Minion Bot
+BOT
+ — 02/22/2024 5:34 PM
+:11::15::Sword::01::16::Star::Star::Blank::50: ‭⁦kallikrein⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 5:58 PM
+:04::16::Sword::02::16::Star::Star::Blank::52: ‭⁦Annayake⁩‬
+:04::16::Sword::04::16::Star::Star::Star::100:💥 ‭⁦Annayake⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 6:07 PM
+:26::13::Sword::26::13::Star::Star::Star::100:💥 ‭⁦Glowy Gore⁩‬
+:26::13::Sword::01::16::FadedStar::Blank::Blank::31: ‭⁦Glowy Gore⁩‬
+:50::09::Sword::50::09::Star::Star::Star::100:💥 ‭⁦Stunted Nazgûl⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 6:20 PM
+:10::15::Sword::10::15::Star::Star::Star::100:💥 ‭⁦Sivankh39⁩‬
+:50::09::Sword::01::16::FadedStar::Blank::Blank::28: ‭⁦Stunted Nazgûl⁩‬
+:10::15::Sword::03::16::Star::Star::Blank::82: ‭⁦Sivankh39⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 6:28 PM
+:48::10::Sword::48::11::Star::Star::Blank::97: ‭⁦Perfect⁩‬
+:48::10::Sword::01::16::FadedStar::FadedStar::Blank::52: ‭⁦Perfect⁩‬
+:49::10::Sword::49::10::Star::Star::Star::100:💥 ‭⁦Loo Czar⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 6:37 PM
+:49::10::Sword::01::16::FadedStar::Blank::Blank::32: ‭⁦Loo Czar⁩‬
+:06::15::Sword::06::15::Star::Star::Star::100:💥 ‭⁦ANBU⁩‬
+:06::15::Sword::01::16::FadedStar::Blank::Blank::45: ‭⁦ANBU⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 6:48 PM
+:08::15::Sword::08::15::Star::Star::Star::100:💥 ‭⁦jy⁩‬
+:08::15::Sword::01::16::FadedStar::Blank::Blank::17: ‭⁦jy⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 6:59 PM
+:29::13::Sword::29::13::Star::Star::Blank::68: ‭⁦pg⁩‬
+:29::13::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦pg⁩‬
+:20::14::Sword::20::15::Star::Star::Star::100:💥 ‭⁦bran6⁩‬
+:45::11::Shield::45::12::Star::Star::Blank::66: ‭⁦An___⁩‬
+:01::16::Shield::45::12::Star::Blank::Blank::02: ‭⁦BumblinMumbler⁩‬
+:20::14::Sword::01::16::FadedStar::FadedStar::Blank::50: ‭⁦bran6⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 7:07 PM
+:44::11::Shield::44::12::Star::Star::Blank::50: ‭⁦Schooner⁩‬
+:37::12::Shield::37::12::Star::Star::Blank::80: ‭⁦Arietem⁩‬
+:02::16::Shield::44::12::Star::Blank::Blank::41: ‭⁦Satan⁩‬
+:31::12::Shield::31::13::Star::Star::Blank::55: ‭⁦Luke⁩‬
+:03::16::Shield::31::13::Star::Blank::Blank::32: ‭⁦Cryptic Helix⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 7:18 PM
+:50::09::Shield::50::09::Star::Star::Blank::63: ‭⁦Stunted Nazgûl⁩‬
+:01::16::Shield::50::09::FadedStar::Blank::Blank::02: ‭⁦BumblinMumbler⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 7:51 PM
+:04::16::Shield::04::16::Star::Star::Blank::52: ‭⁦Annayake⁩‬
+:05::16::Shield::04::16::Star::Blank::Blank::16: ‭⁦Protips⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 7:59 PM
+:03::16::Sword::03::16::FadedStar::FadedStar::Star::100: ‭⁦Cryptic Helix⁩‬
+:06::15::Shield::06::15::Star::Star::Blank::57: ‭⁦ANBU⁩‬
+:03::16::Sword::05::16::Star::Star::Blank::50: ‭⁦Cryptic Helix⁩‬
+:03::16::Shield::03::16::FadedStar::Star::Blank::54: ‭⁦Cryptic Helix⁩‬
+:01::16::Shield::03::16::FadedStar::Blank::Blank::02: ‭⁦BumblinMumbler⁩‬
+:35::12::Sword::35::12::Star::Star::Star::100:💥 ‭⁦Mema224⁩‬
+:35::12::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦Mema224⁩‬
+:34::12::Shield::34::12::Star::Star::Blank::59: ‭⁦under gamer⁩‬
+:07::15::Shield::34::12::Star::Blank::Blank::03: ‭⁦Sned⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 8:24 PM
+:47::11::Shield::47::11::Star::Star::Blank::55: ‭⁦K.L.A.U.S v2⁩‬
+:20::14::Shield::47::11::Star::Blank::Blank::02: ‭⁦bran6⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 8:38 PM
+:40::11::Sword::40::12::Star::Star::Star::100:💥 ‭⁦360⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 8:55 PM
+:40::11::Sword::07::15::Star::Star::Blank::52: ‭⁦360⁩‬
+:13::15::Sword::01::16::FadedStar::Blank::Blank::54: ‭⁦Kaselcap⁩‬
+:30::12::Sword::30::13::Star::Star::Star::100:💥 ‭⁦Master21⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 9:04 PM
+:30::12::Sword::01::16::FadedStar::Blank::Blank::29: ‭⁦Master21⁩‬
+:13::15::Sword::13::15::Star::Star::Star::100:💥 ‭⁦Kaselcap⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 9:28 PM
+:13::15::Shield::13::15::Star::Star::Blank::54: ‭⁦Kaselcap⁩‬
+:01::16::Shield::13::15::FadedStar::Blank::Blank::02: ‭⁦BumblinMumbler⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 9:52 PM
+:05::16::Sword::01::16::FadedStar::Blank::Blank::04: ‭⁦Protips⁩‬
+:05::16::Sword::05::16::FadedStar::FadedStar::Star::100: ‭⁦Protips⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 10:41 PM
+:49::10::Shield::49::10::Star::Star::Blank::58: ‭⁦Loo Czar⁩‬
+:01::16::Shield::49::10::FadedStar::Blank::Blank::02: ‭⁦BumblinMumbler⁩‬
+Minion Bot
+BOT
+ — 02/22/2024 11:34 PM
+:12::15::Shield::12::15::Star::Star::Blank::53: ‭⁦ViperX56⁩‬
+:12::15::Sword::12::15::Star::Star::Star::100:💥 ‭⁦ViperX56⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 12:07 AM
+:27::13::Shield::27::13::Star::Star::Blank::52: ‭⁦eRaZoR⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 12:18 AM
+:28::14::Shield::28::13::Star::Star::Blank::60: ‭⁦Wanzl⁩‬
+:01::16::Shield::28::13::FadedStar::Star::Blank::54: ‭⁦BumblinMumbler⁩‬
+:48::10::Shield::48::11::Star::Star::Blank::76: ‭⁦Perfect⁩‬
+:25::13::Shield::25::13::Star::Star::Blank::63: ‭⁦Chief_Lou⁩‬
+:08::15::Shield::48::11::Star::Blank::Blank::01: ‭⁦jy⁩‬
+:01::16::Shield::25::13::FadedStar::FadedStar::Blank::55: ‭⁦BumblinMumbler⁩‬
+:15::14::Shield::14::14::Star::Star::Blank::56: ‭⁦Eddy⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 12:42 AM
+:14::15::Sword::01::16::FadedStar::Blank::Blank::06: ‭⁦Wolfy⁩‬
+:14::15::Sword::14::14::Star::Star::Star::100:💥 ‭⁦Wolfy⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 12:58 AM
+:18::14::Sword::18::15::Star::Star::Star::100:💥 ‭⁦Coolguyagent⁩‬
+:18::14::Sword::01::16::FadedStar::FadedStar::Blank::52: ‭⁦Coolguyagent⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 1:07 AM
+:24::13::Shield::24::13::Star::Star::Blank::54: ‭⁦El Jeffe⁩‬
+:33::12::Sword::33::13::Star::Star::Star::100:💥 ‭⁦gdfan75⁩‬
+:01::16::Shield::24::13::FadedStar::FadedStar::Blank::52: ‭⁦BumblinMumbler⁩‬
+:33::12::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦gdfan75⁩‬
+:22::13::Shield::22::13::Star::Star::Blank::58: ‭⁦K.L.A.U.S⁩‬
+:01::16::Shield::22::13::FadedStar::FadedStar::Blank::52: ‭⁦BumblinMumbler⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 1:18 AM
+:37::12::Sword::37::12::Star::Star::Star::100:💥 ‭⁦Arietem⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 1:32 AM
+:01::16::Shield::12::15::FadedStar::Blank::Blank::18: ‭⁦BumblinMumbler⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 1:49 AM
+:01::16::Shield::36::12::FadedStar::Blank::Blank::02: ‭⁦BumblinMumbler⁩‬
+:19::14::Sword::19::14::Star::Star::Star::100:💥 ‭⁦Arc Symphony⁩‬
+:36::12::Shield::36::12::Star::Star::Star::100:💥 ‭⁦Shomeer⁩‬
+:19::14::Sword::01::16::FadedStar::FadedStar::Blank::56: ‭⁦Arc Symphony⁩‬
+:46::11::Shield::46::12::Star::Star::Blank::58: ‭⁦A____⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 1:57 AM
+:39::12::Sword::39::12::Star::Star::Star::100:💥 ‭⁦Lil Ank⁩‬
+:39::12::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦Lil Ank⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 2:05 AM
+:35::12::Shield::35::12::Star::Star::Blank::77: ‭⁦Mema224⁩‬
+:01::16::Shield::35::12::FadedStar::Blank::Blank::02: ‭⁦BumblinMumbler⁩‬
+:38::13::Shield::38::12::Star::Star::Blank::69: ‭⁦Nitin 7.0⁩‬
+:01::16::Shield::38::12::FadedStar::Blank::Blank::02: ‭⁦BumblinMumbler⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 2:32 AM
+:34::12::Sword::34::12::Star::Star::Blank::87: ‭⁦under gamer⁩‬
+:34::12::Sword::01::16::FadedStar::FadedStar::Blank::84: ‭⁦under gamer⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 2:53 AM
+:46::11::Sword::46::12::Star::Star::Star::100:💥 ‭⁦A____⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 3:02 AM
+:46::11::Sword::02::16::FadedStar::FadedStar::Blank::53: ‭⁦A____⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 3:18 AM
+:41::11::Sword::41::12::Star::Star::Star::100:💥 ‭⁦DeAndre Lopez⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 4:31 AM
+:36::12::Sword::36::12::Star::Star::Star::100:💥 ‭⁦Shomeer⁩‬
+:36::12::Sword::01::16::FadedStar::Blank::Blank::52: ‭⁦Shomeer⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 4:50 AM
+:39::12::Shield::39::12::Star::Star::Blank::80: ‭⁦Lil Ank⁩‬
+:10::15::Shield::10::15::Star::Star::Blank::58: ‭⁦Sivankh39⁩‬
+:01::16::Shield::39::12::FadedStar::Blank::Blank::50: ‭⁦BumblinMumbler⁩‬
+:01::16::Shield::10::15::FadedStar::Blank::Blank::02: ‭⁦BumblinMumbler⁩‬
+:37::12::Sword::01::16::FadedStar::FadedStar::Blank::52: ‭⁦Arietem⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 4:58 AM
+:11::15::Shield::11::15::Star::Star::Blank::54: ‭⁦kallikrein⁩‬
+:01::16::Shield::11::15::FadedStar::Blank::Blank::02: ‭⁦BumblinMumbler⁩‬
+:43::11::Sword::43::12::Star::Star::Star::100:💥 ‭⁦sanskar⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 5:09 AM
+:43::11::Sword::01::16::FadedStar::FadedStar::Blank::73: ‭⁦sanskar⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 5:24 AM
+:11::15::Sword::11::15::Star::Star::Star::100:💥 ‭⁦kallikrein⁩‬
+:01::16::Shield::01::16::FadedStar::Blank::Blank::02: ‭⁦BumblinMumbler⁩‬
+:02::16::Shield::01::16::FadedStar::Blank::Blank::46: ‭⁦Satan⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 5:33 AM
+:18::14::Shield::18::15::Star::Star::Blank::54: ‭⁦Coolguyagent⁩‬
+:09::15::Shield::18::15::Star::Blank::Blank::01: ‭⁦Bounce_04⁩‬
+:16::14::Shield::37::12::Star::Star::Blank::79: ‭⁦Big Daddy T⁩‬
+:02::16::Sword::02::16::FadedStar::FadedStar::Star::100: ‭⁦Satan⁩‬
+:02::16::Sword::01::16::FadedStar::Blank::Blank::42: ‭⁦Satan⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 6:14 AM
+:02::16::Shield::06::15::FadedStar::Star::Blank::58: ‭⁦Satan⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 6:46 AM
+:02::16::Shield::27::13::FadedStar::Blank::Blank::02: ‭⁦Satan⁩‬
+:05::16::Shield::02::16::FadedStar::Star::Blank::52: ‭⁦Protips⁩‬
+:14::15::Shield::02::16::Star::Star::Blank::54: ‭⁦Wolfy⁩‬
+:08::15::Shield::08::15::FadedStar::Star::Blank::52: ‭⁦jy⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 6:55 AM
+:17::14::Shield::08::15::Star::Star::Blank::52: ‭⁦Anas⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 7:32 AM
+:01::16::Shield::14::14::FadedStar::Blank::Blank::33: ‭⁦BumblinMumbler⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 7:53 AM
+:09::15::Sword::09::15::Star::Star::Star::100:💥 ‭⁦Bounce_04⁩‬
+:09::15::Sword::01::16::FadedStar::Blank::Blank::08: ‭⁦Bounce_04⁩‬
+:41::11::Shield::41::12::Star::Star::Blank::94: ‭⁦DeAndre Lopez⁩‬
+:19::14::Shield::19::14::Star::Star::Blank::53: ‭⁦Arc Symphony⁩‬
+:01::16::Shield::19::14::FadedStar::Blank::Blank::09: ‭⁦BumblinMumbler⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 8:45 AM
+:27::13::Sword::27::13::Star::Star::Star::100:💥 ‭⁦eRaZoR⁩‬
+:27::13::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦eRaZoR⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 9:43 AM
+:40::11::Shield::40::12::Star::Star::Blank::77: ‭⁦360⁩‬
+:21::13::Shield::40::12::Star::Star::Blank::75: ‭⁦RoyalOne⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 9:58 AM
+:20::14::Shield::21::14::FadedStar::Star::Blank::52: ‭⁦bran6⁩‬
+:23::13::Shield::21::14::Star::Star::Blank::52: ‭⁦JALVIN ø⁩‬
+:12::15::Sword::01::16::FadedStar::FadedStar::Blank::57: ‭⁦ViperX56⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 10:14 AM
+:30::12::Shield::30::13::Star::Star::Blank::59: ‭⁦Master21⁩‬
+:01::16::Shield::30::13::FadedStar::Blank::Blank::03: ‭⁦BumblinMumbler⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 11:05 AM
+:01::16::Shield::15::15::FadedStar::Blank::Blank::14: ‭⁦BumblinMumbler⁩‬
+:02::16::Shield::15::15::FadedStar::Blank::Blank::15: ‭⁦Satan⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 11:38 AM
+:33::12::Shield::33::13::Star::Star::Blank::55: ‭⁦gdfan75⁩‬
+:01::16::Shield::33::13::FadedStar::Blank::Blank::45: ‭⁦BumblinMumbler⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 12:25 PM
+:21::13::Sword::21::14::Star::Star::Star::100:💥 ‭⁦RoyalOne⁩‬
+:21::13::Sword::01::16::FadedStar::FadedStar::Blank::57: ‭⁦RoyalOne⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 12:44 PM
+:16::14::Sword::16::14::Star::Star::Star::100:💥 ‭⁦Big Daddy T⁩‬
+:25::13::Sword::38::12::Star::Star::Star::100:💥 ‭⁦Chief_Lou⁩‬
+:25::13::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦Chief_Lou⁩‬
+:16::14::Sword::01::16::FadedStar::Blank::Blank::06: ‭⁦Big Daddy T⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 2:12 PM
+:24::13::Sword::24::13::Star::Star::Star::100:💥 ‭⁦El Jeffe⁩‬
+:24::13::Sword::01::16::FadedStar::Blank::Blank::49: ‭⁦El Jeffe⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 2:25 PM
+:26::13::Shield::09::15::Star::Star::Blank::57: ‭⁦Glowy Gore⁩‬
+:09::15::Shield::09::15::FadedStar::Star::Blank::54: ‭⁦Bounce_04⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 2:46 PM
+:44::11::Sword::44::12::Star::Star::Star::100:💥 ‭⁦Schooner⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 3:32 PM
+:44::11::Sword::15::15::Star::Star::Star::100:💥 ‭⁦Schooner⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 3:45 PM
+:29::13::Shield::23::13::Star::Star::Blank::50: ‭⁦pg⁩‬
+:32::12::Shield::23::13::Star::Star::Blank::55: ‭⁦RAJE⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 4:17 PM
+:05::16::Shield::05::16::FadedStar::Blank::Blank::01: ‭⁦Protips⁩‬
+:01::16::Shield::05::16::FadedStar::Blank::Blank::02: ‭⁦BumblinMumbler⁩‬
+:23::13::Sword::23::13::Star::Star::Star::100:💥 ‭⁦JALVIN ø⁩‬
+:23::13::Sword::01::16::FadedStar::FadedStar::Blank::72: ‭⁦JALVIN ø⁩‬
+Minion Bot
+BOT
+ — 02/23/2024 4:30 PM
+War with #2PV0CC98V ‭⁦Téam Pokémon⁩‬ ends in 59 minutes.
+Minion Bot
+BOT
+ — 02/23/2024 5:23 PM
+:41::11::Sword::17::14::Star::Star::Star::100:💥 ‭⁦DeAndre Lopez⁩‬
+:17::14::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦Anas⁩‬
+:17::14::Sword::22::13::Star::Star::Star::100:💥 ‭⁦Anas⁩‬
+:01::16::Sword::01::16::FadedStar::FadedStar::Star::100: ‭⁦BumblinMumbler⁩‬
+:01::16::Sword::02::16::FadedStar::FadedStar::Blank::57: ‭⁦BumblinMumbler⁩‬
+
+2 Remaining Attacks
+:s: :s: Sned
+:s: :s: Eddy
+:s: :s: Wanzl
+:s: :s: K.L.A.U.S
+:s: :s: Nitin 7.0
+:s: :s: Luke
+:s: :s: RAJE
+:s: :s: mysterydeath
+:s: :s: An___
+:s: :s: K.L.A.U.S v2

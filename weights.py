@@ -2,9 +2,8 @@ import pytesseract, pyautogui
 
 left, right, top, bottom = 1427, 1687, 232, 271
 cropped = pyautogui.screenshot(region=(left, top, right - left, bottom - top))
-weight = pytesseract.image_to_string(cropped)[:5]
-
-if weight == "i2ioo": weight = "21000"
+config = "--oem 3 --psm 6 outputbase digits"
+weight = pytesseract.image_to_string(cropped, config=config)[:5]
 
 with open("weights.txt", "r", encoding="utf-8") as f:
     num_lines = sum(1 for line in f)

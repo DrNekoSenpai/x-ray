@@ -1,10 +1,14 @@
 import os, re, datetime
 logs = [file[:-4] for file in os.listdir("./logs/") if not "_input" in file]
 
-immune = [ 
+permanent_immunities = [ 
     "Sned",
     "BumblinMumbler",
     "Glowy Gore"
+]
+
+timed_immunities = [
+    ("katsu", "02/17/2024"), 
 ]
 
 with open("claims-xray.txt", "r", encoding="utf-8") as file: 
@@ -331,9 +335,14 @@ for log_file in logs:
             for entry in log: 
                 player_name, attacker, defender, stars, time_remaining = entry
                 # print(f"Player: {player_name}, Attacker: {attacker}, Defender: {defender}, Stars: {stars}, Time Remaining: {time_remaining:.2f}")
-                if player_name in immune or "Unicorn" in player_name: 
+                if player_name in permanent_immunities or "Unicorn" in player_name: 
                     continue
 
+                for immune, date in timed_immunities:
+                    if player_name == immune and datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d"):
+                        print(f"Bypass: {player_name} is immune until {date}") 
+                        continue
+                    
                 is_main = True
                 for claimer in claims_dictionary: 
                     for account in claims_dictionary[claimer]: 
@@ -439,9 +448,14 @@ for log_file in logs:
                     continue
 
                 # Find the corresponding entry in the log; find their other hit 
-                if entry in immune or "Unicorn" in entry: 
+                if entry in permanent_immunities or "Unicorn" in entry: 
                     print(f"Bypass: {entry} missed one hit, but they are immune")
                     continue
+
+                for immune, date in timed_immunities:
+                    if player_name == immune and datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d"):
+                        print(f"Bypass: {player_name} is immune until {date}") 
+                        continue
 
                 is_main = True
                 for claimer in claims_dictionary:
@@ -476,9 +490,14 @@ for log_file in logs:
                 #     print(f"Bypass: {entry} appears to have left")
                 #     continue
 
-                if entry in immune or "Unicorn" in entry: 
+                if entry in permanent_immunities or "Unicorn" in entry: 
                     print(f"Bypass: {entry} missed two hits, but they are immune")
                     continue
+
+                for immune, date in timed_immunities:
+                    if player_name == immune and datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d"):
+                        print(f"Bypass: {player_name} is immune until {date}") 
+                        continue
 
                 is_main = True
                 for claimer in claims_dictionary:
@@ -496,9 +515,14 @@ for log_file in logs:
         elif win_loss == "blacklist win" or win_loss == "blacklist loss":
             victory = "y" if win_loss.split(" ")[1] == "win" else "n"
             for entry in one_missed_hit: 
-                if entry in immune or "Unicorn" in entry: 
+                if entry in permanent_immunities or "Unicorn" in entry: 
                     print(f"Bypass: {entry} missed one hit on a blacklist war, but they are immune")
                     continue
+
+                for immune, date in timed_immunities:
+                    if player_name == immune and datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d"):
+                        print(f"Bypass: {player_name} is immune until {date}") 
+                        continue
 
                 # Check if an account with the same name exists in the claims dictionary.
                 # If not, they probably left the clan. 
@@ -531,9 +555,14 @@ for log_file in logs:
                     file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\nn\n1\n")
 
             for entry in two_missed_hits: 
-                if entry in immune or "Unicorn" in entry: 
+                if entry in permanent_immunities or "Unicorn" in entry: 
                     print(f"Bypass: {entry} missed two hits on a blacklist war, but they are immune")
                     continue
+
+                for immune, date in timed_immunities:
+                    if player_name == immune and datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d"):
+                        print(f"Bypass: {player_name} is immune until {date}") 
+                        continue
 
                 # Check if an account with the same name exists in the claims dictionary.
                 # If not, they probably left the clan. 
