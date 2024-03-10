@@ -91,6 +91,7 @@ def add_player(clan):
                 if name == "「 NightEye 」": name = "NightEye"
                 if name == "Mini @ñ@$": name = "Mini Anas"
                 if name == "❤️lav❤️": name = "lav"
+                if name == "ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ": name = "Monkey D. Luffy"
 
                 if "’" in name: name = name.replace("’", "'")
                 if "™" in name: name = name.replace("™", "")

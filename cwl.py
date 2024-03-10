@@ -1,6 +1,16 @@
 import datetime
 import requests
 import re
+import argparse
+
+# Create an argument parser
+parser = argparse.ArgumentParser(description="Calculate weighted distribution for CWL")
+
+parser.add_argument("--num_dists", "-n", type=int, default=0, help="Number of distributions available")
+parser.add_argument("--clan", "-c", type=str, default="", help="Clan to calculate distribution for")
+
+# Parse the arguments
+args = parser.parse_args()
 
 with open("cwl-input.txt", "r", encoding="utf-8") as f: 
     cwl = f.readlines()
@@ -12,7 +22,14 @@ def regular_keyboard(input_string):
     pattern = r"^[A-Za-z0-9 \~!@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
     return re.match(pattern, input_string) is not None 
 
-clan = "outlaws"
+if args.clan == "":
+    clan = input("What clan is this? (xray/outlaws) ").strip().lower()
+    if clan not in ["xray", "outlaws"]: 
+        print("Invalid clan. Please enter 'xray' or 'outlaws'.")
+        exit(1)
+
+else:
+    clan = args.clan
 
 with open(f"minion-{clan}.txt", "r", encoding="utf-8") as f: 
     minion = f.readlines()
@@ -31,6 +48,7 @@ with open(f"minion-{clan}.txt", "r", encoding="utf-8") as f:
             if player == "❤️lav❤️": player = "lav"
             if player == "Lil’ Blump": player = "Lil' Blump"
             if player == "「 NightEye 」": player = "NightEye"
+            if player == "ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ": player = "Monkey D. Luffy"
 
             if "✨" in player: player = player.replace("✨", "")
 
@@ -101,6 +119,12 @@ for player,hits in cwl:
         entries[player] += months
         loyalty_entries[player] = months
 
+# Failsafe: check if loyalty entries is negative. If so, set it to 0. Reflect this in entries as well.
+for player in entries.keys():
+    if loyalty_entries[player] < 0:
+        loyalty_entries[player] = 0
+        entries[player] = hit_entries[player]
+
 # Sort entries by weight in descending order, then by hit entries, then by loyalty entries 
 entries = {k: v for k, v in sorted(entries.items(), key=lambda item: (item[1], hit_entries[item[0]], loyalty_entries[item[0]]), reverse=True)}
 
@@ -110,7 +134,13 @@ entries = {k: v for k, v in sorted(entries.items(), key=lambda item: (item[1], h
 from datetime import datetime
 month = datetime.now().strftime("%B")
 year = datetime.now().year
-dists_possible = int(input("How many distributions are available? "))
+
+if args.dists_possible == 0: 
+    dists_possible = int(input("How many distributions are available? "))
+
+else:
+    dists_possible = args.dists_possible
+
 print("")
 print(f"**{'Reddit X-ray' if clan == 'xray' else 'Faint Outlaws'} {month} {year} Weighted Distribution** \n ({dists_possible} available bonuses, total) \n ")
 
@@ -134,7 +164,7 @@ Kaselcap
 Annayake
 Protips
 mysterydeath
-kallikrein
+pcastro
 Arcohol
 Nitin 4.0
 ViperX56
@@ -143,6 +173,10 @@ Bounce_04
 Big Daddy T
 Sivankh39
 RAJE
+pg
+Nobody
+K.L.A.U.S v2
+Marlec
 """.strip().split("\n")
 
 already_received_outlaws = """  
@@ -155,6 +189,9 @@ CatoTomato
 DisasterBaiter
 Your Angry Ex
 Dark Hell Mutt
+BrAvO {^_^}
+BumblinMumbler2
+aLpHa {^_^}
 """.strip().split("\n")
 
 eligible = [p for p in entries.keys() if p not in already_received_xray and p not in already_received_outlaws]
