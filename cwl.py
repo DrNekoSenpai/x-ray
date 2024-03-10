@@ -135,14 +135,14 @@ from datetime import datetime
 month = datetime.now().strftime("%B")
 year = datetime.now().year
 
-if args.dists_possible == 0: 
-    dists_possible = int(input("How many distributions are available? "))
+if args.num_dists == 0: 
+    num_dists = int(input("How many distributions are available? "))
 
 else:
-    dists_possible = args.dists_possible
+    num_dists = args.num_dists
 
 print("")
-print(f"**{'Reddit X-ray' if clan == 'xray' else 'Faint Outlaws'} {month} {year} Weighted Distribution** \n ({dists_possible} available bonuses, total) \n ")
+print(f"**{'Reddit X-ray' if clan == 'xray' else 'Faint Outlaws'} {month} {year} Weighted Distribution** \n ({num_dists} available bonuses, total) \n ")
 
 pool = []
 
@@ -196,8 +196,8 @@ aLpHa {^_^}
 
 eligible = [p for p in entries.keys() if p not in already_received_xray and p not in already_received_outlaws]
 # Print a warning if there are less eligible people than there are possible distributions. 
-if len(eligible) < dists_possible: 
-    print(f"Warning: There are only {len(eligible)} eligible people, but {dists_possible} distributions are available.")
+if len(eligible) < num_dists: 
+    print(f"Warning: There are only {len(eligible)} eligible people, but {num_dists} distributions are available.")
     print("By default, this means that the following people will receive a distribution:")
     for player in eligible: 
         print(f"- {player}")
@@ -219,14 +219,15 @@ for i in range(15, 0, -1):
     print("")
 
 import random
-print(f"**This month's {dists_possible} selected winners are**:")
-for _ in range(dists_possible): 
+print(f"**This month's {num_dists} selected winners are**:")
+for _ in range(num_dists): 
     choice = random.choice(pool)
     # Remove all instances of this player from the pool.
     pool = [p for p in pool if p != choice]
     print(f"- {choice}")
 
-with open("strikes-input.txt", "w") as file: 
+month, year = datetime.now().strftime("%B").lower(), datetime.now().year
+with open(f"./inputs/cwl_{clan}_{month}_{year}.txt", "w") as file: 
     for player,hits in cwl: 
         if int(hits) > 3: continue
         else: 
