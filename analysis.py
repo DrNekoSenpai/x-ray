@@ -8,7 +8,9 @@ permanent_immunities = [
 ]
 
 timed_immunities = [
-    ("katsu", "02/17/2024"), 
+    ("Zaheer", "03/13/2024"),
+    ("Nobody", "03/13/2024"),
+    ("Arietem", "03/13/2024"),
 ]
 
 with open("claims-xray.txt", "r", encoding="utf-8") as file: 
@@ -24,7 +26,7 @@ with open("minion-outlaws.txt", "r", encoding="utf-8") as file:
     outlaws_data = file.readlines()
 
 def regular_keyboard(input_string): 
-    pattern = r"^[A-Za-z0-9 \~!@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
+    pattern = r"^[A-Za-z0-9 \~!@#$%^&*()\-=\[\]{}|;:'\",\.<>/?\\_+]*$"
     return re.match(pattern, input_string) is not None 
 
 # 15 #P2UPPVYL    ‭⁦Sned      ⁩‬ Sned | PST
@@ -43,6 +45,19 @@ class Claim:
 
 claims_dictionary = {}
 
+corrected_names = {
+    "JALVIN ø": "JALVIN",
+    "★ıċєʏקѧṅṭś★": "IceyPants",
+    "General⚡️Mc0⚡️": "General Mc0",
+    "༺༃༼SEV༽༃༻": "SEV",
+    "「 NightEye 」": "NightEye",
+    "Mini @ñ@$": "Mini Anas",
+    "❤️lav❤️": "lav",
+    "$õckÕ": "Socko",
+    "Stunted Nazgûl": "Stunted Nazgul",
+    "ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ": "Monkey D. Luffy"
+}
+
 for claim in xray_claims: 
     claim_th, claim_tag, claim_name, claimer = re.search(claims_pattern, claim).groups()
 
@@ -56,15 +71,7 @@ for claim in xray_claims:
         account_tag = account_tag.strip()
         account_name = account_name.strip()
 
-        if account_name == "JALVIN ø": account_name = "JALVIN"
-        if account_name == "★ıċєʏקѧṅṭś★": account_name = "IceyPants"
-        if account_name == "General⚡️Mc0⚡️": account_name = "General Mc0"
-        if account_name == "༺༃༼SEV༽༃༻": account_name = "SEV"
-        if account_name == "「 NightEye 」": account_name = "NightEye"
-        if account_name == "Mini @ñ@$": account_name = "Mini Anas"
-        if account_name == "❤️lav❤️": account_name = "lav"
-        if account_name == "$õckÕ": account_name = "Socko"
-        if account_name == "Stunted Nazgûl": account_name = "Stunted Nazgul"
+        if account_name in corrected_names.keys(): account_name = corrected_names[account_name]
         
         if "’" in account_name: account_name = account_name.replace("’", "'")
         if "™" in account_name: account_name = account_name.replace("™", "")
@@ -73,7 +80,7 @@ for claim in xray_claims:
         if "\~" in account_name: account_name = account_name.replace("\~", "~")
 
         if not regular_keyboard(account_name):
-            print(f"Player name '{account_name}' is not valid. Please input the name manually.")
+            print(f"X-ray: Player name '{account_name}' is not valid. Please input the name manually.")
             account_name = input("Name: ")
 
         if account_tag == claim_tag: 
@@ -94,15 +101,7 @@ for claim in outlaws_claims:
         account_tag = account_tag.strip()
         account_name = account_name.strip()
 
-        if account_name == "JALVIN ø": account_name = "JALVIN"
-        if account_name == "★ıċєʏקѧṅṭś★": account_name = "IceyPants"
-        if account_name == "General⚡️Mc0⚡️": account_name = "General Mc0"
-        if account_name == "༺༃༼SEV༽༃༻": account_name = "SEV"
-        if account_name == "「 NightEye 」": account_name = "NightEye"
-        if account_name == "Mini @ñ@$": account_name = "Mini Anas"
-        if account_name == "❤️lav❤️": account_name = "lav"
-        if account_name == "$õckÕ": account_name = "Socko"
-        if account_name == "Stunted Nazgûl": account_name = "Stunted Nazgul"
+        if account_name in corrected_names.keys(): account_name = corrected_names[account_name]
         
         if "’" in account_name: account_name = account_name.replace("’", "'")
         if "™" in account_name: account_name = account_name.replace("™", "")
@@ -111,7 +110,7 @@ for claim in outlaws_claims:
         if "\~" in account_name: account_name = account_name.replace("\~", "~")
 
         if not regular_keyboard(account_name):
-            print(f"Player name '{account_name}' is not valid. Please input the name manually.")
+            print(f"Outlaws: Player name '{account_name}' is not valid. Please input the name manually.")
             account_name = input("Name: ")
 
         if account_tag == claim_tag: 
@@ -198,9 +197,18 @@ for log_file in logs:
 
     time_pattern = re.compile(r"(\d{2}/\d{2}/\d{4}) (\d{1,2}:\d{2}) ([AP]M)")
 
-    win_loss = re.search(win_loss_pattern, lines[0]).group(1)
-    enemy_clan = re.search(enemy_clan_pattern, lines[1]).group(1)
-    war_end_date = re.search(war_end_date_pattern, lines[2]).group(1)
+    try: 
+        win_loss = re.search(win_loss_pattern, lines[0]).group(1)
+        enemy_clan = re.search(enemy_clan_pattern, lines[1]).group(1)
+        war_end_date = re.search(war_end_date_pattern, lines[2]).group(1)
+
+    except: 
+        print(f"Error: {log_file} is not formatted correctly. Please check the log file and try again.")
+        print(f"Usage: {log_file} should have the following format: ")
+        print("Win/loss: (win|loss|blacklist win|blacklist loss)")
+        print("Enemy clan: (clan name)")
+        print("War end date: (mmdd)")
+        continue
 
     war_start_date = re.search(time_pattern, lines[6]).group(1)
     war_start_time = re.search(time_pattern, lines[6]).group(2)
@@ -249,15 +257,7 @@ for log_file in logs:
             stars = len([star for star in [star1, star2, star3] if star != ":Blank:"])
             player_name = match.group(6)
 
-            if player_name == "JALVIN ø": player_name = "JALVIN"
-            if player_name == "★ıċєʏקѧṅṭś★": player_name = "IceyPants"
-            if player_name == "General⚡️Mc0⚡️": player_name = "General Mc0"
-            if player_name == "༺༃༼SEV༽༃༻": player_name = "SEV"
-            if player_name == "「 NightEye 」": player_name = "NightEye"
-            if player_name == "Mini @ñ@$": player_name = "Mini Anas"
-            if player_name == "❤️lav❤️": player_name = "lav"
-            if player_name == "$õckÕ": player_name = "Socko"
-            if player_name == "Stunted Nazgûl": player_name = "Stunted Nazgul"
+            if player_name in corrected_names.keys(): player_name = corrected_names[player_name]
             
             if "’" in player_name: player_name = player_name.replace("’", "'")
             if "™" in player_name: player_name = player_name.replace("™", "")
@@ -266,7 +266,7 @@ for log_file in logs:
             if "\~" in player_name: player_name = player_name.replace("\~", "~")
 
             if not regular_keyboard(player_name):
-                print(f"Player name '{player_name}' is not valid. Please input the name manually.")
+                print(f"Logging: Player name '{player_name}' is not valid. Please input the name manually.")
                 player_name = input("Name: ")
             
             log.append((player_name, attacker, defender, stars, time_remaining))
@@ -282,15 +282,7 @@ for log_file in logs:
         if attack_list == 2: 
             player_name = line.strip()[8:]
 
-            if player_name == "JALVIN ø": player_name = "JALVIN"
-            if player_name == "★ıċєʏקѧṅṭś★": player_name = "IceyPants"
-            if player_name == "General⚡️Mc0⚡️": player_name = "General Mc0"
-            if player_name == "༺༃༼SEV༽༃༻": player_name = "SEV"
-            if player_name == "「 NightEye 」": player_name = "NightEye"
-            if player_name == "Mini @ñ@$": player_name = "Mini Anas"
-            if player_name == "❤️lav❤️": player_name = "lav"
-            if player_name == "$õckÕ": player_name = "Socko"
-            if player_name == "Stunted Nazgûl": player_name = "Stunted Nazgul"
+            if player_name in corrected_names.keys(): player_name = corrected_names[player_name]
             
             if "’" in player_name: player_name = player_name.replace("’", "'")
             if "™" in player_name: player_name = player_name.replace("™", "")
@@ -299,7 +291,7 @@ for log_file in logs:
             if "\~" in player_name: player_name = player_name.replace("\~", "~")
 
             if not regular_keyboard(player_name):
-                print(f"Player name {player_name} is not valid. Please input the name manually.")
+                print(f"Two hits: Player name {player_name} is not valid. Please input the name manually.")
                 player_name = input("Name: ")
 
             two_missed_hits.append(player_name)
@@ -307,15 +299,7 @@ for log_file in logs:
         if attack_list == 1:
             player_name = line.strip()[8:]
 
-            if player_name == "JALVIN ø": player_name = "JALVIN"
-            if player_name == "★ıċєʏקѧṅṭś★": player_name = "IceyPants"
-            if player_name == "General⚡️Mc0⚡️": player_name = "General Mc0"
-            if player_name == "༺༃༼SEV༽༃༻": player_name = "SEV"
-            if player_name == "「 NightEye 」": player_name = "NightEye"
-            if player_name == "Mini @ñ@$": player_name = "Mini Anas"
-            if player_name == "❤️lav❤️": player_name = "lav"
-            if player_name == "$õckÕ": player_name = "Socko"
-            if player_name == "Stunted Nazgûl": player_name = "Stunted Nazgul"
+            if player_name in corrected_names.keys(): player_name = corrected_names[player_name]
             
             if "’" in player_name: player_name = player_name.replace("’", "'")
             if "™" in player_name: player_name = player_name.replace("™", "")
@@ -324,7 +308,7 @@ for log_file in logs:
             if "\~" in player_name: player_name = player_name.replace("\~", "~")
 
             if not regular_keyboard(player_name):
-                print(f"Player name {player_name} is not valid. Please input the name manually.")
+                print(f"One hit: Player name {player_name} is not valid. Please input the name manually.")
                 player_name = input("Name: ")
 
             one_missed_hit.append(player_name)
@@ -335,13 +319,19 @@ for log_file in logs:
             for entry in log: 
                 player_name, attacker, defender, stars, time_remaining = entry
                 # print(f"Player: {player_name}, Attacker: {attacker}, Defender: {defender}, Stars: {stars}, Time Remaining: {time_remaining:.2f}")
+                # print(f"Invalid Mirrors: {invalid_mirror}\n")
+
+                player_immune = False
+
                 if player_name in permanent_immunities or "Unicorn" in player_name: 
-                    continue
+                    player_immune = True
 
                 for immune, date in timed_immunities:
                     if player_name == immune and datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d"):
                         print(f"Bypass: {player_name} is immune until {date}") 
-                        continue
+                        player_immune = True
+
+                if player_immune: continue
                     
                 is_main = True
                 for claimer in claims_dictionary: 
@@ -366,42 +356,47 @@ for log_file in logs:
                 #     print(f"Bypass: {player_name} appears to have left")
                 #     continue
 
-                if int(defender) > 5: 
-                    # Check if this hit was not a mirror 
-                    mirror = attacker == defender
-                    if not mirror: 
-                        # First, check if this looks to be a snipe. 
-                        # Snipes are defined as 1 star on a loss, or 1-2 stars on a win. 
-                        if win_loss == "loss" and stars < 2: 
-                            print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but this appears to be a snipe")
-                        
-                        elif win_loss == "win" and stars < 3:
-                            print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but this appears to be a snipe")
-                        
-                        # Next, check if they already hit their mirror, but the defender's number is not in the invalid_mirror list.
-                        # This can occur if they hit their mirror second; and thus we should not penalize.
-                        elif attacker in [entry[2] for entry in log if entry[1] == attacker]: 
+                # Check if this hit was not a mirror 
+                mirror = attacker == defender
+                if not mirror: 
+                    # First, check if this looks to be a snipe. 
+                    # Snipes are defined as 1 star on a loss, or 1-2 stars on a win. 
+                    if win_loss == "loss" and stars < 2 and int(defender) > 5: 
+                        print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but this appears to be a snipe")
+                    
+                    elif win_loss == "win" and stars < 3 and int(defender) > 5:
+                        print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but this appears to be a snipe")
+                    
+                    # Next, check if they already hit their mirror, but the defender's number is not in the invalid_mirror list.
+                    # This can occur if they hit their mirror second; and thus we should not penalize.
+                    elif attacker in [entry[2] for entry in log if entry[1] == attacker]: 
+                        # We should check if they hit for the right number of stars. 
+                        if win_loss == "loss" and stars > 2:
+                            print(f"Warning: #{attacker} {player_name} three-starred on a loss")
+                            file.write(f"3\n{player_name}\ny\n7\n1\n{enemy_clan}\n")
+
+                        elif int(defender) > 5: 
                             print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but they already hit their mirror")
-                            
-                        # If not, first check if the defender's number is in the invalid_mirror list. 
-                        # This means that their own mirror was already taken, and thus we should not penalize. 
-                        elif attacker in invalid_mirror:
-                            print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but their mirror was already taken")
+                        
+                    # If not, first check if the defender's number is in the invalid_mirror list. 
+                    # This means that their own mirror was already taken, and thus we should not penalize. 
+                    elif attacker in invalid_mirror:
+                        print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but their mirror was already taken")
 
-                        # If the defender's number is not in the invalid_mirror list, then we should add it.
-                        # This means that their own mirror was not taken, and thus we should penalize.
-                        else:
-                            # First, we should check if there are less than four hours remaining in the war.
-                            if time_remaining < 4: 
-                                print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but there are less than four hours remaining")
+                    # If the defender's number is not in the invalid_mirror list, then we should add it.
+                    # This means that their own mirror was not taken, and thus we should penalize.
+                    else:
+                        # First, we should check if there are less than four hours remaining in the war.
+                        if time_remaining < 4: 
+                            print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror, but there are less than four hours remaining")
 
-                            else: 
-                                invalid_mirror.append(defender)
-                                print(f"Warning: #{attacker} {player_name} hit someone not their own mirror")
-                                file.write(f"3\n{player_name}\ny\n7\n4\n{enemy_clan}\n")
-                    else: 
-                        # Add this base to the invalid_mirror list, since it was taken by a mirror.
-                        if not defender in invalid_mirror: invalid_mirror.append(defender)
+                        else: 
+                            invalid_mirror.append(defender)
+                            print(f"Warning: #{attacker} {player_name} hit someone not their own mirror")
+                            file.write(f"3\n{player_name}\ny\n7\n4\n{enemy_clan}\n")
+                else: 
+                    # Add this base to the invalid_mirror list, since it was taken by a mirror.
+                    if not defender in invalid_mirror: invalid_mirror.append(defender)
 
                 if win_loss == "loss": 
                     mirror = attacker == defender 
