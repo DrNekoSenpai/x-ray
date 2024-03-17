@@ -11,6 +11,7 @@ timed_immunities = [
     ("Zaheer", "03/13/2024"),
     ("Nobody", "03/13/2024"),
     ("Arietem", "03/13/2024"),
+    ("Monkey D. Luffy", "03/15/2024"),
 ]
 
 with open("claims-xray.txt", "r", encoding="utf-8") as file: 
@@ -28,6 +29,16 @@ with open("minion-outlaws.txt", "r", encoding="utf-8") as file:
 def regular_keyboard(input_string): 
     pattern = r"^[A-Za-z0-9 \~!@#$%^&*()\-=\[\]{}|;:'\",\.<>/?\\_+]*$"
     return re.match(pattern, input_string) is not None 
+
+with open("war_bases.txt", "r", encoding="utf-8") as war_bases_file: 
+    war_bases = war_bases_file.readlines()
+    with open(f"./inputs/war_bases.txt", "w", encoding="utf-8") as file:
+        for i in range(len(war_bases)): 
+            player_name, enemy_clan, sanction = war_bases[i].strip().split(";")
+            file.write(f"3\n{player_name}\ny\n5\n{enemy_clan}\n{sanction}\n")
+            print(f"Warning: {player_name} had war base during battle day against {enemy_clan}", end = "")
+            if sanction == "y": print(", and sanctions occurred from it.")
+            else: print(".")
 
 # 15 #P2UPPVYL    ‭⁦Sned      ⁩‬ Sned | PST
 claims_pattern = re.compile(r"(\d{1,2})\s+#([A-Z0-9]{5,9})\s+‭⁦(.*)⁩‬(.*)")
@@ -327,7 +338,7 @@ for log_file in logs:
                     player_immune = True
 
                 for immune, date in timed_immunities:
-                    if player_name == immune and datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d"):
+                    if player_name == immune and datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year):
                         print(f"Bypass: {player_name} is immune until {date}") 
                         player_immune = True
 
