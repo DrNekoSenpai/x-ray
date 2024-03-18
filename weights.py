@@ -1,4 +1,31 @@
-import pytesseract, pyautogui
+import pytesseract, pyautogui, subprocess
+
+from contextlib import redirect_stdout as redirect
+from io import StringIO
+
+def up_to_date(): 
+    # Return FALSE if there is a new version available.
+    # Return TRUE if the version is up to date.
+    try:
+        # Fetch the latest changes from the remote repository without merging or pulling
+        # Redirect output, because we don't want to see it.
+        with redirect(StringIO()):
+            subprocess.check_output("git fetch", shell=True)
+
+        # Compare the local HEAD with the remote HEAD
+        local_head = subprocess.check_output("git rev-parse HEAD", shell=True).decode().strip()
+        remote_head = subprocess.check_output("git rev-parse @{u}", shell=True).decode().strip()
+
+        return local_head == remote_head
+
+    except subprocess.CalledProcessError as e:
+        print(f"Error: {e}")
+        return None
+
+if up_to_date() is False:
+    print("Error: the local repository is not up to date. Please pull the latest changes before running this script.")
+    print("To pull the latest changes, simply run the command 'git pull' in this terminal.")
+    exit(1)
 
 image = pyautogui.screenshot()
 def find_storage_capacity_bbox(image):

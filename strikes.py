@@ -1,8 +1,31 @@
-import pickle
-import datetime
-import requests
-import os 
-import re
+import pickle, os, re, subprocess 
+
+from contextlib import redirect_stdout as redirect
+from io import StringIO
+
+def up_to_date(): 
+    # Return FALSE if there is a new version available.
+    # Return TRUE if the version is up to date.
+    try:
+        # Fetch the latest changes from the remote repository without merging or pulling
+        # Redirect output, because we don't want to see it.
+        with redirect(StringIO()):
+            subprocess.check_output("git fetch", shell=True)
+
+        # Compare the local HEAD with the remote HEAD
+        local_head = subprocess.check_output("git rev-parse HEAD", shell=True).decode().strip()
+        remote_head = subprocess.check_output("git rev-parse @{u}", shell=True).decode().strip()
+
+        return local_head == remote_head
+
+    except subprocess.CalledProcessError as e:
+        print(f"Error: {e}")
+        return None
+
+if up_to_date() is False:
+    print("Error: the local repository is not up to date. Please pull the latest changes before running this script.")
+    print("To pull the latest changes, simply run the command 'git pull' in this terminal.")
+    exit(1)
 
 class player():
     def __init__(self, name, tag, clan):
@@ -30,25 +53,6 @@ def import_pickle():
             players = pickle.load(f)
     except: players = []
     return players
-
-def up_to_date(): 
-    # Get repository details from the GitHub API.
-    url = "https://api.github.com/repos/DrNekoSenpai/x-ray"
-    response = requests.get(url)
-    data = response.json()
-
-    # Get the date of the latest commit.
-    last_commit_date = datetime.datetime.strptime(data['pushed_at'], "%Y-%m-%dT%H:%M:%SZ")
-
-    # Grab the current date, and adjust for UTC time. 
-    current_date = datetime.datetime.utcnow()
-
-    return last_commit_date < current_date
-
-if not up_to_date():
-    print("Error: the local repository is not up to date. Please pull the latest changes before running this script.")
-    print("To pull the latest changes, simply run the command 'git pull' in this terminal.")
-    exit(1)
 
 players = import_pickle()
 

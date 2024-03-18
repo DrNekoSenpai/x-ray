@@ -1,7 +1,31 @@
-import datetime
-import requests
-import re
-import argparse
+import datetime, requests, re, argparse, subprocess, random
+
+from contextlib import redirect_stdout as redirect
+from io import StringIO
+
+def up_to_date(): 
+    # Return FALSE if there is a new version available.
+    # Return TRUE if the version is up to date.
+    try:
+        # Fetch the latest changes from the remote repository without merging or pulling
+        # Redirect output, because we don't want to see it.
+        with redirect(StringIO()):
+            subprocess.check_output("git fetch", shell=True)
+
+        # Compare the local HEAD with the remote HEAD
+        local_head = subprocess.check_output("git rev-parse HEAD", shell=True).decode().strip()
+        remote_head = subprocess.check_output("git rev-parse @{u}", shell=True).decode().strip()
+
+        return local_head == remote_head
+
+    except subprocess.CalledProcessError as e:
+        print(f"Error: {e}")
+        return None
+
+if up_to_date() is False:
+    print("Error: the local repository is not up to date. Please pull the latest changes before running this script.")
+    print("To pull the latest changes, simply run the command 'git pull' in this terminal.")
+    exit(1)
 
 # Create an argument parser
 parser = argparse.ArgumentParser(description="Calculate weighted distribution for CWL")
@@ -131,9 +155,8 @@ entries = {k: v for k, v in sorted(entries.items(), key=lambda item: (item[1], h
 # for player,weight in entries.items(): 
 #     if weight != 0: print(f"{player}: {weight} entries ({hit_entries[player]} entries from hits, {loyalty_entries[player]} entries from loyalty)")
 
-from datetime import datetime
-month = datetime.now().strftime("%B")
-year = datetime.now().year
+month = datetime.datetime.now().strftime("%B")
+year = datetime.datetime.now().year
 
 if args.num_dists == 0: 
     num_dists = int(input("How many distributions are available? "))
@@ -218,7 +241,6 @@ for i in range(15, 0, -1):
             pool.append(player)
     print("")
 
-import random
 print(f"**This month's {num_dists} selected winners are**:")
 for _ in range(num_dists): 
     choice = random.choice(pool)
@@ -226,7 +248,7 @@ for _ in range(num_dists):
     pool = [p for p in pool if p != choice]
     print(f"- {choice}")
 
-month, year = datetime.now().strftime("%B").lower(), datetime.now().year
+month, year = datetime.datetime.now().strftime("%B").lower(), datetime.datetime.now().year
 with open(f"./inputs/cwl_{clan}_{month}_{year}.txt", "w") as file: 
     for player,hits in cwl: 
         if int(hits) > 3: continue
