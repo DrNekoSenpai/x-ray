@@ -121,10 +121,10 @@ for player,hits in cwl:
     html = requests.get(f"https://fwa.chocolateclash.com/cc_n/member.php?tag={tag}").text
 
     joined_pattern = re.compile(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})</a></td><td>Joined clan")
-    scan_pattern = re.compile(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})</a></td><td>Seen in clan")
+    seen_pattern = re.compile(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})</a></td><td>Seen in clan")
     join_matches = joined_pattern.findall(html)
-    scan_matches = scan_pattern.findall(html)
-    matches = join_matches + scan_matches
+    seen_matches = seen_pattern.findall(html)
+    matches = join_matches + seen_matches
     matches.sort(key=lambda x: datetime.datetime.strptime(x, "%Y-%m-%d %H:%M:%S"), reverse=True)
 
     if len(matches) == 0:
