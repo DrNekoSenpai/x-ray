@@ -11,6 +11,7 @@
 #8L9QLJJP    15 jy
 #8R8UL9RY0   15 Bounce\_04
 #80U9VGUU9   15 ANBU
+#QLVVJYG0G   14 Wanzl
 #LVQ9PPQVY   14 Marlec
 #RCUY2PYV    14 katsu
 #J0RPR98L    14 Eddy
@@ -23,18 +24,19 @@
 #Q92UQQJCR   13 pg
 #2CQUJVGPV   13 Nobody
 #QPJGC0LGR   13 Nitin 7.0
+#98JPYQUGR   13 ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ
 #LPYRGCUQC   13 K.L.A.U.S
 #22R8VVGPJ   13 JALVIN ø
 #LUCLUJ988   13 Glowy Gore
 #2RVPQR9C2   13 eRaZoR
 #QLPJLPYQG   13 El Jeffe
 #YQUUYVQ0C   12 under gamer
-#G2LGL80PL   12 Shomeer
 #LVRJC8CY2   12 Master21
 #LPRPP9LGU   12 Luke
-#LCGRC09U8   12 Lil Ank
+#9RQYR98L8   12 Loka Tholvi
 #GY9UQQY82   12 K.L.A.U.S v2
 #PG2Y8RGU    12 gdfan75
+#P20CJU9J8   12 dragon master
 #80C0PRCJ    12 DeAndre Lopez
 #PJPLG808Q   12 Arietem
 #YQUCCRLY2   11 Schooner
@@ -45,4 +47,3 @@
 #VVPL2GRU    11 360
 #GY0R2R909   10 Zaheer
 #QYP8UQG92   10 LATRINELORD
-#98JPYQUGR   0 ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ

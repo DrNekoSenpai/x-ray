@@ -56,6 +56,27 @@ def import_pickle():
 
 players = import_pickle()
 
+# if name == "JALVIN ø": name = "JALVIN"
+# if name == "★ıċєʏקѧṅṭś★": name = "IceyPants"
+# if name == "General⚡️Mc0⚡️": name = "General Mc0"
+# if name == "༺༃༼SEV༽༃༻": name = "SEV"
+# if name == "「 NightEye 」": name = "NightEye"
+# if name == "Mini @ñ@$": name = "Mini Anas"
+# if name == "❤️lav❤️": name = "lav"
+# if name == "ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ": name = "Monkey D. Luffy"
+
+known_aliases = {
+    "JALVIN ø": "JALVIN",
+    "★ıċєʏקѧṅṭś★": "IceyPants",
+    "General⚡️Mc0⚡️": "General Mc0",
+    "༺༃༼SEV༽༃༻": "SEV",
+    "「 NightEye 」": "NightEye",
+    "Mini @ñ@$": "Mini Anas",
+    "❤️lav❤️": "lav",
+    "ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ": "Monkey D. Luffy",
+    "$õckÕ": "Socko",
+}
+
 def add_player(clan): 
     """Add a new player to the database, provided that they do not already exist."""
     # in_str = input('Enter name and tag, separated by spaces: ').strip()
@@ -88,14 +109,8 @@ def add_player(clan):
                 tag = match.group(1)
                 name = match.group(2)
 
-                if name == "JALVIN ø": name = "JALVIN"
-                if name == "★ıċєʏקѧṅṭś★": name = "IceyPants"
-                if name == "General⚡️Mc0⚡️": name = "General Mc0"
-                if name == "༺༃༼SEV༽༃༻": name = "SEV"
-                if name == "「 NightEye 」": name = "NightEye"
-                if name == "Mini @ñ@$": name = "Mini Anas"
-                if name == "❤️lav❤️": name = "lav"
-                if name == "ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ": name = "Monkey D. Luffy"
+                if name in known_aliases.keys(): 
+                    name = known_aliases[name]
 
                 if "’" in name: name = name.replace("’", "'")
                 if "™" in name: name = name.replace("™", "")

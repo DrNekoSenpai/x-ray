@@ -4,19 +4,26 @@
 - (3) Had war base during battle day against `15 de Agosto`.
 - (3) Had war base during battle day against `Tickles U`.
 
+[5] eRaZoR #2RVPQR9C2:
+- (1) Missed 4 or more hits during CWL week.
+- (1) Three-starred during a loss war against `15 de Agosto`.
+- (1) Missed hits during war against `~ The Cobra ~`.
+- (1) Missed hits during war against `Tickles U`.
+- (1) Missed hits in two consecutive wars against `~ The Cobra ~` and `Tickles U`.
+
 [3] Wolfy #YQ2YVYG8:
 - (1) Missed hits during war against `15 de Agosto`.
 - (1) Missed hits during war against `~ The Cobra ~`.
 - (1) Missed hits in two consecutive wars against `15 de Agosto` and `~ The Cobra ~`.
 
-[3] eRaZoR #2RVPQR9C2:
-- (1) Missed 4 or more hits during CWL week.
-- (1) Three-starred during a loss war against `15 de Agosto`.
+[3] Zaheer #GY0R2R909:
 - (1) Missed hits during war against `~ The Cobra ~`.
+- (1) Missed hits during war against `Tickles U`.
+- (1) Missed hits in two consecutive wars against `~ The Cobra ~` and `Tickles U`.
 
-[2] El Jeffe #QLPJLPYQG:
-- (1) Attacked someone else than mirror during a war against `~ The Cobra ~`.
-- (1) Attacked someone else than mirror during a war against `~ The Cobra ~`.
+[2] Luke #LPRPP9LGU:
+- (1) Missed hits during war against `15 de Agosto`.
+- (1) Missed hits during war against `Tickles U`.
 
 [1] 360 #VVPL2GRU:
 - (1) Missed hits during war against `15 de Agosto`.
@@ -24,14 +31,14 @@
 [1] Bounce_04 #8R8UL9RY0:
 - (1) Missed hits during war against `~ The Cobra ~`.
 
-[1] Luke #LPRPP9LGU:
-- (1) Missed hits during war against `15 de Agosto`.
-
 [1] Master21 #LVRJC8CY2:
 - (1) Missed hits during war against `~ The Cobra ~`.
 
-[1] Zaheer #GY0R2R909:
-- (1) Missed hits during war against `~ The Cobra ~`.
+[1] Sivankh39 #2U9YCGVU2:
+- (1) Missed hits during war against `Tickles U`.
+
+[1] bran6 #Y8P82GJJ:
+- (1) Missed hits during war against `Tickles U`.
 
 [1] pcastro #Q298QVULP:
 - (1) Sniped for more than 1 star during a loss war against `15 de Agosto`.
