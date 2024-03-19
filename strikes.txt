@@ -4,9 +4,9 @@
 - (3) Had war base during battle day against `15 de Agosto`.
 - (3) Had war base during battle day against `Tickles U`.
 
-[5] eRaZoR #2RVPQR9C2:
+[4.5] eRaZoR #2RVPQR9C2:
 - (1) Missed 4 or more hits during CWL week.
-- (1) Three-starred during a loss war against `15 de Agosto`.
+- (0.5) Three-starred during a loss war against `15 de Agosto`.
 - (1) Missed hits during war against `~ The Cobra ~`.
 - (1) Missed hits during war against `Tickles U`.
 - (1) Missed hits in two consecutive wars against `~ The Cobra ~` and `Tickles U`.
@@ -40,12 +40,12 @@
 [1] bran6 #Y8P82GJJ:
 - (1) Missed hits during war against `Tickles U`.
 
-[1] pcastro #Q298QVULP:
-- (1) Sniped for more than 1 star during a loss war against `15 de Agosto`.
+[0.5] pcastro #Q298QVULP:
+- (0.5) Sniped for more than 1 star during a loss war against `15 de Agosto`.
 
-[1] sanskar #PL8Y90YGG:
-- (1) Three-starred during a loss war against `~ The Cobra ~`.
+[0.5] sanskar #PL8Y90YGG:
+- (0.5) Three-starred during a loss war against `~ The Cobra ~`.
 
-[1] under gamer #YQUUYVQ0C:
-- (1) Three-starred during a loss war against `~ The Cobra ~`.
+[0.5] under gamer #YQUUYVQ0C:
+- (0.5) Three-starred during a loss war against `~ The Cobra ~`.
 

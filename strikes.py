@@ -273,11 +273,11 @@ def add_strike():
                         print('Either this player had no base errors, or something went wrong. No strike will be awarded. ')
                         return
                     if num_errors < 5: 
-                        players[i].strikes.append('(1) Had 4 or less base errors')
-                        players[i].num_strikes += 1
+                        players[i].strikes.append('(0.5) Had 4 or less base errors')
+                        players[i].num_strikes += 0.5
                     else: 
-                        players[i].strikes.append('(2) Had 5 or more base errors')
-                        players[i].num_strikes += 2
+                        players[i].strikes.append('(1) Had 5 or more base errors')
+                        players[i].num_strikes += 1
                 elif sel == 7: 
                     print('What kind of instruction did this player not follow? ')
                     print('[1] Three-starred during a loss war')
@@ -294,23 +294,23 @@ def add_strike():
                     elif sel == 1: 
                         clan = input('Enter opponent clan name for when this player disobeyed instructions: ')
                         clan = clan.split("#")[0] # Remove any comments
-                        players[i].strikes.append('(1) Three-starred during a loss war against `%s`.' % clan)
-                        players[i].num_strikes += 1
+                        players[i].strikes.append('(0.5) Three-starred during a loss war against `%s`.' % clan)
+                        players[i].num_strikes += 0.5
                     elif sel == 2: 
                         clan = input('Enter opponent clan name for when this player disobeyed instructions: ')
                         clan = clan.split("#")[0] # Remove any comments
-                        players[i].strikes.append('(1) Sniped for more than 2 stars during a win war against `%s`.' % clan)
-                        players[i].num_strikes += 1
+                        players[i].strikes.append('(0.5) Sniped for more than 2 stars during a win war against `%s`.' % clan)
+                        players[i].num_strikes += 0.5
                     elif sel == 3: 
                         clan = input('Enter opponent clan name for when this player disobeyed instructions: ')
                         clan = clan.split("#")[0] # Remove any comments
-                        players[i].strikes.append('(1) Sniped for more than 1 star during a loss war against `%s`.' % clan)
-                        players[i].num_strikes += 1
+                        players[i].strikes.append('(0.5) Sniped for more than 1 star during a loss war against `%s`.' % clan)
+                        players[i].num_strikes += 0.5
                     elif sel == 4:
                         clan = input('Enter opponent clan name for when this player disobeyed instructions: ')
                         clan = clan.split("#")[0]
-                        players[i].strikes.append('(1) Attacked someone else than mirror during a war against `%s`.' % clan)
-                        players[i].num_strikes += 1
+                        players[i].strikes.append('(0.5) Attacked someone else than mirror during a war against `%s`.' % clan)
+                        players[i].num_strikes += 0.5
                                     
                 elif sel == 8: 
                     clan = input('Enter opponent clan name who initiated sanctions against us: ')
@@ -325,7 +325,7 @@ def add_strike():
                     if len(message) == 1: message = message[0]
                     else: message = clan.join(message)
                     n = input('How many strikes is this worth? ')
-                    try: n = int(n)
+                    try: n = float(n)
                     except: n = 0
                     if n == 0: 
                         print('Invalid number of strikes entered. No strikes will be awarded.')
@@ -371,7 +371,12 @@ def remove_strike():
                                     if players[i].strikes[num].startswith('(1) Missed hits in two consecutive wars'): 
                                         players[i].num_strikes -= 1
                                         players[i].strikes.pop(num)
-                    val = int(players[i].strikes[num-1][1])
+                    float_val = re.search(r"\((\d.\d)\)", players[i].strikes[num-1])
+                    int_val = re.search(r"\((\d)\)", players[i].strikes[num-1])
+
+                    if float_val: val = float(float_val.group(1))
+                    elif int_val: val = int(int_val.group(1))
+
                     players[i].num_strikes -= val
                     players[i].strikes.pop(num-1)
                 return
@@ -415,13 +420,13 @@ def output_strikes():
                     file.write('**Reddit X-ray**:\n\n')
                     print('**Reddit X-ray**:\n')
                     xray_printed = True
-
-                file.write('[%i] %s #%s:\n' % (players[i].num_strikes, players[i].name, players[i].tag))
-                print('[%i] %s #%s:' % (players[i].num_strikes, players[i].name, players[i].tag))
+                    
+                file.write(f"[{players[i].num_strikes}] {players[i].name} #{players[i].tag}:\n")
+                print(f"[{players[i].num_strikes}] {players[i].name} #{players[i].tag}:")
 
                 for j in range(len(players[i].strikes)): 
-                    file.write('- %s\n' % (players[i].strikes[j]))
-                    print('- %s' % (players[i].strikes[j]))
+                    file.write(f"- {players[i].strikes[j]}\n")
+                    print(f"- {players[i].strikes[j]}")
 
                 file.write('\n')
                 print('')
@@ -434,12 +439,15 @@ def output_strikes():
                     print('**Faint Outlaws**:\n')
                     outlaws_printed = True
 
-                file.write('[%i] %s #%s:\n' % (players[i].num_strikes, players[i].name, players[i].tag))
-                print('[%i] %s #%s:' % (players[i].num_strikes, players[i].name, players[i].tag))
+                # file.write('[%i] %s #%s:\n' % (players[i].num_strikes, players[i].name, players[i].tag))
+                # print('[%i] %s #%s:' % (players[i].num_strikes, players[i].name, players[i].tag))
+                    
+                file.write(f"[{players[i].num_strikes}] {players[i].name} #{players[i].tag}:\n")
+                print(f"[{players[i].num_strikes}] {players[i].name} #{players[i].tag}:")
 
                 for j in range(len(players[i].strikes)): 
-                    file.write('- %s\n' % (players[i].strikes[j]))
-                    print('- %s' % (players[i].strikes[j]))
+                    file.write(f"- {players[i].strikes[j]}\n")
+                    print(f"- {players[i].strikes[j]}")
 
                 file.write('\n')
                 print('')
