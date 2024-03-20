@@ -58,6 +58,7 @@ one_war_immunities = [
     ("Arietem", "03/13/2024"),
     ("Monkey D. Luffy", "03/15/2024"),
     ("Monkey D. Luffy", "03/17/2024"), 
+    ("Shomeer", "03/19/2024"),
 ]
 
 with open("claims-xray.txt", "r", encoding="utf-8") as file: 

@@ -11,31 +11,45 @@
 - (1) Missed hits during war against `Tickles U`.
 - (1) Missed hits in two consecutive wars against `~ The Cobra ~` and `Tickles U`.
 
+[4] Zaheer #GY0R2R909:
+- (1) Missed hits during war against `~ The Cobra ~`.
+- (1) Missed hits during war against `Tickles U`.
+- (1) Missed hits in two consecutive wars against `~ The Cobra ~` and `Tickles U`.
+- (0.5) Three-starred during a loss war against `PNAYUNDRGROUND3`.
+- (0.5) Three-starred during a loss war against `PNAYUNDRGROUND3`.
+
+[3] Sivankh39 #2U9YCGVU2:
+- (1) Missed hits during war against `Tickles U`.
+- (1) Missed hits during war against `PNAYUNDRGROUND3`.
+- (1) Missed hits in two consecutive wars against `Tickles U` and `PNAYUNDRGROUND3`.
+
 [3] Wolfy #YQ2YVYG8:
 - (1) Missed hits during war against `15 de Agosto`.
 - (1) Missed hits during war against `~ The Cobra ~`.
 - (1) Missed hits in two consecutive wars against `15 de Agosto` and `~ The Cobra ~`.
 
-[3] Zaheer #GY0R2R909:
-- (1) Missed hits during war against `~ The Cobra ~`.
-- (1) Missed hits during war against `Tickles U`.
-- (1) Missed hits in two consecutive wars against `~ The Cobra ~` and `Tickles U`.
-
 [2] Luke #LPRPP9LGU:
 - (1) Missed hits during war against `15 de Agosto`.
 - (1) Missed hits during war against `Tickles U`.
 
+[2] Master21 #LVRJC8CY2:
+- (1) Missed hits during war against `~ The Cobra ~`.
+- (1) Missed hits during war against `PNAYUNDRGROUND3`.
+
 [1] 360 #VVPL2GRU:
 - (1) Missed hits during war against `15 de Agosto`.
+
+[1] Big Daddy T #9V0PCRR00:
+- (1) Missed hits during war against `PNAYUNDRGROUND3`.
 
 [1] Bounce_04 #8R8UL9RY0:
 - (1) Missed hits during war against `~ The Cobra ~`.
 
-[1] Master21 #LVRJC8CY2:
-- (1) Missed hits during war against `~ The Cobra ~`.
+[1] El Jeffe #QLPJLPYQG:
+- (1) Missed hits during war against `PNAYUNDRGROUND3`.
 
-[1] Sivankh39 #2U9YCGVU2:
-- (1) Missed hits during war against `Tickles U`.
+[1] JALVIN #22R8VVGPJ:
+- (1) Missed hits during war against `PNAYUNDRGROUND3`.
 
 [1] bran6 #Y8P82GJJ:
 - (1) Missed hits during war against `Tickles U`.

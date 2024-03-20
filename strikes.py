@@ -416,6 +416,10 @@ def output_strikes():
         for i in range(len(players)): 
             if players[i].clan != "Reddit X-ray": continue
             if players[i].num_strikes != 0: 
+                # If the player's strikes are an integer value, round it. 
+                if players[i].num_strikes == int(players[i].num_strikes):
+                    players[i].num_strikes = int(players[i].num_strikes)
+                
                 if not xray_printed:
                     file.write('**Reddit X-ray**:\n\n')
                     print('**Reddit X-ray**:\n')
