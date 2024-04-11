@@ -68,11 +68,12 @@ with open(f"minion-{clan}.txt", "r", encoding="utf-8") as f:
             if player == "JALVIN ø": player = "JALVIN"
             if player == "★ıċєʏקѧṅṭś★": player = "IceyPants"
             if player == "༺༃༼SEV༽༃༻": player = "SEV"
-            if player == "\~CLUNK\~": player = "CLUNK"
+            if player == "\~CLUNK\~": player = "~CLUNK~"
             if player == "❤️lav❤️": player = "lav"
             if player == "Lil’ Blump": player = "Lil' Blump"
             if player == "「 NightEye 」": player = "NightEye"
             if player == "ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ": player = "Monkey D. Luffy"
+            if player == "Mini @ñ@$": player = "Mini Anas"
 
             if "✨" in player: player = player.replace("✨", "")
 
@@ -169,7 +170,7 @@ print(f"**{'Reddit X-ray' if clan == 'xray' else 'Faint Outlaws'} {month} {year}
 
 pool = []
 
-already_received_xray = """
+already_received = """
 Satan
 Trunx
 Hokage
@@ -182,7 +183,7 @@ IceyPants
 Sned
 Shomeer
 Ben TH9
-Coolguyagent
+W1nter
 Kaselcap
 Annayake
 Protips
@@ -200,9 +201,9 @@ pg
 Nobody
 K.L.A.U.S v2
 Marlec
-""".strip().split("\n")
-
-already_received_outlaws = """  
+Glowy Gore
+Loka Tholvi
+Schooner
 Durp
 SEV
 Chrispy
@@ -215,9 +216,21 @@ Dark Hell Mutt
 BrAvO {^_^}
 BumblinMumbler2
 aLpHa {^_^}
+Not My Name
+Nitin 8.0
+jwong
+Outlaw In-Law
+Jack
+Thumb Salute
+Hostile Doctor
+Kodakk
+Tenth Situation 
+Glowy Gore
+Loka Tholvi
+Schooner
 """.strip().split("\n")
 
-eligible = [p for p in entries.keys() if p not in already_received_xray and p not in already_received_outlaws]
+eligible = [p for p in entries.keys() if p not in already_received]
 # Print a warning if there are less eligible people than there are possible distributions. 
 if len(eligible) < num_dists: 
     print(f"Warning: There are only {len(eligible)} eligible people, but {num_dists} distributions are available.")
@@ -235,7 +248,7 @@ for i in range(15, 0, -1):
     if len(tier) == 0: continue
     print(f"{i} entries:")
     for player in tier: 
-        if player in already_received_xray or player in already_received_outlaws: continue
+        if player in already_received: continue
         print(f"- {player} ({hit_entries[player]} entries from hits, {loyalty_entries[player]} entries from loyalty)")
         for _ in range(i): 
             pool.append(player)
