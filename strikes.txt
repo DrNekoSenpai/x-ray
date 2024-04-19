@@ -1,14 +1,46 @@
 **Reddit X-ray**:
 
+[4] Sivankh39 #2U9YCGVU2:
+- (1) Missed 4 or more hits during CWL week.
+- (1) Missed hits during war against `IMPERIUM`.
+- (1) Missed hits during war against `VIRTUAL BATTLES`.
+- (1) Missed hits in two consecutive wars against `IMPERIUM` and `VIRTUAL BATTLES`.
+
+[3] Master21 #LVRJC8CY2:
+- (1) Missed hits during war against `IMPERIUM`.
+- (1) Missed hits during war against `VIRTUAL BATTLES`.
+- (1) Missed hits in two consecutive wars against `IMPERIUM` and `VIRTUAL BATTLES`.
+
+[1] 360 #VVPL2GRU:
+- (1) Missed hits during war against `VIRTUAL BATTLES`.
+
+[1] ANBU #80U9VGUU9:
+- (1) Missed hits during war against `VIRTUAL BATTLES`.
+
 [1] Eddy #J0RPR98L:
 - (1) Missed 4 or more hits during CWL week.
 
-[1] Sivankh39 #2U9YCGVU2:
-- (1) Missed 4 or more hits during CWL week.
+[1] Kaselcap #LU2YC0L:
+- (1) Missed hits during war against `IMPERIUM`.
+
+[1] Luke #LPRPP9LGU:
+- (1) Missed hits during war against `IMPERIUM`.
+
+[1] Nitin 7.0 #QPJGC0LGR:
+- (1) Missed hits during war against `IMPERIUM`.
+
+[1] YourHostToast #G2VJ9UJQ2:
+- (1) Missed hits during war against `VIRTUAL BATTLES`.
 
 [1] Zaheer #GY0R2R909:
 - (1) Missed 4 or more hits during CWL week.
 
 [1] sanskar #PL8Y90YGG:
 - (1) Missed 4 or more hits during CWL week.
+
+[0.5] Arc Symphony #2YQL0R0P:
+- (0.5) Three-starred during a loss war against `Farming Only 2`.
+
+[0.5] K.L.A.U.S #LPYRGCUQC:
+- (0.5) Attacked someone else than mirror during a war against `IMPERIUM`.
 

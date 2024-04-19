@@ -1,7 +1,11 @@
-import pytesseract, pyautogui, subprocess
-
+import pytesseract, pyautogui, subprocess, argparse
 from contextlib import redirect_stdout as redirect
 from io import StringIO
+
+# Argument parser
+parser = argparse.ArgumentParser(description='A tool to calculate war weights.')
+parser.add_argument('-f', '--force-valid', action='store_false', help='Force the script to disregard values that are not divisible by 200.')
+args = parser.parse_args()
 
 def up_to_date(): 
     # Return FALSE if there is a new version available.
@@ -27,14 +31,25 @@ if up_to_date() is False:
     print("To pull the latest changes, simply run the command 'git pull' in this terminal.")
     exit(1)
 
+def is_valid_weight(weight):
+    if not args.force_valid: return True
+    try:
+        numeric_weight = int(weight)
+        return numeric_weight % 200 == 0
+    except ValueError:
+        return False
+
 image = pyautogui.screenshot()
 def find_storage_capacity_bbox(image):
     boxes = pytesseract.image_to_data(image, output_type=pytesseract.Output.DICT)
+    results = []
+
     for i in range(len(boxes['text'])):
         if 'Storage' in boxes['text'][i] and 'Capacity' in boxes['text'][i+1]:
             x, y, w, h = boxes['left'][i] - 10, boxes['top'][i], 275, boxes['height'][i]
-            return (x, y, w, h)
-    return None
+            results.append((x, y, w, h))
+    
+    return results
 
 def crop_below_bbox(image, bbox, offset=0):
     if bbox:
@@ -47,26 +62,68 @@ def numeric_ocr(image):
     custom_config = r'--oem 3 --psm 6 outputbase digits'
     return pytesseract.image_to_string(image, config=custom_config)[:5]
 
+def preprocess_image(image, threshold=225):
+    for x in range(image.width):
+        for y in range(image.height):
+            r, g, b = image.getpixel((x, y))
+            if r > threshold and g > threshold and b > threshold:
+                image.putpixel((x, y), (0, 0, 0))
+            else:
+                image.putpixel((x, y), (255, 255, 255))
+    return image
+
 bbox = find_storage_capacity_bbox(image)
-cropped_image = crop_below_bbox(image, bbox, offset=0)
+if not bbox:
+    print("Error: couldn't find the storage capacity.")
+    exit(1)
 
-preprocessed_image = cropped_image.copy()
+# If the length of bbox is 3, then we only want the first two. 
+# The third is dark elixir, we can't use that. 
 
-# Convert white to red, and everything else to white
-for x in range(preprocessed_image.width):
-    for y in range(preprocessed_image.height):
-        r, g, b = preprocessed_image.getpixel((x, y))
-        threshold = 225
-        if r > threshold and g > threshold and b > threshold:
-            preprocessed_image.putpixel((x, y), (0, 0, 0))
-        else:
-            preprocessed_image.putpixel((x, y), (255, 255, 255))
+gold_weight = None
+elixir_weight = None
 
-weight = numeric_ocr(preprocessed_image)
+for i in range(len(bbox)):
+    if i == 2: break
+
+    cropped_image = crop_below_bbox(image, bbox[i], offset=0)
+    preprocessed_image = cropped_image.copy()
+    preprocessed_image = preprocess_image(preprocessed_image)
+    weight = numeric_ocr(preprocessed_image)
+
+    preprocessed_image.show()
+
+    if args.force_valid:
+        thresholds = [225, 200, 175, 150, 125, 100, 75, 50, 25, 0]
+        while not is_valid_weight(weight): 
+            print(f"Invalid weight: {weight}")
+            threshold = thresholds.pop(0)
+            weight = numeric_ocr(preprocess_image(cropped_image, threshold=threshold))
+
+    if i == 0: gold_weight = weight
+    if i == 1: elixir_weight = weight
+
+if gold_weight and elixir_weight:
+    if gold_weight == elixir_weight: 
+        weight = gold_weight
+
+    else: 
+        # Ask user which weight is valid, if any
+        print("Which weight is valid?")
+        print(f"1. Gold: {gold_weight}")
+        print(f"2. Elixir: {elixir_weight}")
+        print("3. Neither")
+        choice = input("Enter the number: ")
+
+        if choice == '1': weight = gold_weight
+        elif choice == '2': weight = elixir_weight
+        else: 
+            print("Please enter what it was supposed to be.")
+            weight = input("Enter the weight: ")
 
 if weight: 
     with open('weights.txt', 'r', encoding='utf-8') as file:
-        num_lines = len(file.readlines())
+       num_lines = len(file.readlines())
 
     print(f"{num_lines + 1}: {weight}")
 

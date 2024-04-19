@@ -53,12 +53,7 @@ timed_immunities = [
 
 # War-specific immunities are for one war only. 
 one_war_immunities = [
-    ("Zaheer", "03/13/2024"),
-    ("Nobody", "03/13/2024"),
-    ("Arietem", "03/13/2024"),
-    ("Monkey D. Luffy", "03/15/2024"),
-    ("Monkey D. Luffy", "03/17/2024"), 
-    ("Shomeer", "03/19/2024"),
+    ("YOYOMAN12D", "04/17/2024")
 ]
 
 with open("claims-xray.txt", "r", encoding="utf-8") as file: 
@@ -250,31 +245,36 @@ for log_file in logs:
     hit_pattern = re.compile(r":(\d{2})::\d{2}::Sword::(\d{2})::\d{2}:(:Star:|:FadedStar:|:Blank:)(:Star:|:FadedStar:|:Blank:)(:Star:|:FadedStar:|:Blank:):\d{2,3}:[💥]? .{2}(.*).{2}")
 
     win_loss_pattern = re.compile(r"Win/loss: (win|loss|blacklist win|blacklist loss)")
-    enemy_clan_pattern = re.compile(r"Enemy clan: (.*)")
     war_end_date_pattern = re.compile(r"War end date: (\d{4})")
 
     time_pattern = re.compile(r"(\d{2}/\d{2}/\d{4}) (\d{1,2}:\d{2}) ([AP]M)")
+    enemy_clan_pattern = re.compile(r"War with #[A-Z0-9]{5,9} ‭⁦(.*)⁩‬ starts in 59 minutes.")
 
     try: 
         win_loss = re.search(win_loss_pattern, lines[0]).group(1)
-        enemy_clan = re.search(enemy_clan_pattern, lines[1]).group(1)
-        war_end_date = re.search(war_end_date_pattern, lines[2]).group(1)
+        war_end_date = re.search(war_end_date_pattern, lines[1]).group(1)
 
     except: 
         print(f"Error: {log_file} is not formatted correctly. Please check the log file and try again.")
         print(f"Usage: {log_file} should have the following format: ")
         print("Win/loss: (win|loss|blacklist win|blacklist loss)")
-        print("Enemy clan: (clan name)")
         print("War end date: (mmdd)")
         continue
 
-    war_start_date = re.search(time_pattern, lines[6]).group(1)
-    war_start_time = re.search(time_pattern, lines[6]).group(2)
-    war_start_ampm = re.search(time_pattern, lines[6]).group(3)
+    war_start_date = re.search(time_pattern, lines[5]).group(1)
+    war_start_time = re.search(time_pattern, lines[5]).group(2)
+    war_start_ampm = re.search(time_pattern, lines[5]).group(3)
     war_start_datetime_str = f"{war_start_date} {war_start_time} {war_start_ampm}"
     war_start = datetime.datetime.strptime(war_start_datetime_str, "%m/%d/%Y %I:%M %p") + datetime.timedelta(minutes=59)
 
     print(f"War start: {war_start}")
+    enemy_clan = re.search(enemy_clan_pattern, lines[6]).group(1)
+
+    if enemy_clan: 
+        print(f"Enemy clan: {enemy_clan}")
+    else:
+        print("Error: enemy clan not found")
+        exit()
 
     attack_list = None
 
