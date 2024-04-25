@@ -184,7 +184,18 @@ with open("claims_output.txt", "w", encoding="utf-8") as file:
             num_accounts_outlaws = len(accounts_outlaws)
             num_accounts_total = len(accounts_total)
 
-            if num_accounts_total == 1: 
+            known_main = False
+            if num_accounts_total > 1:
+                for account in accounts_total:
+                    if account.name in known_mains: 
+                        account.is_main = True
+                        known_main = True
+                        break
+
+            if known_main:
+                claims_dictionary[claimer] = [account for account in accounts_total if account.is_main] + [account for account in accounts_total if not account.is_main]
+
+            elif num_accounts_total == 1: 
                 main_account = accounts_total[0]
                 main_account.is_main = True
 
