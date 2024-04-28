@@ -43,7 +43,8 @@ permanent_immunities = [
     "Glowy Gore", 
     "Anas", 
     "Arcohol",
-    "Bran6"
+    "Bran6", 
+    "katsu"
 ]
 
 # Timed immunities involve players who will be out until a given date
