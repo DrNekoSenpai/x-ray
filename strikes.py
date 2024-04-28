@@ -468,36 +468,28 @@ def output_strikes():
                 
                 if not xray_printed:
                     file.write('**Reddit X-ray**:\n\n')
-                    print('**Reddit X-ray**:\n')
                     xray_printed = True
                     
                 file.write(f"[{players[i].num_strikes}] {players[i].name} #{players[i].tag}:\n")
-                print(f"[{players[i].num_strikes}] {players[i].name} #{players[i].tag}:")
 
                 for j in range(len(players[i].strikes)): 
                     file.write(f"- {players[i].strikes[j]}\n")
-                    print(f"- {players[i].strikes[j]}")
 
                 file.write('\n')
-                print('')
 
         for i in range(len(players)): 
             if players[i].clan != "Faint Outlaws": continue
             if players[i].num_strikes != 0: 
                 if not outlaws_printed:
                     file.write('**Faint Outlaws**:\n\n')
-                    print('**Faint Outlaws**:\n')
                     outlaws_printed = True
                     
                 file.write(f"[{players[i].num_strikes}] {players[i].name} #{players[i].tag}:\n")
-                print(f"[{players[i].num_strikes}] {players[i].name} #{players[i].tag}:")
 
                 for j in range(len(players[i].strikes)): 
                     file.write(f"- {players[i].strikes[j]}\n")
-                    print(f"- {players[i].strikes[j]}")
 
                 file.write('\n')
-                print('')
 
 def regular_keyboard(input_string): 
     pattern = r"^[A-Za-z0-9 \~!@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
@@ -521,7 +513,6 @@ while(True):
     except: continue
 
     export_pickle()
-    if sel != 9: print('')
     if sel == 1: add_player("xray"); add_player("outlaws")
     elif sel == 2: remove_player()
     elif sel == 3: add_strike()
