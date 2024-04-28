@@ -72,16 +72,6 @@ def regular_keyboard(input_string):
     pattern = r"^[A-Za-z0-9 \~!@#$%^&*()\-=\[\]{}|;:'\",\.<>/?\\_+]*$"
     return re.match(pattern, input_string) is not None 
 
-with open("war_bases.txt", "r", encoding="utf-8") as war_bases_file: 
-    war_bases = war_bases_file.readlines()
-    with open(f"./inputs/war_bases.txt", "w", encoding="utf-8") as file:
-        for i in range(len(war_bases)): 
-            player_name, enemy_clan, sanction = war_bases[i].strip().split(";")
-            file.write(f"3\n{player_name}\ny\n5\n{enemy_clan}\n{sanction}\n")
-            print(f"Warning: {player_name} had war base during battle day against {enemy_clan}", end = "")
-            if sanction == "y": print(", and sanctions occurred from it.")
-            else: print(".")
-
 # 15 #P2UPPVYL    ‭⁦Sned      ⁩‬ Sned | PST
 claims_pattern = re.compile(r"(\d{1,2})\s+#([A-Z0-9]{5,9})\s+‭⁦(.*)⁩‬(.*)")
 
@@ -249,6 +239,58 @@ with open("claims_output.txt", "w", encoding="utf-8") as file:
 
         file.write("\n")
 
+with open("war_bases.txt", "r", encoding="utf-8") as war_bases_file: 
+    war_bases = war_bases_file.readlines()
+    with open(f"./inputs/war_bases.txt", "w", encoding="utf-8") as file:
+        for ind,val in enumerate(war_bases):
+            if ind == 0: continue # Header row
+            # Split the line using semicolon, and remove spaces
+            player_name, enemy_clan, war_type, conditional, war_end_date = [x.strip() for x in val.split(";")]
+
+            player_immune = False
+
+            if player_name in permanent_immunities or "Unicorn" in player_name: 
+                player_immune = True
+
+            for immune, date in timed_immunities:
+                if player_name == immune:
+                    if datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year): 
+                        player_immune = True
+
+            for immune, date in one_war_immunities: 
+                if player_name == immune: 
+                    immunity_date = datetime.datetime.strptime(date, "%m/%d/%Y")
+                    war_end = datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year)
+                    if war_end == immunity_date: 
+                        player_immune = True
+                
+            is_main = True
+            for claimer in claims_dictionary: 
+                for account in claims_dictionary[claimer]: 
+                    if account.name == player_name: 
+                        if not account.is_main: 
+                            is_main = False
+
+            if player_immune or not is_main: 
+                print(f"Bypass: {player_name} is immune or not a main account")
+                continue
+
+            if war_type == "blacklist" and conditional == "true": 
+                file.write(f"3\n{player_name}\ny\n4\n{enemy_clan}\ny\n")
+                print(f"Warning: {player_name} failed to put up a war base during a blacklist war against {enemy_clan}, but we met the conditional.")
+
+            elif war_type == "blacklist" and conditional == "false":
+                file.write(f"3\n{player_name}\ny\n4\n{enemy_clan}\nn\n")
+                print(f"Warning: {player_name} failed to put up a war base during a blacklist war against {enemy_clan}")
+
+            elif war_type == "FWA" and conditional == "true":
+                file.write(f"3\n{player_name}\ny\n4\n{enemy_clan}\ny\n")
+                print(f"Warning: {player_name} failed to put up a war base during an FWA war against {enemy_clan}, and sanctions occurred from it.")
+
+            elif war_type == "FWA" and conditional == "false":
+                file.write(f"3\n{player_name}\ny\n4\n{enemy_clan}\nn\n")
+                print(f"Warning: {player_name} failed to put up a war base during an FWA war against {enemy_clan}")
+
 for log_file in logs: 
     with open(f"./logs/{log_file}.txt", "r", encoding="utf-8") as file: 
         lines = file.readlines()
@@ -256,6 +298,7 @@ for log_file in logs:
     hit_pattern = re.compile(r":(\d{2})::\d{2}::Sword::(\d{2})::\d{2}:(:Star:|:FadedStar:|:Blank:)(:Star:|:FadedStar:|:Blank:)(:Star:|:FadedStar:|:Blank:):\d{2,3}:[💥]? .{2}(.*).{2}")
 
     win_loss_pattern = re.compile(r"Win/loss: (win|loss|blacklist win|blacklist loss)")
+    conditional_pattern = re.compile(r"Blacklist conditional: (true|false)")
     war_end_date_pattern = re.compile(r"War end date: (\d{4})")
 
     time_pattern = re.compile(r"(\d{2}/\d{2}/\d{4}) (\d{1,2}:\d{2}) ([AP]M)")
@@ -265,21 +308,36 @@ for log_file in logs:
         win_loss = re.search(win_loss_pattern, lines[0]).group(1)
         war_end_date = re.search(war_end_date_pattern, lines[1]).group(1)
 
+        if "blacklist" in win_loss: conditional = re.search(conditional_pattern, lines[2]).group(1)
+        else: conditional = None # Not applicable
+
     except: 
         print(f"Error: {log_file} is not formatted correctly. Please check the log file and try again.")
         print(f"Usage: {log_file} should have the following format: ")
         print("Win/loss: (win|loss|blacklist win|blacklist loss)")
         print("War end date: (mmdd)")
+        print("Blacklist conditional: (true|false) -- only if the war is a blacklist war")
         continue
 
-    war_start_date = re.search(time_pattern, lines[5]).group(1)
-    war_start_time = re.search(time_pattern, lines[5]).group(2)
-    war_start_ampm = re.search(time_pattern, lines[5]).group(3)
-    war_start_datetime_str = f"{war_start_date} {war_start_time} {war_start_ampm}"
-    war_start = datetime.datetime.strptime(war_start_datetime_str, "%m/%d/%Y %I:%M %p") + datetime.timedelta(minutes=59)
+    if conditional is None: 
+        war_start_date = re.search(time_pattern, lines[5]).group(1)
+        war_start_time = re.search(time_pattern, lines[5]).group(2)
+        war_start_ampm = re.search(time_pattern, lines[5]).group(3)
+        war_start_datetime_str = f"{war_start_date} {war_start_time} {war_start_ampm}"
+        war_start = datetime.datetime.strptime(war_start_datetime_str, "%m/%d/%Y %I:%M %p") + datetime.timedelta(minutes=59)
 
-    print(f"War start: {war_start}")
-    enemy_clan = re.search(enemy_clan_pattern, lines[6]).group(1)
+        print(f"War start: {war_start}")
+        enemy_clan = re.search(enemy_clan_pattern, lines[6]).group(1)
+
+    else: 
+        war_start_date = re.search(time_pattern, lines[6]).group(1)
+        war_start_time = re.search(time_pattern, lines[6]).group(2)
+        war_start_ampm = re.search(time_pattern, lines[6]).group(3)
+        war_start_datetime_str = f"{war_start_date} {war_start_time} {war_start_ampm}"
+        war_start = datetime.datetime.strptime(war_start_datetime_str, "%m/%d/%Y %I:%M %p") + datetime.timedelta(minutes=59)
+
+        print(f"War start: {war_start}")
+        enemy_clan = re.search(enemy_clan_pattern, lines[7]).group(1)
 
     if enemy_clan: 
         print(f"Enemy clan: {enemy_clan}")
@@ -413,20 +471,6 @@ for log_file in logs:
                         if account.name == player_name: 
                             if not account.is_main: 
                                 is_main = False
-                                
-                # Check if an account with the same name exists in the claims dictionary.
-                # If not, they probably left the clan. 
-                account_found = False
-                for claimer in claims_dictionary:
-                    for account in claims_dictionary[claimer]: 
-                        if account.name == player_name: 
-                            account_found = True
-                            break
-                    if account_found: break
-
-                # if not account_found:
-                #     if args.bypass: print(f"Bypass: {player_name} appears to have left")
-                #     continue
 
                 # Check if this hit was not a mirror 
                 mirror = attacker == defender
@@ -549,20 +593,6 @@ for log_file in logs:
                 invalid_mirror = list(set(invalid_mirror))
 
             for entry in one_missed_hit: 
-                # Check if an account with the same name exists in the claims dictionary.
-                # If not, they probably left the clan. 
-                account_found = False
-                for claimer in claims_dictionary:
-                    for account in claims_dictionary[claimer]: 
-                        if account.name == entry: 
-                            account_found = True
-                            break
-                    if account_found: break
-
-                # if not account_found:
-                #     if args.bypass: print(f"Bypass: {entry} appears to have left")
-                #     continue
-
                 # First, check if there are TWO entries in the log with the same name.
                 # If so, Minion Bot made an error; ignore this entry. 
                 if len([log_entry for log_entry in log if log_entry[0] == entry]) > 1: 
@@ -607,20 +637,6 @@ for log_file in logs:
                             file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
 
             for entry in two_missed_hits: 
-                # Check if an account with the same name exists in the claims dictionary.
-                # If not, they probably left the clan. 
-                account_found = False
-                for claimer in claims_dictionary:
-                    for account in claims_dictionary[claimer]: 
-                        if account.name == entry: 
-                            account_found = True
-                            break
-                    if account_found: break
-
-                # if not account_found:
-                #     if args.bypass: print(f"Bypass: {entry} appears to have left")
-                #     continue
-
                 if entry in permanent_immunities or "Unicorn" in entry: 
                     if args.bypass: print(f"Bypass: {entry} missed two hits, but they are immune")
                     continue
@@ -673,20 +689,6 @@ for log_file in logs:
                             if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
                             player_immune = True
 
-                # Check if an account with the same name exists in the claims dictionary.
-                # If not, they probably left the clan. 
-                account_found = False
-                for claimer in claims_dictionary:
-                    for account in claims_dictionary[claimer]: 
-                        if account.name == entry: 
-                            account_found = True
-                            break
-                    if account_found: break
-
-                # if not account_found:
-                #     if args.bypass: print(f"Bypass: {entry} appears to have left")
-                #     continue
-
                 is_main = True
                 for claimer in claims_dictionary:
                     for account in claims_dictionary[claimer]: 
@@ -700,8 +702,12 @@ for log_file in logs:
                 if victory == "y": 
                     if args.bypass: print(f"Bypass: {entry} missed one hit on a blacklist war, but we won anyway")
                 else: 
-                    print(f"Warning: {entry} missed one hit on a blacklist war")
-                    file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\nn\n1\n")
+                    if conditional == "true": 
+                        print(f"Warning: {entry} missed one hit on a blacklist war, which cost us the win but we met the conditional")
+                        file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\ny\nn\n1\n")
+                    else: 
+                        print(f"Warning: {entry} missed one hit on a blacklist war, which cost us the win")
+                        file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\nn\nn\n1\n")
 
             for entry in two_missed_hits: 
                 if entry in permanent_immunities or "Unicorn" in entry: 
@@ -722,20 +728,6 @@ for log_file in logs:
                             if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
                             player_immune = True
 
-                # Check if an account with the same name exists in the claims dictionary.
-                # If not, they probably left the clan. 
-                account_found = False
-                for claimer in claims_dictionary:
-                    for account in claims_dictionary[claimer]: 
-                        if account.name == entry: 
-                            account_found = True
-                            break
-                    if account_found: break
-
-                # if not account_found:
-                #     if args.bypass: print(f"Bypass: {entry} appears to have left")
-                #     continue
-
                 is_main = True
                 for claimer in claims_dictionary:
                     for account in claims_dictionary[claimer]: 
@@ -747,11 +739,21 @@ for log_file in logs:
                     continue
 
                 if victory == "y": 
-                    print(f"Warning: {entry} missed two hits on a blacklist war, but we still won")
-                    file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\ny\n2\n")
+                    if conditional == "true": 
+                        print(f"Warning: {entry} missed two hits on a blacklist war, but we still won and met the conditional")
+                        file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\ny\ny\n2\n")
+                    else:
+                        print(f"Warning: {entry} missed two hits on a blacklist war, but we still won")
+                        file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\nn\ny\n2\n")
+                    # print(f"Warning: {entry} missed two hits on a blacklist war, but we still won")
+                    # file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\ny\n2\n")
                 else:
-                    print(f"Warning: {entry} missed two hits on a blacklist war, which cost us the win")
-                    file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\nn\n2\n")
+                    if conditional == "true": 
+                        print(f"Warning: {entry} missed two hits on a blacklist war, which cost us the win but we met the conditional")
+                        file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\ny\nn\n2\n")
+                    else:
+                        print(f"Warning: {entry} missed two hits on a blacklist war, which cost us the win")
+                        file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\nn\nn\n2\n")
 
     # press any key to continue 
     input("Press any key to continue...\n")

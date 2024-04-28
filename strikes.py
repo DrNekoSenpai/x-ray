@@ -163,11 +163,10 @@ def remove_player():
             if confirm == 'y' or confirm == 'yes': 
                 players.pop(i)
             return
-    if not found: print('No such player with name %s exists.' % name.lower())
+    if not found: print(f"No such player with name {name} exists.")
 	
 def add_strike(): 
     name = input('Enter name of player to award a strike to: ').strip()
-    name = name.split("#")[0] # Remove any comments
     if name == '': return
     found = False
     for i in range(len(players)): 
@@ -175,28 +174,24 @@ def add_strike():
             found = True
             players[i].output()
             confirm = input('Is this the right player? Y/N: ').lower()
-            confirm = confirm.split("#")[0] # Remove any comments
             if confirm == 'y' or confirm == 'yes': 
                 print('')
                 print('What kind of strike is this?')
                 print('[1] Missed FWA attack')
                 print('[2] CWL attacks')
-                print('[3] Blacklist attacks')
-                print('[4] FWA base during blacklist war')
-                print('[5] War base')
-                print('[6] Base errors')
-                print('[7] Directions not followed')
-                print('[8] Repeat offender in sanctions')
-                print('[9] Other')
+                print('[3] Blacklist war')
+                print('[4] War base')
+                print('[5] Base errors')
+                print('[6] Directions not followed')
+                print('[7] Repeat offender in sanctions')
+                print('[8] Other')
                 sel = input('Selection: ')
-                sel = sel.split("#")[0] # Remove any comments
                 try: sel = int(sel)
                 except: sel = 0
                 print('')
                 if sel == 1: 
                     clan = input('Enter name of opponent clan when this player missed attacks: ')
                     date = input('Enter date of when this player missed attacks. Please use MMDD format: ')
-                    clan, date = clan.split("#")[0], date.split("#")[0] # Remove any comments
                     try: date = int(date)
                     except: date = -1
                     if date == -1: 
@@ -204,7 +199,7 @@ def add_strike():
                         return
                     players[i].missed_hit_clans.append(clan)
                     players[i].missed_hit_dates.append(date)
-                    players[i].strikes.append('(1) Missed hits during war against `%s`.' % clan)
+                    players[i].strikes.append(f"(1) Missed hits during war against `{clan}`.")
                     players[i].num_strikes += 1
                     if len(players[i].missed_hit_dates) > 1: 
                         this_war = len(players[i].missed_hit_dates) - 1
@@ -212,19 +207,18 @@ def add_strike():
                         # Check if this war and previous war are the same. If so, return. 
                         if players[i].missed_hit_dates[this_war] == players[i].missed_hit_dates[previous_war]: return
                         if players[i].missed_hit_dates[previous_war] + 3 >= players[i].missed_hit_dates[this_war]: 
-                            players[i].strikes.append('(1) Missed hits in two consecutive wars against `%s` and `%s`.' % (players[i].missed_hit_clans[previous_war], players[i].missed_hit_clans[this_war]))
+                            players[i].strikes.append(f"(1) Missed hits in two consecutive wars against `{players[i].missed_hit_clans[previous_war]}` and `{players[i].missed_hit_clans[this_war]}`.")
                             players[i].num_strikes += 1
                 elif sel == 2: 
                     confirm = input('Please confirm you wish to award CWL strikes to this player. Y/N: ').lower()
-                    confirm = confirm.split("#")[0] # Remove any comments
                     if confirm != 'y' and confirm != 'yes': return
                     players[i].strikes.append('(1) Missed 4 or more hits during CWL week.')
                     players[i].num_strikes += 1
                 elif sel == 3: 
                     clan = input('Enter name of opponent blacklist clan: ')
+                    conditional = input("Did we meet the conditional for reduced strikes? Y/N: ").lower()
                     win = input('Did we win? Y/N: ').lower()
                     num = input("How many hits did this player miss? ")
-                    clan, win, num = clan.split("#")[0], win.split("#")[0], num.split("#")[0] # Remove any comments
 
                     try: num = int(num)
                     except: num = 0
@@ -232,52 +226,98 @@ def add_strike():
                         print('Invalid input entered. No strike will be awarded.')
                         return
                     
-                    if win == 'y' and num == 2: 
-                        players[i].strikes.append('(2) Missed two attacks during a blacklist war against `%s`, but we won.' % clan)
+                    # Conditional for reduced strikes: true
+                    # If we won, and this player missed two attacks, award one strike. 
+                    # If we won, and this player missed one attack, continue (no strike awarded).
+                    # If we lost, and this player missed two attacks, award two strikes.
+                    # If we lost, and this player missed one attack, award one strike.
+                    # If this player didn't have a war base, award one strike if we lose. 
+
+                    # Conditional for reduced strikes: false
+                    # If we won, and this player missed two attacks, award two strikes.
+                    # If we won, and this player missed one attack, continue (no strike awarded).
+                    # If we lost, and this player missed two attacks, award five strikes.
+                    # If we lost, and this player missed one attack, award two strikes.
+                    # If this player didn't have a war base, award three strikes if we lose.
+
+                    if conditional == 'y' and win == 'y' and num == 2:
+                        players[i].strikes.append(f"(1) Missed two attacks during a blacklist war against `{clan}`; we won, and met the conditional.")
+                        players[i].num_strikes += 1
+
+                    elif conditional == 'y' and win == 'y' and num == 1:
+                        continue
+
+                    elif conditional == 'y' and win == 'n' and num == 2:
+                        players[i].strikes.append(f"(2) Missed two attacks during a blacklist war against `{clan}`; we lost, but met the conditional.")
                         players[i].num_strikes += 2
-                    elif win == 'n' and num == 2: 
-                        players[i].strikes.append('(5) Missed two attacks during a blacklist war against `%s`, and cost us the victory.' % clan)
+
+                    elif conditional == 'y' and win == 'n' and num == 1:
+                        players[i].strikes.append(f"(1) Missed one attack during a blacklist war against `{clan}`; we lost, but met the conditional.")
+                        players[i].num_strikes += 1
+
+                    elif conditional == 'n' and win == 'y' and num == 2:
+                        players[i].strikes.append(f"(2) Missed two attacks during a blacklist war against `{clan}`; but we won.")
+                        players[i].num_strikes += 2
+
+                    elif conditional == 'n' and win == 'y' and num == 1:
+                        continue
+
+                    elif conditional == 'n' and win == 'n' and num == 2:
+                        players[i].strikes.append(f"(5) Missed two attacks during a blacklist war against `{clan}`; and we lost.")
                         players[i].num_strikes += 5
-                    elif win == 'n' and num == 1: 
-                        players[i].strikes.append('(2) Missed one attack during a blacklist war against `%s`, and cost us the victory.' % clan)
+
+                    elif conditional == 'n' and win == 'n' and num == 1:
+                        players[i].strikes.append(f"(2) Missed one attack during a blacklist war against `{clan}`; and we lost.")
                         players[i].num_strikes += 2
-                    else: 
+
+                    else:
                         print('Invalid input entered. No strike will be awarded.')
                         return
+                    
                 elif sel == 4: 
                     clan = input('Enter name of opponent blacklist clan: ')
-                    win = input('Did we win? Y/N: ').lower()
-                    clan, win = clan.split("#")[0], win.split("#")[0] # Remove any comments
-                    if win == "n": 
-                        players[i].strikes.append('(3) Had FWA base during a blacklist war against `%s`, and cost us the victory.' % clan)
+                    conditional = input("Did we meet the conditional for reduced strikes? Y/N: ").lower()
+
+                    if conditional == 'y': 
+                        players[i].strikes.append(f"(1) Failed to set war base during battle day against `{clan}`; we lost, but met the conditional.")
+                        players[i].num_strikes += 1
+
+                    elif conditional == 'n':
+                        players[i].strikes.append(f"(3) Failed to set war base during battle day against `{clan}`; and we lost.")
                         players[i].num_strikes += 3
+
                 elif sel == 5: 
                     clan = input('Enter name of opponent clan when this player had a war base: ')
                     sanctions = input('Did sanctions result due to this player having a war base? Y/N: ').lower()
-                    clan, sanctions = clan.split("#")[0], sanctions.split("#")[0] # Remove any comments
+
                     if sanctions == 'y': 
-                        players[i].strikes.append('(5) Had war base during battle day against `%s`, and sanctions resulted from it.' % clan)
+                        players[i].strikes.append(f"(5) Had war base during battle day against `{clan}`, and sanctions resulted from it.")
                         players[i].num_strikes += 5
+
                     elif sanctions == 'n': 
-                        players[i].strikes.append('(3) Had war base during battle day against `%s`.' % clan)
+                        players[i].strikes.append(f"(3) Had war base during battle day against `{clan}`.")
                         players[i].num_strikes += 3
                     else: 
                         print('Invalid input entered. No strike will be awarded.')
                         return
+                    
                 elif sel == 6: 
                     num_errors = input('How many base errors did this player have? ')
-                    num_errors = num_errors.split("#")[0] # Remove any comments
                     try: num_errors = int(num_errors)
                     except: num_errors = 0
-                    if num_errors == 0: 
+
+                    if num_errors <= 0: 
                         print('Either this player had no base errors, or something went wrong. No strike will be awarded. ')
                         return
+                    
                     if num_errors < 5: 
                         players[i].strikes.append('(0.5) Had 4 or less base errors')
                         players[i].num_strikes += 0.5
+
                     else: 
                         players[i].strikes.append('(1) Had 5 or more base errors')
                         players[i].num_strikes += 1
+
                 elif sel == 7: 
                     print('What kind of instruction did this player not follow? ')
                     print('[1] Three-starred during a loss war')
@@ -285,42 +325,42 @@ def add_strike():
                     print('[3] Sniped for more than 1 star during a loss war')
                     print('[4] Attacked someone else than mirror')
                     sel = input('Selection: ')
-                    sel = sel.split("#")[0] # Remove any comments
                     try: sel = int(sel)
                     except: sel = 0
+
                     if sel == 0: 
                         print('Invalid input entered. No strike will be awarded.')
                         print('')
+
                     elif sel == 1: 
-                        clan = input('Enter opponent clan name for when this player disobeyed instructions: ')
-                        clan = clan.split("#")[0] # Remove any comments
-                        players[i].strikes.append('(0.5) Three-starred during a loss war against `%s`.' % clan)
+                        clan = input('Enter opponent clan name for when this player three-starred during a loss war: ')
+                        players[i].strikes.append(f"(0.5) Three-starred during a loss war against `{clan}`.")
                         players[i].num_strikes += 0.5
+
                     elif sel == 2: 
-                        clan = input('Enter opponent clan name for when this player disobeyed instructions: ')
-                        clan = clan.split("#")[0] # Remove any comments
-                        players[i].strikes.append('(0.5) Sniped for more than 2 stars during a win war against `%s`.' % clan)
+                        clan = input('Enter opponent clan name for when this player sniped for more than 2 stars during a win war: ')
+                        players[i].strikes.append(f"(0.5) Sniped for more than 2 stars during a win war against `{clan}`.")
                         players[i].num_strikes += 0.5
+
                     elif sel == 3: 
-                        clan = input('Enter opponent clan name for when this player disobeyed instructions: ')
-                        clan = clan.split("#")[0] # Remove any comments
-                        players[i].strikes.append('(0.5) Sniped for more than 1 star during a loss war against `%s`.' % clan)
+                        clan = input('Enter opponent clan name for when this player sniped for more than 1 star during a loss war: ')
+                        players[i].strikes.append(f"(0.5) Attacked someone else than mirror during a war against `{clan}`.")
                         players[i].num_strikes += 0.5
+
                     elif sel == 4:
-                        clan = input('Enter opponent clan name for when this player disobeyed instructions: ')
+                        clan = input('Enter opponent clan name for when this player attacked someone else than mirror: ')
                         clan = clan.split("#")[0]
-                        players[i].strikes.append('(0.5) Attacked someone else than mirror during a war against `%s`.' % clan)
+                        players[i].strikes.append(f"(0.5) Attacked someone else than mirror during a war against `{clan}`.")
                         players[i].num_strikes += 0.5
                                     
                 elif sel == 8: 
                     clan = input('Enter opponent clan name who initiated sanctions against us: ')
-                    clan = clan.split("#")[0] # Remove any comments
-                    players[i].strikes.append('(1) Repeat offender in sanctions during war against `%s`.' % clan)
+                    players[i].strikes.append(f"(1) Repeat offender in sanctions during war against `{clan}`.")
                     players[i].num_strikes += 1
+
                 elif sel == 9: 
                     clan = input('Enter opponent clan name for when this player disobeyed instructions: ')
                     message = input('Enter strike message here. Use <clan> to substitute the opponent clan name: ')
-                    clan, message = clan.split("#")[0], message.split("#")[0] # Remove any comments
                     message = message.split('<clan>')
                     if len(message) == 1: message = message[0]
                     else: message = clan.join(message)
@@ -334,10 +374,12 @@ def add_strike():
                         print('A strike can\'t be worth more than 5 strikes! No strikes will be awarded.')
                         return
                     else: 
-                        players[i].strikes.append('(%i) %s' % (n, message))
+                        players[i].strikes.append(f"({n}): {message}")
                         players[i].num_strikes += n
                 return
-    if not found: print('No such player with name %s exists.' % name)
+                
+    if not found: 
+        print(f"No such player with name {name} exists.")
 	
 def remove_strike():
     name = input('Enter name of player to remove a strike from: ')
@@ -350,7 +392,7 @@ def remove_strike():
             confirm = input('Is this the right player? Y/N ').lower()
             if confirm == 'y' or confirm == 'yes': 
                 for j in range(len(players[i].strikes)):
-                    print('%i) ' % (j+1) + players[i].strikes[j])
+                    print(f"{j+1}) {players[i].strikes[j]}")
                 num = input('Which strike needs to be removed? ')
                 try: num = int(num)
                 except: num = 0
@@ -360,10 +402,10 @@ def remove_strike():
                 else: 
                     if players[i].strikes[num-1].startswith('(1) Missed hits during war'): 
                         clan = players[i].strikes[num-1][36:-2]
-                        print('Clan to remove: %s' % clan)
+                        print(f"Clan to remove: {clan}")
                         for j in range(len(players[i].missed_hit_clans)): 
                             if players[i].missed_hit_clans[j] == clan: 
-                                print('Found clan: %s' % clan)
+                                print(f"Found clan: {clan}")
                                 players[i].missed_hit_clans.pop(j)
                                 players[i].missed_hit_dates.pop(j)
 
@@ -380,7 +422,9 @@ def remove_strike():
                     players[i].num_strikes -= val
                     players[i].strikes.pop(num-1)
                 return
-    if not found: print('No such player with name %s exists.' % name)
+            
+    if not found: 
+        print(f"No such player with name {name} exists.")
 	
 def remove_all_strikes(): 
     name = input('Enter name of player to remove all strike from: ')
@@ -397,7 +441,9 @@ def remove_all_strikes():
                 players[i].missed_hit_clans = []
                 players[i].missed_hit_dates = []
                 return
-    if not found: print('No such player with name %s exists.' % name)
+            
+    if not found: 
+        print(f"No such player with name {name} exists.")
 
 def clear_strikes():
     confirm = input('Are you sure you want to clear all strikes? This cannot be undone. Y/N: ').lower()
@@ -442,9 +488,6 @@ def output_strikes():
                     file.write('**Faint Outlaws**:\n\n')
                     print('**Faint Outlaws**:\n')
                     outlaws_printed = True
-
-                # file.write('[%i] %s #%s:\n' % (players[i].num_strikes, players[i].name, players[i].tag))
-                # print('[%i] %s #%s:' % (players[i].num_strikes, players[i].name, players[i].tag))
                     
                 file.write(f"[{players[i].num_strikes}] {players[i].name} #{players[i].tag}:\n")
                 print(f"[{players[i].num_strikes}] {players[i].name} #{players[i].tag}:")
