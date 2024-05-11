@@ -344,7 +344,7 @@ def add_strike():
 
                     elif sel == 3: 
                         clan = input('Enter opponent clan name for when this player sniped for more than 1 star during a loss war: ')
-                        players[i].strikes.append(f"(0.5) Attacked someone else than mirror during a war against `{clan}`.")
+                        players[i].strikes.append(f"(0.5) Sniped for more than 1 star during a loss war against `{clan}`.")
                         players[i].num_strikes += 0.5
 
                     elif sel == 4:

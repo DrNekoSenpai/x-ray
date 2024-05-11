@@ -228,6 +228,19 @@ Tenth Situation
 Glowy Gore
 Loka Tholvi
 Schooner
+ANBU
+Nitin 7.0
+Luke
+Arietem
+RoyalOne
+JALVIN
+YOYOMAN12D
+RONALDO7
+Charlie {^_^}
+Lucas
+Neo {^_^}
+Indivicious
+Pokrogamer
 """.strip().split("\n")
 
 eligible = [p for p in entries.keys() if p not in already_received]

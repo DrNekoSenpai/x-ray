@@ -33,6 +33,7 @@ parser = argparse.ArgumentParser(description="Analyze war logs for generating st
 parser.add_argument("--bypass", "-b", action="store_true", help="If set to true, program also outputs bypass messages. Default: False")
 parser.add_argument("--log", "-l", action="store_true", help="If set to true, program also outputs log messages. Default: False")
 parser.add_argument("--mirrors", "-m", action="store_true", help="If set to true, program also outputs invalid mirror messages. Default: False")
+parser.add_argument("--war", "-w", type=str, default="", help="If specified, only analyze the war log with the given name. Default: ''")
 
 args = parser.parse_args()
 
@@ -293,6 +294,7 @@ with open("war_bases.txt", "r", encoding="utf-8") as war_bases_file:
                 print(f"Warning: {player_name} failed to put up a war base during an FWA war against {enemy_clan}")
 
 for log_file in logs: 
+    if args.war and log_file != args.war: continue
     with open(f"./logs/{log_file}.txt", "r", encoding="utf-8") as file: 
         lines = file.readlines()
 

@@ -1,16 +1,22 @@
-0  #QVR00GCL2   ‭⁦Ashtar    ⁩‬ ashtar
-13 #LQUQGRUJP   ‭⁦Sulfur    ⁩‬ Glowy Gore | CST
-11 #G9UP0Y88Q   ‭⁦Chalk Outl⁩‬ Glowy Gore | CST
-11 #GY0R2R909   ‭⁦Zaheer    ⁩‬ Zaheer
+13 #28YRYVRQC   ‭⁦Alex      ⁩‬ alex_interlinked
+12 #UUU8LLRL    ‭⁦™Dr. Alan™⁩‬ ™Dr. Alan™
+12 #LR2VYY8UJ   ‭⁦TempletoN ⁩‬ TempletoN
+13 #QL0R20V9    ‭⁦zombie rea⁩‬ artoriasuk
+9  #G9UVRJ0RR   ‭⁦BumblinMum⁩‬ BumblinMumbler | EST
+14 #Q92UQQJCR   ‭⁦pg        ⁩‬ pg
+11 #QVR00GCL2   ‭⁦Ashtar    ⁩‬ ashtar
+12 #LRUC9PLP    ‭⁦nefel     ⁩‬ nefel
+13 #LPYRGCUQC   ‭⁦K.L.A.U.S ⁩‬ K.L.A.U.S
+15 #RCUY2PYV    ‭⁦katsu     ⁩‬ katsu | PST
+11 #QU09URCVC   ‭⁦Reactorge ⁩‬ reactorge
+13 #22R8VVGPJ   ‭⁦JALVIN ø  ⁩‬ JALVIN
 11 #JJQ00VG8    ‭⁦bten      ⁩‬ bten
 13 #PJPLG808Q   ‭⁦Arietem   ⁩‬ Arietem
 15 #9V0PCRR00   ‭⁦Big Daddy ⁩‬ Big Daddy T
 13 #PG2Y8RGU    ‭⁦gdfan75   ⁩‬ gdfan75
 13 #Q089Q9PRG   ‭⁦Hardcastle⁩‬ Glowy Gore | CST
 12 #PL8Y90YGG   ‭⁦sanskar   ⁩‬ saiyanrazor.
-13 #LPYRGCUQC   ‭⁦K.L.A.U.S ⁩‬ K.L.A.U.S
 12 #P29Y899J    ‭⁦YOYOMAN12D⁩‬ YOYOMAN12D
-13 #Q9890CURP   ‭⁦Vixi's Cur⁩‬ Glowy Gore | CST
 11 #QCQ8V2UL9   ‭⁦A\_\_\_\_     ⁩‬ Lil Ank/A____/An___
 11 #QJ002VLYV   ‭⁦An\_\_\_     ⁩‬ Lil Ank/A____/An___
 12 #YY2YJ20C9   ‭⁦skyeshade ⁩‬ skyeshade  |  GMT+1
@@ -19,17 +25,12 @@
 13 #28V902PLL   ‭⁦wako238   ⁩‬ wako238
 13 #LPRPP9LGU   ‭⁦Luke      ⁩‬ lukeds_
 11 #GYQJVQ2JQ   ‭⁦Jackers   ⁩‬ Jackers
-11 #LRUC9PLP    ‭⁦nefel     ⁩‬ nefel
 12 #YQUCCRLY2   ‭⁦Schooner  ⁩‬ burntunicorn
-13 #LVRJC8CY2   ‭⁦Master21  ⁩‬ Master21
 14 #LVQ9PPQVY   ‭⁦Marlec    ⁩‬ .marlec
-14 #RCUY2PYV    ‭⁦katsu     ⁩‬ katsu | PST
-14 #Q92UQQJCR   ‭⁦pg        ⁩‬ pg
 14 #RV920PR9    ‭⁦RoyalOne  ⁩‬ RoyalOne
 15 #8R8UL9RY0   ‭⁦Bounce\_04 ⁩‬ Bounce_04 | IST
 13 #GY9UQQY82   ‭⁦K.L.A.U.S ⁩‬ K.L.A.U.S
 12 #80C0PRCJ    ‭⁦DeAndre Lo⁩‬ deandrelopez
-11 #QU09URCVC   ‭⁦Reactorge ⁩‬ reactorge
 16 #JCCLVR8R    ‭⁦BumblinMum⁩‬ BumblinMumbler | EST
 14 #Y8P82GJJ    ‭⁦bran6     ⁩‬ Bran6 | PST
 12 #YQUUYVQ0C   ‭⁦under game⁩‬ under gamer
@@ -43,7 +44,5 @@
 16 #PQJQGRYL0   ‭⁦Annayake  ⁩‬ Annayake
 14 #J0RPR98L    ‭⁦Eddy      ⁩‬ Eddy | EST
 15 #P2UPPVYL    ‭⁦Sned      ⁩‬ Sned | PST
-14 #92L2PP09R   ‭⁦Anas      ⁩‬ Anas | IST
 14 #2GP2C8LRY   ‭⁦W1nter    ⁩‬ Coolguyagent | EST
 15 #8L9QLJJP    ‭⁦jy        ⁩‬ jy
-13 #22R8VVGPJ   ‭⁦JALVIN ø  ⁩‬ JALVIN
