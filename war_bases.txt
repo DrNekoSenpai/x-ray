@@ -1,14 +1,1 @@
 Player name; Enemy clan; FWA / blacklist; Sanctions / conditional (boolean); War end date (YYYY-MM-DD)
-Satan; Flames; blacklist; true; 2024-04-28
-BumblinMumbler; Flames; blacklist; true; 2024-04-28
-Annayake; Flames; blacklist; true; 2024-04-28
-jy; Flames; blacklist; true; 2024-04-28
-Big Daddy T; Flames; blacklist; true; 2024-04-28
-Arc Symphony; Flames; blacklist; true; 2024-04-28
-JALVIN; Flames; blacklist; true; 2024-04-28
-Master21; Flames; blacklist; true; 2024-04-28
-YOYOMAN12D; Flames; blacklist; true; 2024-04-28
-sanskar; Flames; blacklist; true; 2024-04-28
-K.L.A.U.S v2; Flames; blacklist; true; 2024-04-28
-An___; Flames; blacklist; true; 2024-04-28
-A____; Flames; blacklist; true; 2024-04-28
