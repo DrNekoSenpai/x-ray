@@ -1,8 +1,24 @@
 **Reddit X-ray**:
 
-[1] Arietem #PJPLG808Q:
+[2] Arietem #PJPLG808Q:
 - (1) Missed 4 or more hits during CWL week.
+- (1) Missed hits during war against `ItaliansGotClan`.
+
+[1] ANBU #80U9VGUU9:
+- (1) Missed hits during war against `ItaliansGotClan`.
+
+[1] Sulfur #LQUQGRUJP:
+- (1) Missed hits during war against `ItaliansGotClan`.
 
 [1] bran6 #Y8P82GJJ:
 - (1) Missed 4 or more hits during CWL week.
+
+[1] eRaZoR #2RVPQR9C2:
+- (1) Missed hits during war against `ItaliansGotClan`.
+
+[1] wako238 #28V902PLL:
+- (1) Missed hits during war against `ItaliansGotClan`.
+
+[0.5] Luke #LPRPP9LGU:
+- (0.5) Attacked someone else than mirror during a war against `ItaliansGotClan`.
 

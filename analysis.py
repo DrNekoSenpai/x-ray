@@ -41,6 +41,7 @@ args = parser.parse_args()
 permanent_immunities = [ 
     "Sned",
     "BumblinMumbler",
+    "BumblinMumbler3",
     "Glowy Gore", 
     "Anas", 
     "Arcohol",
@@ -55,7 +56,7 @@ timed_immunities = [
 
 # War-specific immunities are for one war only. 
 one_war_immunities = [
-    ("YOYOMAN12D", "04/17/2024")
+    
 ]
 
 with open("claims-xray.txt", "r", encoding="utf-8") as file: 
@@ -305,7 +306,7 @@ for log_file in logs:
     war_end_date_pattern = re.compile(r"War end date: (\d{4})")
 
     time_pattern = re.compile(r"(\d{2}/\d{2}/\d{4}) (\d{1,2}:\d{2}) ([AP]M)")
-    enemy_clan_pattern = re.compile(r"War with #[A-Z0-9]{5,9} ‭⁦(.*)⁩‬ starts in 59 minutes.")
+    enemy_clan_pattern = re.compile(r"War with #[A-Z0-9]{5,9} ‭⁦(.*)⁩‬ starts in \d+ minutes.")
 
     try: 
         win_loss = re.search(win_loss_pattern, lines[0]).group(1)
