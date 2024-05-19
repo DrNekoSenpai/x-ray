@@ -17,12 +17,6 @@ y
 ItaliansGotClan
 0515
 3
-Sulfur
-y
-1
-ItaliansGotClan
-0515
-3
 eRaZoR
 y
 1

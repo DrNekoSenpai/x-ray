@@ -1,16 +1,17 @@
-13 #Q089Q9PRG   ‭⁦Hardcastle⁩‬ Glowy Gore | CST
-13 #LV89J8UL8   ‭⁦Opposable ⁩‬ Glowy Gore | CST
-13 #LYRCR02YJ   ‭⁦Hostile Do⁩‬ Glowy Gore | CST
-12 #PR2P8V2RC   ‭⁦barba66   ⁩‬ barba66
-15 #L898J8C8L   ‭⁦Dark Hell ⁩‬ Glowy Gore | CST
-14 #L8QYRR9V8   ‭⁦Tenth Situ⁩‬ Glowy Gore | CST
-13 #QLJVPQYPU   ‭⁦Outlaw In-⁩‬ Glowy Gore | CST
+0  #GYPV2P2J2   ‭⁦Stalemated⁩‬ stalemated
+9  #G9UVRJ0RR   ‭⁦BumblinMum⁩‬ BumblinMumbler | EST
 11 #RVVVYRVR    ‭⁦RONALDO7  ⁩‬ alpha|Neo|bravo|charlie|Ronaldo
 12 #2LJPQVJCP   ‭⁦Charlie {^⁩‬ alpha|Neo|bravo|charlie|Ronaldo
 12 #2902CYJ0G   ‭⁦BrAvO {^\_^⁩‬ alpha|Neo|bravo|charlie|Ronaldo
 12 #80RQ2LU9L   ‭⁦aLpHa {^\_^⁩‬ alpha|Neo|bravo|charlie|Ronaldo
 13 #22JPYQRL2   ‭⁦Neo {^\_^} ⁩‬ alpha|Neo|bravo|charlie|Ronaldo
 14 #GQQ82U829   ‭⁦༺༃༼SEV༽༃༻ ⁩‬ athena761
+13 #LV89J8UL8   ‭⁦Opposable ⁩‬ Glowy Gore | CST
+13 #LYRCR02YJ   ‭⁦Hostile Do⁩‬ Glowy Gore | CST
+12 #PR2P8V2RC   ‭⁦barba66   ⁩‬ barba66
+15 #L898J8C8L   ‭⁦Dark Hell ⁩‬ Glowy Gore | CST
+14 #L8QYRR9V8   ‭⁦Tenth Situ⁩‬ Glowy Gore | CST
+13 #QLJVPQYPU   ‭⁦Outlaw In-⁩‬ Glowy Gore | CST
 12 #80YUP02Y    ‭⁦Jack      ⁩‬ jhammond1_
 16 #8RCCJLU2    ‭⁦Star-Lord ⁩‬ Star-Lord
 13 #LJVC0PYVJ   ‭⁦Pokrogamer⁩‬ Pokrogamer
@@ -41,7 +42,7 @@
 13 #LVR9208LJ   ‭⁦Nitin 8.0 ⁩‬ Nitin | AST
 16 #G029QVPGJ   ‭⁦Arcohol   ⁩‬ Arcohol | CST
 15 #L9092PYPG   ‭⁦Nitin 4.0 ⁩‬ Nitin | AST
-12 #Q2J82YPRU   ‭⁦Durp      ⁩‬ Durp | CST
+12 #Q2J82YPRU   ‭⁦Durp      ⁩‬ Durp
 12 #JC9PUPV0    ‭⁦jwong     ⁩‬ playa12
 15 #2PRJQRG8G   ‭⁦Kin       ⁩‬ blumplestiltskin
 15 #YUYUCPL8P   ‭⁦Seven Thun⁩‬ Glowy Gore | CST

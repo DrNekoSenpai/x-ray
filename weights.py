@@ -1,6 +1,7 @@
-import pytesseract, pyautogui, subprocess, argparse
+import pytesseract, pyautogui, subprocess, argparse, numpy as np, cv2
 from contextlib import redirect_stdout as redirect
 from io import StringIO
+from PIL import Image
 
 # Argument parser
 parser = argparse.ArgumentParser(description='A tool to calculate war weights.')
@@ -40,86 +41,82 @@ def is_valid_weight(weight):
         return False
 
 image = pyautogui.screenshot()
+
 def find_storage_capacity_bbox(image):
     boxes = pytesseract.image_to_data(image, output_type=pytesseract.Output.DICT)
     results = []
 
     for i in range(len(boxes['text'])):
         if 'Storage' in boxes['text'][i] and 'Capacity' in boxes['text'][i+1]:
-            x, y, w, h = boxes['left'][i] - 10, boxes['top'][i], 275, boxes['height'][i]
-            results.append((x, y, w, h))
-    
-    return results
-
-def crop_below_bbox(image, bbox, offset=0):
-    if bbox:
-        x, y, w, h = bbox
-        crop_area = (x, y + h + offset, x + w, y + h + 50 + offset)
-        return image.crop(crop_area)
-    return None
+            return True 
+        
+    return False
 
 def numeric_ocr(image):
-    custom_config = r'--oem 3 --psm 6 outputbase digits'
+    custom_config = r'--oem 3 --psm 6 tessedit_char_whitelist=0123456789.,'
     return pytesseract.image_to_string(image, config=custom_config)[:5]
 
-def preprocess_image(image, threshold=225):
-    for x in range(image.width):
-        for y in range(image.height):
-            r, g, b = image.getpixel((x, y))
-            if r > threshold and g > threshold and b > threshold:
-                image.putpixel((x, y), (0, 0, 0))
-            else:
-                image.putpixel((x, y), (255, 255, 255))
-    return image
+def color_to_alpha(image, color=(255, 255, 255), transparency_threshold=0.154, opacity_threshold=0.082):
+    # Open the image
+    img = image.convert("RGBA")
+    datas = img.getdata()
 
-bbox = find_storage_capacity_bbox(image)
-if not bbox:
-    print("Error: couldn't find the storage capacity.")
+    new_data = []
+    for item in datas:
+        # Calculate the difference between the current pixel and the target color
+        diff = (
+            abs(item[0] - color[0]) / 255.0,
+            abs(item[1] - color[1]) / 255.0,
+            abs(item[2] - color[2]) / 255.0,
+        )
+        # Calculate the overall difference
+        overall_diff = sum(diff) / 3.0
+
+        if overall_diff < transparency_threshold:
+            # Turn matching pixels red with the specified opacity
+            black_pixel = (0, 0, 0, int(255 * (1 - opacity_threshold)))
+            new_data.append(black_pixel)
+        else:
+            white_pixel = (255, 255, 255, 255)
+            new_data.append(white_pixel)
+
+    # Update image data
+    img.putdata(new_data)
+
+    # Apply adaptive thresholding
+    processed_image = cv2.adaptiveThreshold(
+        cv2.cvtColor(np.array(img), cv2.COLOR_RGB2GRAY),
+        255,
+        cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+        cv2.THRESH_BINARY,
+        11,
+        2,
+    )
+    
+    # Invert the image if necessary (depends on the image background)
+    processed_image = cv2.bitwise_not(processed_image)
+
+    return img
+
+# Verify that the image contains the storage capacity text
+if not find_storage_capacity_bbox(image):
+    print("Error: the image does not contain the storage capacity text.")
     exit(1)
 
-# If the length of bbox is 3, then we only want the first two. 
-# The third is dark elixir, we can't use that. 
+# Example usage
+left, right, top, bottom = 2338, 2701, 300, 355
+# show_crop_area(image, left, right, top, bottom)
 
-gold_weight = None
-elixir_weight = None
+cropped_image = image.crop((left, top, right, bottom))
+weight = numeric_ocr(cropped_image)
+preprocessed_image = color_to_alpha(cropped_image)
+# preprocessed_image.show()
 
-for i in range(len(bbox)):
-    if i == 2: break
-
-    cropped_image = crop_below_bbox(image, bbox[i], offset=0)
-    preprocessed_image = cropped_image.copy()
-    preprocessed_image = preprocess_image(preprocessed_image)
-    weight = numeric_ocr(preprocessed_image)
-
-    preprocessed_image.show()
-
-    if args.force_valid:
-        thresholds = [225, 200, 175, 150, 125, 100, 75, 50, 25, 0]
-        while not is_valid_weight(weight): 
-            print(f"Invalid weight: {weight}")
-            threshold = thresholds.pop(0)
-            weight = numeric_ocr(preprocess_image(cropped_image, threshold=threshold))
-
-    if i == 0: gold_weight = weight
-    if i == 1: elixir_weight = weight
-
-if gold_weight and elixir_weight:
-    if gold_weight == elixir_weight: 
-        weight = gold_weight
-
-    else: 
-        # Ask user which weight is valid, if any
-        print("Which weight is valid?")
-        print(f"1. Gold: {gold_weight}")
-        print(f"2. Elixir: {elixir_weight}")
-        print("3. Neither")
-        choice = input("Enter the number: ")
-
-        if choice == '1': weight = gold_weight
-        elif choice == '2': weight = elixir_weight
-        else: 
-            print("Please enter what it was supposed to be.")
-            weight = input("Enter the weight: ")
+# Odd case: a weight beginning with "23" should instead be "29", but only if the last recorded value was +/- 1000 from 29000. Otherwise, leave as is.
+if weight.startswith('23'): 
+    with open('weights.txt', 'r', encoding='utf-8') as file:
+        last_weight = file.readlines()[-1].strip()
+        if last_weight and abs(int(last_weight) - 29000) < 1000: weight = '29' + weight[2:]
 
 if weight: 
     with open('weights.txt', 'r', encoding='utf-8') as file:
@@ -128,4 +125,5 @@ if weight:
     print(f"{num_lines + 1}: {weight}")
 
     with open('weights.txt', 'a', encoding='utf-8') as file:
-        file.write(f'{weight}\n')
+        file.write(f'{weight}')
+        if num_lines+1 != 50: file.write('\n')

@@ -71,6 +71,9 @@ with open("minion-xray.txt", "r", encoding="utf-8") as file:
 with open("minion-outlaws.txt", "r", encoding="utf-8") as file:
     outlaws_data = file.readlines()
 
+with open("glowy_gore.txt", "r", encoding="utf-8") as file:
+    glowy_gore_data = file.readlines()
+
 def regular_keyboard(input_string): 
     pattern = r"^[A-Za-z0-9 \~!@#$%^&*()\-=\[\]{}|;:'\",\.<>/?\\_+]*$"
     return re.match(pattern, input_string) is not None 
@@ -164,17 +167,80 @@ for claim in outlaws_claims:
             claims_dictionary[claimer].append(Claim(claim_th, claim_tag, account_name, False, "Faint Outlaws"))
             break
 
-known_mains = ["Glowy Gore", "Lil Ank"]
+for claim in glowy_gore_data:
+    # Accounts linked to a specific player who joins and leaves frequently
+    claim_th, claim_tag, claim_name, claimer = re.search(claims_pattern, claim).groups()
+
+    claim_tag = claim_tag.strip()
+    claim_name = claim_name.strip()
+    claimer = claimer.strip()
+
+    matching_account = False
+    
+    # Find if there's a matching account in either clan. If so, we should skip it and move on. 
+    for account in xray_data:
+        account_tag, account_name = re.search(full_account_name_pattern, account).groups()
+
+        account_tag = account_tag.strip()
+        account_name = account_name.strip()
+
+        if account_name in corrected_names.keys(): account_name = corrected_names[account_name]
+        
+        if "’" in account_name: account_name = account_name.replace("’", "'")
+        if "™" in account_name: account_name = account_name.replace("™", "")
+        if "✨" in account_name: account_name = account_name.replace("✨", "")
+        if "\_" in account_name: account_name = account_name.replace("\_", "_")
+        if "\~" in account_name: account_name = account_name.replace("\~", "~")
+
+        if not regular_keyboard(account_name):
+            print(f"Glowy Gore: Player name '{account_name}' is not valid. Please input the name manually.")
+            account_name = input("Name: ")
+
+        if account_tag == claim_tag: 
+            matching_account = True
+            break
+
+    for account in outlaws_data:
+        account_tag, account_name = re.search(full_account_name_pattern, account).groups()
+
+        account_tag = account_tag.strip()
+        account_name = account_name.strip()
+
+        if account_name in corrected_names.keys(): account_name = corrected_names[account_name]
+        
+        if "’" in account_name: account_name = account_name.replace("’", "'")
+        if "™" in account_name: account_name = account_name.replace("™", "")
+        if "✨" in account_name: account_name = account_name.replace("✨", "")
+        if "\_" in account_name: account_name = account_name.replace("\_", "_")
+        if "\~" in account_name: account_name = account_name.replace("\~", "~")
+
+        if not regular_keyboard(account_name):
+            print(f"Glowy Gore: Player name '{account_name}' is not valid. Please input the name manually.")
+            account_name = input("Name: ")
+
+        if account_tag == claim_tag: 
+            matching_account = True
+            break
+
+    if matching_account: continue
+
+    # Otherwise, add the account to the claims dictionary.
+    if claimer not in claims_dictionary: claims_dictionary[claimer] = []
+    claims_dictionary[claimer].append(Claim(claim_th, claim_tag, claim_name, False, "Glowy Gore"))
+
+known_mains = ["Glowy Gore"]
 
 with open("claims_output.txt", "w", encoding="utf-8") as file:
     for claimer in claims_dictionary: 
         for claim in claims_dictionary[claimer]:
             accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.clan == "Reddit X-Ray"]
             accounts_outlaws = [claim for claim in claims_dictionary[claimer] if claim.clan == "Faint Outlaws"]
-            accounts_total = accounts_xray + accounts_outlaws
+            accounts_etc = [claim for claim in claims_dictionary[claimer] if claim.clan != "Reddit X-Ray" and claim.clan != "Faint Outlaws"]
+            accounts_total = accounts_xray + accounts_outlaws + accounts_etc
 
             num_accounts_xray = len(accounts_xray)
             num_accounts_outlaws = len(accounts_outlaws)
+            num_accounts_etc = len(accounts_etc)
             num_accounts_total = len(accounts_total)
 
             known_main = False
@@ -228,15 +294,22 @@ with open("claims_output.txt", "w", encoding="utf-8") as file:
     for claimer in claims_dictionary: 
         accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.clan == "Reddit X-Ray"]
         accounts_outlaws = [claim for claim in claims_dictionary[claimer] if claim.clan == "Faint Outlaws"]
-        accounts_total = accounts_xray + accounts_outlaws
+        accounts_etc = [claim for claim in claims_dictionary[claimer] if claim.clan != "Reddit X-Ray" and claim.clan != "Faint Outlaws"]
+        accounts_total = accounts_xray + accounts_outlaws + accounts_etc
 
         num_accounts_xray = len(accounts_xray)
         num_accounts_outlaws = len(accounts_outlaws)
+        num_accounts_etc = len(accounts_etc)
         num_accounts_total = len(accounts_total)
 
-        file.write(f"{claimer}: {num_accounts_xray} accounts in Reddit X-Ray, {num_accounts_outlaws} accounts in Faint Outlaws\n")
+        file.write(f"{claimer}: {num_accounts_xray} accounts in Reddit X-Ray, {num_accounts_outlaws} accounts in Faint Outlaws")
+        if num_accounts_etc == 0: file.write("\n")
+        else: file.write(f", {num_accounts_etc} accounts not in clan\n")
         for account in accounts_total: 
-            file.write(f"  - {account.name} ({account.town_hall}) -- {account.clan}")
+            file.write(f"  - {account.name} ({account.town_hall}) --")
+            if account.clan == "Reddit X-Ray": file.write(" Reddit X-Ray")
+            elif account.clan == "Faint Outlaws": file.write(" Faint Outlaws")
+            else: file.write(f" not in clan")
             if account.is_main: file.write(" (main)")
             file.write("\n")
 

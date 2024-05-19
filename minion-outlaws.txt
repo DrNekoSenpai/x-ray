@@ -25,7 +25,6 @@
 #P99P8L2YC   13 Kodakk
 #YV290QY2G   13 Indivicious
 #LYRCR02YJ   13 Hostile Doctor
-#Q089Q9PRG   13 Hardcastle
 #L8RR2GJUQ   13 dabers
 #QR0VU8LC0   13 Connor
 #QVCYJJRR    12 skizzy
@@ -47,3 +46,5 @@
 #UUJUP0CC    11 Lucas
 #YPQ2UJUQR   11 BumblinMumbler2
 #L9Y9J88LL   10 Sned 2.0
+#G9UVRJ0RR   9 BumblinMumbler3
+#GYPV2P2J2   0 Stalemated :)

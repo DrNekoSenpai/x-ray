@@ -1,8 +1,8 @@
 vharf: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
-  - vharf (0) -- Reddit X-Ray (main)
+  - vharf (13) -- Reddit X-Ray (main)
 
 CallMeFeet: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
-  - CallMeFeet (0) -- Reddit X-Ray (main)
+  - CallMeFeet (14) -- Reddit X-Ray (main)
 
 Thomas: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
   - Thomas (12) -- Reddit X-Ray (main)
@@ -41,8 +41,9 @@ ANBU: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
 TempletoN: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
   - TempletoN (12) -- Reddit X-Ray (main)
 
-BumblinMumbler | EST: 1 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
+BumblinMumbler | EST: 1 accounts in Reddit X-Ray, 2 accounts in Faint Outlaws
   - BumblinMumbler (16) -- Reddit X-Ray (main)
+  - BumblinMumbler3 (9) -- Faint Outlaws
   - BumblinMumbler2 (11) -- Faint Outlaws
 
 alex_interlinked: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
@@ -85,9 +86,8 @@ gdfan75: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
 saiyanrazor.: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
   - sanskar (12) -- Reddit X-Ray (main)
 
-Lil Ank/A____/An___: 2 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
-  - A____ (11) -- Reddit X-Ray (main)
-  - An___ (11) -- Reddit X-Ray
+Lil Ank/A____/An___: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
+  - An___ (11) -- Reddit X-Ray (main)
 
 Arc Symphony: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
   - Arc Symphony (15) -- Reddit X-Ray (main)
@@ -120,9 +120,8 @@ under gamer: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
 ViperX56: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
   - ViperX56 (15) -- Reddit X-Ray (main)
 
-Glowy Gore | CST: 1 accounts in Reddit X-Ray, 13 accounts in Faint Outlaws
+Glowy Gore | CST: 1 accounts in Reddit X-Ray, 12 accounts in Faint Outlaws, 9 accounts not in clan
   - Glowy Gore (13) -- Reddit X-Ray (main)
-  - Hardcastle (13) -- Faint Outlaws
   - Opposable Thumb (13) -- Faint Outlaws
   - Hostile Doctor (13) -- Faint Outlaws
   - Dark Hell Mutt (15) -- Faint Outlaws
@@ -135,6 +134,15 @@ Glowy Gore | CST: 1 accounts in Reddit X-Ray, 13 accounts in Faint Outlaws
   - Clone Castle (14) -- Faint Outlaws
   - Seven Thunders (15) -- Faint Outlaws
   - Not My Name (14) -- Faint Outlaws
+  - Hardcastle (13) -- not in clan
+  - Vixi's Curse (13) -- not in clan
+  - Demeter's Demon (11) -- not in clan
+  - Sulfur (13) -- not in clan
+  - Procrastination (12) -- not in clan
+  - Chalk Outline (11) -- not in clan
+  - Loo Czar (11) -- not in clan
+  - Perfect (10) -- not in clan
+  - Stunted Nazgul (9) -- not in clan
 
 Kaselcap | CST: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
   - Kaselcap (15) -- Reddit X-Ray (main)
@@ -163,8 +171,9 @@ Coolguyagent | EST: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
 jy: 1 accounts in Reddit X-Ray, 0 accounts in Faint Outlaws
   - jy (15) -- Reddit X-Ray (main)
 
-barba66: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
-  - barba66 (12) -- Faint Outlaws (main)
+stalemated: 0 accounts in Reddit X-Ray, 2 accounts in Faint Outlaws
+  - Stalemated (11) -- Faint Outlaws (main)
+  - Stalemated :) (0) -- Faint Outlaws
 
 alpha|Neo|bravo|charlie|Ronaldo: 0 accounts in Reddit X-Ray, 5 accounts in Faint Outlaws
   - Neo {^_^} (13) -- Faint Outlaws (main)
@@ -176,6 +185,9 @@ alpha|Neo|bravo|charlie|Ronaldo: 0 accounts in Reddit X-Ray, 5 accounts in Faint
 athena761: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
   - SEV (14) -- Faint Outlaws (main)
 
+barba66: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
+  - barba66 (12) -- Faint Outlaws (main)
+
 jhammond1_: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
   - Jack (12) -- Faint Outlaws (main)
 
@@ -184,9 +196,6 @@ Star-Lord: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
 
 Pokrogamer: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
   - Pokrogamer (13) -- Faint Outlaws (main)
-
-stalemated: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
-  - Stalemated (11) -- Faint Outlaws (main)
 
 Lucas: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
   - Lucas (11) -- Faint Outlaws (main)
@@ -234,7 +243,7 @@ dabers: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
 Arcohol | CST: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
   - Arcohol (16) -- Faint Outlaws (main)
 
-Durp | CST: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
+Durp: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
   - Durp (12) -- Faint Outlaws (main)
 
 playa12: 0 accounts in Reddit X-Ray, 1 accounts in Faint Outlaws
