@@ -1,37 +1,18 @@
-import os, pyautogui, cv2, numpy as np
-from matplotlib import pyplot as plt
-from PIL import Image
+import os, pyautogui, cv2, numpy as np, pytesseract, time, re, argparse
 
 if not os.path.exists("./screenshots/war"): os.makedirs("./screenshots/war")
 if not os.path.exists("./screenshots/fwa"): os.makedirs("./screenshots/fwa")
 
-war_base = False
+parser = argparse.ArgumentParser()
+parser.add_argument("--war", "-w", action="store_true")
+parser.add_argument("--auto", "-a", action="store_true")
+args = parser.parse_args()
+
+war_base = args.war
 path = "./screenshots/war/" if war_base else "./screenshots/fwa/"
-num = len(os.listdir(path)) + 1
 
-pyautogui.moveTo(3440/2, 1440/2)
-pyautogui.click()
-pyautogui.click()
-
-pyautogui.mouseDown() 
-pyautogui.moveRel(500, 500)
-pyautogui.mouseUp()
-image_a = pyautogui.screenshot()
-
-# 3440 x 1440 monitor
-left, right, top, bottom = 0, 3440, 0, 1440
-# We want to crop the bottom a little bit above the bottom of the screen
-bottom -= 300
-image_a = image_a.crop((left, top, right, bottom))
-
-pyautogui.mouseDown() 
-pyautogui.moveRel(0, -2000)
-pyautogui.mouseUp()
-image_b = pyautogui.screenshot()
-
-# Convert pyautogui screenshots to OpenCV format
-image_a = cv2.cvtColor(np.array(image_a), cv2.COLOR_RGB2BGR)
-image_b = cv2.cvtColor(np.array(image_b), cv2.COLOR_RGB2BGR)
+right_arrow_button = (2020, 1300)
+base_number = (1600, 1950, 1175, 1250) # left, right, up, down
 
 def stitch_images(image1, image2):
     gray1 = cv2.cvtColor(image1, cv2.COLOR_BGR2GRAY)
@@ -64,10 +45,68 @@ def stitch_images(image1, image2):
     
     return stitched_image
 
-stitched_image = stitch_images(image_a, image_b)
+def create_stitched_image():
+    pyautogui.moveTo(3440/2, 1440/2)
+    pyautogui.click()
+    pyautogui.click()
 
-if stitched_image is not None:
-    output_path = os.path.join(path, f'{num}.png')
-    cv2.imwrite(output_path, stitched_image)
-else:
-    print("Stitching failed.")
+    for _ in range(5): 
+        pyautogui.scroll(-1000)
+    pyautogui.mouseDown()
+    pyautogui.moveRel(0, 1000, 0.125)
+    pyautogui.moveRel(-1000, 0, 0.125)
+    pyautogui.mouseUp()
+    pyautogui.moveRel(0, -1000, 0.125)
+    pyautogui.mouseDown()
+    pyautogui.moveRel(0, 1000, 0.125)
+    pyautogui.mouseUp()
+
+    bottom_edge = 250
+
+    image_a = pyautogui.screenshot()
+    image_a = image_a.crop((0, 0, 3440, 1440-bottom_edge))
+
+    pyautogui.moveTo(3440/2, 1440/3)
+    pyautogui.mouseDown()
+    pyautogui.moveTo(3440/2, 0, 0.125)
+    pyautogui.mouseUp()
+
+    image_b = pyautogui.screenshot()
+    image_b = image_b.crop((0, 0, 3440, 1440-bottom_edge))
+
+    pyautogui.moveTo(3440/2, 1440/3)
+    pyautogui.mouseDown()
+    pyautogui.moveTo(3440/2, 0, 0.125)
+    pyautogui.mouseUp()
+
+    image_c = pyautogui.screenshot()
+    custom_config = r'--oem 3 --psm 6 tessedit_char_whitelist=0123456789/'
+    base = pytesseract.image_to_string(image_c.crop((base_number[0], base_number[2], base_number[1], base_number[3])), config=custom_config).strip()
+    image_c = image_c.crop((0, 0, 3440, 1440-bottom_edge))
+
+    # Convert images to OpenCV format
+    image_a = cv2.cvtColor(np.array(image_a), cv2.COLOR_RGB2BGR)
+    image_b = cv2.cvtColor(np.array(image_b), cv2.COLOR_RGB2BGR)
+    image_c = cv2.cvtColor(np.array(image_c), cv2.COLOR_RGB2BGR)
+
+    # Stitch images
+    # stitched_ab = stitch_images(image_a, image_b)
+    # stitched_abc = stitch_images(stitched_ab, image_c)
+
+    stitched_bc = stitch_images(image_b, image_c)
+    stitched_abc = stitch_images(image_a, stitched_bc)
+
+    return base, stitched_abc
+
+while(True): 
+    num = len(os.listdir(path)) + 1
+    base, image = create_stitched_image()
+    base = re.match(r"(\d+)/\d+", base).group(1)
+    # base = base.split("/")[0] if "/" in base else base
+    print(base)
+    cv2.imwrite(f"{path}{num}.png", image)
+    if "50" not in base and args.auto: 
+        pyautogui.click(right_arrow_button)
+        time.sleep(2)
+    else:
+        break

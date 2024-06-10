@@ -53,7 +53,7 @@ def find_storage_capacity_bbox(image):
     return False
 
 def numeric_ocr(image):
-    custom_config = r'--oem 3 --psm 6 tessedit_char_whitelist=0123456789.,'
+    custom_config = r'--oem 3 --psm 6 tessedit_char_whitelist=0123456789/'
     return pytesseract.image_to_string(image, config=custom_config)[:5]
 
 def color_to_alpha(image, color=(255, 255, 255), transparency_threshold=0.154, opacity_threshold=0.082):

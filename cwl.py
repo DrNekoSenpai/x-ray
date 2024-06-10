@@ -241,6 +241,20 @@ Lucas
 Neo {^_^}
 Indivicious
 Pokrogamer
+Arc Symphony
+TempletoN
+Alex
+Jackers
+nefel
+DARKAL3X
+CallMeFeet
+SickSix6
+Marlouc
+Star-Lord
+Jasdip
+Stalemated
+Seven Thunders
+PolanDV
 """.strip().split("\n")
 
 eligible = [p for p in entries.keys() if p not in already_received]
