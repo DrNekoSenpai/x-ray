@@ -104,7 +104,8 @@ corrected_names = {
     "❤️lav❤️": "lav",
     "$õckÕ": "Socko",
     "Stunted Nazgûl": "Stunted Nazgul",
-    "ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ": "Monkey D. Luffy"
+    "ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ": "Monkey D. Luffy", 
+    "Sʜɪᴠᴀᴍ×͜×max": "Shivamxxmax"
 }
 
 for claim in xray_claims: 
@@ -134,7 +135,7 @@ for claim in xray_claims:
 
         if account_tag == claim_tag: 
             if claimer not in claims_dictionary: claims_dictionary[claimer] = []
-            claims_dictionary[claimer].append(Claim(claim_th, claim_tag, account_name, False, "Reddit X-Ray"))
+            claims_dictionary[claimer].append(Claim(claim_th, claim_tag, account_name, False, "Reddit X-ray"))
             break
 
 for claim in outlaws_claims:
@@ -231,11 +232,14 @@ for claim in glowy_gore_data:
 known_mains = ["Glowy Gore"]
 
 with open("claims_output.txt", "w", encoding="utf-8") as file:
+    num_alts_xray = 0
+    num_alts_outlaws = 0
+
     for claimer in claims_dictionary: 
         for claim in claims_dictionary[claimer]:
-            accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.clan == "Reddit X-Ray"]
+            accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.clan == "Reddit X-ray"]
             accounts_outlaws = [claim for claim in claims_dictionary[claimer] if claim.clan == "Faint Outlaws"]
-            accounts_etc = [claim for claim in claims_dictionary[claimer] if claim.clan != "Reddit X-Ray" and claim.clan != "Faint Outlaws"]
+            accounts_etc = [claim for claim in claims_dictionary[claimer] if claim.clan != "Reddit X-ray" and claim.clan != "Faint Outlaws"]
             accounts_total = accounts_xray + accounts_outlaws + accounts_etc
 
             num_accounts_xray = len(accounts_xray)
@@ -291,10 +295,33 @@ with open("claims_output.txt", "w", encoding="utf-8") as file:
                 else: 
                     claims_dictionary[claimer] = [account for account in accounts_total if account.is_main] + [account for account in accounts_total if not account.is_main]
 
+    for claimer in claims_dictionary:
+        for claim in claims_dictionary[claimer]: 
+            if not claim.is_main and claim.clan == "Reddit X-ray": num_alts_xray += 1
+            if not claim.is_main and claim.clan == "Faint Outlaws": num_alts_outlaws += 1
+
+    file.write(f"Number of alts in Reddit X-ray: {num_alts_xray}\n")
     for claimer in claims_dictionary: 
-        accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.clan == "Reddit X-Ray"]
+        for claim in claims_dictionary[claimer]: 
+            if not claim.is_main and claim.clan == "Reddit X-ray": 
+                main = [account for account in claims_dictionary[claimer] if account.is_main][0]
+                file.write(f"  - {claim.name} [{claim.town_hall}] -- main: {main.name}\n")
+
+    file.write("\n")
+
+    file.write(f"Number of alts in Faint Outlaws: {num_alts_outlaws}\n")
+    for claimer in claims_dictionary:
+        for claim in claims_dictionary[claimer]: 
+            if not claim.is_main and claim.clan == "Faint Outlaws": 
+                main = [account for account in claims_dictionary[claimer] if account.is_main][0]
+                file.write(f"  - {claim.name} ({claim.town_hall}) -- main: {main.name} {'(X-ray)' if main.clan == 'Reddit X-ray' else ''}\n")
+
+    file.write("\n")
+
+    for claimer in claims_dictionary: 
+        accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.clan == "Reddit X-ray"]
         accounts_outlaws = [claim for claim in claims_dictionary[claimer] if claim.clan == "Faint Outlaws"]
-        accounts_etc = [claim for claim in claims_dictionary[claimer] if claim.clan != "Reddit X-Ray" and claim.clan != "Faint Outlaws"]
+        accounts_etc = [claim for claim in claims_dictionary[claimer] if claim.clan != "Reddit X-ray" and claim.clan != "Faint Outlaws"]
         accounts_total = accounts_xray + accounts_outlaws + accounts_etc
 
         num_accounts_xray = len(accounts_xray)
@@ -302,12 +329,12 @@ with open("claims_output.txt", "w", encoding="utf-8") as file:
         num_accounts_etc = len(accounts_etc)
         num_accounts_total = len(accounts_total)
 
-        file.write(f"{claimer}: {num_accounts_xray} accounts in Reddit X-Ray, {num_accounts_outlaws} accounts in Faint Outlaws")
+        file.write(f"{claimer}: {num_accounts_xray} accounts in Reddit X-ray, {num_accounts_outlaws} accounts in Faint Outlaws")
         if num_accounts_etc == 0: file.write("\n")
         else: file.write(f", {num_accounts_etc} accounts not in clan\n")
         for account in accounts_total: 
             file.write(f"  - {account.name} ({account.town_hall}) --")
-            if account.clan == "Reddit X-Ray": file.write(" Reddit X-Ray")
+            if account.clan == "Reddit X-ray": file.write(" Reddit X-ray")
             elif account.clan == "Faint Outlaws": file.write(" Faint Outlaws")
             else: file.write(f" not in clan")
             if account.is_main: file.write(" (main)")

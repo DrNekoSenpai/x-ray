@@ -40,8 +40,6 @@ def is_valid_weight(weight):
     except ValueError:
         return False
 
-image = pyautogui.screenshot()
-
 def find_storage_capacity_bbox(image):
     boxes = pytesseract.image_to_data(image, output_type=pytesseract.Output.DICT)
     results = []
@@ -53,7 +51,7 @@ def find_storage_capacity_bbox(image):
     return False
 
 def numeric_ocr(image):
-    custom_config = r'--oem 3 --psm 6 tessedit_char_whitelist=0123456789/'
+    custom_config = r'--oem 3 --psm 6 outputbase digits'
     return pytesseract.image_to_string(image, config=custom_config)[:5]
 
 def color_to_alpha(image, color=(255, 255, 255), transparency_threshold=0.154, opacity_threshold=0.082):
@@ -98,6 +96,8 @@ def color_to_alpha(image, color=(255, 255, 255), transparency_threshold=0.154, o
 
     return img
 
+image = pyautogui.screenshot()
+
 # Verify that the image contains the storage capacity text
 if not find_storage_capacity_bbox(image):
     print("Error: the image does not contain the storage capacity text.")
@@ -109,8 +109,15 @@ left, right, top, bottom = 2338, 2701, 300, 355
 
 cropped_image = image.crop((left, top, right, bottom))
 weight = numeric_ocr(cropped_image)
-preprocessed_image = color_to_alpha(cropped_image)
-# preprocessed_image.show()
+
+if not is_valid_weight(weight):
+    print(f"Error: OCR result '{weight}' is not valid. Preprocessing.")
+    preprocessed_image = color_to_alpha(cropped_image)
+    weight = numeric_ocr(preprocessed_image)
+
+if not is_valid_weight(weight):
+    print(f"Error: OCR result '{weight}' is not valid after preprocessing.")
+    exit(1)
 
 # Odd case: a weight beginning with "23" should instead be "29", but only if the last recorded value was +/- 1000 from 29000. Otherwise, leave as is.
 if weight.startswith('23'): 
@@ -120,10 +127,11 @@ if weight.startswith('23'):
 
 if weight: 
     with open('weights.txt', 'r', encoding='utf-8') as file:
-       num_lines = len(file.readlines())
+        num_lines = len(file.readlines())
 
     print(f"{num_lines + 1}: {weight}")
 
     with open('weights.txt', 'a', encoding='utf-8') as file:
         file.write(f'{weight}')
-        if num_lines+1 != 50: file.write('\n')
+        if num_lines+1 != 50: 
+            file.write('\n')
