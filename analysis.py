@@ -34,7 +34,6 @@ parser.add_argument("--bypass", "-b", action="store_true", help="If set to true,
 parser.add_argument("--log", "-l", action="store_true", help="If set to true, program also outputs log messages. Default: False")
 parser.add_argument("--mirrors", "-m", action="store_true", help="If set to true, program also outputs invalid mirror messages. Default: False")
 parser.add_argument("--war", "-w", type=str, default="", help="If specified, only analyze the war log with the given name. Default: ''")
-
 args = parser.parse_args()
 
 # Permanent immunities are players who are members of Leadership; they cannot be kicked. 
@@ -300,6 +299,9 @@ with open("claims_output.txt", "w", encoding="utf-8") as file:
             if not claim.is_main and claim.clan == "Reddit X-ray": num_alts_xray += 1
             if not claim.is_main and claim.clan == "Faint Outlaws": num_alts_outlaws += 1
 
+    # Sort the claims dictionary, first by the town hall of the main account descending, then by the number of known alts ascending.
+    claims_dictionary = {claimer: claims_dictionary[claimer] for claimer in sorted(claims_dictionary, key=lambda claimer: (max([account.town_hall for account in claims_dictionary[claimer] if account.is_main]), len([account for account in claims_dictionary[claimer] if not account.is_main])), reverse=True)}
+
     file.write(f"Number of alts in Reddit X-ray: {num_alts_xray}\n")
     for claimer in claims_dictionary: 
         for claim in claims_dictionary[claimer]: 
@@ -329,7 +331,11 @@ with open("claims_output.txt", "w", encoding="utf-8") as file:
         num_accounts_etc = len(accounts_etc)
         num_accounts_total = len(accounts_total)
 
-        file.write(f"{claimer}: {num_accounts_xray} accounts in Reddit X-ray, {num_accounts_outlaws} accounts in Faint Outlaws")
+        if num_accounts_xray == 1: file.write(f"{claimer}: {num_accounts_xray} account in Reddit X-ray")
+        else: file.write(f"{claimer}: {num_accounts_xray} accounts in Reddit X-ray")
+        if num_accounts_outlaws == 1: file.write(f", {num_accounts_outlaws} account in Faint Outlaws")
+        else: file.write(f", {num_accounts_outlaws} accounts in Faint Outlaws")
+        
         if num_accounts_etc == 0: file.write("\n")
         else: file.write(f", {num_accounts_etc} accounts not in clan\n")
         for account in accounts_total: 
