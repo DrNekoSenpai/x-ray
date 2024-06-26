@@ -21,6 +21,7 @@
 #QCJVLLQCL   13 Marlouc
 #LLG9CJPU2   13 KRAZY
 #P99P8L2YC   13 Kodakk
+#890VYVQYY   13 Jasdip
 #LYRCR02YJ   13 Hostile Doctor
 #QR0VU8LC0   13 Connor
 #2RV02G2R    12 Void
@@ -30,7 +31,6 @@
 #PL8JQV9Y    12 Nacksnack
 #UUJUP0CC    12 Lucas
 #V8PVVVCQ    12 JUMBOMUMBO3000
-#890VYVQYY   12 Jasdip
 #80YUP02Y    12 Jack
 #Q8L2J0RY    12 HazedmanMigs
 #Q2J82YPRU   12 Durp

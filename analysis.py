@@ -230,84 +230,89 @@ for claim in glowy_gore_data:
 
 known_mains = ["Glowy Gore"]
 
-with open("claims_output.txt", "w", encoding="utf-8") as file:
-    num_alts_xray = 0
-    num_alts_outlaws = 0
+num_alts_xray = 0
+num_alts_outlaws = 0
 
-    for claimer in claims_dictionary: 
-        for claim in claims_dictionary[claimer]:
-            accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.clan == "Reddit X-ray"]
-            accounts_outlaws = [claim for claim in claims_dictionary[claimer] if claim.clan == "Faint Outlaws"]
-            accounts_etc = [claim for claim in claims_dictionary[claimer] if claim.clan != "Reddit X-ray" and claim.clan != "Faint Outlaws"]
-            accounts_total = accounts_xray + accounts_outlaws + accounts_etc
+for claimer in claims_dictionary: 
+    for claim in claims_dictionary[claimer]:
+        accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.clan == "Reddit X-ray"]
+        accounts_outlaws = [claim for claim in claims_dictionary[claimer] if claim.clan == "Faint Outlaws"]
+        accounts_etc = [claim for claim in claims_dictionary[claimer] if claim.clan != "Reddit X-ray" and claim.clan != "Faint Outlaws"]
+        accounts_total = accounts_xray + accounts_outlaws + accounts_etc
 
-            num_accounts_xray = len(accounts_xray)
-            num_accounts_outlaws = len(accounts_outlaws)
-            num_accounts_etc = len(accounts_etc)
-            num_accounts_total = len(accounts_total)
+        num_accounts_xray = len(accounts_xray)
+        num_accounts_outlaws = len(accounts_outlaws)
+        num_accounts_etc = len(accounts_etc)
+        num_accounts_total = len(accounts_total)
 
-            known_main = False
-            if num_accounts_total > 1:
-                for account in accounts_total:
-                    if account.name in known_mains: 
-                        account.is_main = True
-                        known_main = True
-                        break
+        known_main = False
+        if num_accounts_total > 1:
+            for account in accounts_total:
+                if account.name in known_mains: 
+                    account.is_main = True
+                    known_main = True
+                    break
 
-            if known_main:
-                claims_dictionary[claimer] = [account for account in accounts_total if account.is_main] + [account for account in accounts_total if not account.is_main]
+        if known_main:
+            claims_dictionary[claimer] = [account for account in accounts_total if account.is_main] + [account for account in accounts_total if not account.is_main]
 
-            elif num_accounts_total == 1: 
-                main_account = accounts_total[0]
+        elif num_accounts_total == 1: 
+            main_account = accounts_total[0]
+            main_account.is_main = True
+
+            claims_dictionary[claimer] = [main_account] + [claim for claim in claims_dictionary[claimer] if claim.tag != main_account.tag]
+
+        # Otherwise, if they have one account in Reddit X-ray, set that one as main. 
+        elif num_accounts_xray == 1:
+            main_account = accounts_xray[0]
+            main_account.is_main = True
+
+            claims_dictionary[claimer] = [main_account] + [claim for claim in claims_dictionary[claimer] if claim.tag != main_account.tag]
+
+        # If they have multiple accounts in Reddit X-ray, set the one with the highest town hall level as main.
+        elif num_accounts_xray > 1:
+            main_account = max(accounts_xray, key=lambda account: account.town_hall)
+            main_account.is_main = True
+
+            claims_dictionary[claimer] = [main_account] + [claim for claim in claims_dictionary[claimer] if claim.tag != main_account.tag]
+
+        else: 
+            for account in accounts_total:
+                if account.name in known_mains: 
+                    account.is_main = True
+                    break
+
+            if len([account for account in accounts_total if account.is_main]) == 0:
+                # At this point, we have still not identified a main account. 
+                # Set the account with the highest town hall level as the main account.
+                main_account = max(accounts_total, key=lambda account: account.town_hall)
                 main_account.is_main = True
 
-                claims_dictionary[claimer] = [main_account] + [claim for claim in claims_dictionary[claimer] if claim.tag != main_account.tag]
-
-            # Otherwise, if they have one account in Reddit X-ray, set that one as main. 
-            elif num_accounts_xray == 1:
-                main_account = accounts_xray[0]
-                main_account.is_main = True
-
-                claims_dictionary[claimer] = [main_account] + [claim for claim in claims_dictionary[claimer] if claim.tag != main_account.tag]
-
-            # If they have multiple accounts in Reddit X-ray, set the one with the highest town hall level as main.
-            elif num_accounts_xray > 1:
-                main_account = max(accounts_xray, key=lambda account: account.town_hall)
-                main_account.is_main = True
-
-                claims_dictionary[claimer] = [main_account] + [claim for claim in claims_dictionary[claimer] if claim.tag != main_account.tag]
+                claims_dictionary[claimer] = [main_account] + [account for account in accounts_total if account.tag != main_account.tag]
 
             else: 
-                for account in accounts_total:
-                    if account.name in known_mains: 
-                        account.is_main = True
-                        break
+                claims_dictionary[claimer] = [account for account in accounts_total if account.is_main] + [account for account in accounts_total if not account.is_main]
 
-                if len([account for account in accounts_total if account.is_main]) == 0:
-                    # At this point, we have still not identified a main account. 
-                    # Set the account with the highest town hall level as the main account.
-                    main_account = max(accounts_total, key=lambda account: account.town_hall)
-                    main_account.is_main = True
+for claimer in claims_dictionary:
+    for claim in claims_dictionary[claimer]: 
+        if not claim.is_main and claim.clan == "Reddit X-ray": num_alts_xray += 1
+        if not claim.is_main and claim.clan == "Faint Outlaws": num_alts_outlaws += 1
 
-                    claims_dictionary[claimer] = [main_account] + [account for account in accounts_total if account.tag != main_account.tag]
+# Sort the claims dictionary, first by the town hall of the main account descending, then by the number of known alts ascending.
+claims_dictionary = {claimer: claims_dictionary[claimer] for claimer in sorted(claims_dictionary, key=lambda claimer: (max([account.town_hall for account in claims_dictionary[claimer] if account.is_main]), len([account for account in claims_dictionary[claimer] if not account.is_main])), reverse=True)}
 
-                else: 
-                    claims_dictionary[claimer] = [account for account in accounts_total if account.is_main] + [account for account in accounts_total if not account.is_main]
-
-    for claimer in claims_dictionary:
-        for claim in claims_dictionary[claimer]: 
-            if not claim.is_main and claim.clan == "Reddit X-ray": num_alts_xray += 1
-            if not claim.is_main and claim.clan == "Faint Outlaws": num_alts_outlaws += 1
-
-    # Sort the claims dictionary, first by the town hall of the main account descending, then by the number of known alts ascending.
-    claims_dictionary = {claimer: claims_dictionary[claimer] for claimer in sorted(claims_dictionary, key=lambda claimer: (max([account.town_hall for account in claims_dictionary[claimer] if account.is_main]), len([account for account in claims_dictionary[claimer] if not account.is_main])), reverse=True)}
-
+with open("num_alts.txt", "w", encoding="utf-8") as file:
+    unix_time = int(datetime.datetime.now().timestamp())
+    file.write(f"As of <t:{unix_time}:F> (<t:{unix_time}:R>):\n\n")
     file.write(f"Number of alts in Reddit X-ray: {num_alts_xray}\n")
     for claimer in claims_dictionary: 
         for claim in claims_dictionary[claimer]: 
             if not claim.is_main and claim.clan == "Reddit X-ray": 
                 main = [account for account in claims_dictionary[claimer] if account.is_main][0]
-                file.write(f"  - {claim.name} [{claim.town_hall}] -- main: {main.name}\n")
+                alt_name = claim.name.replace('_', '\_')
+                main_name = main.name.replace('_', '\_')
+
+                file.write(f"  \- {alt_name} ({claim.town_hall}) -- main: {main_name}\n")
 
     file.write("\n")
 
@@ -316,10 +321,12 @@ with open("claims_output.txt", "w", encoding="utf-8") as file:
         for claim in claims_dictionary[claimer]: 
             if not claim.is_main and claim.clan == "Faint Outlaws": 
                 main = [account for account in claims_dictionary[claimer] if account.is_main][0]
-                file.write(f"  - {claim.name} ({claim.town_hall}) -- main: {main.name} {'(X-ray)' if main.clan == 'Reddit X-ray' else ''}\n")
+                alt_name = claim.name.replace('_', '\_')
+                main_name = main.name.replace('_', '\_')
+                
+                file.write(f"  \- {alt_name} ({claim.town_hall}) -- main: {main_name} {'(X-ray)' if main.clan == 'Reddit X-ray' else ''}\n")
 
-    file.write("\n")
-
+with open("claims_output.txt", "w", encoding="utf-8") as file:
     for claimer in claims_dictionary: 
         accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.clan == "Reddit X-ray"]
         accounts_outlaws = [claim for claim in claims_dictionary[claimer] if claim.clan == "Faint Outlaws"]
