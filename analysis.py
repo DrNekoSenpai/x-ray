@@ -73,10 +73,6 @@ with open("minion-outlaws.txt", "r", encoding="utf-8") as file:
 with open("glowy_gore.txt", "r", encoding="utf-8") as file:
     glowy_gore_data = file.readlines()
 
-def regular_keyboard(input_string): 
-    pattern = r"^[A-Za-z0-9 \~!@#$%^&*()\-=\[\]{}|;:'\",\.<>/?\\_+]*$"
-    return re.match(pattern, input_string) is not None 
-
 # 15 #P2UPPVYL    ‭⁦Sned      ⁩‬ Sned | PST
 claims_pattern = re.compile(r"(\d{1,2})\s+#([A-Z0-9]{5,9})\s+‭⁦(.*)⁩‬(.*)")
 
@@ -93,20 +89,6 @@ class Claim:
 
 claims_dictionary = {}
 
-corrected_names = {
-    "JALVIN ø": "JALVIN",
-    "★ıċєʏקѧṅṭś★": "IceyPants",
-    "General⚡️Mc0⚡️": "General Mc0",
-    "༺༃༼SEV༽༃༻": "SEV",
-    "「 NightEye 」": "NightEye",
-    "Mini @ñ@$": "Mini Anas",
-    "❤️lav❤️": "lav",
-    "$õckÕ": "Socko",
-    "Stunted Nazgûl": "Stunted Nazgul",
-    "ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ": "Monkey D. Luffy", 
-    "Sʜɪᴠᴀᴍ×͜×max": "Shivamxxmax"
-}
-
 for claim in xray_claims: 
     claim_th, claim_tag, claim_name, claimer = re.search(claims_pattern, claim).groups()
 
@@ -119,18 +101,10 @@ for claim in xray_claims:
 
         account_tag = account_tag.strip()
         account_name = account_name.strip()
-
-        if account_name in corrected_names.keys(): account_name = corrected_names[account_name]
         
         if "’" in account_name: account_name = account_name.replace("’", "'")
-        if "™" in account_name: account_name = account_name.replace("™", "")
-        if "✨" in account_name: account_name = account_name.replace("✨", "")
         if "\_" in account_name: account_name = account_name.replace("\_", "_")
         if "\~" in account_name: account_name = account_name.replace("\~", "~")
-
-        if not regular_keyboard(account_name):
-            print(f"X-ray: Player name '{account_name}' is not valid. Please input the name manually.")
-            account_name = input("Name: ")
 
         if account_tag == claim_tag: 
             if claimer not in claims_dictionary: claims_dictionary[claimer] = []
@@ -149,18 +123,10 @@ for claim in outlaws_claims:
 
         account_tag = account_tag.strip()
         account_name = account_name.strip()
-
-        if account_name in corrected_names.keys(): account_name = corrected_names[account_name]
         
         if "’" in account_name: account_name = account_name.replace("’", "'")
-        if "™" in account_name: account_name = account_name.replace("™", "")
-        if "✨" in account_name: account_name = account_name.replace("✨", "")
         if "\_" in account_name: account_name = account_name.replace("\_", "_")
         if "\~" in account_name: account_name = account_name.replace("\~", "~")
-
-        if not regular_keyboard(account_name):
-            print(f"Outlaws: Player name '{account_name}' is not valid. Please input the name manually.")
-            account_name = input("Name: ")
 
         if account_tag == claim_tag: 
             if claimer not in claims_dictionary: claims_dictionary[claimer] = []
@@ -183,18 +149,10 @@ for claim in glowy_gore_data:
 
         account_tag = account_tag.strip()
         account_name = account_name.strip()
-
-        if account_name in corrected_names.keys(): account_name = corrected_names[account_name]
         
         if "’" in account_name: account_name = account_name.replace("’", "'")
-        if "™" in account_name: account_name = account_name.replace("™", "")
-        if "✨" in account_name: account_name = account_name.replace("✨", "")
         if "\_" in account_name: account_name = account_name.replace("\_", "_")
         if "\~" in account_name: account_name = account_name.replace("\~", "~")
-
-        if not regular_keyboard(account_name):
-            print(f"Glowy Gore: Player name '{account_name}' is not valid. Please input the name manually.")
-            account_name = input("Name: ")
 
         if account_tag == claim_tag: 
             matching_account = True
@@ -205,18 +163,10 @@ for claim in glowy_gore_data:
 
         account_tag = account_tag.strip()
         account_name = account_name.strip()
-
-        if account_name in corrected_names.keys(): account_name = corrected_names[account_name]
         
         if "’" in account_name: account_name = account_name.replace("’", "'")
-        if "™" in account_name: account_name = account_name.replace("™", "")
-        if "✨" in account_name: account_name = account_name.replace("✨", "")
         if "\_" in account_name: account_name = account_name.replace("\_", "_")
         if "\~" in account_name: account_name = account_name.replace("\~", "~")
-
-        if not regular_keyboard(account_name):
-            print(f"Glowy Gore: Player name '{account_name}' is not valid. Please input the name manually.")
-            account_name = input("Name: ")
 
         if account_tag == claim_tag: 
             matching_account = True
@@ -500,18 +450,10 @@ for log_file in logs:
             star3 = match.group(5)
             stars = len([star for star in [star1, star2, star3] if star != ":Blank:"])
             player_name = match.group(6)
-
-            if player_name in corrected_names.keys(): player_name = corrected_names[player_name]
             
             if "’" in player_name: player_name = player_name.replace("’", "'")
-            if "™" in player_name: player_name = player_name.replace("™", "")
-            if "✨" in player_name: player_name = player_name.replace("✨", "")
             if "\_" in player_name: player_name = player_name.replace("\_", "_")
             if "\~" in player_name: player_name = player_name.replace("\~", "~")
-
-            if not regular_keyboard(player_name):
-                print(f"Logging: Player name '{player_name}' is not valid. Please input the name manually.")
-                player_name = input("Name: ")
             
             log.append((player_name, attacker, defender, stars, time_remaining))
 
@@ -525,35 +467,19 @@ for log_file in logs:
 
         if attack_list == 2: 
             player_name = line.strip()[8:]
-
-            if player_name in corrected_names.keys(): player_name = corrected_names[player_name]
             
             if "’" in player_name: player_name = player_name.replace("’", "'")
-            if "™" in player_name: player_name = player_name.replace("™", "")
-            if "✨" in player_name: player_name = player_name.replace("✨", "")
             if "\_" in player_name: player_name = player_name.replace("\_", "_")
             if "\~" in player_name: player_name = player_name.replace("\~", "~")
-
-            if not regular_keyboard(player_name):
-                print(f"Two hits: Player name {player_name} is not valid. Please input the name manually.")
-                player_name = input("Name: ")
 
             two_missed_hits.append(player_name)
 
         if attack_list == 1:
             player_name = line.strip()[8:]
-
-            if player_name in corrected_names.keys(): player_name = corrected_names[player_name]
             
             if "’" in player_name: player_name = player_name.replace("’", "'")
-            if "™" in player_name: player_name = player_name.replace("™", "")
-            if "✨" in player_name: player_name = player_name.replace("✨", "")
             if "\_" in player_name: player_name = player_name.replace("\_", "_")
             if "\~" in player_name: player_name = player_name.replace("\~", "~")
-
-            if not regular_keyboard(player_name):
-                print(f"One hit: Player name {player_name} is not valid. Please input the name manually.")
-                player_name = input("Name: ")
 
             one_missed_hit.append(player_name)
 

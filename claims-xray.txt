@@ -1,11 +1,12 @@
+13 #Q9890CURP   ‭⁦Vixi's Cur⁩‬ Glowy Gore | CST
+14 #UUU8LLRL    ‭⁦™Dr. Alan™⁩‬ ™Dr. Alan™
 15 #9LCPQ0QR    ‭⁦Smitty™   ⁩‬ Smitty™ | PST
 14 #Y8P82GJJ    ‭⁦bran6     ⁩‬ Bran6 | PST
 11 #QCQ8V2UL9   ‭⁦A\_\_\_\_     ⁩‬ Lil Ank/A____/An___
 15 #LU2YC0L     ‭⁦Kaselcap  ⁩‬ Kaselcap | CST
-13 #Q9890CURP   ‭⁦Vixi's Cur⁩‬ Glowy Gore | CST
 12 #LP0R0UUG8   ‭⁦Golden Uni⁩‬ Unicorn✨ | AST
 16 #JCCLVR8R    ‭⁦BumblinMum⁩‬ BumblinMumbler | EST
-12 #QPJ8UV280   ‭⁦shadow    ⁩‬ shadow
+12 #QPJ8UV280   ‭⁦shadow    ⁩‬ shadow | PST
 15 #RCUY2PYV    ‭⁦katsu     ⁩‬ katsu | PST
 13 #YQUUYVQ0C   ‭⁦brycee    ⁩‬ Brycee
 12 #8R2LJQC98   ‭⁦return    ⁩‬ retu4n
@@ -32,7 +33,6 @@
 12 #YQUCCRLY2   ‭⁦Schooner  ⁩‬ burntunicorn
 15 #LVQ9PPQVY   ‭⁦Marlec    ⁩‬ Marlec | CEST
 16 #P2UPPVYL    ‭⁦Sned      ⁩‬ Sned | PST
-13 #UUU8LLRL    ‭⁦™Dr. Alan™⁩‬ ™Dr. Alan™
 16 #80U9VGUU9   ‭⁦ANBU      ⁩‬ ANBU
 11 #QVR00GCL2   ‭⁦Ashtar    ⁩‬ ashtar
 12 #LRUC9PLP    ‭⁦nefel     ⁩‬ nefel
@@ -46,5 +46,5 @@
 15 #8R8UL9RY0   ‭⁦Bounce\_04 ⁩‬ Bounce_04 | IST
 13 #LUCLUJ988   ‭⁦Glowy Gore⁩‬ Glowy Gore | CST
 16 #9QGLLQJQ2   ‭⁦Protips   ⁩‬ .protips
-14 #2GP2C8LRY   ‭⁦W1nter    ⁩‬ Coolguyagent | EST
+14 #2GP2C8LRY   ‭⁦W1nter    ⁩‬ W1nter | EST
 15 #8L9QLJJP    ‭⁦jy        ⁩‬ jy

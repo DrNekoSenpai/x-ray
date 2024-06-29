@@ -37,7 +37,7 @@ Marlec | CEST: 1 account in Reddit X-ray, 2 accounts in Faint Outlaws
   - Marlouc (13) -- Faint Outlaws
 
 Smitty™ | PST: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
-  - Smitty (15) -- Reddit X-ray (main)
+  - Smitty™ (15) -- Reddit X-ray (main)
 
 Kaselcap | CST: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
   - Kaselcap (15) -- Reddit X-ray (main)
@@ -61,8 +61,11 @@ blumplestiltskin: 0 accounts in Reddit X-ray, 1 account in Faint Outlaws
   - Kin (15) -- Faint Outlaws (main)
 
 KRAZY/❤lav❤: 0 accounts in Reddit X-ray, 2 accounts in Faint Outlaws
-  - lav (14) -- Faint Outlaws (main)
+  - ❤️lav❤️ (14) -- Faint Outlaws (main)
   - KRAZY (13) -- Faint Outlaws
+
+™Dr. Alan™: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
+  - ™Dr. Alan™ (14) -- Reddit X-ray (main)
 
 Bran6 | PST: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
   - bran6 (14) -- Reddit X-ray (main)
@@ -79,7 +82,7 @@ pg: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
 RoyalOne: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
   - RoyalOne (14) -- Reddit X-ray (main)
 
-Coolguyagent | EST: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
+W1nter | EST: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
   - W1nter (14) -- Reddit X-ray (main)
 
 triao: 0 accounts in Reddit X-ray, 1 account in Faint Outlaws
@@ -88,8 +91,9 @@ triao: 0 accounts in Reddit X-ray, 1 account in Faint Outlaws
 Glowy Gore | CST: 2 accounts in Reddit X-ray, 12 accounts in Faint Outlaws, 8 accounts not in clan
   - Glowy Gore (13) -- Reddit X-ray (main)
   - Vixi's Curse (13) -- Reddit X-ray
+  - Seven Thunders (15) -- Faint Outlaws
+  - Hardcastle (13) -- Faint Outlaws
   - Not My Name (14) -- Faint Outlaws
-  - Tenth Situation (14) -- Faint Outlaws
   - Hostile Doctor (13) -- Faint Outlaws
   - Opposable Thumb (14) -- Faint Outlaws
   - Thumb Salute (14) -- Faint Outlaws
@@ -99,10 +103,9 @@ Glowy Gore | CST: 2 accounts in Reddit X-ray, 12 accounts in Faint Outlaws, 8 ac
   - SickSix6 (16) -- Faint Outlaws
   - DisasterBaiter (16) -- Faint Outlaws
   - Your Angry Ex (16) -- Faint Outlaws
-  - Seven Thunders (15) -- Faint Outlaws
-  - Hardcastle (13) -- not in clan
   - Demeter's Demon (11) -- not in clan
   - Sulfur (13) -- not in clan
+  - Tenth Situation (14) -- not in clan
   - Procrastination (12) -- not in clan
   - Chalk Outline (11) -- not in clan
   - Loo Czar (11) -- not in clan
@@ -128,11 +131,8 @@ alex_interlinked: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
 artoriasuk: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
   - zombie reaper (13) -- Reddit X-ray (main)
 
-™Dr. Alan™: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
-  - Dr. Alan (13) -- Reddit X-ray (main)
-
 JALVIN: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
-  - JALVIN (13) -- Reddit X-ray (main)
+  - JALVIN ø (13) -- Reddit X-ray (main)
 
 Arietem: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
   - Arietem (13) -- Reddit X-ray (main)
@@ -162,9 +162,9 @@ alpha|Neo|bravo|charlie|Ronaldo: 0 accounts in Reddit X-ray, 4 accounts in Faint
   - BrAvO {^_^} (12) -- Faint Outlaws
 
 Unicorn✨ | AST: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
-  - Golden Unicorn (12) -- Reddit X-ray (main)
+  - Golden Unicorn✨ (12) -- Reddit X-ray (main)
 
-shadow: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
+shadow | PST: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
   - shadow (12) -- Reddit X-ray (main)
 
 deandrelopez: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws

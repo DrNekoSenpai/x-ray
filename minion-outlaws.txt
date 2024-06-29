@@ -9,7 +9,6 @@
 #L898J8C8L   15 Dark Hell Mutt
 #2999UG888   14 triao
 #Q0VR0J2PC   14 Thumb Salute
-#L8QYRR9V8   14 Tenth Situation
 #LV89J8UL8   14 Opposable Thumb
 #L2QJVPYJQ   14 Not My Name
 #L0VLGUL2U   14 Clone Castle
@@ -23,6 +22,7 @@
 #P99P8L2YC   13 Kodakk
 #890VYVQYY   13 Jasdip
 #LYRCR02YJ   13 Hostile Doctor
+#Q089Q9PRG   13 Hardcastle
 #QR0VU8LC0   13 Connor
 #2RV02G2R    12 Void
 #QVCYJJRR    12 skizzy
@@ -46,4 +46,4 @@
 #QJL2UG902   11 jovc
 #LU2V8PGC0   11 JOTARO
 #Q0V0CY9QR   10 Guy With Hate
-#G9UVRJ0RR   9 BumblinMumbler3
+#G9UVRJ0RR   9 BumblinMumbler3  
