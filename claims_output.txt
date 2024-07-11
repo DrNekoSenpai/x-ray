@@ -88,13 +88,12 @@ W1nter | EST: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
 triao: 0 accounts in Reddit X-ray, 1 account in Faint Outlaws
   - triao (14) -- Faint Outlaws (main)
 
-Glowy Gore | CST: 2 accounts in Reddit X-ray, 12 accounts in Faint Outlaws, 8 accounts not in clan
+Glowy Gore | CST: 2 accounts in Reddit X-ray, 11 accounts in Faint Outlaws, 9 accounts not in clan
   - Glowy Gore (13) -- Reddit X-ray (main)
   - Vixi's Curse (13) -- Reddit X-ray
-  - Seven Thunders (15) -- Faint Outlaws
-  - Hardcastle (13) -- Faint Outlaws
+  - Tenth Situation (14) -- Faint Outlaws
   - Not My Name (14) -- Faint Outlaws
-  - Hostile Doctor (13) -- Faint Outlaws
+  - Seven Thunders (15) -- Faint Outlaws
   - Opposable Thumb (14) -- Faint Outlaws
   - Thumb Salute (14) -- Faint Outlaws
   - Clone Castle (14) -- Faint Outlaws
@@ -103,9 +102,10 @@ Glowy Gore | CST: 2 accounts in Reddit X-ray, 12 accounts in Faint Outlaws, 8 ac
   - SickSix6 (16) -- Faint Outlaws
   - DisasterBaiter (16) -- Faint Outlaws
   - Your Angry Ex (16) -- Faint Outlaws
+  - Hardcastle (13) -- not in clan
   - Demeter's Demon (11) -- not in clan
   - Sulfur (13) -- not in clan
-  - Tenth Situation (14) -- not in clan
+  - Hostile Doctor (13) -- not in clan
   - Procrastination (12) -- not in clan
   - Chalk Outline (11) -- not in clan
   - Loo Czar (11) -- not in clan
@@ -248,4 +248,7 @@ DARKAL3X: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
 
 ashtar: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
   - Ashtar (11) -- Reddit X-ray (main)
+
+leo palaro: 0 accounts in Reddit X-ray, 1 account in Faint Outlaws
+  - leo palaro (0) -- Faint Outlaws (main)
 

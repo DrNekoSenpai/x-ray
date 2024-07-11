@@ -1,4 +1,4 @@
-import datetime, requests, re, argparse, subprocess, random
+import datetime, requests, re, argparse, subprocess, random, openpyxl
 
 from contextlib import redirect_stdout as redirect
 from io import StringIO
@@ -42,10 +42,6 @@ with open("cwl-input.txt", "r", encoding="utf-8") as f:
 
 players = []
 
-def regular_keyboard(input_string): 
-    pattern = r"^[A-Za-z0-9 \~!@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
-    return re.match(pattern, input_string) is not None 
-
 if args.clan == "":
     clan = input("What clan is this? (xray/outlaws) ").strip().lower()
     if clan not in ["xray", "outlaws"]: 
@@ -62,24 +58,7 @@ with open(f"minion-{clan}.txt", "r", encoding="utf-8") as f:
         match = pattern.match(line)
         if match: 
             tag, player = match.groups()
-            player = player.replace("\\_", "_")
-            player = player.replace("™", "")
-
-            if player == "JALVIN ø": player = "JALVIN"
-            if player == "★ıċєʏקѧṅṭś★": player = "IceyPants"
-            if player == "༺༃༼SEV༽༃༻": player = "SEV"
-            if player == "\~CLUNK\~": player = "~CLUNK~"
-            if player == "❤️lav❤️": player = "lav"
-            if player == "Lil’ Blump": player = "Lil' Blump"
-            if player == "「 NightEye 」": player = "NightEye"
-            if player == "ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ": player = "Monkey D. Luffy"
-            if player == "Mini @ñ@$": player = "Mini Anas"
-
-            if "✨" in player: player = player.replace("✨", "")
-
-            if not regular_keyboard(player):
-                print(f"Error: {player} #{tag} contains invalid characters")
-                continue
+            player = player.replace("\_", "_")
 
             if player not in [p[1] for p in players]:
                 players.append((player, tag))
@@ -143,6 +122,39 @@ for player,hits in cwl:
     else:
         entries[player] += months
         loyalty_entries[player] = months
+
+# Open the war_bases.xlsx file
+wb = openpyxl.load_workbook("war_bases.xlsx")
+
+# Get the first sheet
+sheet = wb.active
+
+# Grab the first four columns of the sheet
+data = sheet.iter_rows(min_row=1, max_row=100, min_col=1, max_col=4, values_only=True)
+
+# For each row... 
+for row in data:
+    name = row[1]
+    try: points = int(row[3])
+    except: continue # assume header row
+
+    # Find the corresponding player in the list of players
+    for player,tag in players:
+        if player == name: 
+            # Print out the number of points they had, if it's above zero. 
+            if points > 0:
+                print(f"{player} had {points} FWA bases active during this month's CWL")
+            
+            if points > hit_entries[player]:
+                # Set hit_entries to zero. 
+                hit_entries[player] = 0
+                entries[player] = 0
+                loyalty_entries[player] = 0
+
+            else:
+                # Subtract the number of points from hit_entries
+                hit_entries[player] -= points
+                entries[player] -= points
 
 # Failsafe: check if loyalty entries is negative. If so, set it to 0. Reflect this in entries as well.
 for player in entries.keys():
@@ -289,9 +301,10 @@ for _ in range(num_dists):
     print(f"- {choice}")
 
 month, year = datetime.datetime.now().strftime("%B").lower(), datetime.datetime.now().year
-with open(f"./inputs/cwl_{clan}_{month}_{year}.txt", "w") as file: 
-    for player,hits in cwl: 
-        if int(hits) > 3: continue
-        else: 
-            file.write(f"3\n{player}\ny\n2\ny\n")
-            print(f"Player {player} missed {7-int(hits)} CWL hits; assigning strikes.")
+if clan == "xray": 
+    with open(f"./inputs/cwl_{clan}_{month}_{year}.txt", "w") as file: 
+        for player,hits in cwl: 
+            if int(hits) > 3: continue
+            else: 
+                file.write(f"3\n{player}\ny\n2\ny\n")
+                print(f"Player {player} missed {7-int(hits)} CWL hits; assigning strikes.")

@@ -27,6 +27,9 @@ if up_to_date() is False:
     print("To pull the latest changes, simply run the command 'git pull' in this terminal.")
     exit(1)
 
+if not os.path.exists("./logs/"): os.mkdir("./logs/")
+if not os.path.exists("./inputs/"): os.mkdir("./inputs/")
+
 logs = [file[:-4] for file in os.listdir("./logs/") if not "_input" in file]
 
 parser = argparse.ArgumentParser(description="Analyze war logs for generating strikes.")
