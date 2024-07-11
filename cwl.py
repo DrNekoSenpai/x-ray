@@ -245,7 +245,6 @@ Nitin 7.0
 Luke
 Arietem
 RoyalOne
-JALVIN
 YOYOMAN12D
 RONALDO7
 Charlie {^_^}
@@ -267,6 +266,16 @@ Jasdip
 Stalemated
 Seven Thunders
 PolanDV
+bran6
+Reactorge
+Smitty™
+[KISHLAY]
+JALVIN ø
+sanskar
+™Dr. Alan™
+Sned 2.0
+niccolo1305
+JOTARO
 """.strip().split("\n")
 
 eligible = [p for p in entries.keys() if p not in already_received]
