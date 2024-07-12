@@ -57,7 +57,8 @@ if len(roster) == 30 or len(roster) == 15:
             print("")
 
 if len(roster) == 50: 
-    list = [4,7,12,13,14,15,19,21,23,24,29,30,31,32,33,34,36,37,38,39,40,42,45,46,47,48,49,50]
+    # List: 2 11 21 23 27 28 35 39 41 45 48
+    list = [2,11,21,23,27,28,35,39,41,45,48]
     roster = {player: num for player,num in roster.items() if num in list}
 
     class Claim: 
