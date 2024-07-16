@@ -1,36 +1,37 @@
-0  #G02PPURRQ   ‭⁦timi bää 7⁩‬ Marlec | CEST
-0  #P8QYVVV2J   ‭⁦Marlec9207⁩‬ Marlec | CEST
-0  #PPPUUUQ20   ‭⁦Houdi     ⁩‬ Marlec | CEST
-10 #G2P0L8L2V   ‭⁦grazzert  ⁩‬ grazzert
+7  #LQLUPJG2R   ‭⁦Sned 3.0  ⁩‬ Sned | PST
+12 #P8QYVVV2J   ‭⁦Marlec9207⁩‬ Marlec | CEST
+11 #PPPUUUQ20   ‭⁦Houdi     ⁩‬ Marlec | CEST
+12 #G8CJJ8PJ2   ‭⁦Grogu     ⁩‬ akk6860
+11 #G29YQ8VUP   ‭⁦BU$HI     ⁩‬ Marlec | CEST
+11 #G99UVRLU0   ‭⁦Selug     ⁩‬ Marlec | CEST
+11 #L0RL9RP0Y   ‭⁦SDM       ⁩‬ Marlec | CEST
+11 #LU2V8PGC0   ‭⁦JOTARO    ⁩‬ retu4n
+11 #RVVVYRVR    ‭⁦RONALDO7  ⁩‬ alpha|Neo|bravo|charlie|Ronaldo
+14 #LGGLQG0UC   ‭⁦❤️lav❤️   ⁩‬ KRAZY/❤lav❤
+14 #QR0VU8LC0   ‭⁦Connor    ⁩‬ onetrickpigeon
+11 #YVYQ9LV0Y   ‭⁦Ratchito  ⁩‬ Ratchito
+12 #80YUP02Y    ‭⁦Jack      ⁩‬ jhammond1_
 12 #PR2P8V2RC   ‭⁦barba66   ⁩‬ barba66
+11 #8VGU290R    ‭⁦leo palaro⁩‬ leo palaro
+10 #G2P0L8L2V   ‭⁦grazzert  ⁩‬ grazzert
 8  #8V2UQG28R   ‭⁦Cosmic Uni⁩‬ Unicorn✨ | AST
-0  #G8CJJ8PJ2   ‭⁦Grogu     ⁩‬ akk6860
 13 #QPJGQQ2GG   ‭⁦stormbreak⁩‬ retu4n
-0  #L0RL9RP0Y   ‭⁦SDM       ⁩‬ Marlec | CEST
-0  #G99UVRLU0   ‭⁦Selug     ⁩‬ Marlec | CEST
-0  #G29YQ8VUP   ‭⁦BU$HI     ⁩‬ Marlec | CEST
 10 #YLUL9Q9JG   ‭⁦CrazyWaveI⁩‬ CrazyWaveIT
 13 #Q8L2J0RY    ‭⁦HazedmanMi⁩‬ angelthestoner
 14 #GYPV2P2J2   ‭⁦Stalemated⁩‬ stalemated
 10 #Q0V0CY9QR   ‭⁦Guy With H⁩‬ retu4n
-11 #8VGU290R    ‭⁦leo palaro⁩‬ leo palaro
-13 #Y2U0PPGGP   ‭⁦Arctic Uni⁩‬ Unicorn✨ | AST
 10 #88JLUQQU    ‭⁦Astral Uni⁩‬ Unicorn✨ | AST
 10 #LVU2VQP08   ‭⁦Rising Uni⁩‬ Unicorn✨ | AST
 10 #L822V0G9L   ‭⁦Luther    ⁩‬ Marlec | CEST
 12 #LYJYR9Q     ‭⁦BUR33DS   ⁩‬ Bur33ds
-13 #QR0VU8LC0   ‭⁦Connor    ⁩‬ onetrickpigeon
 11 #QJL2UG902   ‭⁦jovc      ⁩‬ Marlec | CEST
-11 #LU2V8PGC0   ‭⁦JOTARO    ⁩‬ retu4n
 12 #YPQ2UJUQR   ‭⁦BumblinMum⁩‬ BumblinMumbler | EST
-11 #RVVVYRVR    ‭⁦RONALDO7  ⁩‬ alpha|Neo|bravo|charlie|Ronaldo
 12 #80RQ2LU9L   ‭⁦aLpHa {^\_^⁩‬ alpha|Neo|bravo|charlie|Ronaldo
 12 #2LJPQVJCP   ‭⁦Charlie {^⁩‬ alpha|Neo|bravo|charlie|Ronaldo
 12 #2902CYJ0G   ‭⁦BrAvO {^\_^⁩‬ alpha|Neo|bravo|charlie|Ronaldo
 12 #PL8JQV9Y    ‭⁦Nacksnack ⁩‬ nacksnack
 12 #GQR9GQ2L    ‭⁦niccolo130⁩‬ niccolo1305
 12 #UUJUP0CC    ‭⁦Lucas     ⁩‬ Lucas
-12 #80YUP02Y    ‭⁦Jack      ⁩‬ jhammond1_
 12 #2RV02G2R    ‭⁦Void      ⁩‬ 8void8
 12 #V8PVVVCQ    ‭⁦JUMBOMUMBO⁩‬ JUMBOMUMBO3000
 11 #L9Y9J88LL   ‭⁦Sned 2.0  ⁩‬ Sned | PST
@@ -45,6 +46,5 @@
 14 #2999UG888   ‭⁦triao     ⁩‬ triao
 13 #P99P8L2YC   ‭⁦Kodakk    ⁩‬ _kodakkk
 13 #LLG9CJPU2   ‭⁦KRAZY     ⁩‬ KRAZY/❤lav❤
-14 #LGGLQG0UC   ‭⁦❤️lav❤️   ⁩‬ KRAZY/❤lav❤
 12 #Q2J82YPRU   ‭⁦Durp      ⁩‬ durpshk
 15 #2PRJQRG8G   ‭⁦Kin       ⁩‬ blumplestiltskin

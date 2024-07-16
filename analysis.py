@@ -44,7 +44,6 @@ permanent_immunities = [
     "Sned",
     "BumblinMumbler",
     "BumblinMumbler3",
-    "Glowy Gore", 
     "Anas", 
     "Arcohol",
     "Bran6", 
@@ -73,9 +72,6 @@ with open("minion-xray.txt", "r", encoding="utf-8") as file:
 with open("minion-outlaws.txt", "r", encoding="utf-8") as file:
     outlaws_data = file.readlines()
 
-with open("glowy_gore.txt", "r", encoding="utf-8") as file:
-    glowy_gore_data = file.readlines()
-
 # 15 #P2UPPVYL    ‭⁦Sned      ⁩‬ Sned | PST
 claims_pattern = re.compile(r"(\d{1,2})\s+#([A-Z0-9]{5,9})\s+‭⁦(.*)⁩‬(.*)")
 
@@ -95,6 +91,7 @@ claims_dictionary = {}
 for claim in xray_claims: 
     claim_th, claim_tag, claim_name, claimer = re.search(claims_pattern, claim).groups()
 
+    claim_th = int(claim_th)
     claim_tag = claim_tag.strip()
     claim_name = claim_name.strip()
     claimer = claimer.strip()
@@ -117,6 +114,7 @@ for claim in xray_claims:
 for claim in outlaws_claims:
     claim_th, claim_tag, claim_name, claimer = re.search(claims_pattern, claim).groups()
 
+    claim_th = int(claim_th)
     claim_tag = claim_tag.strip()
     claim_name = claim_name.strip()
     claimer = claimer.strip()
@@ -135,51 +133,6 @@ for claim in outlaws_claims:
             if claimer not in claims_dictionary: claims_dictionary[claimer] = []
             claims_dictionary[claimer].append(Claim(claim_th, claim_tag, account_name, False, "Faint Outlaws"))
             break
-
-for claim in glowy_gore_data:
-    # Accounts linked to a specific player who joins and leaves frequently
-    claim_th, claim_tag, claim_name, claimer = re.search(claims_pattern, claim).groups()
-
-    claim_tag = claim_tag.strip()
-    claim_name = claim_name.strip()
-    claimer = claimer.strip()
-
-    matching_account = False
-    
-    # Find if there's a matching account in either clan. If so, we should skip it and move on. 
-    for account in xray_data:
-        account_tag, account_name = re.search(full_account_name_pattern, account).groups()
-
-        account_tag = account_tag.strip()
-        account_name = account_name.strip()
-        
-        if "’" in account_name: account_name = account_name.replace("’", "'")
-        if "\_" in account_name: account_name = account_name.replace("\_", "_")
-        if "\~" in account_name: account_name = account_name.replace("\~", "~")
-
-        if account_tag == claim_tag: 
-            matching_account = True
-            break
-
-    for account in outlaws_data:
-        account_tag, account_name = re.search(full_account_name_pattern, account).groups()
-
-        account_tag = account_tag.strip()
-        account_name = account_name.strip()
-        
-        if "’" in account_name: account_name = account_name.replace("’", "'")
-        if "\_" in account_name: account_name = account_name.replace("\_", "_")
-        if "\~" in account_name: account_name = account_name.replace("\~", "~")
-
-        if account_tag == claim_tag: 
-            matching_account = True
-            break
-
-    if matching_account: continue
-
-    # Otherwise, add the account to the claims dictionary.
-    if claimer not in claims_dictionary: claims_dictionary[claimer] = []
-    claims_dictionary[claimer].append(Claim(claim_th, claim_tag, claim_name, False, "Glowy Gore"))
 
 known_mains = ["Glowy Gore"]
 

@@ -182,6 +182,38 @@ print(f"**{'Reddit X-ray' if clan == 'xray' else 'Faint Outlaws'} {month} {year}
 
 pool = []
 
+already_received_xray = """
+"""
+
+already_received_outlaws = """
+"""
+
+wrong_clan = False
+
+if clan == 'xray': 
+    already_received = already_received_xray.strip().split("\n")
+    eligible = [p for p in entries.keys() if p not in already_received]
+
+    # Check to see if a player in the list of entries is in the other already received list. If so, print a warning, and set wrong_clan to True. 
+    for player in entries.keys(): 
+        if player in already_received_outlaws: 
+            print(f"Warning: {player} is in the wrong clan's already received list.")
+            wrong_clan = True
+
+else:
+    already_received = already_received_outlaws.strip().split("\n")
+    eligible = [p for p in entries.keys() if p not in already_received]
+
+    # Check to see if a player in the list of entries is in the other already received list. If so, print a warning, and set wrong_clan to True.
+    for player in entries.keys(): 
+        if player in already_received_xray: 
+            print(f"Warning: {player} is in the wrong clan's already received list.")
+            wrong_clan = True
+
+if wrong_clan: 
+    print("There were one or more players in the wrong clan's list. Please double check the list of players.")
+    exit(1)
+
 already_received = """
 Satan
 Trunx
