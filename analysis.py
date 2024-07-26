@@ -60,16 +60,16 @@ one_war_immunities = [
     
 ]
 
-with open("claims-xray.txt", "r", encoding="utf-8") as file: 
+with open("xray-claims.txt", "r", encoding="utf-8") as file: 
     xray_claims = file.readlines()
 
-with open("claims-outlaws.txt", "r", encoding="utf-8") as file:
+with open("outlaws-claims.txt", "r", encoding="utf-8") as file:
     outlaws_claims = file.readlines()
 
-with open("minion-xray.txt", "r", encoding="utf-8") as file:
+with open("xray-minion.txt", "r", encoding="utf-8") as file:
     xray_data = file.readlines()
 
-with open("minion-outlaws.txt", "r", encoding="utf-8") as file:
+with open("outlaws-minion.txt", "r", encoding="utf-8") as file:
     outlaws_data = file.readlines()
 
 # 15 #P2UPPVYL    ‭⁦Sned      ⁩‬ Sned | PST
@@ -134,7 +134,7 @@ for claim in outlaws_claims:
             claims_dictionary[claimer].append(Claim(claim_th, claim_tag, account_name, False, "Faint Outlaws"))
             break
 
-known_mains = ["Glowy Gore"]
+known_mains = []
 
 num_alts_xray = 0
 num_alts_outlaws = 0

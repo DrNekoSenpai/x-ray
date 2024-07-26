@@ -56,27 +56,6 @@ def import_pickle():
 
 players = import_pickle()
 
-# if name == "JALVIN ø": name = "JALVIN"
-# if name == "★ıċєʏקѧṅṭś★": name = "IceyPants"
-# if name == "General⚡️Mc0⚡️": name = "General Mc0"
-# if name == "༺༃༼SEV༽༃༻": name = "SEV"
-# if name == "「 NightEye 」": name = "NightEye"
-# if name == "Mini @ñ@$": name = "Mini Anas"
-# if name == "❤️lav❤️": name = "lav"
-# if name == "ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ": name = "Monkey D. Luffy"
-
-known_aliases = {
-    "JALVIN ø": "JALVIN",
-    "★ıċєʏקѧṅṭś★": "IceyPants",
-    "General⚡️Mc0⚡️": "General Mc0",
-    "༺༃༼SEV༽༃༻": "SEV",
-    "「 NightEye 」": "NightEye",
-    "Mini @ñ@$": "Mini Anas",
-    "❤️lav❤️": "lav",
-    "ᴍᴏɴᴋᴇʏ ᴅ. ʟᴜꜰꜰʏ": "Monkey D. Luffy",
-    "$õckÕ": "Socko",
-}
-
 def add_player(clan): 
     """Add a new player to the database, provided that they do not already exist."""
     # in_str = input('Enter name and tag, separated by spaces: ').strip()
@@ -90,12 +69,12 @@ def add_player(clan):
 
     # Check if a file named "minion.txt" exists in the current directory
 
-    if not os.path.isfile(f'minion-{clan}.txt'):
-        print(f'No file named "minion-{clan}.txt" exists in the current directory.')
+    if not os.path.isfile(f'{clan}-minion.txt'):
+        print(f'No file named "{clan}-minion.txt" exists in the current directory.')
         return
 
     # Open the file and read the contents, line by line
-    with open(f'minion-{clan}.txt', 'r', encoding='utf-8', errors='replace') as file:
+    with open(f'{clan}-minion.txt', 'r', encoding='utf-8', errors='replace') as file:
         for line in file: 
             # Line format: 
             # #P2UPPVYL    15 Senpai™
@@ -109,25 +88,16 @@ def add_player(clan):
                 tag = match.group(1)
                 name = match.group(2)
 
-                if name in known_aliases.keys(): 
-                    name = known_aliases[name]
-
                 if "’" in name: name = name.replace("’", "'")
                 if "™" in name: name = name.replace("™", "")
                 if "✨" in name: name = name.replace("✨", "")
                 if "\_" in name: name = name.replace("\_", "_")
                 if "\~" in name: name = name.replace("\~", "~")
 
-                # Check if the player's name is alphanumeric, including spaces and regular punctuation
-                # If not, we need to ask the user to input the name manually. 
-                if not regular_keyboard(name):
-                    print(f"Player name '{name}' is not valid. Please input the name manually.")
-                    name = input("Name: ")
-
                 # Check if the player already exists in the database
                 found = False
                 for i in range(len(players)):
-                    if players[i].name.lower().startswith(name.lower()):
+                    if players[i].name == name:
                         if players[i].clan != "Reddit X-ray" and clan == "xray":
                             players[i].clan = "Reddit X-ray"
                             print(f"Player {name} already exists in the database, but in the wrong clan. Changing clan to Reddit X-ray.")
@@ -156,7 +126,7 @@ def remove_player():
     if name == '': return
     found = False
     for i in range(len(players)): 
-        if players[i].name.lower().startswith(name.lower()): 
+        if players[i].name == name: 
             found = True
             players[i].output()
             confirm = input('Is this the right player? Y/N: ').lower()
@@ -170,7 +140,7 @@ def add_strike():
     if name == '': return
     found = False
     for i in range(len(players)): 
-        if players[i].name.lower().startswith(name.lower()): 
+        if players[i].name == name:  
             found = True
             players[i].output()
             confirm = input('Is this the right player? Y/N: ').lower()
@@ -386,7 +356,7 @@ def remove_strike():
     if name == '': return
     found = False
     for i in range(len(players)): 
-        if players[i].name.lower().startswith(name.lower()): 
+        if players[i].name == name: 
             found = True
             players[i].output()
             confirm = input('Is this the right player? Y/N ').lower()
@@ -431,7 +401,7 @@ def remove_all_strikes():
     if name == '': return
     found = False
     for i in range(len(players)): 
-        if players[i].name.lower().startswith(name.lower()): 
+        if players[i].name == name:  
             found = True
             players[i].output()
             confirm = input('Is this the right player? Y/N ').lower()
@@ -490,10 +460,6 @@ def output_strikes():
                     file.write(f"- {players[i].strikes[j]}\n")
 
                 file.write('\n')
-
-def regular_keyboard(input_string): 
-    pattern = r"^[A-Za-z0-9 \~!@#$%^&*()\-=\[\]{}|;:'\",.<>/?\\_+]*$"
-    return re.match(pattern, input_string) is not None 
 
 players = import_pickle()
 while(True): 

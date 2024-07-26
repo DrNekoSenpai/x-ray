@@ -1,48 +1,53 @@
 **Reddit X-ray**:
 
-[4] Arietem #PJPLG808Q:
+[3] Arietem #PJPLG808Q:
+- (1) Missed hits during war against `Stars4Loot`.
+- (1) Missed hits during war against `RUGNA`.
+- (1) Missed hits in two consecutive wars against `Stars4Loot` and `RUGNA`.
+
+[3] DeAndre Lopez #80C0PRCJ:
+- (1) Missed hits during war against `Stars4Loot`.
+- (1) Missed hits during war against `RUGNA`.
+- (1) Missed hits in two consecutive wars against `Stars4Loot` and `RUGNA`.
+
+[3] Randyl #LVGVPRRCV:
+- (1) Missed hits during war against `Stars4Loot`.
+- (1) Missed hits during war against `RUGNA`.
+- (1) Missed hits in two consecutive wars against `Stars4Loot` and `RUGNA`.
+
+[3] return #8R2LJQC98:
+- (1) Missed hits during war against `Stars4Loot`.
+- (1) Missed hits during war against `RUGNA`.
+- (1) Missed hits in two consecutive wars against `Stars4Loot` and `RUGNA`.
+
+[1] Alex #28YRYVRQC:
 - (1) Missed 4 or more hits during CWL week.
-- (1) Missed hits during war against `ItaliansGotClan`.
-- (1) Missed hits during war against `War Farmers x44`.
-- (1) Missed hits in two consecutive wars against `ItaliansGotClan` and `War Farmers x44`.
 
-[3] ANBU #80U9VGUU9:
-- (1) Missed hits during war against `ItaliansGotClan`.
-- (1) Missed hits during war against `War Farmers x44`.
-- (1) Missed hits in two consecutive wars against `ItaliansGotClan` and `War Farmers x44`.
+[1] CallMeFeet #9YV022J2C:
+- (1) Missed hits during war against `RUGNA`.
 
-[3] eRaZoR #2RVPQR9C2:
-- (1) Missed hits during war against `ItaliansGotClan`.
-- (1) Missed hits during war against `War Farmers x44`.
-- (1) Missed hits in two consecutive wars against `ItaliansGotClan` and `War Farmers x44`.
+[1] DARKAL3X #GL8R00L2:
+- (1) Missed hits during war against `Stars4Loot`.
 
-[1] Ashtar #QVR00GCL2:
-- (1) Missed hits during war against `War Farmers x44`.
+[1] DNG #LPV008QQ:
+- (0.5) Attacked someone else than mirror during a war against `RUGNA`.
+- (0.5) Attacked someone else than mirror during a war against `RUGNA`.
 
-[1] DeAndre Lopez #80C0PRCJ:
-- (1) Missed hits during war against `War Farmers x44`.
+[1] JALVIN ø #22R8VVGPJ:
+- (1) Missed 4 or more hits during CWL week.
 
-[1] JALVIN #22R8VVGPJ:
-- (1) Missed hits during war against `War Farmers x44`.
+[1] Kaselcap #LU2YC0L:
+- (1) Missed hits during war against `RUGNA`.
 
 [1] Schooner #YQUCCRLY2:
-- (1) Missed hits during war against `War Farmers x44`.
+- (1) Missed hits during war against `RUGNA`.
 
-[1] Sulfur #LQUQGRUJP:
-- (1) Missed hits during war against `ItaliansGotClan`.
+[1] Thomas #8JV0L0YCJ:
+- (1) Missed hits during war against `Stars4Loot`.
 
-[1] bran6 #Y8P82GJJ:
-- (1) Missed 4 or more hits during CWL week.
+[1] brycee #YQUUYVQ0C:
+- (1) Missed hits during war against `RUGNA`.
 
-[1] wako238 #28V902PLL:
-- (1) Missed hits during war against `ItaliansGotClan`.
-
-[0.5] Luke #LPRPP9LGU:
-- (0.5) Attacked someone else than mirror during a war against `ItaliansGotClan`.
-
-[0.5] sanskar #PL8Y90YGG:
-- (0.5) Sniped for more than 1 star during a loss war against `War Farmers x44`.
-
-[0.5] under gamer #YQUUYVQ0C:
-- (0.5) Sniped for more than 1 star during a loss war against `War Farmers x44`.
+[1] skyeshade #YY2YJ20C9:
+- (1) Missed hits during war against `Stars4Loot`.
 

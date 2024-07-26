@@ -1,7 +1,6 @@
 import pytesseract, pyautogui, subprocess, argparse, numpy as np, cv2
 from contextlib import redirect_stdout as redirect
 from io import StringIO
-from PIL import Image
 
 # Argument parser
 parser = argparse.ArgumentParser(description='A tool to calculate war weights.')
@@ -119,11 +118,11 @@ if not is_valid_weight(weight):
     print(f"Error: OCR result '{weight}' is not valid after preprocessing.")
     exit(1)
 
-# Odd case: a weight beginning with "23" should instead be "29", but only if the last recorded value was +/- 1000 from 29000. Otherwise, leave as is.
-if weight.startswith('23'): 
-    with open('weights.txt', 'r', encoding='utf-8') as file:
-        last_weight = file.readlines()[-1].strip()
-        if last_weight and abs(int(last_weight) - 29000) < 1000: weight = '29' + weight[2:]
+# # Odd case: a weight beginning with "23" should instead be "29", but only if the last recorded value was +/- 1000 from 29000. Otherwise, leave as is.
+# if weight.startswith('23'): 
+#     with open('weights.txt', 'r', encoding='utf-8') as file:
+#         last_weight = file.readlines()[-1].strip()
+#         if last_weight and abs(int(last_weight) - 29000) < 1000: weight = '29' + weight[2:]
 
 if weight: 
     with open('weights.txt', 'r', encoding='utf-8') as file:

@@ -343,7 +343,7 @@ for _ in range(num_dists):
 
 month, year = datetime.datetime.now().strftime("%B").lower(), datetime.datetime.now().year
 if clan == "xray": 
-    with open(f"./inputs/cwl_{clan}_{month}_{year}.txt", "w") as file: 
+    with open(f"./inputs/cwl_{clan}_{month}_{year}.txt", "w", encoding="utf-8") as file: 
         for player,hits in cwl: 
             if int(hits) > 3: continue
             else: 
