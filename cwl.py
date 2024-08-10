@@ -29,9 +29,7 @@ if up_to_date() is False:
 
 # Create an argument parser
 parser = argparse.ArgumentParser(description="Calculate weighted distribution for CWL")
-
 parser.add_argument("--num_dists", "-n", type=int, default=0, help="Number of distributions available")
-parser.add_argument("--clan", "-c", type=str, default="", help="Clan to calculate distribution for")
 
 # Parse the arguments
 args = parser.parse_args()
@@ -42,16 +40,7 @@ with open("cwl-input.txt", "r", encoding="utf-8") as f:
 
 players = []
 
-if args.clan == "":
-    clan = input("What clan is this? (xray/outlaws) ").strip().lower()
-    if clan not in ["xray", "outlaws"]: 
-        print("Invalid clan. Please enter 'xray' or 'outlaws'.")
-        exit(1)
-
-else:
-    clan = args.clan
-
-with open(f"minion-{clan}.txt", "r", encoding="utf-8") as f: 
+with open(f"xray-minion.txt", "r", encoding="utf-8") as f: 
     minion = f.readlines()
     pattern = re.compile(r"#([0-9A-Z]{5,9})\s+\d+\s+(.*)")
     for line in minion: 
@@ -68,6 +57,7 @@ with open(f"minion-{clan}.txt", "r", encoding="utf-8") as f:
 entries = {}
 hit_entries = {}
 loyalty_entries = {}
+fwa_base_penalties = {}
 
 for player,hits in cwl: 
     if hits == "0":
@@ -124,18 +114,15 @@ for player,hits in cwl:
         loyalty_entries[player] = months
 
 # Open the war_bases.xlsx file
-wb = openpyxl.load_workbook("war_bases.xlsx")
+wb = openpyxl.load_workbook("war_bases.xlsx", data_only=True)
 
-# Get the first sheet
 sheet = wb.active
-
-# Grab the first four columns of the sheet
-data = sheet.iter_rows(min_row=1, max_row=100, min_col=1, max_col=4, values_only=True)
+data = sheet.iter_rows(values_only=True, max_row=31, max_col=3)
 
 # For each row... 
 for row in data:
     name = row[1]
-    try: points = int(row[3])
+    try: points = int(row[2])
     except: continue # assume header row
 
     # Find the corresponding player in the list of players
@@ -143,18 +130,19 @@ for row in data:
         if player == name: 
             # Print out the number of points they had, if it's above zero. 
             if points > 0:
-                print(f"{player} had {points} FWA bases active during this month's CWL")
-            
-            if points > hit_entries[player]:
-                # Set hit_entries to zero. 
-                hit_entries[player] = 0
-                entries[player] = 0
-                loyalty_entries[player] = 0
+                try: 
+                    fwa_base_penalties[player] = points
+                    entries[player] -= points
+                    print(f"Player {player} has {points} FWA base points, resulting in a {points} entry penalty.")
 
-            else:
-                # Subtract the number of points from hit_entries
-                hit_entries[player] -= points
-                entries[player] -= points
+                except KeyError: 
+                    # Assume they aren't in the database because they did no hits. Continue. 
+                    print(f"Player {player} has {points} FWA base points, but did no hits. Ignoring.")
+                    continue 
+
+            else: 
+                fwa_base_penalties[player] = 0
+                print(f"Player {player} has no FWA base points.")
 
 # Failsafe: check if loyalty entries is negative. If so, set it to 0. Reflect this in entries as well.
 for player in entries.keys():
@@ -178,136 +166,20 @@ else:
     num_dists = args.num_dists
 
 print("")
-print(f"**{'Reddit X-ray' if clan == 'xray' else 'Faint Outlaws'} {month} {year} Weighted Distribution** \n ({num_dists} available bonuses, total) \n ")
+print(f"**Reddit X-ray {month} {year} Weighted Distribution** \n ({num_dists} available bonuses, total) \n ")
 
 pool = []
 
-already_received_xray = """
-"""
-
-already_received_outlaws = """
-"""
-
-wrong_clan = False
-
-if clan == 'xray': 
-    already_received = already_received_xray.strip().split("\n")
-    eligible = [p for p in entries.keys() if p not in already_received]
-
-    # Check to see if a player in the list of entries is in the other already received list. If so, print a warning, and set wrong_clan to True. 
-    for player in entries.keys(): 
-        if player in already_received_outlaws: 
-            print(f"Warning: {player} is in the wrong clan's already received list.")
-            wrong_clan = True
-
-else:
-    already_received = already_received_outlaws.strip().split("\n")
-    eligible = [p for p in entries.keys() if p not in already_received]
-
-    # Check to see if a player in the list of entries is in the other already received list. If so, print a warning, and set wrong_clan to True.
-    for player in entries.keys(): 
-        if player in already_received_xray: 
-            print(f"Warning: {player} is in the wrong clan's already received list.")
-            wrong_clan = True
-
-if wrong_clan: 
-    print("There were one or more players in the wrong clan's list. Please double check the list of players.")
-    exit(1)
-
 already_received = """
-Satan
-Trunx
-Hokage
-Lord Zameow
-katsu
-Jonas
-BumblinMumbler
-Eddy
-IceyPants
-Sned
-Shomeer
-Ben TH9
-W1nter
-Kaselcap
-Annayake
-Protips
-mysterydeath
-pcastro
-Arcohol
-Nitin 4.0
-ViperX56
+brycee
 K.L.A.U.S
-Bounce_04
-Big Daddy T
-Sivankh39
-RAJE
-pg
-Nobody
-K.L.A.U.S v2
-Marlec
-Glowy Gore
-Loka Tholvi
-Schooner
-Durp
-SEV
-Chrispy
-Clone Castle
-Camo
-CatoTomato
-DisasterBaiter
-Your Angry Ex
-Dark Hell Mutt
-BrAvO {^_^}
-BumblinMumbler2
-aLpHa {^_^}
-Not My Name
-Nitin 8.0
-jwong
-Outlaw In-Law
-Jack
-Thumb Salute
-Hostile Doctor
-Kodakk
-Tenth Situation 
-Glowy Gore
-Loka Tholvi
-Schooner
-ANBU
-Nitin 7.0
-Luke
-Arietem
-RoyalOne
+katsu
+Satan
+BumblinMumbler
 YOYOMAN12D
-RONALDO7
-Charlie {^_^}
-Lucas
-Neo {^_^}
-Indivicious
-Pokrogamer
-Arc Symphony
-TempletoN
-Alex
-Jackers
-nefel
-DARKAL3X
-CallMeFeet
-SickSix6
-Marlouc
-Star-Lord
-Jasdip
-Stalemated
-Seven Thunders
-PolanDV
-bran6
+W1nter
 Reactorge
 Smitty™
-[KISHLAY]
-JALVIN ø
-sanskar
-™Dr. Alan™
-Sned 2.0
-niccolo1305
-JOTARO
 """.strip().split("\n")
 
 eligible = [p for p in entries.keys() if p not in already_received]
@@ -329,7 +201,12 @@ for i in range(15, 0, -1):
     print(f"{i} entries:")
     for player in tier: 
         if player in already_received: continue
-        print(f"- {player} ({hit_entries[player]} entries from hits, {loyalty_entries[player]} entries from loyalty)")
+        print(f"- {player} ({hit_entries[player]} entries from hits, {loyalty_entries[player]} entries from loyalty", end = "")
+        if fwa_base_penalties[player] > 0: 
+            print(f", {fwa_base_penalties[player]} entry penalty from FWA bases)", end="")
+        else: 
+            print(")", end="")
+        print("")
         for _ in range(i): 
             pool.append(player)
     print("")
@@ -342,10 +219,13 @@ for _ in range(num_dists):
     print(f"- {choice}")
 
 month, year = datetime.datetime.now().strftime("%B").lower(), datetime.datetime.now().year
-if clan == "xray": 
-    with open(f"./inputs/cwl_{clan}_{month}_{year}.txt", "w", encoding="utf-8") as file: 
-        for player,hits in cwl: 
-            if int(hits) > 3: continue
-            else: 
-                file.write(f"3\n{player}\ny\n2\ny\n")
-                print(f"Player {player} missed {7-int(hits)} CWL hits; assigning strikes.")
+with open(f"./inputs/cwl_{month}_{year}.txt", "w", encoding="utf-8") as file: 
+    for player,hits in cwl: 
+        if int(hits) > 3: continue
+        # Else, if the player would have had zero entries due to FWA base penalty, continue. 
+        if int(hits) - fwa_base_penalties[player] <= 0: 
+            print(f"Player {player} would have been assigned strikes, but due to FWA base penalty, is not eligible for the distribution.")
+            continue
+        else: 
+            file.write(f"3\n{player}\ny\n2\ny\n")
+            print(f"Player {player} missed {7-int(hits)} CWL hits; assigning strikes.")

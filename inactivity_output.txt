@@ -1,31 +1,27 @@
-Inactivity scores as of <t:1721983224:F> (<t:1721983224:R>):
+Inactivity scores as of <t:1722681050:F> (<t:1722681050:R>):
 ```
-Arietem         -- 12
-Mystic Unicorn✨ -- 12
-DeAndre Lopez   -- 12
-Randyl          -- 12
-Schooner        -- 10
-Ligma           -- 8
-Thomas          -- 8
-Sned 3.0        -- 6
-timi bää 7      -- 6
-Alex            -- 6
-Ashtar          -- 6
-CallMeFeet      -- 4
-™Dr. Alan™      -- 4
-Master21        -- 4
-DARKAL3X        -- 4
-K.L.A.U.S v2    -- 3
-shadow          -- 3
-nefel           -- 3
-ANBU            -- 2
-Kaselcap        -- 2
-Arc Symphony    -- 2
-jy              -- 2
-RoyalOne        -- 2
-skyeshade       -- 2
-brycee          -- 2
-K.L.A.U.S       -- 1
-zombie reaper   -- 1
-JALVIN ø        -- 1
+Randyl        -- 16
+Ligma         -- 12
+Thomas        -- 12
+Alex          -- 10
+Ashtar        -- 10
+DARKAL3X      -- 8
+K.L.A.U.S v2  -- 7
+ANBU          -- 4
+CallMeFeet    -- 4
+™Dr. Alan™    -- 4
+bran6         -- 4
+Master21      -- 4
+JALVIN ø      -- 3
+shadow        -- 3
+nefel         -- 3
+Kaselcap      -- 2
+Smitty™       -- 2
+Arc Symphony  -- 2
+jy            -- 2
+RoyalOne      -- 2
+skyeshade     -- 2
+brycee        -- 2
+K.L.A.U.S     -- 1
+zombie reaper -- 1
 ```
