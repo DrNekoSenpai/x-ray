@@ -57,30 +57,9 @@ if len(roster) == 30 or len(roster) == 15:
         else:
             print(f"")
 
-    # If this is war 1, then we should save the roster order in a file. 
-    if war_number == 1:
-        with open("war1.txt", "w", encoding="utf-8") as file: 
-            for player,num in roster.items(): 
-                file.write(f"{num}. {player}\n")
-
-    # If not, we should open war1 roster and compare the ordering with the current roster. 
-    # If there are any differences, we should sort the current roster in the same order as war1 roster.
-    # Example: Sned was #3 in war 1, but he is #2 in war 2. Move Sned in the #3 position in war 2.
-
-    else: 
-        with open("war1.txt", "r", encoding="utf-8") as file: 
-            war1 = file.read().splitlines()
-
-        war1 = {player: num for num,player in (f.split(". ") for f in war1)}
-        for player,num in war1.items():
-            if player not in roster: 
-                print(f"{player} not found in the current roster")
-            elif roster[player] != int(num): 
-                print(f"{player} is not in the correct position. Move {player} to position {num}")
-
 if len(roster) == 50: 
-    # List: 2 11 21 23 27 28 35 39 41 45 48
-    list = [2,11,21,23,27,28,35,39,41,45,48]
+    # List: 44
+    list = [44]
     roster = {player: num for player,num in roster.items() if num in list}
 
     class Claim: 

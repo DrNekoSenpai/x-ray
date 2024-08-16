@@ -42,7 +42,10 @@ args = parser.parse_args()
 # Permanent immunities are players who are members of Leadership; they cannot be kicked. 
 permanent_immunities = [ 
     "Sned",
+    "Sned 2.0",
+    "Sned 3.0",
     "BumblinMumbler",
+    "BumblinMumbler2",
     "BumblinMumbler3",
     "Anas", 
     "Arcohol",
