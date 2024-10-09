@@ -32,6 +32,9 @@ with open("claims_output.txt", "r", encoding="utf-8") as file:
 with open("lineup.txt", "r", encoding="utf-8") as file: 
     lineup = file.read().splitlines()
 
+    if lineup[0] == ":Blank: :Sword: :BarbarianKing: :ArcherQueen: :GrandWarden: :RoyalChampion:":
+        lineup.pop(0)
+
 with open("dump.txt", "r", encoding="utf-8") as file:
     dump = [f.split(";") for f in file.read().splitlines()]
 
@@ -57,9 +60,9 @@ if len(roster) == 30 or len(roster) == 15:
         else:
             print(f"")
 
-if len(roster) == 50: 
-    # List: 44
-    list = [44]
+else: 
+    # List: 22 26 28 35 38
+    list = [22,26,28,35,38]
     roster = {player: num for player,num in roster.items() if num in list}
 
     class Claim: 
@@ -69,13 +72,14 @@ if len(roster) == 50:
 
     # Unicorn✨ | AST: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
     # Account for plural forms
-    discord_name_pattern = re.compile(r"(.*): \d+ account(s)? in Reddit X-ray, \d+ account(s)? in Faint Outlaws")
+    discord_name_pattern = re.compile(r"(.*): \d+ account(s)? in Reddit X-ray")
 
     def find_discord_id(name, output): 
         for claim in output:
             if name in claim: 
                 discord_name = discord_name_pattern.search(claim).group(1) if discord_name_pattern.search(claim) else None
-                if discord_name is None: print(f"{name} not found in claims")
+                if discord_name is None: 
+                    print(f"{name} not found in claims")
 
                 # Find the discord ID in the dump file with the matching discord name
                 discord_id = None
@@ -88,15 +92,19 @@ if len(roster) == 50:
                 return discord_id
 
     for player,num in roster.items():
-        print(f"{num}. {player} <@{find_discord_id(player, claims)}>")
+        discord_id = find_discord_id(player, claims)
+        if discord_id is not None: 
+            print(f"{num}. {player} <@{discord_id}>")
 
     print("")
 
     count = 0
     for player,num in roster.items(): 
-        count += 1
-        if count == 5: 
-            print(f"@{player}")
-            count = 0
-        else: 
-            print(f"@{player}", end=" ")
+        discord_id = find_discord_id(player, claims)
+        if discord_id is not None:
+            count += 1
+            if count == 5: 
+                print(f"@{player}")
+                count = 0
+            else: 
+                print(f"@{player}", end=" ")

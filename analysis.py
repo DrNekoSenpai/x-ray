@@ -39,7 +39,7 @@ parser.add_argument("--mirrors", "-m", action="store_true", help="If set to true
 parser.add_argument("--war", "-w", type=str, default="", help="If specified, only analyze the war log with the given name. Default: ''")
 args = parser.parse_args()
 
-# Permanent immunities are players who are members of Leadership; they cannot be kicked. 
+# Permanent immunities are players who are members of Leadership as well as known alts; they cannot be kicked. 
 permanent_immunities = [ 
     "Sned",
     "Sned 2.0",
@@ -49,8 +49,11 @@ permanent_immunities = [
     "BumblinMumbler3",
     "Anas", 
     "Arcohol",
-    "Bran6", 
-    "katsu"
+    "bran6", 
+    "katsu", 
+    "K.L.A.U.S v2",
+    "Sugma", 
+    "Marlec"
 ]
 
 # Timed immunities involve players who will be out until a given date

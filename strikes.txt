@@ -1,6 +1,6 @@
 **Reddit X-ray**:
 
-[8] JALVIN ø #22R8VVGPJ:
+[12] JALVIN ø #22R8VVGPJ:
 - (1) Missed 4 or more hits during CWL week.
 - (1) Missed hits during war against `~ The Cobra ~`.
 - (1) Missed hits during war against `MALAYA ALL PRO3`.
@@ -9,8 +9,12 @@
 - (1) Missed hits in two consecutive wars against `MALAYA ALL PRO3` and `Deadly Sinners`.
 - (1) Missed hits during war against `Anti Funlord`.
 - (1) Missed hits in two consecutive wars against `Deadly Sinners` and `Anti Funlord`.
+- (1) Missed hits during war against `tsp warrior`.
+- (1) Missed hits in two consecutive wars against `Anti Funlord` and `tsp warrior`.
+- (1) Missed hits during war against `Christ Farm War`.
+- (1) Missed hits in two consecutive wars against `tsp warrior` and `Christ Farm War`.
 
-[7] Alex #28YRYVRQC:
+[11] Alex #28YRYVRQC:
 - (1) Missed hits during war against `~ The Cobra ~`.
 - (1) Missed hits during war against `MALAYA ALL PRO3`.
 - (1) Missed hits in two consecutive wars against `~ The Cobra ~` and `MALAYA ALL PRO3`.
@@ -18,8 +22,12 @@
 - (1) Missed hits in two consecutive wars against `MALAYA ALL PRO3` and `Deadly Sinners`.
 - (1) Missed hits during war against `Anti Funlord`.
 - (1) Missed hits in two consecutive wars against `Deadly Sinners` and `Anti Funlord`.
+- (1) Missed hits during war against `tsp warrior`.
+- (1) Missed hits in two consecutive wars against `Anti Funlord` and `tsp warrior`.
+- (1) Missed hits during war against `Christ Farm War`.
+- (1) Missed hits in two consecutive wars against `tsp warrior` and `Christ Farm War`.
 
-[7] DARKAL3X #GL8R00L2:
+[11] DARKAL3X #GL8R00L2:
 - (1) Missed hits during war against `~ The Cobra ~`.
 - (1) Missed hits during war against `MALAYA ALL PRO3`.
 - (1) Missed hits in two consecutive wars against `~ The Cobra ~` and `MALAYA ALL PRO3`.
@@ -27,8 +35,12 @@
 - (1) Missed hits in two consecutive wars against `MALAYA ALL PRO3` and `Deadly Sinners`.
 - (1) Missed hits during war against `Anti Funlord`.
 - (1) Missed hits in two consecutive wars against `Deadly Sinners` and `Anti Funlord`.
+- (1) Missed hits during war against `tsp warrior`.
+- (1) Missed hits in two consecutive wars against `Anti Funlord` and `tsp warrior`.
+- (1) Missed hits during war against `Christ Farm War`.
+- (1) Missed hits in two consecutive wars against `tsp warrior` and `Christ Farm War`.
 
-[7] Randyl #LVGVPRRCV:
+[11] Randyl #LVGVPRRCV:
 - (1) Missed hits during war against `~ The Cobra ~`.
 - (1) Missed hits during war against `MALAYA ALL PRO3`.
 - (1) Missed hits in two consecutive wars against `~ The Cobra ~` and `MALAYA ALL PRO3`.
@@ -36,56 +48,83 @@
 - (1) Missed hits in two consecutive wars against `MALAYA ALL PRO3` and `Deadly Sinners`.
 - (1) Missed hits during war against `Anti Funlord`.
 - (1) Missed hits in two consecutive wars against `Deadly Sinners` and `Anti Funlord`.
+- (1) Missed hits during war against `tsp warrior`.
+- (1) Missed hits in two consecutive wars against `Anti Funlord` and `tsp warrior`.
+- (1) Missed hits during war against `Christ Farm War`.
+- (1) Missed hits in two consecutive wars against `tsp warrior` and `Christ Farm War`.
 
-[4] Nacksnack #PL8JQV9Y:
+[10] Nacksnack #PL8JQV9Y:
 - (1) Missed hits during war against `~ The Cobra ~`.
 - (1) Missed hits during war against `Deadly Sinners`.
 - (1) Missed hits during war against `Anti Funlord`.
 - (1) Missed hits in two consecutive wars against `Deadly Sinners` and `Anti Funlord`.
+- (1) Missed hits during war against `tsp warrior`.
+- (1) Missed hits in two consecutive wars against `Anti Funlord` and `tsp warrior`.
+- (1) Missed hits during war against `Christ Farm War`.
+- (1) Missed hits in two consecutive wars against `tsp warrior` and `Christ Farm War`.
+- (1) Missed hits during war against `Sg Besar ClanZ`.
+- (1) Missed hits in two consecutive wars against `Christ Farm War` and `Sg Besar ClanZ`.
 
-[4] Thomas #8JV0L0YCJ:
+[10] Thomas #8JV0L0YCJ:
 - (1) Missed hits during war against `~ The Cobra ~`.
 - (1) Missed hits during war against `MALAYA ALL PRO3`.
 - (1) Missed hits in two consecutive wars against `~ The Cobra ~` and `MALAYA ALL PRO3`.
 - (1) Missed hits during war against `Anti Funlord`.
+- (1) Missed hits during war against `tsp warrior`.
+- (1) Missed hits in two consecutive wars against `Anti Funlord` and `tsp warrior`.
+- (1) Missed hits during war against `Christ Farm War`.
+- (1) Missed hits in two consecutive wars against `tsp warrior` and `Christ Farm War`.
+- (1) Missed hits during war against `Sg Besar ClanZ`.
+- (1) Missed hits in two consecutive wars against `Christ Farm War` and `Sg Besar ClanZ`.
 
-[2.5] K.L.A.U.S v2 #GY9UQQY82:
-- (1) Missed hits during war against `~ The Cobra ~`.
-- (0.5) Three-starred during a loss war against `MALAYA ALL PRO3`.
-- (1) Missed hits during war against `Anti Funlord`.
-
-[2] Reactorge #QU09URCVC:
+[8] Reactorge #QU09URCVC:
 - (1) Missed hits during war against `MALAYA ALL PRO3`.
 - (1) Missed hits during war against `Anti Funlord`.
+- (1) Missed hits during war against `tsp warrior`.
+- (1) Missed hits in two consecutive wars against `Anti Funlord` and `tsp warrior`.
+- (1) Missed hits during war against `Christ Farm War`.
+- (1) Missed hits in two consecutive wars against `tsp warrior` and `Christ Farm War`.
+- (1) Missed hits during war against `Sg Besar ClanZ`.
+- (1) Missed hits in two consecutive wars against `Christ Farm War` and `Sg Besar ClanZ`.
 
-[2] bran6 #Y8P82GJJ:
-- (1) Missed hits during war against `~ The Cobra ~`.
+[4] CallMeFeet #9YV022J2C:
+- (1) Missed hits during war against `MALAYA ALL PRO3`.
+- (1) Missed hits during war against `Christ Farm War`.
+- (1) Missed hits during war against `Sg Besar ClanZ`.
+- (1) Missed hits in two consecutive wars against `Christ Farm War` and `Sg Besar ClanZ`.
+
+[4] G.O.M.D #C0CVUYCC:
 - (1) Missed hits during war against `Deadly Sinners`.
+- (0.5) Attacked someone else than mirror during a war against `Anti Funlord`.
+- (0.5) Attacked someone else than mirror during a war against `tsp warrior`.
+- (0.5) Attacked someone else than mirror during a war against `Christ Farm War`.
+- (0.5) Attacked someone else than mirror during a war against `Christ Farm War`.
+- (1) Missed hits during war against `Sg Besar ClanZ`.
+
+[2] nefel #LRUC9PLP:
+- (1) Missed hits during war against `Deadly Sinners`.
+- (1) Missed hits during war against `Sg Besar ClanZ`.
 
 [1.5] DNG #LPV008QQ:
 - (0.5) Three-starred during a loss war against `~ The Cobra ~`.
 - (0.5) Sniped for more than 1 star during a loss war against `~ The Cobra ~`.
 - (0.5) Three-starred during a loss war against `MALAYA ALL PRO3`.
 
-[1.5] G.O.M.D #C0CVUYCC:
-- (1) Missed hits during war against `Deadly Sinners`.
-- (0.5) Attacked someone else than mirror during a war against `Anti Funlord`.
-
 [1] ANBU #80U9VGUU9:
 - (1) Missed hits during war against `MALAYA ALL PRO3`.
 
+[1] Arc Symphony #2YQL0R0P:
+- (1) Missed hits during war against `Sg Besar ClanZ`.
+
 [1] Big Daddy T #9V0PCRR00:
 - (1) Missed hits during war against `~ The Cobra ~`.
-
-[1] CallMeFeet #9YV022J2C:
-- (1) Missed hits during war against `MALAYA ALL PRO3`.
 
 [1] Chepe #8JGCL0RQV:
 - (0.5) Three-starred during a loss war against `~ The Cobra ~`.
 - (0.5) Three-starred during a loss war against `~ The Cobra ~`.
 
-[1] Marlec #LVQ9PPQVY:
-- (1) Missed hits during war against `Anti Funlord`.
+[1] Jackers #GYQJVQ2JQ:
+- (1) Missed hits during war against `Sg Besar ClanZ`.
 
 [1] Master21 #LVRJC8CY2:
 - (1) Missed hits during war against `MALAYA ALL PRO3`.
@@ -97,15 +136,15 @@
 - (0.5) Three-starred during a loss war against `MALAYA ALL PRO3`.
 - (0.5) Sniped for more than 2 stars during a win war against `Deadly Sinners`.
 
-[1] nefel #LRUC9PLP:
-- (1) Missed hits during war against `Deadly Sinners`.
-
 [1] shadow #QPJ8UV280:
 - (1) Missed hits during war against `~ The Cobra ~`.
 
 [1] slothnz #G80JGVGQY:
 - (0.5) Attacked someone else than mirror during a war against `~ The Cobra ~`.
 - (0.5) Attacked someone else than mirror during a war against `~ The Cobra ~`.
+
+[0.5] KaneoF2P #GLJ9Q92CR:
+- (0.5) Attacked someone else than mirror during a war against `Sg Besar ClanZ`.
 
 [0.5] zombie reaper #QL0R20V9:
 - (0.5) Sniped for more than 1 star during a loss war against `MALAYA ALL PRO3`.

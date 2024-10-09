@@ -1,50 +1,51 @@
+:Blank: :Sword: :BarbarianKing: :ArcherQueen: :GrandWarden: :RoyalChampion:
 :16: :EmptySword: :95: :95: :70: :45: ‭⁦Satan⁩‬
 :16: :EmptySword: :95: :95: :70: :45: ‭⁦BumblinMumbler⁩‬
-:16: :EmptySword: :80: :85: :65: :30: ‭⁦Sned⁩‬
-:16: :EmptySword: :88: :90: :65: :35: ‭⁦Kaselcap⁩‬
-:16: :EmptySword: :70: :80: :35: :28: ‭⁦ViperX56⁩‬
-:16: :EmptySword: :87: :91: :68: :40: ‭⁦ANBU⁩‬
-:16: :EmptySword: :95: :95: :67: :45: ‭⁦Protips⁩‬
-:16: :EmptySword: :68: :95: :70: :27: ‭⁦Arcohol⁩‬
+:16: :EmptySword: :90: :93: :69: :40: ‭⁦Kaselcap⁩‬
+:16: :EmptySword: :70: :80: :35: :29: ‭⁦ViperX56⁩‬
+:16: :EmptySword: :80: :90: :69: :30: ‭⁦Sned⁩‬
+:16: :EmptySword: :87: :91: :70: :40: ‭⁦ANBU⁩‬
+:16: :EmptySword: :95: :95: :70: :45: ‭⁦Protips⁩‬
+:16: :EmptySword: :70: :95: :70: :28: ‭⁦Arcohol⁩‬
 :15: :EmptySword: :90: :90: :65: :40: ‭⁦jy⁩‬
-:15: :EmptySword: :80: :90: :64: :38: ‭⁦Smitty™⁩‬
-:15: :EmptySword: :82: :87: :59: :32: ‭⁦Big Daddy T⁩‬
-:15: :EmptySword: :81: :82: :57: :30: ‭⁦katsu⁩‬
-:15: :EmptySword: :80: :82: :57: :30: ‭⁦Marlec⁩‬
-:15: :EmptySword: :55: :74: :45: :16: ‭⁦Arc Symphony⁩‬
+:15: :EmptySword: :81: :90: :65: :40: ‭⁦Smitty™⁩‬
+:15: :EmptySword: :81: :86: :59: :31: ‭⁦katsu⁩‬
+:15: :EmptySword: :83: :88: :62: :33: ‭⁦Big Daddy T⁩‬
+:15: :EmptySword: :81: :84: :60: :30: ‭⁦Marlec⁩‬
+:15: :EmptySword: :80: :80: :55: :33: ‭⁦pg⁩‬
+:15: :EmptySword: :55: :75: :52: :17: ‭⁦Arc Symphony⁩‬
 :14: :EmptySword: :80: :80: :55: :30: ‭⁦CallMeFeet⁩‬
-:14: :EmptySword: :75: :80: :55: :28: ‭⁦W1nter⁩‬
-:14: :EmptySword: :76: :77: :53: :27: ‭⁦™Dr. Alan™⁩‬
+:14: :EmptySword: :75: :80: :55: :29: ‭⁦W1nter⁩‬
+:14: :EmptySword: :78: :80: :55: :28: ‭⁦™Dr. Alan™⁩‬
 :14: :EmptySword: :80: :80: :55: :30: ‭⁦bran6⁩‬
-:14: :EmptySword: :76: :80: :55: :30: ‭⁦pg⁩‬
-:14: :EmptySword: :73: :75: :52: :23: ‭⁦K.L.A.U.S⁩‬
-:14: :EmptySword: :72: :80: :53: :29: ‭⁦RoyalOne⁩‬
-:14: :EmptySword: :44: :57: :41: :04: ‭⁦[KISHLAY]⁩‬
-:13: :EmptySword: :75: :75: :50: :19: ‭⁦zombie reaper⁩‬
-:13: :EmptySword: :75: :75: :50: :21: ‭⁦JALVIN ø⁩‬
-:13: :EmptySword: :72: :75: :50: :21: ‭⁦Alex⁩‬
-:13: :EmptySword: :74: :75: :50: :18: ‭⁦gdfan75⁩‬
-:13: :EmptySword: :57: :66: :43: :15: ‭⁦Master21⁩‬
-:13: :EmptySword: :35: :35: :28: :05: ‭⁦brycee⁩‬
-:13: :EmptySword: :65: :65: :40: :Blank: ‭⁦Nacksnack⁩‬
-:13: :EmptySword: :61: :65: :36: :Blank: ‭⁦nefel⁩‬
-:13: :EmptySword: :65: :65: :40: :Blank: ‭⁦YOYOMAN12D⁩‬
-:12: :EmptySword: :59: :65: :37: :Blank: ‭⁦shadow⁩‬
-:12: :EmptySword: :Blank: :Blank: :Blank: :Blank: ‭⁦slothnz⁩‬
-:12: :EmptySword: :55: :53: :30: :Blank: ‭⁦Reactorge⁩‬
+:14: :EmptySword: :77: :78: :55: :23: ‭⁦K.L.A.U.S⁩‬
+:14: :EmptySword: :74: :80: :55: :30: ‭⁦RoyalOne⁩‬
+:14: :EmptySword: :47: :60: :41: :07: ‭⁦[KISHLAY]⁩‬
+:13: :EmptySword: :75: :75: :50: :25: ‭⁦gdfan75⁩‬
+:13: :EmptySword: :56: :70: :42: :14: ‭⁦Hadez⁩‬
+:13: :EmptySword: :66: :68: :42: :06: ‭⁦G.O.M.D⁩‬
+:13: :EmptySword: :59: :70: :50: :16: ‭⁦Master21⁩‬
+:13: :EmptySword: :65: :71: :41: :02: ‭⁦YOYOMAN12D⁩‬
+:13: :EmptySword: :35: :35: :28: :07: ‭⁦brycee⁩‬
+:13: :EmptySword: :65: :65: :40: :02: ‭⁦slothnz⁩‬
+:13: :EmptySword: :66: :75: :50: :18: ‭⁦Marlouc⁩‬
+:13: :EmptySword: :47: :52: :23: :06: ‭⁦skyeshade⁩‬
 :12: :EmptySword: :55: :55: :40: :Blank: ‭⁦Golden Unicorn✨⁩‬
-:13: :EmptySword: :46: :51: :21: :01: ‭⁦skyeshade⁩‬
-:12: :EmptySword: :53: :61: :26: :Blank: ‭⁦sanskar⁩‬
-:12: :EmptySword: :59: :60: :35: :Blank: ‭⁦Thomas⁩‬
-:12: :EmptySword: :50: :57: :27: :Blank: ‭⁦Jackers⁩‬
-:12: :EmptySword: :54: :60: :26: :Blank: ‭⁦Ligma⁩‬
-:12: :EmptySword: :56: :56: :27: :Blank: ‭⁦Henrique⁩‬
-:12: :EmptySword: :55: :65: :40: :Blank: ‭⁦Randyl⁩‬
-:12: :EmptySword: :Blank: :Blank: :Blank: :Blank: ‭⁦Chepe⁩‬
-:14: :EmptySword: :10: :27: :07: :03: ‭⁦K.L.A.U.S v2⁩‬
-:12: :EmptySword: :50: :50: :20: :Blank: ‭⁦DARKAL3X⁩‬
-:12: :EmptySword: :45: :50: :20: :Blank: ‭⁦BumblinMumbler2⁩‬
-:11: :EmptySword: :48: :49: :20: :Blank: ‭⁦DNG⁩‬
-:11: :EmptySword: :33: :40: :12: :Blank: ‭⁦Sned 2.0⁩‬
-:11: :EmptySword: :Blank: :Blank: :Blank: :Blank: ‭⁦YouAreMyBreh⁩‬
-:11: :EmptySword: :26: :31: :Blank: :Blank: ‭⁦CrazyWaveIT⁩‬
+:12: :EmptySword: :55: :62: :33: :Blank: ‭⁦Jackers⁩‬
+:12: :EmptySword: :Blank: :Blank: :Blank: :Blank: ‭⁦phr*⁩‬
+:12: :EmptySword: :56: :59: :27: :Blank: ‭⁦Chepe⁩‬
+:12: :EmptySword: :60: :61: :35: :Blank: ‭⁦Henrique⁩‬
+:12: :EmptySword: :54: :60: :27: :Blank: ‭⁦Ligma⁩‬
+:14: :EmptySword: :13: :30: :12: :04: ‭⁦K.L.A.U.S v2⁩‬
+:12: :EmptySword: :41: :50: :13: :Blank: ‭⁦Rod⁩‬
+:12: :EmptySword: :50: :50: :20: :Blank: ‭⁦DNG⁩‬
+:12: :EmptySword: :Blank: :Blank: :Blank: :Blank: ‭⁦Ascended⁩‬
+:13: :EmptySword: :Blank: :Blank: :Blank: :Blank: ‭⁦Narrowl⁩‬
+:12: :EmptySword: :47: :45: :14: :Blank: ‭⁦Plantos⁩‬
+:11: :EmptySword: :50: :44: :20: :Blank: ‭⁦YouAreMyBreh⁩‬
+:11: :EmptySword: :45: :47: :15: :Blank: ‭⁦Matanza⁩‬
+:11: :EmptySword: :31: :31: :12: :Blank: ‭⁦Mythos⁩‬
+:11: :EmptySword: :44: :44: :16: :Blank: ‭⁦Something⁩‬
+:11: :EmptySword: :34: :40: :14: :Blank: ‭⁦Sned 2.0⁩‬
+:11: :EmptySword: :34: :40: :11: :Blank: ‭⁦CrazyWaveIT⁩‬
+:11: :EmptySword: :30: :21: :01: :Blank: ‭⁦KaneoF2P⁩‬
