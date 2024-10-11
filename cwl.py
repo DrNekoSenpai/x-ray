@@ -47,7 +47,7 @@ with open(f"xray-minion.txt", "r", encoding="utf-8") as f:
         match = pattern.match(line)
         if match: 
             tag, player = match.groups()
-            player = player.replace("\_", "_")
+            player = player.replace("\\", "").strip()
 
             if player not in [p[1] for p in players]:
                 players.append((player, tag))
@@ -83,6 +83,12 @@ for player,hits in cwl:
 
     # Override: BumblinMumbler has 6 months of loyalty, no matter what
     if player == "BumblinMumbler": 
+        entries[player] += 6
+        loyalty_entries[player] = 6
+        continue
+
+    # Override: Sned has 6 months of loyalty, no matter what
+    if player == "Sned":
         entries[player] += 6
         loyalty_entries[player] = 6
         continue
@@ -180,6 +186,8 @@ YOYOMAN12D
 W1nter
 Reactorge
 Smitty™
+Mythos
+ViperX56
 """.strip().split("\n")
 
 eligible = [p for p in entries.keys() if p not in already_received]
