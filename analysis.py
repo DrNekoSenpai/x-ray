@@ -44,6 +44,7 @@ permanent_immunities = [
     "Sned",
     "Sned 2.0",
     "Sned 3.0",
+    "Sned 4.0",
     "BumblinMumbler",
     "BumblinMumbler2",
     "BumblinMumbler3",
@@ -53,7 +54,7 @@ permanent_immunities = [
     "katsu", 
     "K.L.A.U.S v2",
     "Sugma", 
-    "Marlec"
+    "Marlec", 
 ]
 
 # Timed immunities involve players who will be out until a given date
@@ -111,7 +112,7 @@ for claim in xray_claims:
             claims_dictionary[claimer].append(Claim(claim_th, claim_tag, account_name, False, "Reddit X-ray"))
             break
 
-known_mains = []
+known_mains = ["Plantos"]
 
 num_alts_xray = 0
 

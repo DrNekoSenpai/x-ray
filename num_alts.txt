@@ -1,5 +1,6 @@
-As of <t:1728451258:F> (<t:1728451258:R>):
+As of <t:1728852595:F> (<t:1728852595:R>):
 
-Number of alts in Reddit X-ray: 2
+Number of alts in Reddit X-ray: 3
+  \- Ligma (12) -- main: Smitty™
   \- Marlouc (13) -- main: Marlec
-  \- Plantos (12) -- main: Narrowl
+  \- Narrowl (13) -- main: Plantos
