@@ -28,10 +28,9 @@ if up_to_date() is False:
     exit(1)
 
 class player():
-    def __init__(self, name, tag, clan):
+    def __init__(self, name, tag):
         self.name = name
         self.tag = tag
-        self.clan = clan
         self.num_strikes = 0
         self.strikes = []
         self.missed_hit_clans = []
@@ -40,7 +39,6 @@ class player():
     def output(self):
         print(f'Name: {self.name}')
         print(f'Tag: {self.tag}')
-        print(f'Clan: {self.clan}')
         print(f'Strikes: {self.num_strikes}')
 
 def export_pickle(): 
@@ -56,7 +54,7 @@ def import_pickle():
 
 players = import_pickle()
 
-def add_player(clan): 
+def add_player(): 
     """Add a new player to the database, provided that they do not already exist."""
     # in_str = input('Enter name and tag, separated by spaces: ').strip()
     # if in_str == '': continue
@@ -67,14 +65,8 @@ def add_player(clan):
     # p = player(in_str[0], in_str[1].upper())
     # players.append(p)
 
-    # Check if a file named "minion.txt" exists in the current directory
-
-    if not os.path.isfile(f'{clan}-minion.txt'):
-        print(f'No file named "{clan}-minion.txt" exists in the current directory.')
-        return
-
     # Open the file and read the contents, line by line
-    with open(f'{clan}-minion.txt', 'r', encoding='utf-8', errors='replace') as file:
+    with open(f'xray-minion.txt', 'r', encoding='utf-8', errors='replace') as file:
         for line in file: 
             # Line format: 
             # #P2UPPVYL    15 Senpai™
@@ -91,34 +83,23 @@ def add_player(clan):
                 if "’" in name: name = name.replace("’", "'")
                 if "™" in name: name = name.replace("™", "")
                 if "✨" in name: name = name.replace("✨", "")
-                if "\_" in name: name = name.replace("\_", "_")
+                if "\\" in name: name = name.replace("\\", "")
                 if "\~" in name: name = name.replace("\~", "~")
 
                 # Check if the player already exists in the database
                 found = False
                 for i in range(len(players)):
                     if players[i].name == name:
-                        if players[i].clan != "Reddit X-ray" and clan == "xray":
-                            players[i].clan = "Reddit X-ray"
-                            print(f"Player {name} already exists in the database, but in the wrong clan. Changing clan to Reddit X-ray.")
-
-                        elif players[i].clan != "Faint Outlaws" and clan == "outlaws":
-                            players[i].clan = "Faint Outlaws"
-                            print(f"Player {name} already exists in the database, but in the wrong clan. Changing clan to Faint Outlaws.")
-
-                        else: 
-                            print(f"Player {name} already exists in the database. Skipping...")
+                        print(f"Player {name} already exists in the database. Skipping...")
                             
                         found = True
                         break
 
                 # If the player does not exist, add them to the database
                 if not found:
-                    player_clan = "Reddit X-ray" if clan == "xray" else "Faint Outlaws"
-                    p = player(name, tag, player_clan)
+                    p = player(name, tag)
                     players.append(p)
                     print(f"Added player {name} #{tag} to the database.")
-
 	
 def remove_player(): 
     """Given an existing player in the database, remove them from the database."""
@@ -150,11 +131,12 @@ def add_strike():
                 print('[1] Missed FWA attack')
                 print('[2] CWL attacks')
                 print('[3] Blacklist war')
-                print('[4] War base')
-                print('[5] Base errors')
-                print('[6] Directions not followed')
-                print('[7] Repeat offender in sanctions')
-                print('[8] Other')
+                print('[4] FWA base during blacklist war')
+                print('[5] War base')
+                print('[6] Base errors')
+                print('[7] Directions not followed')
+                print('[8] Repeat offender in sanctions')
+                print('[9] Other')
                 sel = input('Selection: ')
                 try: sel = int(sel)
                 except: sel = 0
@@ -291,9 +273,8 @@ def add_strike():
                 elif sel == 7: 
                     print('What kind of instruction did this player not follow? ')
                     print('[1] Three-starred during a loss war')
-                    print('[2] Sniped for more than 2 stars during a win war')
-                    print('[3] Sniped for more than 1 star during a loss war')
-                    print('[4] Attacked someone else than mirror')
+                    print('[2] Attacked someone else than mirror')
+                    print('[3] Sniped twice instead of attacking mirror')
                     sel = input('Selection: ')
                     try: sel = int(sel)
                     except: sel = 0
@@ -307,21 +288,15 @@ def add_strike():
                         players[i].strikes.append(f"(0.5) Three-starred during a loss war against `{clan}`.")
                         players[i].num_strikes += 0.5
 
-                    elif sel == 2: 
-                        clan = input('Enter opponent clan name for when this player sniped for more than 2 stars during a win war: ')
-                        players[i].strikes.append(f"(0.5) Sniped for more than 2 stars during a win war against `{clan}`.")
-                        players[i].num_strikes += 0.5
-
-                    elif sel == 3: 
-                        clan = input('Enter opponent clan name for when this player sniped for more than 1 star during a loss war: ')
-                        players[i].strikes.append(f"(0.5) Sniped for more than 1 star during a loss war against `{clan}`.")
-                        players[i].num_strikes += 0.5
-
-                    elif sel == 4:
+                    elif sel == 2:
                         clan = input('Enter opponent clan name for when this player attacked someone else than mirror: ')
-                        clan = clan.split("#")[0]
                         players[i].strikes.append(f"(0.5) Attacked someone else than mirror during a war against `{clan}`.")
                         players[i].num_strikes += 0.5
+
+                    elif sel == 3:
+                        clan = input('Enter opponent clan name for when this player sniped twice instead of attacking mirror: ')
+                        players[i].strikes.append(f"(1) Sniped twice instead of attacking mirror during a war against `{clan}`.")
+                        players[i].num_strikes += 1
                                     
                 elif sel == 8: 
                     clan = input('Enter opponent clan name who initiated sanctions against us: ')
@@ -427,10 +402,8 @@ def clear_strikes():
 def output_strikes():
     with open('strikes.txt', 'w', encoding="utf-8") as file: 
         xray_printed = False 
-        outlaws_printed = False
 
         for i in range(len(players)): 
-            if players[i].clan != "Reddit X-ray": continue
             if players[i].num_strikes != 0: 
                 # If the player's strikes are an integer value, round it. 
                 if players[i].num_strikes == int(players[i].num_strikes):
@@ -445,21 +418,7 @@ def output_strikes():
                 for j in range(len(players[i].strikes)): 
                     file.write(f"- {players[i].strikes[j]}\n")
 
-                file.write('\n')
-
-        for i in range(len(players)): 
-            if players[i].clan != "Faint Outlaws": continue
-            if players[i].num_strikes != 0: 
-                if not outlaws_printed:
-                    file.write('**Faint Outlaws**:\n\n')
-                    outlaws_printed = True
-                    
-                file.write(f"[{players[i].num_strikes}] {players[i].name} #{players[i].tag}:\n")
-
-                for j in range(len(players[i].strikes)): 
-                    file.write(f"- {players[i].strikes[j]}\n")
-
-                file.write('\n')
+            file.write('\n')
 
 players = import_pickle()
 while(True): 
@@ -479,7 +438,7 @@ while(True):
     except: continue
 
     export_pickle()
-    if sel == 1: add_player("xray"); add_player("outlaws")
+    if sel == 1: add_player()
     elif sel == 2: remove_player()
     elif sel == 3: add_strike()
     elif sel == 4: remove_strike()
