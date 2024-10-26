@@ -34,6 +34,8 @@ logs = [file[:-4] for file in os.listdir("./logs/") if not "_input" in file]
 
 parser = argparse.ArgumentParser(description="Analyze war logs for generating strikes.")
 parser.add_argument("--bypass", "-b", action="store_true", help="If set to true, program also outputs bypass messages. Default: False")
+parser.add_argument("--snipe", "-s", action="store_true", help="If set to true, program outputs snipe messages when bypass is also true. Default: False")
+parser.add_argument("--debug", "-d", action="store_true", help="If set to true, program outputs log messages for immune players. Default: False")
 parser.add_argument("--log", "-l", action="store_true", help="If set to true, program also outputs log messages. Default: False")
 parser.add_argument("--mirrors", "-m", action="store_true", help="If set to true, program also outputs invalid mirror messages. Default: False")
 parser.add_argument("--war", "-w", type=str, default="", help="If specified, only analyze the war log with the given name. Default: ''")
@@ -61,12 +63,12 @@ permanent_immunities = [
 
 # Timed immunities involve players who will be out until a given date
 timed_immunities = [
-
+    ("Plantos", "10/24/2024")
 ]
 
 # War-specific immunities are for one war only. 
 one_war_immunities = [
-    ("optimus", "10/15/2024")
+    
 ]
 
 with open("xray-claims.txt", "r", encoding="utf-8") as file: 
@@ -194,6 +196,29 @@ with open("claims_output.txt", "w", encoding="utf-8") as file:
 
         file.write("\n")
 
+with open("activity_output.txt", "r", encoding="utf-8") as file: 
+    activity = file.readlines()
+
+    # Projected format: 
+    # As of <t:1723417140:F> (<t:1723417140:R>):
+    # 
+    # Player name; Player tag; Number of wars missed; Known alt; Known immunity
+    # Sned 2.0; #L9Y9J88LL; 2 wars missed; True; True
+    # Smitty™; #9LCPQ0QR; 1 war missed; False; True
+    # Plantos; #QPV0QV2PU; 0 wars missed; False; False
+
+    for ind, val in enumerate(activity):
+        if ind <= 2: continue
+
+        player_name, player_tag, wars_missed, known_alt = [x.strip() for x in val.split(";")]
+        try: 
+            wars_missed = int(wars_missed.split()[0])
+            known_alt = known_alt == "True"
+
+        except:
+            print(f"Error: {val} is not formatted correctly. Please check the activity file and try again.")
+            continue
+
 with open("war_bases.txt", "r", encoding="utf-8") as war_bases_file: 
     war_bases = war_bases_file.readlines()
     with open(f"./inputs/war_bases.txt", "w", encoding="utf-8") as file:
@@ -231,19 +256,19 @@ with open("war_bases.txt", "r", encoding="utf-8") as war_bases_file:
                 continue
 
             if war_type == "blacklist" and conditional == "true": 
-                file.write(f"3\n{player_name}\ny\n4\n{enemy_clan}\ny\n")
+                file.write(f"3\n{player_name}\ny\n2\n{enemy_clan}\ny\n")
                 print(f"Warning: {player_name} failed to put up a war base during a blacklist war against {enemy_clan}, but we met the conditional.")
 
             elif war_type == "blacklist" and conditional == "false":
-                file.write(f"3\n{player_name}\ny\n4\n{enemy_clan}\nn\n")
+                file.write(f"3\n{player_name}\ny\n2\n{enemy_clan}\nn\n")
                 print(f"Warning: {player_name} failed to put up a war base during a blacklist war against {enemy_clan}")
 
             elif war_type == "FWA" and conditional == "true":
-                file.write(f"3\n{player_name}\ny\n4\n{enemy_clan}\ny\n")
+                file.write(f"3\n{player_name}\ny\n2\n{enemy_clan}\ny\n")
                 print(f"Warning: {player_name} failed to put up a war base during an FWA war against {enemy_clan}, and sanctions occurred from it.")
 
             elif war_type == "FWA" and conditional == "false":
-                file.write(f"3\n{player_name}\ny\n4\n{enemy_clan}\nn\n")
+                file.write(f"3\n{player_name}\ny\n2\n{enemy_clan}\nn\n")
                 print(f"Warning: {player_name} failed to put up a war base during an FWA war against {enemy_clan}")
 
 for log_file in logs: 
@@ -306,8 +331,6 @@ for log_file in logs:
     time_elapsed = 0
 
     log = []
-    two_missed_hits = []
-    one_missed_hit = []
 
     invalid_mirror = []
 
@@ -355,82 +378,25 @@ for log_file in logs:
             continue
 
         if attack_list == 2: 
-            player_name = line[5:].strip()
+            number, player_name = line[1:].strip().split(" ", 1)
+            number = int(number.replace(":", ""))
             
             if "’" in player_name: player_name = player_name.replace("’", "'")
             if "\_" in player_name: player_name = player_name.replace("\_", "_")
             if "\~" in player_name: player_name = player_name.replace("\~", "~")
-            
-            # Find the corresponding player in the database, and verify that they are neither an alt, nor immune.
-            if player_name in permanent_immunities or "Unicorn" in player_name:
-                if args.bypass: print(f"Bypass: {player_name} missed two hits, but they are immune")
-                continue
 
-            for immune, date in timed_immunities:
-                if player_name == immune:
-                    if datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
-                        if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
-                        continue
-
-            for immune, date in one_war_immunities:
-                if player_name == immune: 
-                    immunity_date = datetime.datetime.strptime(date, "%m/%d/%Y")
-                    war_end = datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year)
-                    if war_end == immunity_date: 
-                        if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
-                        continue
-
-            is_main = True
-            for claimer in claims_dictionary:
-                for account in claims_dictionary[claimer]: 
-                    if account.name == player_name: 
-                        if not account.is_main: 
-                            is_main = False
-
-            if not is_main:
-                if args.bypass: print(f"Bypass: {player_name} missed two hits, but they are not a main account")
-                continue
-
-            two_missed_hits.append(player_name)
+            log.append((player_name, number, None, None, None))
+            log.append((player_name, number, None, None, None))
 
         if attack_list == 1:
-            player_name = line[5:].strip()
-            
+            number, player_name = line[1:].strip().split(" ", 1)
+            number = int(number.replace(":", ""))
+
             if "’" in player_name: player_name = player_name.replace("’", "'")
             if "\_" in player_name: player_name = player_name.replace("\_", "_")
             if "\~" in player_name: player_name = player_name.replace("\~", "~")
 
-            # Find the corresponding player in the database, and verify that they are neither an alt, nor immune.
-            if player_name in permanent_immunities or "Unicorn" in player_name:
-                if args.bypass: print(f"Bypass: {player_name} missed one hit, but they are immune")
-                continue
-
-            for immune, date in timed_immunities:
-                if player_name == immune:
-                    if datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
-                        if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
-                        continue
-
-            for immune, date in one_war_immunities:
-                if player_name == immune: 
-                    immunity_date = datetime.datetime.strptime(date, "%m/%d/%Y")
-                    war_end = datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year)
-                    if war_end == immunity_date: 
-                        if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
-                        continue
-
-            is_main = True
-            for claimer in claims_dictionary:
-                for account in claims_dictionary[claimer]: 
-                    if account.name == player_name: 
-                        if not account.is_main: 
-                            is_main = False
-
-            if not is_main:
-                if args.bypass: print(f"Bypass: {player_name} missed one hit, but they are not a main account")
-                continue
-
-            one_missed_hit.append(player_name)
+            log.append((player_name, number, None, None, None))
 
     with open(f"./inputs/{log_file}.txt", "w", encoding="utf-8") as file: 
         if win_loss == "win" or win_loss == "loss": 
@@ -439,12 +405,16 @@ for log_file in logs:
             # FWA war
             for entry in log: 
                 player_name, attacker, defender, stars, time_remaining = entry
+
+                if defender is None: # Missed hit, skip for now 
+                    continue
+
                 if args.log: print(f"Player: {player_name}, Attacker: {attacker}, Defender: {defender}, Stars: {stars}, Time Remaining: {time_remaining:.2f}")
                 if args.mirrors: print(f"Invalid Mirrors: {invalid_mirror}")
 
                 player_immune = False
 
-                if player_name in permanent_immunities or "Unicorn" in player_name: 
+                if player_name in permanent_immunities: 
                     player_immune = True
 
                 for immune, date in timed_immunities:
@@ -466,258 +436,398 @@ for log_file in logs:
                             if not account.is_main: 
                                 is_main = False
 
-                # Check if this hit was not a mirror 
+                if player_immune and not args.debug: 
+                    invalid_mirror.append(defender)
+                    continue 
+                if not is_main and not args.debug: 
+                    invalid_mirror.append(defender)
+                    continue
+
                 mirror = attacker == defender
-                if not mirror: 
-                    # First, check if this looks to be a snipe. 
-                    # Snipes are defined as 1 star on a loss, or 1-2 stars on a win. 
-                    if win_loss == "loss" and stars < 2 and int(defender) != int(attacker): 
-                        if args.bypass: 
-                            print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe")
-                            invalid_mirror.append(defender)
+                if mirror: 
+                    # Check if the player three-starred their mirror on a loss.
+                    if win_loss == "loss" and stars > 2:
+                        print(f"Warning: {player_name} three-starred their mirror on a loss.")
+                        file.write(f"3\n{player_name}\ny\n5\n1\n{enemy_clan}\n")
 
-                        if player_name in snipe_count: 
-                            snipe_count[player_name] += 1
-                        else:
-                            snipe_count[player_name] = 1
-
-                        if snipe_count[player_name] >= 2:
-                            if player_immune: 
-                                if args.bypass: print(f"Bypass: {player_name} appears to have sniped twice, but they are immune")
-
-                            elif not is_main:
-                                if args.bypass: print(f"Bypass: {player_name} appears to have sniped twice, but they are not a main account")
-                                 
-                            # Check if they have more than one account linked to them. 
-                            elif len([entry for entry in log if entry[0] == player_name]) > 1:
-                                # If so, check if they hit their mirror with another account under their name. 
-                                print(f"Debug: {player_name} appears to have sniped twice, but has more than one account with us.")
-
-                                # Find the corresponding alt account. 
-                                for claimer in claims_dictionary:
-                                    # Figure out if the accounts linked under this person match the player_name.
-                                    if not player_name in [account.name for account in claims_dictionary[claimer]]: continue 
-
-                                    for account in claims_dictionary[claimer]: 
-                                        # Find the accounts that are not the main account, and do not have the same name as the player_name.
-                                        if account.name == player_name: continue
-
-                                        print(f"Debug: {account.name} {player_name}")
-
-                                        # Check if this account hit their main's mirror.
-                                        # Example; if main account is #6, alt account is #49, and #49 hit #6 for two stars, this is allowed so long as #49 also hit #49 for two stars. 
-                                        
-                                        # Find the corresponding entries in the log. 
-                                        for entry in log:
-                                            if entry[0] == account.name: 
-                                                print(entry)
-
-                            else: 
-                                print(f"Warning: {player_name} appears to have sniped twice.")
-                                file.write(f"3\n{player_name}\ny\n7\n3\n{enemy_clan}\n")
-                    
-                    elif win_loss == "win" and stars < 3 and int(defender) != int(attacker):
-                        if args.bypass: 
-                            print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe")
-                            invalid_mirror.append(defender)
-
-                        if player_name in snipe_count:
-                            snipe_count[player_name] += 1
-                        else:
-                            snipe_count[player_name] = 1
-
-                        if snipe_count[player_name] >= 2: 
-                            if player_immune:
-                                if args.bypass: print(f"Bypass: {player_name} appears to have sniped twice, but they are immune")
-
-                            elif not is_main:
-                                if args.bypass: print(f"Bypass: {player_name} appears to have sniped twice, but they are not a main account")
-
-                            # Check if they have more than one account linked to them.
-                            elif len([entry for entry in log if entry[0] == player_name]) > 1:
-                                # If so, check if they hit their mirror with another account under their name.
-                                print(f"Debug: {player_name} appears to have sniped twice, but has more than one account with us.")
-
-                                # Find the corresponding alt account.
-                                for claimer in claims_dictionary:
-                                    # Figure out if the accounts linked under this person match the player_name.
-                                    if not player_name in [account.name for account in claims_dictionary[claimer]]: continue
-
-                                    for account in claims_dictionary[claimer]:
-                                        # Find the accounts that are not the main account, and do not have the same name as the player_name.
-                                        if account.name == player_name: continue
-
-                                        print(f"Debug: {account.name} {player_name}")
-
-                                        # Check if this account hit their main's mirror.
-                                        # Example; if main account is #6, alt account is #49, and #49 hit #6 for two stars, this is allowed so long as #49 also hit #49 for two stars.
-
-                                        # Find the corresponding entries in the log.
-                                        for entry in log:
-                                            if entry[0] == account.name:
-                                                print(entry)
-
-                            else: 
-                                print(f"Warning: {player_name} appears to have sniped twice.")
-                                file.write(f"3\n{player_name}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
-                        
-                    # Next, check if they already hit their mirror, but the defender's number is not in the invalid_mirror list.
-                    # This can occur if they hit their mirror second; and thus we should not penalize.
-                    elif attacker in [entry[2] for entry in log if entry[1] == attacker]: 
-                        # We should check if they hit for the right number of stars. 
-                        if win_loss == "loss" and stars > 2:
-                            # Check if they're immune. 
-                            if player_immune:
-                                if args.bypass: print(f"Bypass: {player_name} three-starred their mirror on a loss, but they are immune")
-                                invalid_mirror.append(defender)
-
-                            elif not is_main: 
-                                if args.bypass: print(f"Bypass: {player_name} three-starred their mirror on a loss, but they are not a main account")
-                                invalid_mirror.append(defender)
-
-                            else:
-                                print(f"Warning: #{attacker} {player_name} three-starred #{defender} on a loss")
-                                file.write(f"3\n{player_name}\ny\n7\n1\n{enemy_clan}\n")
-                                invalid_mirror.append(defender)
-
-                        elif int(defender) > 5: 
-                            if args.bypass: print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but they already hit their mirror")
-                            invalid_mirror.append(defender)
-                        
-                    # If not, first check if the defender's number is in the invalid_mirror list. 
-                    # This means that their own mirror was already taken, and thus we should not penalize. 
-                    elif attacker in invalid_mirror:
-                        if args.bypass: print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but their mirror was already taken")
-                        invalid_mirror.append(defender)
-
-                    # If the defender's number is not in the invalid_mirror list, then we should add it.
-                    # This means that their own mirror was not taken, and thus we should penalize.
-                    else:
-                        # First, we should check if there are less than four hours remaining in the war.
-                        if time_remaining < 4: 
-                            if args.bypass: print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but there are less than four hours remaining")
-                            invalid_mirror.append(defender)
-
-                        # Then, we should check if this base is a snipe. 
-                        elif win_loss == "loss" and not int(attacker) < 5 and int(defender) < 5:
-                            continue
-
-                        elif win_loss == "win" and not int(attacker) < 5 and int(defender) < 5:
-                            continue
-
-                        elif player_immune: 
-                            if args.bypass: print(f"Bypass: {player_name} hit someone not their own mirror #{defender}, but they are immune")
-                            invalid_mirror.append(defender)
-
-                        elif not is_main:
-                            if args.bypass: print(f"Bypass: {player_name} hit someone not their own mirror #{defender}, but they are not a main account")
-                            invalid_mirror.append(defender)
-
-                        else: 
-                            invalid_mirror.append(defender)
-                            print(f"Warning: #{attacker} {player_name} hit someone not their own mirror #{defender}")
-                            file.write(f"3\n{player_name}\ny\n7\n2\n{enemy_clan}\n")
-                else: 
                     # Add this base to the invalid_mirror list, since it was taken by a mirror.
                     invalid_mirror.append(defender)
 
-                if win_loss == "loss": 
-                    mirror = attacker == defender 
-                    if mirror and stars > 2: 
-                        if player_immune: 
-                            if args.bypass: print(f"Bypass: {player_name} three-starred #{defender} on a loss, but they are immune")
-                            invalid_mirror.append(defender)
+                    continue
 
-                        elif not is_main:
-                            if args.bypass: print(f"Bypass: {player_name} three-starred #{defender} on a loss, but they are not a main account")
-                            invalid_mirror.append(defender)
+                # If this is NOT a mirror, we do still need to check if they three-starred during a loss. 
+                elif win_loss == "loss" and stars == 3: 
+                    # Check if this player already hit their mirror. 
+                    # If so, only penalize them for three-starring during a loss. 
+                    # If not, check if they hit another base because their mirror was already taken. 
+                    # If not, check if they hit another base because less than four hours remain in the war.
+                    # If none of these are true, additionally penalize them for hitting a base not their mirror.
+
+                    if (player_immune or not is_main) and args.debug: 
+                        if attacker in [entry[2] for entry in log if entry[1] == attacker]:
+                            print(f"Debug: {player_name} three-starred a base not their mirror #{defender} on a loss, but they already hit their mirror")
+
+                        elif attacker in invalid_mirror:
+                            print(f"Debug: {player_name} three-starred a base not their mirror #{defender} on a loss, but their mirror was already taken")
+
+                        elif time_remaining < 4:
+                            print(f"Debug: {player_name} three-starred a base not their mirror #{defender} on a loss, but there are {round(time_remaining, 2)} hours remaining")
+
+                        else: 
+                            print(f"Debug: {player_name} three-starred on a loss")
+                            print(f"Debug: {player_name} hit a base not their own mirror #{defender}")
+
+                    else: 
+                        if attacker in [entry[2] for entry in log if entry[1] == attacker]:
+                            print(f"Warning: {player_name} three-starred a base not their mirror #{defender} on a loss, but they already hit their mirror")
+                            file.write(f"3\n{player_name}\ny\n5\n1\n{enemy_clan}\n")
+
+                        elif attacker in invalid_mirror:
+                            print(f"Warning: {player_name} three-starred a base not their mirror #{defender} on a loss, but their mirror was already taken")
+                            file.write(f"3\n{player_name}\ny\n5\n1\n{enemy_clan}\n")
+
+                        elif time_remaining < 4: 
+                            print(f"Warning: {player_name} three-starred a base not their mirror #{defender} on a loss, but there are {round(time_remaining, 2)} hours remaining")
+                            file.write(f"3\n{player_name}\ny\n5\n1\n{enemy_clan}\n")
+
+                        else: 
+                            print(f"Warning: {player_name} three-starred on a loss")
+                            file.write(f"3\n{player_name}\ny\n5\n1\n{enemy_clan}\n")
+                            print(f"Warning: {player_name} hit a base not their own mirror #{defender}")
+                            file.write(f"3\n{player_name}\ny\n5\n2\n{enemy_clan}\n")
+                    
+                # First, check if this looks to be a snipe. 
+
+                if win_loss == "loss" and stars < 2 and int(defender) <= 5 and int(attacker) > 5: 
+                    if args.bypass and args.snipe: 
+                        print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe")
+
+                    if player_name in snipe_count: 
+                        snipe_count[player_name] += 1
+                    else:
+                        snipe_count[player_name] = 1
+
+                    # Check if they have sniped twice.
+                    if snipe_count[player_name] >= 2:
+                        if (player_immune or not is_main) and args.debug: 
+                            print(f"Debug: {player_name} appears to have sniped twice.")
+                            
+                        else: 
+                            print(f"Warning: {player_name} appears to have sniped twice.")
+                            file.write(f"3\n{player_name}\ny\n5\n3\n{enemy_clan}\n")
+
+                    continue
+
+                elif win_loss == "win" and stars < 3 and int(defender) <= 5 and int(attacker) > 5:
+                    if args.bypass and args.snipe: 
+                        print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe")
+
+                    if player_name in snipe_count: 
+                        snipe_count[player_name] += 1
+                    else:
+                        snipe_count[player_name] = 1
+
+                    if snipe_count[player_name] >= 2:
+                        if (player_immune or not is_main) and args.debug: 
+                            print(f"Debug: {player_name} appears to have sniped twice.")
 
                         else:
-                            print(f"Warning: #{attacker} {player_name} three-starred #{defender} on a loss")
-                            file.write(f"3\n{player_name}\ny\n7\n1\n{enemy_clan}\n")
-                            invalid_mirror.append(defender)
+                            print(f"Warning: {player_name} appears to have sniped twice.")
+                            file.write(f"3\n{player_name}\ny\n5\n3\n{enemy_clan}\n")
 
-                # Remove duplicates from the invalid_mirror list
-                invalid_mirror = list(set(invalid_mirror))
-
-            for entry in one_missed_hit: 
-                # First, check if there are TWO entries in the log with the same name.
-                # If so, Minion Bot made an error; ignore this entry. 
-                if len([log_entry for log_entry in log if log_entry[0] == entry]) > 1: 
-                    if args.bypass: print(f"Bypass: #{attacker} {entry} missed one hit, but Minion Bot made an error")
                     continue
 
-                # Find the corresponding entry in the log; find their other hit 
-                if entry in permanent_immunities or "Unicorn" in entry: 
-                    if args.bypass: print(f"Bypass: {entry} missed one hit, but they are immune")
-                    continue
+                # Check their other hit to see if they hit their mirror. 
+                elif attacker in [entry[2] for entry in log if entry[1] == attacker]:
+                    if int(defender) <= 5:
+                        if args.bypass and args.snipe: print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe")
+                        invalid_mirror.append(defender)
 
-                for immune, date in timed_immunities:
-                    if player_name == immune:
-                        if datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
-                            if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
-                            player_immune = True
+                    else: 
+                        # In this case, they hit their mirror as well as another base that's not their mirror nor a snipe. 
+                        # Check if they did this when there's less than four hours remaining in the war.
 
-                for immune, date in one_war_immunities: 
-                    if player_name == immune: 
-                        immunity_date = datetime.datetime.strptime(date, "%m/%d/%Y")
-                        war_end = datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year)
-                        if war_end == immunity_date: 
-                            if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
-                            player_immune = True
+                        if time_remaining < 4:
+                            if args.bypass: print(f"Bypass: {player_name} hit their mirror #{defender} as well as another base not their mirror #{attacker}, but there are {round(time_remaining, 2)} hours remaining")
 
-                is_main = True
-                for claimer in claims_dictionary:
-                    for account in claims_dictionary[claimer]: 
-                        if account.name == entry: 
-                            if not account.is_main: 
-                                is_main = False
+                        else: 
+                            # Check if the base they hit is the mirror of a known alt. 
 
-                if not is_main: 
-                    if args.bypass: print(f"Bypass: {entry} missed one hit, but they are not a main account")
-                    continue
+                            friendly_mirror = [entry[0] for entry in log if entry[1] == defender][0]
+                            # Find the claimer of the friendly mirror
+                            for claimer in claims_dictionary:
+                                for account in claims_dictionary[claimer]:
+                                    if account.name == friendly_mirror:
+                                        friendly_claimer = account
+                                        break
 
-                for log_entry in log: 
-                    if log_entry[0] == entry: 
-                        mirror = log_entry[1] == log_entry[2]
-                        if not mirror and int(log_entry[2]) < 6: 
-                            print(f"Warning: #{log_entry[1]} {entry} missed one hit, and used the other to snipe")
-                            file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
+                            if not friendly_claimer.is_main: 
+                                if args.bypass: print(f"Bypass: {player_name} hit their mirror #{defender} as well as another base not their mirror #{attacker}, but the base they hit is the mirror of a known alt.")
+                            
+                            else: 
+                                if (player_immune or not is_main) and args.debug: 
+                                    print(f"Debug: {player_name} hit their mirror #{defender} as well as another base not their mirror #{attacker}, with time remaining {round(time_remaining, 2)} hours")
 
-            for entry in two_missed_hits: 
-                if entry in permanent_immunities or "Unicorn" in entry: 
-                    if args.bypass: print(f"Bypass: {entry} missed two hits, but they are immune")
-                    continue
+                                else:
+                                    print(f"Warning: {player_name} hit their mirror #{defender} as well as another base not their mirror #{attacker}, with time remaining {round(time_remaining, 2)} hours")
+                                    file.write(f"3\n{player_name}\ny\n5\n2\n{enemy_clan}\n")
 
-                for immune, date in timed_immunities:
-                    if player_name == immune:
-                        if datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
-                            if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
-                            player_immune = True
+                        invalid_mirror.append(defender)
 
-                for immune, date in one_war_immunities: 
-                    if player_name == immune: 
-                        immunity_date = datetime.datetime.strptime(date, "%m/%d/%Y")
-                        war_end = datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year)
-                        if war_end == immunity_date: 
-                            if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
-                            player_immune = True
+                else: 
+                    # Debug; print the player's name, attacker, defender, stars, and time remaining.
+                    # print(f"Unhandled case: {player_name}, Attacker: {attacker}, Defender: {defender}, Stars: {stars}, Time Remaining: {time_remaining:.2f}")
 
-                is_main = True
-                for claimer in claims_dictionary:
-                    for account in claims_dictionary[claimer]: 
-                        if account.name == entry: 
-                            if not account.is_main: 
-                                is_main = False
-                if not is_main: 
-                    if args.bypass: print(f"Bypass: {entry} missed two hits, but they are not a main account")
-                    continue
+                    # Check if the defender's number is already in invalid_mirror. 
+                    # If so, that means someone else took their mirror first, and therefore this is allowed. 
+                    if attacker in invalid_mirror:
+                        mirror_entry = [entry for entry in log if entry[1] == defender][0]
+                        if args.bypass: print(f"Bypass: {player_name} hit someone not their own mirror #{defender}, but their mirror was already taken by #{mirror_entry[1]} {mirror_entry[0]}")
+                        continue
 
-                print(f"Warning: {entry} missed two hits")
-                file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
+                    # Check if the defender's number is less than or equal to 5.
+                    # If so, this still counts as a snipe, and we should not penalize.
+                    if int(defender) <= 5:
+                        if args.bypass and args.snipe: print(f"Bypass: {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe")
+                        continue
+
+                    # Check if there are less than four hours remaining in the war.
+                    if time_remaining < 4:
+                        if args.bypass: print(f"Bypass: {player_name} hit someone not their own mirror #{defender}, but there are {round(time_remaining, 2)} hours remaining")
+                        invalid_mirror.append(defender)
+
+                    else:
+                        if (player_immune or not is_main) and args.debug: 
+                            print(f"Debug: {player_name} hit someone not their own mirror #{defender}")
+
+                        else:
+                            print(f"Warning: {player_name} hit someone not their own mirror #{defender}")
+                            file.write(f"3\n{player_name}\ny\n5\n2\n{enemy_clan}\n")
+
+                        invalid_mirror.append(defender)
+
+                # # Check if this hit was not a mirror 
+                # mirror = attacker == defender
+                # if not mirror: 
+                #     # First, check if this looks to be a snipe. 
+                #     # Snipes are defined as 1 star on a loss, or 1-2 stars on a win. 
+                #     if win_loss == "loss" and stars < 2 and int(defender) != int(attacker): 
+                #         if args.bypass and args.snipe: 
+                #             print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe")
+
+                #         if player_name in snipe_count: 
+                #             snipe_count[player_name] += 1
+                #         else:
+                #             snipe_count[player_name] = 1
+
+                #         # Check if they have sniped twice.
+                #         if snipe_count[player_name] >= 2:
+                #             if player_immune: 
+                #                 if args.bypass: print(f"Bypass: {player_name} appears to have sniped twice, but they are immune")
+
+                #             elif not is_main:
+                #                 if args.bypass: print(f"Bypass: {player_name} appears to have sniped twice, but they are not a main account")
+
+                #             else: 
+                #                 print(f"Warning: {player_name} appears to have sniped twice.")
+                #                 file.write(f"3\n{player_name}\ny\n5\n3\n{enemy_clan}\n")
+                    
+                #     # First, we should check if there are less than four hours remaining in the war.
+                #     if time_remaining < 4: 
+                #         if args.bypass: print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but there are {round(time_remaining, 2)} hours remaining")
+                #         invalid_mirror.append(defender)
+
+                #     elif win_loss == "win" and stars < 3 and int(defender) != int(attacker):
+                #         if args.bypass and args.snipe: 
+                #             print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe")
+                        
+                #         if player_name in snipe_count:
+                #             snipe_count[player_name] += 1
+                #         else:
+                #             snipe_count[player_name] = 1
+
+                #         if snipe_count[player_name] >= 2: 
+                #             if player_immune:
+                #                 if args.bypass: print(f"Bypass: {player_name} appears to have sniped twice, but they are immune")
+
+                #             elif not is_main:
+                #                 if args.bypass: print(f"Bypass: {player_name} appears to have sniped twice, but they are not a main account")
+
+                #             else: 
+                #                 print(f"Warning: {player_name} appears to have sniped twice.")
+                #                 file.write(f"3\n{player_name}\ny\n5\n3\n{enemy_clan}\n")
+                        
+                #     # Next, check if they already hit their mirror, but the defender's number is not in the invalid_mirror list.
+                #     # This can occur if they hit their mirror second; and thus we should not penalize.
+                #     elif attacker in [entry[2] for entry in log if entry[1] == attacker]: 
+                #         # We should check if they hit for the right number of stars. 
+                #         if win_loss == "loss" and stars > 2:
+                #             # Check if they're immune. 
+                #             if player_immune:
+                #                 if args.bypass: print(f"Bypass: {player_name} three-starred #{defender} on a loss, but they are immune")
+                #                 invalid_mirror.append(defender)
+
+                #             elif not is_main: 
+                #                 if args.bypass: print(f"Bypass: {player_name} three-starred #{defender} on a loss, but they are not a main account")
+                #                 invalid_mirror.append(defender)
+
+                #             else:
+                #                 print(f"Warning: #{attacker} {player_name} three-starred #{defender} on a loss")
+                #                 file.write(f"3\n{player_name}\ny\n5\n1\n{enemy_clan}\n")
+                #                 invalid_mirror.append(defender)
+
+                #         # Check if this is a snipe; if so, we should not penalize.
+                #         elif win_loss == "loss" and stars < 2:
+                #             if args.bypass: print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe") 
+
+                #         elif win_loss == "win" and stars < 3:
+                #             if args.bypass: print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe")
+                            
+                #         print(f"Warning: #{attacker} {player_name} hit someone not their own mirror #{defender}")
+                #         file.write(f"3\n{player_name}\ny\n5\n4\n{enemy_clan}\n")
+                        
+                #     # If not, first check if the defender's number is in the invalid_mirror list. 
+                #     # This means that their own mirror was already taken, and thus we should not penalize. 
+                #     elif attacker in invalid_mirror:
+                #         if args.bypass: 
+                #             # Find the entry of the attack that took their mirror
+                #             mirror_entry = [entry for entry in log if entry[2] == attacker][0]
+                #             print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but their mirror was already taken by #{mirror_entry[1]} {mirror_entry[0]}")
+
+                #         invalid_mirror.append(defender)
+
+                #     # If the defender's number is not in the invalid_mirror list, then we should add it.
+                #     # This means that their own mirror was not taken, and thus we should penalize.
+                #     else:
+                #         if player_immune: 
+                #             if args.bypass: print(f"Bypass: {player_name} hit someone not their own mirror #{defender}, but they are immune")
+                #             invalid_mirror.append(defender)
+
+                #         elif not is_main:
+                #             if args.bypass: print(f"Bypass: {player_name} hit someone not their own mirror #{defender}, but they are not a main account")
+                #             invalid_mirror.append(defender)
+
+                #         else: 
+                #             invalid_mirror.append(defender)
+                #             print(f"Warning: #{attacker} {player_name} hit someone not their own mirror #{defender}")
+                #             file.write(f"3\n{player_name}\ny\n5\n2\n{enemy_clan}\n")
+                            
+                # else: 
+                #     # Add this base to the invalid_mirror list, since it was taken by a mirror.
+                #     invalid_mirror.append(defender)
+
+                # if win_loss == "loss": 
+                #     mirror = attacker == defender 
+                #     if mirror and stars > 2: 
+                #         if player_immune: 
+                #             if args.bypass: print(f"Bypass: {player_name} three-starred #{defender} on a loss, but they are immune")
+                #             invalid_mirror.append(defender)
+
+                #         elif not is_main:
+                #             if args.bypass: print(f"Bypass: {player_name} three-starred #{defender} on a loss, but they are not a main account")
+                #             invalid_mirror.append(defender)
+
+                #         else:
+                #             print(f"Warning: #{attacker} {player_name} three-starred #{defender} on a loss")
+                #             file.write(f"3\n{player_name}\ny\n5\n1\n{enemy_clan}\n")
+                #             invalid_mirror.append(defender)
+
+                # # Remove duplicates from the invalid_mirror list
+                # invalid_mirror = list(set(invalid_mirror))
+
+            # for entry in one_missed_hit: 
+            #     # First, check if there are TWO entries in the log with the same name.
+            #     # If so, Minion Bot made an error; ignore this entry. 
+            #     if len([log_entry for log_entry in log if log_entry[0] == entry]) > 1: 
+            #         if args.bypass: print(f"Bypass: #{attacker} {entry} missed one hit, but Minion Bot made an error")
+            #         continue
+
+            #     # Find the corresponding entry in the log; find their other hit 
+            #     if entry in permanent_immunities or "Unicorn" in entry: 
+            #         if args.bypass: print(f"Bypass: {entry} missed one hit, but they are immune")
+            #         continue
+
+            #     for immune, date in timed_immunities:
+            #         if player_name == immune:
+            #             if datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
+            #                 if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
+            #                 player_immune = True
+
+            #     for immune, date in one_war_immunities: 
+            #         if player_name == immune: 
+            #             immunity_date = datetime.datetime.strptime(date, "%m/%d/%Y")
+            #             war_end = datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year)
+            #             if war_end == immunity_date: 
+            #                 if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
+            #                 player_immune = True
+
+            #     is_main = True
+            #     for claimer in claims_dictionary:
+            #         for account in claims_dictionary[claimer]: 
+            #             if account.name == entry: 
+            #                 if not account.is_main: 
+            #                     is_main = False
+
+            #     if not is_main: 
+            #         if args.bypass: print(f"Bypass: {entry} missed one hit, but they are not a main account")
+            #         continue
+
+            #     for log_entry in log: 
+            #         if log_entry[0] == entry: 
+            #             mirror = log_entry[1] == log_entry[2]
+            #             if not mirror and int(log_entry[2]) < 6: 
+            #                 print(f"Warning: #{log_entry[1]} {entry} missed one hit, and used the other to snipe")
+            #                 file.write(f"3\n{entry}\ny\n5\n4\n{enemy_clan}\n")
+
+            # for entry in two_missed_hits: 
+            #     if entry in permanent_immunities or "Unicorn" in entry: 
+            #         if args.bypass: print(f"Bypass: {entry} missed two hits, but they are immune")
+            #         continue
+
+            #     for immune, date in timed_immunities:
+            #         if player_name == immune:
+            #             if datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
+            #                 if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
+            #                 player_immune = True
+
+            #     for immune, date in one_war_immunities: 
+            #         if player_name == immune: 
+            #             immunity_date = datetime.datetime.strptime(date, "%m/%d/%Y")
+            #             war_end = datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year)
+            #             if war_end == immunity_date: 
+            #                 if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
+            #                 player_immune = True
+
+            #     is_main = True
+            #     for claimer in claims_dictionary:
+            #         for account in claims_dictionary[claimer]: 
+            #             if account.name == entry: 
+            #                 if not account.is_main: 
+            #                     is_main = False
+            #     if not is_main: 
+            #         if args.bypass: print(f"Bypass: {entry} missed two hits, but they are not a main account")
+            #         continue
+
+            #     print(f"Warning: {entry} missed two hits")
+            #     file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
 
         elif win_loss == "blacklist win" or win_loss == "blacklist loss":
             victory = "y" if win_loss.split(" ")[1] == "win" else "n"
+            one_missed_hit = []
+            two_missed_hits = []
+
+            for entry in log: 
+                player_name, attacker, defender, stars, time_remaining = entry
+                # If there is ONE instance of a given player in the log with None as defender, they missed one hit. 
+                # If there are TWO instances of a given player in the log with None as defender, they missed two hits.
+
+                if defender is None:
+                    if player_name in one_missed_hit: 
+                        two_missed_hits.append(player_name)
+                        one_missed_hit.remove(player_name)
+                    else: 
+                        one_missed_hit.append(player_name)
+
             for entry in one_missed_hit: 
                 if entry in permanent_immunities or "Unicorn" in entry: 
                     if args.bypass: print(f"Bypass: {entry} missed one hit on a blacklist war, but they are immune")
@@ -752,10 +862,10 @@ for log_file in logs:
                 else: 
                     if conditional == "true": 
                         print(f"Warning: {entry} missed one hit on a blacklist war, which cost us the win but we met the conditional")
-                        file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\ny\nn\n1\n")
+                        file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\ny\nn\n1\n")
                     else: 
                         print(f"Warning: {entry} missed one hit on a blacklist war, which cost us the win")
-                        file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\nn\nn\n1\n")
+                        file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\nn\nn\n1\n")
 
             for entry in two_missed_hits: 
                 if entry in permanent_immunities or "Unicorn" in entry: 
@@ -789,19 +899,17 @@ for log_file in logs:
                 if victory == "y": 
                     if conditional == "true": 
                         print(f"Warning: {entry} missed two hits on a blacklist war, but we still won and met the conditional")
-                        file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\ny\ny\n2\n")
+                        file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\ny\ny\n2\n")
                     else:
                         print(f"Warning: {entry} missed two hits on a blacklist war, but we still won")
-                        file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\nn\ny\n2\n")
-                    # print(f"Warning: {entry} missed two hits on a blacklist war, but we still won")
-                    # file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\ny\n2\n")
+                        file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\nn\ny\n2\n")
                 else:
                     if conditional == "true": 
                         print(f"Warning: {entry} missed two hits on a blacklist war, which cost us the win but we met the conditional")
-                        file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\ny\nn\n2\n")
+                        file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\ny\nn\n2\n")
                     else:
                         print(f"Warning: {entry} missed two hits on a blacklist war, which cost us the win")
-                        file.write(f"3\n{entry}\ny\n3\n{enemy_clan}\nn\nn\n2\n")
+                        file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\nn\nn\n2\n")
 
     # press any key to continue 
     input("Press any key to continue...\n")

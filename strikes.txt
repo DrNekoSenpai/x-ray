@@ -1,94 +1,18 @@
 **Reddit X-ray**:
 
-[5] G.O.M.D #C0CVUYCC:
-- (1) Missed hits during war against `SPJBMX Collab 2`.
-- (1) Missed hits during war against `PHOENIX 2`.
-- (1) Missed hits in two consecutive wars against `SPJBMX Collab 2` and `PHOENIX 2`.
-- (1) Missed hits during war against `Nattens Ninjaer`.
-- (1) Missed hits in two consecutive wars against `PHOENIX 2` and `Nattens Ninjaer`.
-
-[5] Jackers #GYQJVQ2JQ:
-- (1) Missed hits during war against `SPJBMX Collab 2`.
-- (1) Missed hits during war against `PHOENIX 2`.
-- (1) Missed hits in two consecutive wars against `SPJBMX Collab 2` and `PHOENIX 2`.
-- (1) Missed hits during war against `Nattens Ninjaer`.
-- (1) Missed hits in two consecutive wars against `PHOENIX 2` and `Nattens Ninjaer`.
-
-[3] ANBU #80U9VGUU9:
-- (1) Missed hits during war against `PHOENIX 2`.
-- (1) Missed hits during war against `Nattens Ninjaer`.
-- (1) Missed hits in two consecutive wars against `PHOENIX 2` and `Nattens Ninjaer`.
-
-[3] Arc Symphony #2YQL0R0P:
-- (1) Missed hits during war against `PHOENIX 2`.
-- (1) Missed hits during war against `Nattens Ninjaer`.
-- (1) Missed hits in two consecutive wars against `PHOENIX 2` and `Nattens Ninjaer`.
-
-[3] wako238 #28V902PLL:
-- (1) Missed hits during war against `SPJBMX Collab 2`.
-- (1) Missed hits during war against `PHOENIX 2`.
-- (1) Missed hits in two consecutive wars against `SPJBMX Collab 2` and `PHOENIX 2`.
-
-[1] Big Daddy T #9V0PCRR00:
-- (1) Missed hits during war against `SPJBMX Collab 2`.
-
-[1] CallMeFeet #9YV022J2C:
-- (1) Missed hits during war against `SPJBMX Collab 2`.
-
-[1] SpacetimeRH #920P9Y802:
-- (1) Missed hits during war against `Nattens Ninjaer`.
-
-[1] YOYOMAN12D #P29Y899J:
-- (1) Missed hits during war against `SPJBMX Collab 2`.
-
-[1] YouAreMyBreh #8GP2R28JG:
-- (1) Missed hits during war against `Nattens Ninjaer`.
-
-[0.5] Hadez #LRCGJ99Y:
+[1] Hadez #LRCGJ99Y:
+- (0.5) Attacked someone else than mirror during a war against `Nattens Ninjaer`.
 - (0.5) Attacked someone else than mirror during a war against `Nattens Ninjaer`.
 
 [0.5] Matanza #G9C8GL2VQ:
 - (0.5) Three-starred during a loss war against `PHOENIX 2`.
 
-[0.5] Something #LVYGJC9U8:
-- (0.5) Attacked someone else than mirror during a war against `PHOENIX 2`.
-
 [0.5] brycee #YQUUYVQ0C:
 - (0.5) Three-starred during a loss war against `PHOENIX 2`.
 
+[0.5] jwong #JC9PUPV0:
+- (0.5) Attacked someone else than mirror during a war against `.CLAN BROTHERS`.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[0.5] slothnz #G80JGVGQY:
+- (0.5) Attacked someone else than mirror during a war against `Nattens Ninjaer`.
 
