@@ -201,12 +201,11 @@ with open("claims_output.txt", "w", encoding="utf-8") as file:
 class player_activity: 
     # We need; player name, player tag, total number of hits missed, and an array of which wars were missed.
     # We also need a value that says the last time this player was found in our roster. 
-    # If it's been two weeks, we can remove them.  
     def __init__(self, name:str, tag:str): 
         self.name = name
         self.tag = tag
         self.wars_missed = []
-        self.last_seen = f"{datetime.datetime.now():%m/%d/%Y}"
+        self.last_seen = f"{datetime.datetime.now().month}/{datetime.datetime.now().day}/{datetime.datetime.now().year}"
 
 try: 
     with open("player_activity.pickle", "rb") as file: 
@@ -229,15 +228,6 @@ for claim in xray_data:
 
     if account_name not in player_activity_dict: 
         player_activity_dict[account_tag] = player_activity(account_name, account_tag)
-    
-    player_activity_dict[account_tag].last_seen = f"{datetime.datetime.now():%m/%d/%Y}"
-
-# Check for players who have not been seen in two weeks. That is, fourteen days. 
-for player in player_activity_dict:
-    last_seen = datetime.datetime.strptime(player_activity_dict[player].last_seen, "%m/%d/%Y")
-    if (datetime.datetime.now() - last_seen).days >= 14: 
-        print(f"Warning: {player.activity_dict[player].name} has not been seen in two weeks. Removing from player activity.")
-        del player_activity_dict[player]
 
 with open("war_bases.txt", "r", encoding="utf-8") as war_bases_file: 
     war_bases = war_bases_file.readlines()
@@ -640,6 +630,8 @@ for log_file in logs:
                         if not mirror and int(log_entry[2]) < 6: 
                             if args.bypass: print(f"Bypass: #{log_entry[1]} {entry} missed one hit, and used the other to snipe")
                             continue
+
+                        print(f"Warning: {entry} missed one hit, and used the other to snipe")
                         
                         # Find the player in the player_activity_dict. If they don't exist, throw an error and exit. 
                         # However, player_activity_dict is a dictionary categorized by player tag, not player name.
@@ -677,6 +669,7 @@ for log_file in logs:
                             continue
 
                         war_data = (war_end_date, enemy_clan, win_loss)
+                        print(f"Warning: {entry} missed two hits")
 
                         if not war_data in player_activity_dict[player_tag].wars_missed:
                             player_activity_dict[player_tag].wars_missed.append(war_data)
@@ -784,25 +777,43 @@ for log_file in logs:
     # press any key to continue 
     input("Press any key to continue...\n")
 
+# Check for players who have not been seen in one month. That is, 30 days. 
+to_be_deleted = []
+for player in player_activity_dict:
+    last_seen = datetime.datetime.strptime(player_activity_dict[player].last_seen, "%m/%d/%Y")
+    if (datetime.datetime.now() - last_seen).days >= 30: 
+        print(f"Warning: {player_activity_dict[player].name} has not been seen in two weeks. Removing from player activity.")
+        to_be_deleted.append(player)
+
+for player in to_be_deleted:
+    del player_activity_dict[player]
+
 with open("player_activity.pickle", "wb") as file:
     pickle.dump(player_activity_dict, file)
 
-# Sort the player_activity_dict by the number of wars missed, then the date of their last recent war missed.
-player_activity_dict = {player: player_activity_dict[player] for player in sorted(player_activity_dict, key=lambda player: (len(player_activity_dict[player].wars_missed), player_activity_dict[player].wars_missed[-1][0]), reverse=True)}
+# Sort the player_activity_dict by the number of wars missed. 
+player_activity_dict = {player: player_activity_dict[player] for player in sorted(player_activity_dict, key=lambda player: len(player_activity_dict[player].wars_missed), reverse=True)}
+
+# Log the most number of wars missed by a single player. Due to the sorting, this will be the first player in the dictionary.
+most_wars_missed = len(player_activity_dict[list(player_activity_dict.keys())[0]].wars_missed)
+
+min_wars_missed = most_wars_missed // 2 if most_wars_missed >= 2 else 0
 
 with open("activity_output.txt", "w", encoding="utf-8") as file:
+    file.write(f"As of <t:{unix_time}:F> (<t:{unix_time}:R>):\n\n")
     for player in player_activity_dict: 
         wars_missed = len(player_activity_dict[player].wars_missed)
         # Skip this player if they have not missed any wars.
         # Skip this player if they are immune or not a main account.
         # Skip this player if they are not in xray_data.
+        # Skip this player if they have less wars missed than most wars missed / 2. Skip this if the most_wars_missed is less than 2. 
 
         if wars_missed == 0: continue
-        if player_activity_dict[player].name in permanent_immunities: continue 
+        if player_activity_dict[player].name in permanent_immunities: continue
         if not player_exists: continue
+        if wars_missed < min_wars_missed: continue
 
         file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")
-        for war in player_activity_dict[player].wars_missed: 
-            file.write(f"  - {war[0]}: {war[1]} -- {war[2]}\n")
-
-        file.write("\n")
+        # Print out the date they were last seen, but only if their last seen date is greater than one week ago. 
+        if (datetime.datetime.now() - datetime.datetime.strptime(player_activity_dict[player].last_seen, "%m/%d/%Y")).days >= 7:
+            file.write(f"  \- Last seen: {player_activity_dict[player].last_seen}\n\n")
