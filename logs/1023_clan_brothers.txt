@@ -93,7 +93,7 @@ APP
 :34::13::Sword::04::16::Star::Star::Blank::52: ‭⁦Ascended⁩‬
 Minion Bot
 APP
- — Yesterday at 12:01 AM
+ — 10/23/2024 12:01 AM
 :49::11::Shield::49::11::Star::Star::Blank::50: ‭⁦Something⁩‬
 :46::12::Sword::46::12::Star::Star::Star::100:💥 ‭⁦Matanza⁩‬
 :18::14::Sword::18::14::Star::Star::Star::100:💥 ‭⁦W1nter⁩‬
@@ -101,71 +101,71 @@ APP
 :18::14::Sword::01::16::FadedStar::Blank::Blank::43: ‭⁦W1nter⁩‬
 Minion Bot
 APP
- — Yesterday at 12:22 AM
+ — 10/23/2024 12:22 AM
 :47::12::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦Plantos⁩‬
 :47::12::Sword::02::16::FadedStar::Blank::Blank::03: ‭⁦Plantos⁩‬
 :13::15::Shield::13::15::Star::Star::Blank::55: ‭⁦Marlec⁩‬
 Minion Bot
 APP
- — Yesterday at 12:30 AM
+ — 10/23/2024 12:30 AM
 :44::12::Shield::44::12::Star::Star::Blank::56: ‭⁦Randyl⁩‬
 :34::13::Sword::34::13::Star::Star::Star::100:💥 ‭⁦Ascended⁩‬
 Minion Bot
 APP
- — Yesterday at 1:09 AM
+ — 10/23/2024 1:09 AM
 :09::16::Shield::09::16::Star::Star::Blank::50: ‭⁦Protips⁩‬
 :30::13::Sword::35::13::Star::Star::Star::100:💥 ‭⁦jwong⁩‬
 :30::13::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦jwong⁩‬
 Minion Bot
 APP
- — Yesterday at 1:43 AM
+ — 10/23/2024 1:43 AM
 :41::12::Sword::41::12::Star::Star::Star::100:💥 ‭⁦DNG⁩‬
 :41::12::Sword::05::16::Star::Star::Blank::72: ‭⁦DNG⁩‬
 Minion Bot
 APP
- — Yesterday at 3:03 AM
+ — 10/23/2024 3:03 AM
 :28::13::Shield::28::13::Star::Star::Blank::90: ‭⁦brycee⁩‬
 :37::12::Shield::37::12::Star::Star::Blank::61: ‭⁦Rod⁩‬
 Minion Bot
 APP
- — Yesterday at 3:17 AM
+ — 10/23/2024 3:17 AM
 :40::12::Shield::40::12::Star::Star::Blank::55: ‭⁦ImagineWaggons⁩‬
 Minion Bot
 APP
- — Yesterday at 3:26 AM
+ — 10/23/2024 3:26 AM
 :36::12::Sword::36::12::Star::Star::Star::100:💥 ‭⁦Baleus⁩‬
 :45::13::Shield::45::12::Star::Star::Blank::92: ‭⁦Narrowl⁩‬
 Minion Bot
 APP
- — Yesterday at 3:37 AM
+ — 10/23/2024 3:37 AM
 :02::16::Shield::02::16::Star::Star::Blank::52: ‭⁦Satan⁩‬
 Minion Bot
 APP
- — Yesterday at 4:23 AM
+ — 10/23/2024 4:23 AM
 :07::16::Shield::07::16::Star::Star::Blank::55: ‭⁦ANBU⁩‬
 :24::13::Shield::24::14::Star::Star::Blank::55: ‭⁦Hadez⁩‬
 Minion Bot
 APP
- — Yesterday at 4:52 AM
+ — 10/23/2024 4:52 AM
 :27::13::Shield::27::13::Star::Star::Blank::56: ‭⁦YOYOMAN12D⁩‬
 Minion Bot
 APP
- — Yesterday at 6:13 AM
+ — 10/23/2024 6:13 AM
 :33::13::Shield::33::13::Star::Star::Blank::59: ‭⁦phr*⁩‬
 Minion Bot
 APP
- — Yesterday at 6:34 AM
+ — 10/23/2024 6:34 AM
 :23::14::Shield::23::14::Star::Star::Blank::54: ‭⁦gdfan75⁩‬
 Minion Bot
 APP
- — Yesterday at 6:43 AM
+ — 10/23/2024 6:43 AM
 :17::14::Sword::17::15::Star::Star::Star::100:💥 ‭⁦bran6⁩‬
 :17::14::Sword::01::16::FadedStar::Blank::Blank::34: ‭⁦bran6⁩‬
 :50::11::Sword::01::16::FadedStar::FadedStar::Blank::52: ‭⁦beeche⁩‬
 :34::13::Shield::34::13::Star::Star::Blank::54: ‭⁦Ascended⁩‬
 Minion Bot
 APP
- — Yesterday at 7:45 AM
+ — 10/23/2024 7:45 AM
 :03::16::Shield::03::16::Star::Star::Blank::52: ‭⁦BumblinMumbler⁩‬
 :37::12::Sword::37::12::Star::Star::Star::100:💥 ‭⁦Rod⁩‬
 :37::12::Sword::01::16::FadedStar::Blank::Blank::03: ‭⁦Rod⁩‬
@@ -173,7 +173,7 @@ APP
 :06::16::Shield::10::15::Star::Star::Blank::56: ‭⁦ViperX56⁩‬
 Minion Bot
 APP
- — Yesterday at 7:53 AM
+ — 10/23/2024 7:53 AM
 :36::12::Shield::35::13::FadedStar::Star::Blank::54: ‭⁦Baleus⁩‬
 :50::11::Shield::49::11::Star::Star::Blank::57: ‭⁦beeche⁩‬
 :02::16::Sword::02::16::FadedStar::FadedStar::Blank::97: ‭⁦Satan⁩‬
@@ -181,43 +181,43 @@ APP
 :11::15::Shield::06::16::Star::Star::Blank::50: ‭⁦katsu⁩‬
 Minion Bot
 APP
- — Yesterday at 8:01 AM
+ — 10/23/2024 8:01 AM
 :12::15::Shield::06::16::Star::Star::Blank::51: ‭⁦Big Daddy T⁩‬
 :14::15::Shield::25::13::Star::Star::Blank::54: ‭⁦pg⁩‬
 Minion Bot
 APP
- — Yesterday at 8:12 AM
+ — 10/23/2024 8:12 AM
 :49::11::Sword::49::11::Star::Star::Star::100:💥 ‭⁦Something⁩‬
 :49::11::Sword::01::16::FadedStar::Blank::Blank::04: ‭⁦Something⁩‬
 Minion Bot
 APP
- — Yesterday at 8:21 AM
+ — 10/23/2024 8:21 AM
 :41::12::Shield::41::12::Star::Star::Star::100:💥 ‭⁦DNG⁩‬
 :42::12::Shield::41::12::Star::Blank::Blank::09: ‭⁦YouAreMyBreh⁩‬
 Minion Bot
 APP
- — Yesterday at 8:29 AM
+ — 10/23/2024 8:29 AM
 :15::15::Shield::11::15::Star::Star::Blank::52: ‭⁦Arc Symphony⁩‬
 :16::14::Shield::11::15::Star::Star::Blank::50: ‭⁦CallMeFeet⁩‬
 Minion Bot
 APP
- — Yesterday at 8:38 AM
+ — 10/23/2024 8:38 AM
 :38::12::Shield::39::12::Star::Star::Blank::59: ‭⁦DPK|LLZONE⁩‬
 :17::14::Shield::12::15::Star::Star::Blank::96: ‭⁦bran6⁩‬
 Minion Bot
 APP
- — Yesterday at 8:46 AM
+ — 10/23/2024 8:46 AM
 :19::14::Shield::14::15::Star::Star::Blank::53: ‭⁦™Dr. Alan™⁩‬
 :20::14::Shield::14::15::Star::Star::Blank::52: ‭⁦RoyalOne⁩‬
 :31::13::Shield::30::13::Star::Star::Blank::55: ‭⁦Marlouc⁩‬
 Minion Bot
 APP
- — Yesterday at 8:59 AM
+ — 10/23/2024 8:59 AM
 :22::14::Shield::46::12::Star::Star::Blank::73: ‭⁦Cmdn⁩‬
 :26::13::Shield::43::12::Star::Star::Blank::52: ‭⁦slothnz⁩‬
 Minion Bot
 APP
- — Yesterday at 9:15 AM
+ — 10/23/2024 9:15 AM
 :29::13::Shield::29::13::Star::Star::Blank::54: ‭⁦G.O.M.D⁩‬
 :04::16::Sword::01::16::FadedStar::Blank::Blank::24: ‭⁦Kaselcap⁩‬
 :10::15::Sword::10::15::Star::Star::Star::100:💥 ‭⁦jy⁩‬
@@ -226,39 +226,39 @@ APP
 :04::16::Sword::04::16::FadedStar::FadedStar::Star::100: ‭⁦Kaselcap⁩‬
 Minion Bot
 APP
- — Yesterday at 9:58 AM
+ — 10/23/2024 9:58 AM
 :21::14::Shield::05::16::Star::Star::Blank::52: ‭⁦SpacetimeRH⁩‬
 :01::16::Shield::02::16::FadedStar::FadedStar::Blank::53: ‭⁦Hallow Hero⁩‬
 Minion Bot
 APP
- — Yesterday at 10:48 AM
+ — 10/23/2024 10:48 AM
 :42::12::Shield::42::12::FadedStar::Star::Blank::82: ‭⁦YouAreMyBreh⁩‬
 :16::14::Shield::42::12::FadedStar::Blank::Blank::02: ‭⁦CallMeFeet⁩‬
 :44::12::Shield::01::16::FadedStar::FadedStar::Blank::55: ‭⁦Randyl⁩‬
 Minion Bot
 APP
- — Yesterday at 10:57 AM
+ — 10/23/2024 10:57 AM
 :01::16::Shield::44::12::FadedStar::Blank::Blank::02: ‭⁦Hallow Hero⁩‬
 Minion Bot
 APP
- — Yesterday at 11:29 AM
+ — 10/23/2024 11:29 AM
 :36::12::Sword::01::16::FadedStar::FadedStar::Blank::71: ‭⁦Baleus⁩‬
 Minion Bot
 APP
- — Yesterday at 11:56 AM
+ — 10/23/2024 11:56 AM
 :01::16::Shield::07::16::FadedStar::Blank::Blank::48: ‭⁦Hallow Hero⁩‬
 Minion Bot
 APP
- — Yesterday at 12:13 PM
+ — 10/23/2024 12:13 PM
 :05::16::Shield::40::12::FadedStar::FadedStar::Blank::53: ‭⁦Sned⁩‬
 Minion Bot
 APP
- — Yesterday at 1:02 PM
+ — 10/23/2024 1:02 PM
 :06::16::Sword::06::16::Star::Star::Star::100:💥 ‭⁦ViperX56⁩‬
 :22::14::Sword::01::16::FadedStar::FadedStar::Blank::52: ‭⁦Cmdn⁩‬
 Minion Bot
 APP
- — Yesterday at 1:35 PM
+ — 10/23/2024 1:35 PM
 :13::15::Sword::13::15::Star::Star::Star::100:💥 ‭⁦Marlec⁩‬
 :08::16::Sword::08::16::Star::Star::Star::100:💥 ‭⁦Smitty™⁩‬
 :13::15::Sword::11::15::Star::Star::Star::100:💥 ‭⁦Marlec⁩‬
@@ -267,20 +267,20 @@ APP
 :31::13::Sword::07::16::Star::Star::Star::100:💥 ‭⁦Marlouc⁩‬
 Minion Bot
 APP
- — Yesterday at 1:46 PM
+ — 10/23/2024 1:46 PM
 :39::12::Sword::47::12::Star::Star::Star::100:💥 ‭⁦Ligma⁩‬
 :06::16::Sword::01::16::FadedStar::FadedStar::Blank::57: ‭⁦ViperX56⁩‬
 :01::16::Shield::04::16::FadedStar::FadedStar::Blank::57: ‭⁦Hallow Hero⁩‬
 :50::11::Shield::04::16::FadedStar::FadedStar::Blank::58: ‭⁦beeche⁩‬
 Minion Bot
 APP
- — Yesterday at 1:54 PM
+ — 10/23/2024 1:54 PM
 :01::16::Shield::45::12::FadedStar::Blank::Blank::07: ‭⁦Hallow Hero⁩‬
 :20::14::Sword::20::14::Star::Star::Star::100:💥 ‭⁦RoyalOne⁩‬
 :20::14::Sword::01::16::FadedStar::FadedStar::Blank::54: ‭⁦RoyalOne⁩‬
 Minion Bot
 APP
- — Yesterday at 2:27 PM
+ — 10/23/2024 2:27 PM
 :27::13::Sword::27::13::Star::Star::Star::100:💥 ‭⁦YOYOMAN12D⁩‬
 :27::13::Sword::02::16::FadedStar::FadedStar::Blank::57: ‭⁦YOYOMAN12D⁩‬
 :01::16::Shield::15::15::FadedStar::Blank::Blank::02: ‭⁦Hallow Hero⁩‬
@@ -289,61 +289,61 @@ APP
 :02::16::Shield::16::15::FadedStar::Blank::Blank::02: ‭⁦Satan⁩‬
 Minion Bot
 APP
- — Yesterday at 2:46 PM
+ — 10/23/2024 2:46 PM
 :01::16::Shield::37::12::FadedStar::FadedStar::Blank::52: ‭⁦Hallow Hero⁩‬
 :01::16::Shield::13::15::FadedStar::FadedStar::Blank::55: ‭⁦Hallow Hero⁩‬
 Minion Bot
 APP
- — Yesterday at 3:41 PM
+ — 10/23/2024 3:41 PM
 :01::16::Shield::48::12::FadedStar::Blank::Blank::02: ‭⁦Hallow Hero⁩‬
 Minion Bot
 APP
- — Yesterday at 4:10 PM
+ — 10/23/2024 4:10 PM
 :01::16::Shield::24::14::FadedStar::Blank::Blank::02: ‭⁦Hallow Hero⁩‬
 Minion Bot
 APP
- — Yesterday at 4:46 PM
+ — 10/23/2024 4:46 PM
 :12::15::Sword::12::15::Star::Star::Star::100:💥 ‭⁦Big Daddy T⁩‬
 :12::15::Sword::01::16::FadedStar::Blank::Blank::06: ‭⁦Big Daddy T⁩‬
 Minion Bot
 APP
- — Yesterday at 4:55 PM
+ — 10/23/2024 4:55 PM
 :48::12::Sword::02::16::FadedStar::Blank::Blank::02: ‭⁦CrazyWaveIT⁩‬
 :48::12::Sword::48::12::Star::Star::Star::100:💥 ‭⁦CrazyWaveIT⁩‬
 :02::16::Sword::01::16::FadedStar::Blank::Blank::03: ‭⁦Satan⁩‬
 Minion Bot
 APP
- — Yesterday at 5:09 PM
+ — 10/23/2024 5:09 PM
 :01::16::Shield::18::14::FadedStar::FadedStar::Blank::54: ‭⁦Hallow Hero⁩‬
 Minion Bot
 APP
- — Yesterday at 5:28 PM
+ — 10/23/2024 5:28 PM
 :07::16::Sword::05::16::FadedStar::FadedStar::Star::100: ‭⁦ANBU⁩‬
 :07::16::Sword::02::16::FadedStar::FadedStar::Star::100: ‭⁦ANBU⁩‬
 Minion Bot
 APP
- — Yesterday at 5:47 PM
+ — 10/23/2024 5:47 PM
 :38::12::Sword::38::12::Star::Star::Star::100:💥 ‭⁦DPK|LLZONE⁩‬
 Minion Bot
 APP
- — Yesterday at 5:59 PM
+ — 10/23/2024 5:59 PM
 :05::16::Sword::05::16::FadedStar::FadedStar::FadedStar::100: ‭⁦Sned⁩‬
 :05::16::Sword::01::16::FadedStar::Blank::Blank::03: ‭⁦Sned⁩‬
 :01::16::Shield::33::13::FadedStar::Blank::Blank::09: ‭⁦Hallow Hero⁩‬
 Minion Bot
 APP
- — Yesterday at 6:10 PM
+ — 10/23/2024 6:10 PM
 :17::14::Shield::17::15::FadedStar::Blank::Blank::02: ‭⁦bran6⁩‬
 :01::16::Shield::17::15::FadedStar::Blank::Blank::04: ‭⁦Hallow Hero⁩‬
 :32::13::Sword::01::16::FadedStar::Blank::Blank::02: ‭⁦skyeshade⁩‬
 :32::13::Sword::32::13::Star::Star::Star::100:💥 ‭⁦skyeshade⁩‬
 Minion Bot
 APP
- — Yesterday at 6:42 PM
+ — 10/23/2024 6:42 PM
 War with #Q2RYU0J ‭⁦.CLAN BROTHERS⁩‬ ends in 59 minutes.
 Minion Bot
 APP
- — Yesterday at 7:02 PM
+ — 10/23/2024 7:02 PM
 :01::16::Shield::27::13::FadedStar::Blank::Blank::05: ‭⁦Hallow Hero⁩‬
 
 2 Missed Attacks

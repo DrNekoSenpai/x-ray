@@ -3,7 +3,10 @@ wars = [
     ("PHOENIX 2", "loss", "10/17"), 
     ("Nattens Ninjaer", "loss", "10/19"), 
     ("MALAYA ALL FARM", "win", "10/21"), 
-    ("CLAN BROTHERS", "win", "10/23")
+    ("CLAN BROTHERS", "win", "10/23"), 
+    ("The Kingsmen", "loss", "10/26"), 
+    ("tsp warrior", "loss", "10/28"), 
+    ("MALAYA ALL FARM", "loss", "10/31"), 
 ]
 
 import os

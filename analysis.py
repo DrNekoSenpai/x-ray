@@ -1,5 +1,4 @@
-import os, re, datetime, argparse, subprocess
-
+import os, re, datetime, argparse, subprocess, pickle
 from contextlib import redirect_stdout as redirect
 from io import StringIO
 
@@ -101,6 +100,9 @@ for claim in xray_claims:
     claim_name = claim_name.strip()
     claimer = claimer.strip()
 
+    # Remove @ from claimer name 
+    if "@" in claimer: claimer = claimer.replace("@", "")
+
     for account in xray_data: 
         account_tag, account_name = re.search(full_account_name_pattern, account).groups()
 
@@ -196,28 +198,46 @@ with open("claims_output.txt", "w", encoding="utf-8") as file:
 
         file.write("\n")
 
-with open("activity_output.txt", "r", encoding="utf-8") as file: 
-    activity = file.readlines()
+class player_activity: 
+    # We need; player name, player tag, total number of hits missed, and an array of which wars were missed.
+    # We also need a value that says the last time this player was found in our roster. 
+    # If it's been two weeks, we can remove them.  
+    def __init__(self, name:str, tag:str): 
+        self.name = name
+        self.tag = tag
+        self.wars_missed = []
+        self.last_seen = f"{datetime.datetime.now():%m/%d/%Y}"
 
-    # Projected format: 
-    # As of <t:1723417140:F> (<t:1723417140:R>):
-    # 
-    # Player name; Player tag; Number of wars missed; Known alt; Known immunity
-    # Sned 2.0; #L9Y9J88LL; 2 wars missed; True; True
-    # Smitty™; #9LCPQ0QR; 1 war missed; False; True
-    # Plantos; #QPV0QV2PU; 0 wars missed; False; False
+try: 
+    with open("player_activity.pickle", "rb") as file: 
+        player_activity_dict = pickle.load(file)
 
-    for ind, val in enumerate(activity):
-        if ind <= 2: continue
+except:
+    # Assume no such file exists, create a new one. 
+    print(f"Error: no such file 'player_activity.pickle' was found. Creating a new one.")
+    player_activity_dict = {}
 
-        player_name, player_tag, wars_missed, known_alt = [x.strip() for x in val.split(";")]
-        try: 
-            wars_missed = int(wars_missed.split()[0])
-            known_alt = known_alt == "True"
+for claim in xray_data: 
+    account_tag, account_name = re.search(full_account_name_pattern, claim).groups()
 
-        except:
-            print(f"Error: {val} is not formatted correctly. Please check the activity file and try again.")
-            continue
+    account_tag = account_tag.strip()
+    account_name = account_name.strip()
+
+    if "’" in account_name: account_name = account_name.replace("’", "'")
+    if "\_" in account_name: account_name = account_name.replace("\_", "_")
+    if "\~" in account_name: account_name = account_name.replace("\~", "~")
+
+    if account_name not in player_activity_dict: 
+        player_activity_dict[account_tag] = player_activity(account_name, account_tag)
+    
+    player_activity_dict[account_tag].last_seen = f"{datetime.datetime.now():%m/%d/%Y}"
+
+# Check for players who have not been seen in two weeks. That is, fourteen days. 
+for player in player_activity_dict:
+    last_seen = datetime.datetime.strptime(player_activity_dict[player].last_seen, "%m/%d/%Y")
+    if (datetime.datetime.now() - last_seen).days >= 14: 
+        print(f"Warning: {player.activity_dict[player].name} has not been seen in two weeks. Removing from player activity.")
+        del player_activity_dict[player]
 
 with open("war_bases.txt", "r", encoding="utf-8") as war_bases_file: 
     war_bases = war_bases_file.readlines()
@@ -334,6 +354,9 @@ for log_file in logs:
 
     invalid_mirror = []
 
+    one_missed_hit = []
+    two_missed_hits = []
+
     war_start_announcement = True
     
     for line in lines:
@@ -387,6 +410,7 @@ for log_file in logs:
 
             log.append((player_name, number, None, None, None))
             log.append((player_name, number, None, None, None))
+            two_missed_hits.append(player_name)
 
         if attack_list == 1:
             number, player_name = line[1:].strip().split(" ", 1)
@@ -397,6 +421,7 @@ for log_file in logs:
             if "\~" in player_name: player_name = player_name.replace("\~", "~")
 
             log.append((player_name, number, None, None, None))
+            one_missed_hit.append(player_name)
 
     with open(f"./inputs/{log_file}.txt", "w", encoding="utf-8") as file: 
         if win_loss == "win" or win_loss == "loss": 
@@ -581,7 +606,7 @@ for log_file in logs:
                     # Check if the defender's number is already in invalid_mirror. 
                     # If so, that means someone else took their mirror first, and therefore this is allowed. 
                     if attacker in invalid_mirror:
-                        mirror_entry = [entry for entry in log if entry[1] == defender][0]
+                        mirror_entry = [entry for entry in log if entry[2] == attacker][0]
                         if args.bypass: print(f"Bypass: {player_name} hit someone not their own mirror #{defender}, but their mirror was already taken by #{mirror_entry[1]} {mirror_entry[0]}")
                         continue
 
@@ -606,210 +631,55 @@ for log_file in logs:
 
                         invalid_mirror.append(defender)
 
-                # # Check if this hit was not a mirror 
-                # mirror = attacker == defender
-                # if not mirror: 
-                #     # First, check if this looks to be a snipe. 
-                #     # Snipes are defined as 1 star on a loss, or 1-2 stars on a win. 
-                #     if win_loss == "loss" and stars < 2 and int(defender) != int(attacker): 
-                #         if args.bypass and args.snipe: 
-                #             print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe")
+            for entry in one_missed_hit: 
+                for log_entry in log:
+                    if log_entry[0] == entry and log_entry[2] is None: continue
 
-                #         if player_name in snipe_count: 
-                #             snipe_count[player_name] += 1
-                #         else:
-                #             snipe_count[player_name] = 1
-
-                #         # Check if they have sniped twice.
-                #         if snipe_count[player_name] >= 2:
-                #             if player_immune: 
-                #                 if args.bypass: print(f"Bypass: {player_name} appears to have sniped twice, but they are immune")
-
-                #             elif not is_main:
-                #                 if args.bypass: print(f"Bypass: {player_name} appears to have sniped twice, but they are not a main account")
-
-                #             else: 
-                #                 print(f"Warning: {player_name} appears to have sniped twice.")
-                #                 file.write(f"3\n{player_name}\ny\n5\n3\n{enemy_clan}\n")
-                    
-                #     # First, we should check if there are less than four hours remaining in the war.
-                #     if time_remaining < 4: 
-                #         if args.bypass: print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but there are {round(time_remaining, 2)} hours remaining")
-                #         invalid_mirror.append(defender)
-
-                #     elif win_loss == "win" and stars < 3 and int(defender) != int(attacker):
-                #         if args.bypass and args.snipe: 
-                #             print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe")
+                    if log_entry[0] == entry: 
+                        mirror = log_entry[1] == log_entry[2]
+                        if not mirror and int(log_entry[2]) < 6: 
+                            if args.bypass: print(f"Bypass: #{log_entry[1]} {entry} missed one hit, and used the other to snipe")
+                            continue
                         
-                #         if player_name in snipe_count:
-                #             snipe_count[player_name] += 1
-                #         else:
-                #             snipe_count[player_name] = 1
+                        # Find the player in the player_activity_dict. If they don't exist, throw an error and exit. 
+                        # However, player_activity_dict is a dictionary categorized by player tag, not player name.
+                        # We need to find the player tag of the player name in the log.
 
-                #         if snipe_count[player_name] >= 2: 
-                #             if player_immune:
-                #                 if args.bypass: print(f"Bypass: {player_name} appears to have sniped twice, but they are immune")
+                        player_exists = False 
+                        for player_tag in player_activity_dict:
+                            if player_activity_dict[player_tag].name == entry: 
+                                player_exists = True
+                                break
 
-                #             elif not is_main:
-                #                 if args.bypass: print(f"Bypass: {player_name} appears to have sniped twice, but they are not a main account")
-
-                #             else: 
-                #                 print(f"Warning: {player_name} appears to have sniped twice.")
-                #                 file.write(f"3\n{player_name}\ny\n5\n3\n{enemy_clan}\n")
+                        if not player_exists:
+                            # If the player doesn't exist, assume they were removed from the roster.
+                            print(f"Error: {entry} not found in player_activity_dict. Continuing.") 
+                            continue
                         
-                #     # Next, check if they already hit their mirror, but the defender's number is not in the invalid_mirror list.
-                #     # This can occur if they hit their mirror second; and thus we should not penalize.
-                #     elif attacker in [entry[2] for entry in log if entry[1] == attacker]: 
-                #         # We should check if they hit for the right number of stars. 
-                #         if win_loss == "loss" and stars > 2:
-                #             # Check if they're immune. 
-                #             if player_immune:
-                #                 if args.bypass: print(f"Bypass: {player_name} three-starred #{defender} on a loss, but they are immune")
-                #                 invalid_mirror.append(defender)
+                        # Format: Date of war end, enemy clan, win/loss
+                        war_data = (war_end_date, enemy_clan, win_loss)
 
-                #             elif not is_main: 
-                #                 if args.bypass: print(f"Bypass: {player_name} three-starred #{defender} on a loss, but they are not a main account")
-                #                 invalid_mirror.append(defender)
+                        # Check if we already added this war. If so, ignore it.
+                        if not war_data in player_activity_dict[player_tag].wars_missed:
+                            player_activity_dict[player_tag].wars_missed.append(war_data)
 
-                #             else:
-                #                 print(f"Warning: #{attacker} {player_name} three-starred #{defender} on a loss")
-                #                 file.write(f"3\n{player_name}\ny\n5\n1\n{enemy_clan}\n")
-                #                 invalid_mirror.append(defender)
+            for entry in two_missed_hits:
+                for log_entry in log:
+                    if log_entry[0] == entry:
+                        player_exists = False
+                        for player_tag in player_activity_dict:
+                            if player_activity_dict[player_tag].name == entry: 
+                                player_exists = True
+                                break
 
-                #         # Check if this is a snipe; if so, we should not penalize.
-                #         elif win_loss == "loss" and stars < 2:
-                #             if args.bypass: print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe") 
+                        if not player_exists:
+                            print(f"Error: {entry} not found in player_activity_dict. Continuing.")
+                            continue
 
-                #         elif win_loss == "win" and stars < 3:
-                #             if args.bypass: print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe")
-                            
-                #         print(f"Warning: #{attacker} {player_name} hit someone not their own mirror #{defender}")
-                #         file.write(f"3\n{player_name}\ny\n5\n4\n{enemy_clan}\n")
-                        
-                #     # If not, first check if the defender's number is in the invalid_mirror list. 
-                #     # This means that their own mirror was already taken, and thus we should not penalize. 
-                #     elif attacker in invalid_mirror:
-                #         if args.bypass: 
-                #             # Find the entry of the attack that took their mirror
-                #             mirror_entry = [entry for entry in log if entry[2] == attacker][0]
-                #             print(f"Bypass: #{attacker} {player_name} hit someone not their own mirror #{defender}, but their mirror was already taken by #{mirror_entry[1]} {mirror_entry[0]}")
+                        war_data = (war_end_date, enemy_clan, win_loss)
 
-                #         invalid_mirror.append(defender)
-
-                #     # If the defender's number is not in the invalid_mirror list, then we should add it.
-                #     # This means that their own mirror was not taken, and thus we should penalize.
-                #     else:
-                #         if player_immune: 
-                #             if args.bypass: print(f"Bypass: {player_name} hit someone not their own mirror #{defender}, but they are immune")
-                #             invalid_mirror.append(defender)
-
-                #         elif not is_main:
-                #             if args.bypass: print(f"Bypass: {player_name} hit someone not their own mirror #{defender}, but they are not a main account")
-                #             invalid_mirror.append(defender)
-
-                #         else: 
-                #             invalid_mirror.append(defender)
-                #             print(f"Warning: #{attacker} {player_name} hit someone not their own mirror #{defender}")
-                #             file.write(f"3\n{player_name}\ny\n5\n2\n{enemy_clan}\n")
-                            
-                # else: 
-                #     # Add this base to the invalid_mirror list, since it was taken by a mirror.
-                #     invalid_mirror.append(defender)
-
-                # if win_loss == "loss": 
-                #     mirror = attacker == defender 
-                #     if mirror and stars > 2: 
-                #         if player_immune: 
-                #             if args.bypass: print(f"Bypass: {player_name} three-starred #{defender} on a loss, but they are immune")
-                #             invalid_mirror.append(defender)
-
-                #         elif not is_main:
-                #             if args.bypass: print(f"Bypass: {player_name} three-starred #{defender} on a loss, but they are not a main account")
-                #             invalid_mirror.append(defender)
-
-                #         else:
-                #             print(f"Warning: #{attacker} {player_name} three-starred #{defender} on a loss")
-                #             file.write(f"3\n{player_name}\ny\n5\n1\n{enemy_clan}\n")
-                #             invalid_mirror.append(defender)
-
-                # # Remove duplicates from the invalid_mirror list
-                # invalid_mirror = list(set(invalid_mirror))
-
-            # for entry in one_missed_hit: 
-            #     # First, check if there are TWO entries in the log with the same name.
-            #     # If so, Minion Bot made an error; ignore this entry. 
-            #     if len([log_entry for log_entry in log if log_entry[0] == entry]) > 1: 
-            #         if args.bypass: print(f"Bypass: #{attacker} {entry} missed one hit, but Minion Bot made an error")
-            #         continue
-
-            #     # Find the corresponding entry in the log; find their other hit 
-            #     if entry in permanent_immunities or "Unicorn" in entry: 
-            #         if args.bypass: print(f"Bypass: {entry} missed one hit, but they are immune")
-            #         continue
-
-            #     for immune, date in timed_immunities:
-            #         if player_name == immune:
-            #             if datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
-            #                 if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
-            #                 player_immune = True
-
-            #     for immune, date in one_war_immunities: 
-            #         if player_name == immune: 
-            #             immunity_date = datetime.datetime.strptime(date, "%m/%d/%Y")
-            #             war_end = datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year)
-            #             if war_end == immunity_date: 
-            #                 if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
-            #                 player_immune = True
-
-            #     is_main = True
-            #     for claimer in claims_dictionary:
-            #         for account in claims_dictionary[claimer]: 
-            #             if account.name == entry: 
-            #                 if not account.is_main: 
-            #                     is_main = False
-
-            #     if not is_main: 
-            #         if args.bypass: print(f"Bypass: {entry} missed one hit, but they are not a main account")
-            #         continue
-
-            #     for log_entry in log: 
-            #         if log_entry[0] == entry: 
-            #             mirror = log_entry[1] == log_entry[2]
-            #             if not mirror and int(log_entry[2]) < 6: 
-            #                 print(f"Warning: #{log_entry[1]} {entry} missed one hit, and used the other to snipe")
-            #                 file.write(f"3\n{entry}\ny\n5\n4\n{enemy_clan}\n")
-
-            # for entry in two_missed_hits: 
-            #     if entry in permanent_immunities or "Unicorn" in entry: 
-            #         if args.bypass: print(f"Bypass: {entry} missed two hits, but they are immune")
-            #         continue
-
-            #     for immune, date in timed_immunities:
-            #         if player_name == immune:
-            #             if datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
-            #                 if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
-            #                 player_immune = True
-
-            #     for immune, date in one_war_immunities: 
-            #         if player_name == immune: 
-            #             immunity_date = datetime.datetime.strptime(date, "%m/%d/%Y")
-            #             war_end = datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year)
-            #             if war_end == immunity_date: 
-            #                 if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
-            #                 player_immune = True
-
-            #     is_main = True
-            #     for claimer in claims_dictionary:
-            #         for account in claims_dictionary[claimer]: 
-            #             if account.name == entry: 
-            #                 if not account.is_main: 
-            #                     is_main = False
-            #     if not is_main: 
-            #         if args.bypass: print(f"Bypass: {entry} missed two hits, but they are not a main account")
-            #         continue
-
-            #     print(f"Warning: {entry} missed two hits")
-            #     file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\n{war_end_date}\n")
+                        if not war_data in player_activity_dict[player_tag].wars_missed:
+                            player_activity_dict[player_tag].wars_missed.append(war_data)
 
         elif win_loss == "blacklist win" or win_loss == "blacklist loss":
             victory = "y" if win_loss.split(" ")[1] == "win" else "n"
@@ -913,3 +783,26 @@ for log_file in logs:
 
     # press any key to continue 
     input("Press any key to continue...\n")
+
+with open("player_activity.pickle", "wb") as file:
+    pickle.dump(player_activity_dict, file)
+
+# Sort the player_activity_dict by the number of wars missed, then the date of their last recent war missed.
+player_activity_dict = {player: player_activity_dict[player] for player in sorted(player_activity_dict, key=lambda player: (len(player_activity_dict[player].wars_missed), player_activity_dict[player].wars_missed[-1][0]), reverse=True)}
+
+with open("activity_output.txt", "w", encoding="utf-8") as file:
+    for player in player_activity_dict: 
+        wars_missed = len(player_activity_dict[player].wars_missed)
+        # Skip this player if they have not missed any wars.
+        # Skip this player if they are immune or not a main account.
+        # Skip this player if they are not in xray_data.
+
+        if wars_missed == 0: continue
+        if player_activity_dict[player].name in permanent_immunities: continue 
+        if not player_exists: continue
+
+        file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")
+        for war in player_activity_dict[player].wars_missed: 
+            file.write(f"  - {war[0]}: {war[1]} -- {war[2]}\n")
+
+        file.write("\n")
