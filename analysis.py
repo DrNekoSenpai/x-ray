@@ -100,8 +100,11 @@ for claim in xray_claims:
     claim_name = claim_name.strip()
     claimer = claimer.strip()
 
+    if "\\" in claim_name: claim_name = claim_name.replace("\\", "")
+
     # Remove @ from claimer name 
     if "@" in claimer: claimer = claimer.replace("@", "")
+    if "\\" in claimer: claimer = claimer.replace("\\", "")
 
     for account in xray_data: 
         account_tag, account_name = re.search(full_account_name_pattern, account).groups()
@@ -110,8 +113,7 @@ for claim in xray_claims:
         account_name = account_name.strip()
         
         if "’" in account_name: account_name = account_name.replace("’", "'")
-        if "\_" in account_name: account_name = account_name.replace("\_", "_")
-        if "\~" in account_name: account_name = account_name.replace("\~", "~")
+        if "\\" in account_name: account_name = account_name.replace("\\", "")
 
         if account_tag == claim_tag: 
             if claimer not in claims_dictionary: claims_dictionary[claimer] = []
@@ -205,7 +207,9 @@ class player_activity:
         self.name = name
         self.tag = tag
         self.wars_missed = []
-        self.last_seen = f"{datetime.datetime.now().month}/{datetime.datetime.now().day}/{datetime.datetime.now().year}"
+        # Set last seen to 28 days before today, so that we can catch any players who haven't been seen in a while.
+        self.last_seen = f"{datetime.datetime.now() - datetime.timedelta(days=28):%m/%d/%Y}"
+        self.banked_counter = 0 
 
 try: 
     with open("player_activity.pickle", "rb") as file: 
@@ -223,8 +227,7 @@ for claim in xray_data:
     account_name = account_name.strip()
 
     if "’" in account_name: account_name = account_name.replace("’", "'")
-    if "\_" in account_name: account_name = account_name.replace("\_", "_")
-    if "\~" in account_name: account_name = account_name.replace("\~", "~")
+    if "\\" in account_name: account_name = account_name.replace("\\", "")
 
     if account_name not in player_activity_dict: 
         player_activity_dict[account_tag] = player_activity(account_name, account_tag)
@@ -416,6 +419,7 @@ for log_file in logs:
     with open(f"./inputs/{log_file}.txt", "w", encoding="utf-8") as file: 
         if win_loss == "win" or win_loss == "loss": 
             snipe_count = {}
+            rules_broken = {player_name: False for player_name in [entry[0] for entry in log]}
 
             # FWA war
             for entry in log: 
@@ -464,6 +468,7 @@ for log_file in logs:
                     if win_loss == "loss" and stars > 2:
                         print(f"Warning: {player_name} three-starred their mirror on a loss.")
                         file.write(f"3\n{player_name}\ny\n5\n1\n{enemy_clan}\n")
+                        rules_broken[player_name] = True
 
                     # Add this base to the invalid_mirror list, since it was taken by a mirror.
                     invalid_mirror.append(defender)
@@ -496,20 +501,24 @@ for log_file in logs:
                         if attacker in [entry[2] for entry in log if entry[1] == attacker]:
                             print(f"Warning: {player_name} three-starred a base not their mirror #{defender} on a loss, but they already hit their mirror")
                             file.write(f"3\n{player_name}\ny\n5\n1\n{enemy_clan}\n")
+                            rules_broken[player_name] = True
 
                         elif attacker in invalid_mirror:
                             print(f"Warning: {player_name} three-starred a base not their mirror #{defender} on a loss, but their mirror was already taken")
                             file.write(f"3\n{player_name}\ny\n5\n1\n{enemy_clan}\n")
+                            rules_broken[player_name] = True
 
                         elif time_remaining < 4: 
                             print(f"Warning: {player_name} three-starred a base not their mirror #{defender} on a loss, but there are {round(time_remaining, 2)} hours remaining")
                             file.write(f"3\n{player_name}\ny\n5\n1\n{enemy_clan}\n")
+                            rules_broken[player_name] = True
 
                         else: 
                             print(f"Warning: {player_name} three-starred on a loss")
                             file.write(f"3\n{player_name}\ny\n5\n1\n{enemy_clan}\n")
                             print(f"Warning: {player_name} hit a base not their own mirror #{defender}")
                             file.write(f"3\n{player_name}\ny\n5\n2\n{enemy_clan}\n")
+                            rules_broken[player_name] = True
                     
                 # First, check if this looks to be a snipe. 
 
@@ -530,6 +539,7 @@ for log_file in logs:
                         else: 
                             print(f"Warning: {player_name} appears to have sniped twice.")
                             file.write(f"3\n{player_name}\ny\n5\n3\n{enemy_clan}\n")
+                            rules_broken[player_name] = True
 
                     continue
 
@@ -549,6 +559,7 @@ for log_file in logs:
                         else:
                             print(f"Warning: {player_name} appears to have sniped twice.")
                             file.write(f"3\n{player_name}\ny\n5\n3\n{enemy_clan}\n")
+                            rules_broken[player_name] = True
 
                     continue
 
@@ -586,6 +597,7 @@ for log_file in logs:
                                 else:
                                     print(f"Warning: {player_name} hit their mirror #{defender} as well as another base not their mirror #{attacker}, with time remaining {round(time_remaining, 2)} hours")
                                     file.write(f"3\n{player_name}\ny\n5\n2\n{enemy_clan}\n")
+                                    rules_broken[player_name] = True
 
                         invalid_mirror.append(defender)
 
@@ -618,6 +630,7 @@ for log_file in logs:
                         else:
                             print(f"Warning: {player_name} hit someone not their own mirror #{defender}")
                             file.write(f"3\n{player_name}\ny\n5\n2\n{enemy_clan}\n")
+                            rules_broken[player_name] = True
 
                         invalid_mirror.append(defender)
 
@@ -655,6 +668,8 @@ for log_file in logs:
                         if not war_data in player_activity_dict[player_tag].wars_missed:
                             player_activity_dict[player_tag].wars_missed.append(war_data)
 
+                        rules_broken[entry] = True
+
             for entry in two_missed_hits:
                 for log_entry in log:
                     if log_entry[0] == entry:
@@ -674,10 +689,14 @@ for log_file in logs:
                         if not war_data in player_activity_dict[player_tag].wars_missed:
                             player_activity_dict[player_tag].wars_missed.append(war_data)
 
+                        rules_broken[entry] = True
+
         elif win_loss == "blacklist win" or win_loss == "blacklist loss":
             victory = "y" if win_loss.split(" ")[1] == "win" else "n"
             one_missed_hit = []
             two_missed_hits = []
+
+            rules_broken = {player_name: False for player_name in [entry[0] for entry in log]}
 
             for entry in log: 
                 player_name, attacker, defender, stars, time_remaining = entry
@@ -726,9 +745,11 @@ for log_file in logs:
                     if conditional == "true": 
                         print(f"Warning: {entry} missed one hit on a blacklist war, which cost us the win but we met the conditional")
                         file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\ny\nn\n1\n")
+                        rules_broken[entry] = True
                     else: 
                         print(f"Warning: {entry} missed one hit on a blacklist war, which cost us the win")
                         file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\nn\nn\n1\n")
+                        rules_broken[entry] = True
 
             for entry in two_missed_hits: 
                 if entry in permanent_immunities or "Unicorn" in entry: 
@@ -763,16 +784,42 @@ for log_file in logs:
                     if conditional == "true": 
                         print(f"Warning: {entry} missed two hits on a blacklist war, but we still won and met the conditional")
                         file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\ny\ny\n2\n")
+                        rules_broken[entry] = True
                     else:
                         print(f"Warning: {entry} missed two hits on a blacklist war, but we still won")
                         file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\nn\ny\n2\n")
+                        rules_broken[entry] = True
                 else:
                     if conditional == "true": 
                         print(f"Warning: {entry} missed two hits on a blacklist war, which cost us the win but we met the conditional")
                         file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\ny\nn\n2\n")
+                        rules_broken[entry] = True
                     else:
                         print(f"Warning: {entry} missed two hits on a blacklist war, which cost us the win")
                         file.write(f"3\n{entry}\ny\n1\n{enemy_clan}\nn\nn\n2\n")
+                        rules_broken[entry] = True
+
+        # Update each player's last seen date to the date of this war, if it is before this date. 
+        for player in player_activity_dict:
+            # First, we do need to check if this player was seen this war; if they were in the clan. 
+            if player_activity_dict[player].name in [entry[0] for entry in log]:
+                # Update date with format mm/dd/yyyy
+                player_activity_dict[player].last_seen = f"{datetime.datetime.strptime(war_end_date, '%m%d').strftime('%m/%d')}/{datetime.datetime.now().year}"
+
+        # If player didn't break rules this war, check if they have any wars missed. If so, remove the oldest one. 
+        for player in rules_broken: 
+            if not rules_broken[player]: 
+                # Find the corresponding player in the player_activity_dict. however, as it's categorized by player tag, we will need to do a search. 
+                for player_tag in player_activity_dict:
+                    if player_activity_dict[player_tag].name == player: 
+                        # First, check the banked counter. If it's not three, add one. 
+                        # If it is, remove a war if possible. If not, do nothing; we can't go into negative. 
+                        if player_activity_dict[player_tag].banked_counter < 3:
+                            player_activity_dict[player_tag].banked_counter += 1
+
+                        elif len(player_activity_dict[player_tag].wars_missed) > 0: 
+                            player_activity_dict[player_tag].wars_missed.pop(0)
+                            print(f"Bank: {player} did not break any rules this war, and has inactivity value of {len(player_activity_dict[player_tag].wars_missed)+1}. Removing oldest war missed.")
 
     # press any key to continue 
     input("Press any key to continue...\n")
@@ -782,7 +829,7 @@ to_be_deleted = []
 for player in player_activity_dict:
     last_seen = datetime.datetime.strptime(player_activity_dict[player].last_seen, "%m/%d/%Y")
     if (datetime.datetime.now() - last_seen).days >= 30: 
-        print(f"Warning: {player_activity_dict[player].name} has not been seen in two weeks. Removing from player activity.")
+        print(f"Warning: {player_activity_dict[player].name} has not been seen in a month. Removing from player activity.")
         to_be_deleted.append(player)
 
 for player in to_be_deleted:
@@ -794,11 +841,6 @@ with open("player_activity.pickle", "wb") as file:
 # Sort the player_activity_dict by the number of wars missed. 
 player_activity_dict = {player: player_activity_dict[player] for player in sorted(player_activity_dict, key=lambda player: len(player_activity_dict[player].wars_missed), reverse=True)}
 
-# Log the most number of wars missed by a single player. Due to the sorting, this will be the first player in the dictionary.
-most_wars_missed = len(player_activity_dict[list(player_activity_dict.keys())[0]].wars_missed)
-
-min_wars_missed = most_wars_missed // 2 if most_wars_missed >= 2 else 0
-
 with open("activity_output.txt", "w", encoding="utf-8") as file:
     file.write(f"As of <t:{unix_time}:F> (<t:{unix_time}:R>):\n\n")
     for player in player_activity_dict: 
@@ -806,12 +848,10 @@ with open("activity_output.txt", "w", encoding="utf-8") as file:
         # Skip this player if they have not missed any wars.
         # Skip this player if they are immune or not a main account.
         # Skip this player if they are not in xray_data.
-        # Skip this player if they have less wars missed than most wars missed / 2. Skip this if the most_wars_missed is less than 2. 
 
         if wars_missed == 0: continue
         if player_activity_dict[player].name in permanent_immunities: continue
         if not player_exists: continue
-        if wars_missed < min_wars_missed: continue
 
         file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")
         # Print out the date they were last seen, but only if their last seen date is greater than one week ago. 

@@ -86,7 +86,7 @@ jwong: 1 account in Reddit X-ray
   - jwong (13) -- (main)
 
 phr*: 1 account in Reddit X-ray
-  - phr\* (13) -- (main)
+  - phr* (13) -- (main)
 
 wako238 | JST: 1 account in Reddit X-ray
   - wako238 (13) -- (main)
