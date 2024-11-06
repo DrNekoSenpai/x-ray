@@ -188,6 +188,14 @@ Reactorge
 Smitty™
 Mythos
 ViperX56
+pg
+DPK|LLZONE
+skyeshade
+slothnz
+Plantos
+RoyalOne
+Sned
+Baleus
 """.strip().split("\n")
 
 eligible = [p for p in entries.keys() if p not in already_received]
@@ -225,15 +233,3 @@ for _ in range(num_dists):
     # Remove all instances of this player from the pool.
     pool = [p for p in pool if p != choice]
     print(f"- {choice}")
-
-month, year = datetime.datetime.now().strftime("%B").lower(), datetime.datetime.now().year
-with open(f"./inputs/cwl_{month}_{year}.txt", "w", encoding="utf-8") as file: 
-    for player,hits in cwl: 
-        if int(hits) > 3: continue
-        # Else, if the player would have had zero entries due to FWA base penalty, continue. 
-        if int(hits) - fwa_base_penalties[player] <= 0: 
-            print(f"Player {player} would have been assigned strikes, but due to FWA base penalty, is not eligible for the distribution.")
-            continue
-        else: 
-            file.write(f"3\n{player}\ny\n2\ny\n")
-            print(f"Player {player} missed {7-int(hits)} CWL hits; assigning strikes.")

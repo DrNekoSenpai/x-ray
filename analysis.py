@@ -818,8 +818,9 @@ for log_file in logs:
                             player_activity_dict[player_tag].banked_counter += 1
 
                         elif len(player_activity_dict[player_tag].wars_missed) > 0: 
+                            print(f"Bank: {player} did not break any rules this war, and has inactivity value of {len(player_activity_dict[player_tag].wars_missed)}. Removing oldest war missed.")
                             player_activity_dict[player_tag].wars_missed.pop(0)
-                            print(f"Bank: {player} did not break any rules this war, and has inactivity value of {len(player_activity_dict[player_tag].wars_missed)+1}. Removing oldest war missed.")
+                            player_activity_dict[player_tag].banked_counter = 0
 
     # press any key to continue 
     input("Press any key to continue...\n")
@@ -841,19 +842,29 @@ with open("player_activity.pickle", "wb") as file:
 # Sort the player_activity_dict by the number of wars missed. 
 player_activity_dict = {player: player_activity_dict[player] for player in sorted(player_activity_dict, key=lambda player: len(player_activity_dict[player].wars_missed), reverse=True)}
 
+# Manual backup dump. 
+with open("player_activity.txt", "w", encoding="utf-8") as file:
+    # Format: player name, player tag
+    for player in player_activity_dict:
+        file.write(f"{player_activity_dict[player].name}: #{player_activity_dict[player].tag}\n")
+        file.write(f"  - Wars missed: {len(player_activity_dict[player].wars_missed)}\n")
+        for war in player_activity_dict[player].wars_missed: 
+            file.write(f"    - {war}\n")
+        file.write(f"  - Last seen in clan: {player_activity_dict[player].last_seen}\n")
+        file.write(f"  - Banked counter: {player_activity_dict[player].banked_counter}\n\n")
+
 with open("activity_output.txt", "w", encoding="utf-8") as file:
     file.write(f"As of <t:{unix_time}:F> (<t:{unix_time}:R>):\n\n")
     for player in player_activity_dict: 
         wars_missed = len(player_activity_dict[player].wars_missed)
         # Skip this player if they have not missed any wars.
-        # Skip this player if they are immune or not a main account.
-        # Skip this player if they are not in xray_data.
+        # Skip this player if they are immune.
 
         if wars_missed == 0: continue
         if player_activity_dict[player].name in permanent_immunities: continue
-        if not player_exists: continue
 
-        file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")
+        if wars_missed == 1: file.write(f"{player_activity_dict[player].name}: 1 war missed\n")
+        else: file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")
         # Print out the date they were last seen, but only if their last seen date is greater than one week ago. 
         if (datetime.datetime.now() - datetime.datetime.strptime(player_activity_dict[player].last_seen, "%m/%d/%Y")).days >= 7:
-            file.write(f"  \- Last seen: {player_activity_dict[player].last_seen}\n\n")
+            file.write(f"  \- Last seen in clan: {player_activity_dict[player].last_seen}\n\n")
