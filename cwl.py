@@ -56,7 +56,6 @@ with open(f"xray-minion.txt", "r", encoding="utf-8") as f:
 
 entries = {}
 hit_entries = {}
-loyalty_entries = {}
 fwa_base_penalties = {}
 
 for player,hits in cwl: 
@@ -66,58 +65,6 @@ for player,hits in cwl:
     else: 
         entries[player] = int(hits)
         hit_entries[player] = int(hits)
-
-    tag = ""
-
-    # Find the player in the list of players, as well as their player tag. 
-    for i in range(len(players)):
-        if players[i][0] == player: 
-            tag = players[i][1]
-            break
-
-    if tag == "":
-        print(f"Error: {player} not found in list of players")
-        entries[player] = 0
-        loyalty_entries[player] = 0
-        continue
-
-    # Override: BumblinMumbler has 6 months of loyalty, no matter what
-    if player == "BumblinMumbler": 
-        entries[player] += 6
-        loyalty_entries[player] = 6
-        continue
-
-    # Override: Sned has 6 months of loyalty, no matter what
-    if player == "Sned":
-        entries[player] += 6
-        loyalty_entries[player] = 6
-        continue
-    
-    # Send a GET request to the player's profile page.
-    html = requests.get(f"https://fwa.chocolateclash.com/cc_n/member.php?tag={tag}").text
-
-    joined_pattern = re.compile(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})</a></td><td>Joined clan")
-    seen_pattern = re.compile(r"(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})</a></td><td>Seen in clan")
-    join_matches = joined_pattern.findall(html)
-    seen_matches = seen_pattern.findall(html)
-    matches = join_matches + seen_matches
-    matches.sort(key=lambda x: datetime.datetime.strptime(x, "%Y-%m-%d %H:%M:%S"), reverse=True)
-
-    if len(matches) == 0:
-        entries[player] += 6
-        loyalty_entries[player] = 6
-        continue
-
-    timedelta = datetime.datetime.now() - datetime.datetime.strptime(matches[0], "%Y-%m-%d %H:%M:%S")
-    months = timedelta.days // 30
-
-    if months > 6:
-        entries[player] += 6
-        loyalty_entries[player] = 6
-
-    else:
-        entries[player] += months
-        loyalty_entries[player] = months
 
 # Open the war_bases.xlsx file
 wb = openpyxl.load_workbook("war_bases.xlsx", data_only=True)
@@ -150,17 +97,8 @@ for row in data:
                 fwa_base_penalties[player] = 0
                 print(f"Player {player} has no FWA base points.")
 
-# Failsafe: check if loyalty entries is negative. If so, set it to 0. Reflect this in entries as well.
-for player in entries.keys():
-    if loyalty_entries[player] < 0:
-        loyalty_entries[player] = 0
-        entries[player] = hit_entries[player]
-
 # Sort entries by weight in descending order, then by hit entries, then by loyalty entries 
-entries = {k: v for k, v in sorted(entries.items(), key=lambda item: (item[1], hit_entries[item[0]], loyalty_entries[item[0]]), reverse=True)}
-
-# for player,weight in entries.items(): 
-#     if weight != 0: print(f"{player}: {weight} entries ({hit_entries[player]} entries from hits, {loyalty_entries[player]} entries from loyalty)")
+entries = {k: v for k, v in sorted(entries.items(), key=lambda item: (item[1], hit_entries[item[0]]), reverse=True)}
 
 month = datetime.datetime.now().strftime("%B")
 year = datetime.datetime.now().year
@@ -219,7 +157,7 @@ for i in range(15, 0, -1):
     print(f"{i} entries:")
     for player in tier: 
         if player in already_received: continue
-        print(f"- {player} ({hit_entries[player]} entries from hits, {loyalty_entries[player]} entries from loyalty", end = "")
+        print(f"- {player} ({hit_entries[player]} entries from hits", end = "")
         if fwa_base_penalties[player] > 0: 
             print(f", {fwa_base_penalties[player]} entry penalty from FWA bases)", end="")
         else: 
