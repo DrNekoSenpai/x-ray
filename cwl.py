@@ -196,6 +196,8 @@ Plantos
 RoyalOne
 Sned
 Baleus
+DNG
+Kaselcap
 """.strip().split("\n")
 
 eligible = [p for p in entries.keys() if p not in already_received]

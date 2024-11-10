@@ -7,7 +7,6 @@
 #8L9QLJJP    16 jy
 #J92GL89U    16 Hallow Hero
 #JCCLVR8R    16 BumblinMumbler
-#80U9VGUU9   16 ANBU
 #Q92UQQJCR   15 pg
 #LVQ9PPQVY   15 Marlec
 #RCUY2PYV    15 katsu
@@ -17,10 +16,11 @@
 #UUU8LLRL    14 ™Dr. Alan™
 #RV920PR9    14 RoyalOne
 #LUJ0GL88U   14 Narrowl
+#LRCGJ99Y    14 Hadez
 #PG2Y8RGU    14 gdfan75
 #8Y9YG2G2Q   14 Cmdn
 #9YV022J2C   14 CallMeFeet
-#Y8P82GJJ    14 bran6
+#92L2PP09R   14 Anas
 #P29Y899J    13 YOYOMAN12D
 #28V902PLL   13 wako238
 #G80JGVGQY   13 slothnz
@@ -28,10 +28,10 @@
 #YLLQRLL0    13 Rod
 #QPV0QV2PU   13 Plantos
 #8RUL9JCRC   13 phr\*
-#QCJVLLQCL   13 Marlouc
+#LVRJC8CY2   13 Master21
 #JC9PUPV0    13 jwong
-#LRCGJ99Y    13 Hadez
 #C0CVUYCC    13 G.O.M.D
+#2RVPQR9C2   13 eRaZoR
 #YQUUYVQ0C   13 brycee
 #GYV8Q0U80   13 Baleus
 #QQPRJQ2PQ   13 Ascended
@@ -41,7 +41,6 @@
 #GRYRVL9P8   12 Mythos
 #G9C8GL2VQ   12 Matanza
 #2PCJ8RVYG   12 Ligma
-#GYQJVQ2JQ   12 Jackers
 #90ULVLUC    12 ImagineWaggons
 #2LGURGU0V   12 DPK|LLZONE
 #LPV008QQ    12 DNG

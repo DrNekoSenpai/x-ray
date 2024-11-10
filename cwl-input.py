@@ -8,16 +8,10 @@ with open("cwl-input.txt", "r", encoding="utf-8") as f:
             print(f"{f.rsplit(' ', 1)[0]} used {hits} hits")
         except:
             name = f
-            hits = 0
-            print(f"{f} used 0 hits")
+            hits = int(input(f"How many hits did player '{f}' use? "))
 
         players[name] = hits
 
-for name, hits in players.items():
-    if hits == 0: 
-        hits = int(input(f"How many hits did {f} use? ")) 
-        players[name] = hits
-
-with open("cwl-output.txt", "w", encoding="utf-8") as f:
+with open("cwl-input.txt", "w", encoding="utf-8") as f:
     for name, hits in players.items():
         f.write(f"{name} {hits}\n")

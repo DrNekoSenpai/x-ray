@@ -1,4 +1,4 @@
-import re, subprocess
+import re, subprocess, argparse
 from contextlib import redirect_stdout as redirect
 from io import StringIO
 
@@ -26,6 +26,10 @@ if up_to_date() is False:
     print("To pull the latest changes, simply run the command 'git pull' in this terminal.")
     exit(1)
 
+parser = argparse.ArgumentParser(description="Generate a list of players from a war lineup.") 
+parser.add_argument("--names", "-n", help="Print out the formatted list of players in the lineup without checking numbers.", action="store_true")
+args = parser.parse_args()
+
 with open("claims_output.txt", "r", encoding="utf-8") as file: 
     claims = file.read().split("\n\n")
 
@@ -45,6 +49,11 @@ roster = {}
 for ind,line in enumerate(lineup):
     name = name_pattern.search(line).group(1)
     roster[name] = ind+1
+
+if args.names: 
+    for player in roster.keys():
+        print(f"{player}")
+    exit(0)
 
 if len(roster) == 30 or len(roster) == 15: 
     # Clan War Leagues
