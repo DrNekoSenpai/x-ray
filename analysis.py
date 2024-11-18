@@ -62,7 +62,7 @@ permanent_immunities = [
 
 # Timed immunities involve players who will be out until a given date
 timed_immunities = [
-    ("Plantos", "10/24/2024")
+    ("Plantos", "2024-10-24")
 ]
 
 # War-specific immunities are for one war only. 
@@ -208,7 +208,7 @@ class player_activity:
         self.tag = tag
         self.wars_missed = []
         # Set last seen to 28 days before today, so that we can catch any players who haven't been seen in a while.
-        self.last_seen = f"{datetime.datetime.now() - datetime.timedelta(days=28):%m/%d/%Y}"
+        self.last_seen = f"{datetime.datetime.now() - datetime.timedelta(days=28):%Y-%m-%d}"
         self.banked_counter = 0 
 
 try: 
@@ -229,8 +229,9 @@ for claim in xray_data:
     if "’" in account_name: account_name = account_name.replace("’", "'")
     if "\\" in account_name: account_name = account_name.replace("\\", "")
 
-    if account_name not in player_activity_dict: 
+    if account_tag not in player_activity_dict: 
         player_activity_dict[account_tag] = player_activity(account_name, account_tag)
+        print(f"Player {account_name} #{account_tag} added to player_activity_dict.")
 
 with open("war_bases.txt", "r", encoding="utf-8") as war_bases_file: 
     war_bases = war_bases_file.readlines()
@@ -247,12 +248,12 @@ with open("war_bases.txt", "r", encoding="utf-8") as war_bases_file:
 
             for immune, date in timed_immunities:
                 if player_name == immune:
-                    if datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year): 
+                    if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year): 
                         player_immune = True
 
             for immune, date in one_war_immunities: 
                 if player_name == immune: 
-                    immunity_date = datetime.datetime.strptime(date, "%m/%d/%Y")
+                    immunity_date = datetime.datetime.strptime(date, "%Y-%m-%d")
                     war_end = datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year)
                     if war_end == immunity_date: 
                         player_immune = True
@@ -295,7 +296,7 @@ for log_file in logs:
     conditional_pattern = re.compile(r"Blacklist conditional: (true|false)")
     war_end_date_pattern = re.compile(r"War end date: (\d{4})")
 
-    time_pattern = re.compile(r"(\d{2}/\d{2}/\d{4}) (\d{1,2}:\d{2}) ([AP]M)")
+    time_pattern = re.compile(r"(\d{4}-\d{2}-\d{2}) (\d{1,2}:\d{2}) ([AP]M)")
     enemy_clan_pattern = re.compile(r"War with #[A-Z0-9]{5,9} ‭⁦(.*)⁩‬ starts in \d+ minutes.")
 
     try: 
@@ -314,11 +315,12 @@ for log_file in logs:
         continue
 
     if conditional is None: 
+        print(lines[5])
         war_start_date = re.search(time_pattern, lines[5]).group(1)
         war_start_time = re.search(time_pattern, lines[5]).group(2)
         war_start_ampm = re.search(time_pattern, lines[5]).group(3)
         war_start_datetime_str = f"{war_start_date} {war_start_time} {war_start_ampm}"
-        war_start = datetime.datetime.strptime(war_start_datetime_str, "%m/%d/%Y %I:%M %p") + datetime.timedelta(minutes=59)
+        war_start = datetime.datetime.strptime(war_start_datetime_str, "%Y-%m-%d %I:%M %p") + datetime.timedelta(minutes=59)
 
         print(f"War start: {war_start}")
         enemy_clan = re.search(enemy_clan_pattern, lines[6]).group(1)
@@ -328,7 +330,7 @@ for log_file in logs:
         war_start_time = re.search(time_pattern, lines[6]).group(2)
         war_start_ampm = re.search(time_pattern, lines[6]).group(3)
         war_start_datetime_str = f"{war_start_date} {war_start_time} {war_start_ampm}"
-        war_start = datetime.datetime.strptime(war_start_datetime_str, "%m/%d/%Y %I:%M %p") + datetime.timedelta(minutes=59)
+        war_start = datetime.datetime.strptime(war_start_datetime_str, "%Y-%m-%d %I:%M %p") + datetime.timedelta(minutes=59)
 
         print(f"War start: {war_start}")
         enemy_clan = re.search(enemy_clan_pattern, lines[7]).group(1)
@@ -365,7 +367,7 @@ for log_file in logs:
             timestamp_ampm = match.group(3)
             timestamp_str = f"{timestamp_date} {timestamp_time} {timestamp_ampm}"
 
-            timestamp = datetime.datetime.strptime(timestamp_str, "%m/%d/%Y %I:%M %p")
+            timestamp = datetime.datetime.strptime(timestamp_str, "%Y-%m-%d %I:%M %p")
 
             time_remaining = 24 - (timestamp - war_start).total_seconds() / 3600
 
@@ -438,12 +440,12 @@ for log_file in logs:
 
                 for immune, date in timed_immunities:
                     if player_name == immune:
-                        if datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
+                        if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
                             player_immune = True
 
                 for immune, date in one_war_immunities: 
                     if player_name == immune: 
-                        immunity_date = datetime.datetime.strptime(date, "%m/%d/%Y")
+                        immunity_date = datetime.datetime.strptime(date, "%Y-%m-%d")
                         war_end = datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year)
                         if war_end == immunity_date: 
                             player_immune = True
@@ -717,13 +719,13 @@ for log_file in logs:
 
                 for immune, date in timed_immunities:
                     if player_name == immune:
-                        if datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
+                        if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
                             if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
                             player_immune = True
 
                 for immune, date in one_war_immunities: 
                     if player_name == immune: 
-                        immunity_date = datetime.datetime.strptime(date, "%m/%d/%Y")
+                        immunity_date = datetime.datetime.strptime(date, "%Y-%m-%d")
                         war_end = datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year)
                         if war_end == immunity_date: 
                             if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
@@ -758,13 +760,13 @@ for log_file in logs:
 
                 for immune, date in timed_immunities:
                     if player_name == immune:
-                        if datetime.datetime.strptime(date, "%m/%d/%Y") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
+                        if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
                             if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
                             player_immune = True
 
                 for immune, date in one_war_immunities: 
                     if player_name == immune: 
-                        immunity_date = datetime.datetime.strptime(date, "%m/%d/%Y")
+                        immunity_date = datetime.datetime.strptime(date, "%Y-%m-%d")
                         war_end = datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year)
                         if war_end == immunity_date: 
                             if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
@@ -803,8 +805,9 @@ for log_file in logs:
         for player in player_activity_dict:
             # First, we do need to check if this player was seen this war; if they were in the clan. 
             if player_activity_dict[player].name in [entry[0] for entry in log]:
-                # Update date with format mm/dd/yyyy
-                player_activity_dict[player].last_seen = f"{datetime.datetime.strptime(war_end_date, '%m%d').strftime('%m/%d')}/{datetime.datetime.now().year}"
+                # Update date with format yyyy-mm-dd
+                # player_activity_dict[player].last_seen = f"{datetime.datetime.strptime(war_end_date, '%m%d').strftime('%m/%d')}/{datetime.datetime.now().year}"
+                player_activity_dict[player].last_seen = f"{datetime.datetime.now().year}-{datetime.datetime.strptime(war_end_date, '%m%d').strftime('%m-%d')}"
 
         # If player didn't break rules this war, check if they have any wars missed. If so, remove the oldest one. 
         for player in rules_broken: 
@@ -828,7 +831,7 @@ for log_file in logs:
 # Check for players who have not been seen in one month. That is, 30 days. 
 to_be_deleted = []
 for player in player_activity_dict:
-    last_seen = datetime.datetime.strptime(player_activity_dict[player].last_seen, "%m/%d/%Y")
+    last_seen = datetime.datetime.strptime(player_activity_dict[player].last_seen, "%Y-%m-%d")
     if (datetime.datetime.now() - last_seen).days >= 30: 
         print(f"Warning: {player_activity_dict[player].name} has not been seen in a month. Removing from player activity.")
         to_be_deleted.append(player)
@@ -853,18 +856,48 @@ with open("player_activity.txt", "w", encoding="utf-8") as file:
         file.write(f"  - Last seen in clan: {player_activity_dict[player].last_seen}\n")
         file.write(f"  - Banked counter: {player_activity_dict[player].banked_counter}\n\n")
 
+# Dump to be posted in a Discord channel.
 with open("activity_output.txt", "w", encoding="utf-8") as file:
     file.write(f"As of <t:{unix_time}:F> (<t:{unix_time}:R>):\n\n")
     for player in player_activity_dict: 
-        wars_missed = len(player_activity_dict[player].wars_missed)
-        # Skip this player if they have not missed any wars.
-        # Skip this player if they are immune.
+        # First, print out all the players that are in the clan; that is, are in xray-data. 
+        player_found = False 
+        for item in xray_data:
+            if player_activity_dict[player].name in item: 
+                player_found = True
+                break
 
-        if wars_missed == 0: continue
-        if player_activity_dict[player].name in permanent_immunities: continue
+        if player_found: 
+            wars_missed = len(player_activity_dict[player].wars_missed)
+            # Skip this player if they have not missed any wars.
+            # Skip this player if they are immune.
 
-        if wars_missed == 1: file.write(f"{player_activity_dict[player].name}: 1 war missed\n")
-        else: file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")
-        # Print out the date they were last seen, but only if their last seen date is greater than one week ago. 
-        if (datetime.datetime.now() - datetime.datetime.strptime(player_activity_dict[player].last_seen, "%m/%d/%Y")).days >= 7:
+            if wars_missed == 0: continue
+            if player_activity_dict[player].name in permanent_immunities: continue
+
+            if wars_missed == 1: file.write(f"{player_activity_dict[player].name}: 1 war missed\n")
+            else: file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")
+
+        # # Print out the date they were last seen, but only if their last seen date is greater than one week ago. 
+        # if (datetime.datetime.now() - datetime.datetime.strptime(player_activity_dict[player].last_seen, "%Y-%m-%d")).days >= 7:
+        #     file.write(f"  \- Last seen in clan: {player_activity_dict[player].last_seen}\n\n")
+
+    file.write("\n")
+    for player in player_activity_dict: 
+        # Next, print out all the players that are not in the clan; that is, are not in xray-data. 
+        player_found = False 
+        for item in xray_data:
+            if player_activity_dict[player].name in item: 
+                player_found = True
+                break
+
+        if not player_found: 
+            wars_missed = len(player_activity_dict[player].wars_missed)
+            # Skip this player if they have not missed any wars.
+
+            if wars_missed == 0: continue
+
+            if wars_missed == 1: file.write(f"{player_activity_dict[player].name}: 1 war missed\n")
+            else: file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")
+
             file.write(f"  \- Last seen in clan: {player_activity_dict[player].last_seen}\n\n")
