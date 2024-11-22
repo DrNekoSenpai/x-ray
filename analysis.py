@@ -207,9 +207,9 @@ class player_activity:
         self.name = name
         self.tag = tag
         self.wars_missed = []
-        # Set last seen to 28 days before today, so that we can catch any players who haven't been seen in a while.
-        self.last_seen = f"{datetime.datetime.now() - datetime.timedelta(days=28):%Y-%m-%d}"
-        self.banked_counter = 0 
+        # Set last seen to 14 days before today, so that we can catch any players who haven't been seen in a while.
+        self.last_seen = f"{datetime.datetime.now() - datetime.timedelta(days=14):%Y-%m-%d}"
+        self.banked_counter = []
 
 try: 
     with open("player_activity.pickle", "rb") as file: 
@@ -806,7 +806,6 @@ for log_file in logs:
             # First, we do need to check if this player was seen this war; if they were in the clan. 
             if player_activity_dict[player].name in [entry[0] for entry in log]:
                 # Update date with format yyyy-mm-dd
-                # player_activity_dict[player].last_seen = f"{datetime.datetime.strptime(war_end_date, '%m%d').strftime('%m/%d')}/{datetime.datetime.now().year}"
                 player_activity_dict[player].last_seen = f"{datetime.datetime.now().year}-{datetime.datetime.strptime(war_end_date, '%m%d').strftime('%m-%d')}"
 
         # If player didn't break rules this war, check if they have any wars missed. If so, remove the oldest one. 
@@ -817,13 +816,20 @@ for log_file in logs:
                     if player_activity_dict[player_tag].name == player: 
                         # First, check the banked counter. If it's not three, add one. 
                         # If it is, remove a war if possible. If not, do nothing; we can't go into negative. 
-                        if player_activity_dict[player_tag].banked_counter < 3:
-                            player_activity_dict[player_tag].banked_counter += 1
 
-                        elif len(player_activity_dict[player_tag].wars_missed) > 0: 
+                        if len(player_activity_dict[player_tag].banked_counter) < 3: 
+                            # Check if this player already has this war banked. 
+                            if not war_end_date in player_activity_dict[player_tag].banked_counter:
+                                player_activity_dict[player_tag].banked_counter.append(war_end_date)
+
+                        if len(player_activity_dict[player_tag].banked_counter) >= 3:
+                            # Check if they have any wars missed. If not, skip. 
+                            if len(player_activity_dict[player_tag].wars_missed) == 0: 
+                                continue 
+
                             print(f"Bank: {player} did not break any rules this war, and has inactivity value of {len(player_activity_dict[player_tag].wars_missed)}. Removing oldest war missed.")
                             player_activity_dict[player_tag].wars_missed.pop(0)
-                            player_activity_dict[player_tag].banked_counter = 0
+                            player_activity_dict[player_tag].banked_counter = []
 
     # press any key to continue 
     input("Press any key to continue...\n")
@@ -844,6 +850,10 @@ with open("player_activity.pickle", "wb") as file:
 
 # Sort the player_activity_dict by the number of wars missed. 
 player_activity_dict = {player: player_activity_dict[player] for player in sorted(player_activity_dict, key=lambda player: len(player_activity_dict[player].wars_missed), reverse=True)}
+
+# For each player in the player activity dict, sort their wars missed by date descending. 
+for player in player_activity_dict:
+    player_activity_dict[player].wars_missed = sorted(player_activity_dict[player].wars_missed, key=lambda war: datetime.datetime.strptime(war[0], "%m%d"), reverse=True)
 
 # Manual backup dump. 
 with open("player_activity.txt", "w", encoding="utf-8") as file:
