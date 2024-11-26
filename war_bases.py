@@ -101,12 +101,12 @@ def create_stitched_image():
 while(True): 
     num = len(os.listdir(path)) + 1
     base, image = create_stitched_image()
-    base = re.match(r"(\d+)/\d+", base).group(1)
+    # base = re.match(r"(\d+)/\d+", base).group(1)
     # base = base.split("/")[0] if "/" in base else base
-    print(base)
+    # print(base)
     cv2.imwrite(f"{path}{num}.png", image)
-    if "50" not in base and args.auto: 
-        pyautogui.click(right_arrow_button)
-        time.sleep(2)
-    else:
-        break
+    # if "50" not in base and args.auto: 
+    #     pyautogui.click(right_arrow_button)
+    #     time.sleep(2)
+    # else:
+    #     break

@@ -60,9 +60,9 @@ permanent_immunities = [
     "Sugma"
 ]
 
-# Timed immunities involve players who will be out until a given date
+# Timed immunities involve players who will be immune until a given date
 timed_immunities = [
-    ("Plantos", "2024-10-24")
+    ("yashwanth", "2024-11-25")
 ]
 
 # War-specific immunities are for one war only. 
@@ -287,6 +287,8 @@ with open("war_bases.txt", "r", encoding="utf-8") as war_bases_file:
 
 for log_file in logs: 
     if args.war and log_file != args.war: continue
+    if log_file == "arch": continue # This is a folder
+
     with open(f"./logs/{log_file}.txt", "r", encoding="utf-8") as file: 
         lines = file.readlines()
 
@@ -294,7 +296,7 @@ for log_file in logs:
 
     win_loss_pattern = re.compile(r"Win/loss: (win|loss|blacklist win|blacklist loss)")
     conditional_pattern = re.compile(r"Blacklist conditional: (true|false)")
-    war_end_date_pattern = re.compile(r"War end date: (\d{4})")
+    war_end_date_pattern = re.compile(r"War end date: (\d{4}-\d{2}-\d{2})")
 
     time_pattern = re.compile(r"(\d{4}-\d{2}-\d{2}) (\d{1,2}:\d{2}) ([AP]M)")
     enemy_clan_pattern = re.compile(r"War with #[A-Z0-9]{5,9} ‭⁦(.*)⁩‬ starts in \d+ minutes.")
@@ -310,7 +312,7 @@ for log_file in logs:
         print(f"Error: {log_file} is not formatted correctly. Please check the log file and try again.")
         print(f"Usage: {log_file} should have the following format: ")
         print("Win/loss: (win|loss|blacklist win|blacklist loss)")
-        print("War end date: (mmdd)")
+        print("War end date: (yyyy-mm-dd)")
         print("Blacklist conditional: (true|false) -- only if the war is a blacklist war")
         continue
 
@@ -440,13 +442,13 @@ for log_file in logs:
 
                 for immune, date in timed_immunities:
                     if player_name == immune:
-                        if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
+                        if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year): 
                             player_immune = True
 
                 for immune, date in one_war_immunities: 
                     if player_name == immune: 
                         immunity_date = datetime.datetime.strptime(date, "%Y-%m-%d")
-                        war_end = datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year)
+                        war_end = datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year)
                         if war_end == immunity_date: 
                             player_immune = True
                     
@@ -575,7 +577,7 @@ for log_file in logs:
                         # In this case, they hit their mirror as well as another base that's not their mirror nor a snipe. 
                         # Check if they did this when there's less than four hours remaining in the war.
 
-                        if time_remaining < 4:
+                        if time_remaining < 6:
                             if args.bypass: print(f"Bypass: {player_name} hit their mirror #{defender} as well as another base not their mirror #{attacker}, but there are {round(time_remaining, 2)} hours remaining")
 
                         else: 
@@ -589,7 +591,7 @@ for log_file in logs:
                                         friendly_claimer = account
                                         break
 
-                            if not friendly_claimer.is_main: 
+                            if False: # not friendly_claimer.is_main: 
                                 if args.bypass: print(f"Bypass: {player_name} hit their mirror #{defender} as well as another base not their mirror #{attacker}, but the base they hit is the mirror of a known alt.")
                             
                             else: 
@@ -719,14 +721,14 @@ for log_file in logs:
 
                 for immune, date in timed_immunities:
                     if player_name == immune:
-                        if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
+                        if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year): 
                             if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
                             player_immune = True
 
                 for immune, date in one_war_immunities: 
                     if player_name == immune: 
                         immunity_date = datetime.datetime.strptime(date, "%Y-%m-%d")
-                        war_end = datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year)
+                        war_end = datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year)
                         if war_end == immunity_date: 
                             if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
                             player_immune = True
@@ -760,14 +762,14 @@ for log_file in logs:
 
                 for immune, date in timed_immunities:
                     if player_name == immune:
-                        if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year): 
+                        if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year): 
                             if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
                             player_immune = True
 
                 for immune, date in one_war_immunities: 
                     if player_name == immune: 
                         immunity_date = datetime.datetime.strptime(date, "%Y-%m-%d")
-                        war_end = datetime.datetime.strptime(war_end_date, "%m%d").replace(year = datetime.datetime.now().year)
+                        war_end = datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year)
                         if war_end == immunity_date: 
                             if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
                             player_immune = True
@@ -806,7 +808,7 @@ for log_file in logs:
             # First, we do need to check if this player was seen this war; if they were in the clan. 
             if player_activity_dict[player].name in [entry[0] for entry in log]:
                 # Update date with format yyyy-mm-dd
-                player_activity_dict[player].last_seen = f"{datetime.datetime.now().year}-{datetime.datetime.strptime(war_end_date, '%m%d').strftime('%m-%d')}"
+                player_activity_dict[player].last_seen = f"{datetime.datetime.strptime(war_end_date, '%Y-%m-%d').strftime('%Y-%m-%d')}"
 
         # If player didn't break rules this war, check if they have any wars missed. If so, remove the oldest one. 
         for player in rules_broken: 
@@ -853,7 +855,7 @@ player_activity_dict = {player: player_activity_dict[player] for player in sorte
 
 # For each player in the player activity dict, sort their wars missed by date descending. 
 for player in player_activity_dict:
-    player_activity_dict[player].wars_missed = sorted(player_activity_dict[player].wars_missed, key=lambda war: datetime.datetime.strptime(war[0], "%m%d"), reverse=True)
+    player_activity_dict[player].wars_missed = sorted(player_activity_dict[player].wars_missed, key=lambda war: datetime.datetime.strptime(war[0], "%Y-%m-%d"), reverse=True)
 
 # Manual backup dump. 
 with open("player_activity.txt", "w", encoding="utf-8") as file:

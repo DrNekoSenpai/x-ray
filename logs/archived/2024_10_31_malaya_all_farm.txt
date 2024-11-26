@@ -1,5 +1,5 @@
 Win/loss: loss
-War end date: 1031
+War end date: 2024-10-31
 
 Minion Bot
 APP

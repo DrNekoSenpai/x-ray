@@ -1,277 +1,288 @@
 Marlec: #LVQ9PPQVY
-  - Wars missed: 7
-    - ('1115', 'Altar of Royals', 'loss')
-    - ('1113', 'SPJBMX Collab 2', 'win')
-    - ('1031', 'MALAYA ALL FARM', 'loss')
-    - ('1028', 'tsp warrior', 'loss')
-    - ('1026', 'The Kingsmen', 'loss')
-    - ('1021', 'MALAYA ALL FARM', 'win')
-    - ('1019', 'Nattens Ninjaer', 'loss')
-  - Last seen in clan: 2024-11-17
-  - Banked counter: []
+  - Wars missed: 10
+    - ('2024-11-23', 'Farming Only 2', 'win')
+    - ('2024-11-21', 'Zanth Titans', 'loss')
+    - ('2024-11-15', 'Altar of Royals', 'loss')
+    - ('2024-11-13', 'SPJBMX Collab 2', 'win')
+    - ('2024-10-31', 'MALAYA ALL FARM', 'loss')
+    - ('2024-10-28', 'tsp warrior', 'loss')
+    - ('2024-10-26', 'The Kingsmen', 'loss')
+    - ('2024-10-21', 'MALAYA ALL FARM', 'win')
+    - ('2024-10-19', 'Nattens Ninjaer', 'loss')
+    - ('2024-10-17', 'PHOENIX 2', 'loss')
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-17']
 
 BumblinMumbler: #JCCLVR8R
-  - Wars missed: 4
-    - ('1117', 'Anti Funlord', 'loss')
-    - ('1115', 'Altar of Royals', 'loss')
-    - ('1113', 'SPJBMX Collab 2', 'win')
-    - ('1031', 'MALAYA ALL FARM', 'loss')
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1023', '1028']
-
-Randyl: #LVGVPRRCV
-  - Wars missed: 3
-    - ('1117', 'Anti Funlord', 'loss')
-    - ('1115', 'Altar of Royals', 'loss')
-    - ('1028', 'tsp warrior', 'loss')
-  - Last seen in clan: 2024-11-17
-  - Banked counter: []
-
-Big Daddy T: #9V0PCRR00
-  - Wars missed: 2
-    - ('1031', 'MALAYA ALL FARM', 'loss')
-    - ('1028', 'tsp warrior', 'loss')
-  - Last seen in clan: 2024-11-17
-  - Banked counter: []
+  - Wars missed: 7
+    - ('2024-11-23', 'Farming Only 2', 'win')
+    - ('2024-11-21', 'Zanth Titans', 'loss')
+    - ('2024-11-17', 'Anti Funlord', 'loss')
+    - ('2024-11-15', 'Altar of Royals', 'loss')
+    - ('2024-11-13', 'SPJBMX Collab 2', 'win')
+    - ('2024-10-31', 'MALAYA ALL FARM', 'loss')
+    - ('2024-10-15', 'SPJBMX Collab 2', 'win')
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-10-23', '2024-10-28']
 
 Cmdn: #8Y9YG2G2Q
-  - Wars missed: 2
-    - ('1117', 'Anti Funlord', 'loss')
-    - ('1115', 'Altar of Royals', 'loss')
-  - Last seen in clan: 2024-11-17
-  - Banked counter: []
+  - Wars missed: 5
+    - ('2024-11-23', 'Farming Only 2', 'win')
+    - ('2024-11-17', 'Anti Funlord', 'loss')
+    - ('2024-11-15', 'Altar of Royals', 'loss')
+    - ('2024-10-28', 'tsp warrior', 'loss')
+    - ('2024-10-21', 'MALAYA ALL FARM', 'win')
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-21', '2024-11-13']
 
-DPK|LLZONE: #2LGURGU0V
-  - Wars missed: 2
-    - ('1113', 'SPJBMX Collab 2', 'win')
-    - ('1026', 'The Kingsmen', 'loss')
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1115', '1117']
+Randyl: #LVGVPRRCV
+  - Wars missed: 5
+    - ('2024-11-21', 'Zanth Titans', 'loss')
+    - ('2024-11-17', 'Anti Funlord', 'loss')
+    - ('2024-11-15', 'Altar of Royals', 'loss')
+    - ('2024-10-28', 'tsp warrior', 'loss')
+    - ('2024-10-23', '.CLAN BROTHERS', 'win')
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-23']
 
-your mama: #2Y88YLL99
+RoyalOne: #RV920PR9
   - Wars missed: 2
-    - ('1117', 'Anti Funlord', 'loss')
-    - ('1115', 'Altar of Royals', 'loss')
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1031', '1113']
+    - ('2024-11-21', 'Zanth Titans', 'loss')
+    - ('2024-11-13', 'SPJBMX Collab 2', 'win')
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-17', '2024-11-23']
+
+jwong: #JC9PUPV0
+  - Wars missed: 2
+    - ('2024-11-23', 'Farming Only 2', 'win')
+    - ('2024-11-21', 'Zanth Titans', 'loss')
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-17']
+
+ImagineWaggons: #90ULVLUC
+  - Wars missed: 2
+    - ('2024-11-23', 'Farming Only 2', 'win')
+    - ('2024-11-15', 'Altar of Royals', 'loss')
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-17', '2024-11-21']
 
 Smitty™: #9LCPQ0QR
   - Wars missed: 1
-    - ('1117', 'Anti Funlord', 'loss')
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1021']
-
-RoyalOne: #RV920PR9
-  - Wars missed: 1
-    - ('1113', 'SPJBMX Collab 2', 'win')
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1117']
+    - ('2024-11-23', 'Farming Only 2', 'win')
+  - Last seen in clan: 2024-11-23
+  - Banked counter: []
 
 katsu: #RCUY2PYV
   - Wars missed: 1
-    - ('1028', 'tsp warrior', 'loss')
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1115', '1117']
+    - ('2024-11-23', 'Farming Only 2', 'win')
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-21']
 
-Master21: #LVRJC8CY2
+DPK|LLZONE: #2LGURGU0V
   - Wars missed: 1
-    - ('1017', 'PHOENIX 2', 'loss')
-  - Last seen in clan: 2024-11-17
-  - Banked counter: []
+    - ('2024-11-23', 'Farming Only 2', 'win')
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-17', '2024-11-21']
 
-ImagineWaggons: #90ULVLUC
+brycee: #YQUUYVQ0C
   - Wars missed: 1
-    - ('1115', 'Altar of Royals', 'loss')
-  - Last seen in clan: 2024-11-17
-  - Banked counter: []
+    - ('2024-11-23', 'Farming Only 2', 'win')
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-21']
+
+your mama: #2Y88YLL99
+  - Wars missed: 1
+    - ('2024-11-15', 'Altar of Royals', 'loss')
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-23']
 
 ViperX56: #U2LJ0QVP
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1019']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 Sned: #P2UPPVYL
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1023', '1026', '1028']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-10-23', '2024-10-26', '2024-10-28']
 
 Satan: #YJU92GY
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1019']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 Protips: #9QGLLQJQ2
   - Wars missed: 0
-  - Last seen in clan: 2024-11-15
-  - Banked counter: ['1015', '1017', '1019']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-21']
 
 pg: #Q92UQQJCR
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1021']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 Kaselcap: #LU2YC0L
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1019']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 jy: #8L9QLJJP
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1019']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 Hallow Hero: #J92GL89U
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1021']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 Vojt: #PCJP8QJC
   - Wars missed: 0
-  - Last seen in clan: 2024-11-07
-  - Banked counter: []
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-21', '2024-11-23']
 
-W1nter: #2GP2C8LRY
+Big Daddy T: #9V0PCRR00
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1117']
-
-Narrowl: #LUJ0GL88U
-  - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1113', '1115', '1117']
-
-K.L.A.U.S: #LPYRGCUQC
-  - Wars missed: 0
-  - Last seen in clan: 2024-11-07
-  - Banked counter: []
-
-Hadez: #LRCGJ99Y
-  - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1028', '1031', '1113']
-
-gdfan75: #PG2Y8RGU
-  - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1115', '1117']
-
-Az7777: #QYLURLQ2
-  - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1113', '1115', '1117']
-
-AVI: #VYYVR0G
-  - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1115', '1117']
-
-Ascended: #QQPRJQ2PQ
-  - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1019']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-17', '2024-11-21', '2024-11-23']
 
 Anas: #92L2PP09R
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1113', '1115', '1117']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
-YOYOMAN12D: #P29Y899J
+W1nter: #2GP2C8LRY
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1019']
-
-YouAreMyBreh: #8GP2R28JG
-  - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1023', '1026', '1031']
-
-xHead_Bangerx: #YQPVL2G8
-  - Wars missed: 0
-  - Last seen in clan: 2024-11-07
-  - Banked counter: []
-
-skyeshade: #YY2YJ20C9
-  - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1115', '1117']
-
-sanskar: #PL8Y90YGG
-  - Wars missed: 0
-  - Last seen in clan: 2024-11-07
-  - Banked counter: []
-
-Rod: #YLLQRLL0
-  - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1021']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-17', '2024-11-21', '2024-11-23']
 
 Plantos: #QPV0QV2PU
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1019']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-15', '2024-11-17', '2024-11-21']
+
+K.L.A.U.S: #LPYRGCUQC
+  - Wars missed: 0
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-21', '2024-11-23']
+
+Hadez: #LRCGJ99Y
+  - Wars missed: 0
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-10-28', '2024-10-31', '2024-11-13']
+
+gdfan75: #PG2Y8RGU
+  - Wars missed: 0
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-15', '2024-11-17', '2024-11-21']
+
+Az7777: #QYLURLQ2
+  - Wars missed: 0
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
+
+AVI: #VYYVR0G
+  - Wars missed: 0
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-15', '2024-11-17', '2024-11-21']
+
+Ascended: #QQPRJQ2PQ
+  - Wars missed: 0
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
+
+Zequilla: #2UGUPVLLQ
+  - Wars missed: 0
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-23']
+
+YOYOMAN12D: #P29Y899J
+  - Wars missed: 0
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
+
+YouAreMyBreh: #8GP2R28JG
+  - Wars missed: 0
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-10-23', '2024-10-26', '2024-10-31']
+
+xHead_Bangerx: #YQPVL2G8
+  - Wars missed: 0
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-21', '2024-11-23']
+
+skyeshade: #YY2YJ20C9
+  - Wars missed: 0
+  - Last seen in clan: 2024-11-23
+  - Banked counter: []
+
+sanskar: #PL8Y90YGG
+  - Wars missed: 0
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-21', '2024-11-23']
+
+Rod: #YLLQRLL0
+  - Wars missed: 0
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 phr*: #8RUL9JCRC
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1019']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 Mythos: #GRYRVL9P8
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1019']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
-jwong: #JC9PUPV0
+Master21: #LVRJC8CY2
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1115', '1117']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-23', '2024-11-13', '2024-11-15']
 
 Hokage: #J2CUYQG8
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1117']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-17', '2024-11-21', '2024-11-23']
 
 eRaZoR: #2RVPQR9C2
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1113', '1115', '1117']
-
-brycee: #YQUUYVQ0C
-  - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: []
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 Baleus: #GYV8Q0U80
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1019']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 Matanza: #G9C8GL2VQ
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1019', '1021', '1023']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 DNG: #LPV008QQ
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1031', '1113', '1115']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-10-31', '2024-11-13', '2024-11-15']
 
 CrazyWaveIT: #YLUL9Q9JG
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1015', '1017', '1019']
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 beeche: #29Q8CR280
   - Wars missed: 0
-  - Last seen in clan: 2024-11-17
-  - Banked counter: ['1023', '1031', '1113']
-
-yashwanth: #YQCL028J0
-  - Wars missed: 0
-  - Last seen in clan: 2024-11-07
-  - Banked counter: []
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 Asrar: #9RVQ22RCR
   - Wars missed: 0
-  - Last seen in clan: 2024-11-07
-  - Banked counter: []
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-23']
+
+yashwanth: #YQCL028J0
+  - Wars missed: 0
+  - Last seen in clan: 2024-11-23
+  - Banked counter: ['2024-11-21', '2024-11-23']
 
