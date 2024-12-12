@@ -76,6 +76,15 @@ with open("xray-claims.txt", "r", encoding="utf-8") as file:
 with open("xray-minion.txt", "r", encoding="utf-8") as file:
     xray_data = file.readlines()
 
+class Dump:
+    def __init__(self, user_id, nickname, username): 
+        self.user_id = user_id
+        self.nickname = nickname
+        self.username = username
+
+with open("dump.txt", "r", encoding="utf-8") as file:
+    dump_data = [Dump(user_id, nickname, username) for user_id, nickname, username in [line.split(";") for line in file.readlines()]]
+
 # 15 #P2UPPVYL    ‭⁦Sned      ⁩‬ Sned | PST
 claims_pattern = re.compile(r"(\d{1,2})\s+#([A-Z0-9]{5,9})\s+‭⁦(.*)⁩‬(.*)")
 
@@ -99,6 +108,16 @@ for claim in xray_claims:
     claim_tag = claim_tag.strip()
     claim_name = claim_name.strip()
     claimer = claimer.strip()
+
+    # Check if the claimer follows a format of <@321138998414409729>
+    # In this case, we need to replace this with the actual username as specified in the Dump.
+     
+    if re.match(r"<@.*>", claimer): 
+        user_id = claimer[2:-1]
+        for user in dump_data: 
+            if user.user_id == user_id: 
+                claimer = user.nickname
+                break
 
     if "\\" in claim_name: claim_name = claim_name.replace("\\", "")
 

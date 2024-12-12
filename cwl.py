@@ -30,6 +30,7 @@ if up_to_date() is False:
 # Create an argument parser
 parser = argparse.ArgumentParser(description="Calculate weighted distribution for CWL")
 parser.add_argument("--num_dists", "-n", type=int, default=0, help="Number of distributions available")
+parser.add_argument("--bypass", "-b", action="store_true", help="Bypass check for FWA bases; useful if clan earned immunity")
 
 # Parse the arguments
 args = parser.parse_args()
@@ -66,36 +67,41 @@ for player,hits in cwl:
         entries[player] = int(hits)
         hit_entries[player] = int(hits)
 
-# Open the war_bases.xlsx file
-wb = openpyxl.load_workbook("war_bases.xlsx", data_only=True)
+if not args.bypass: 
+    # Open the war_bases.xlsx file
+    wb = openpyxl.load_workbook("war_bases.xlsx", data_only=True)
 
-sheet = wb.active
-data = sheet.iter_rows(values_only=True, max_row=31, max_col=3)
+    sheet = wb.active
+    data = sheet.iter_rows(values_only=True, max_row=31, max_col=3)
 
-# For each row... 
-for row in data:
-    name = row[1]
-    try: points = int(row[2])
-    except: continue # assume header row
+    # For each row... 
+    for row in data:
+        name = row[1]
+        try: points = int(row[2])
+        except: continue # assume header row
 
-    # Find the corresponding player in the list of players
-    for player,tag in players:
-        if player == name: 
-            # Print out the number of points they had, if it's above zero. 
-            if points > 0:
-                try: 
-                    fwa_base_penalties[player] = points
-                    entries[player] -= points
-                    print(f"Player {player} has {points} FWA base points, resulting in a {points} entry penalty.")
+        # Find the corresponding player in the list of players
+        for player,tag in players:
+            if player == name: 
+                # Print out the number of points they had, if it's above zero. 
+                if points > 0:
+                    try: 
+                        fwa_base_penalties[player] = points
+                        entries[player] -= points
+                        print(f"Player {player} has {points} FWA base points, resulting in a {points} entry penalty.")
 
-                except KeyError: 
-                    # Assume they aren't in the database because they did no hits. Continue. 
-                    print(f"Player {player} has {points} FWA base points, but did no hits. Ignoring.")
-                    continue 
+                    except KeyError: 
+                        # Assume they aren't in the database because they did no hits. Continue. 
+                        print(f"Player {player} has {points} FWA base points, but did no hits. Ignoring.")
+                        continue 
 
-            else: 
-                fwa_base_penalties[player] = 0
-                print(f"Player {player} has no FWA base points.")
+                else: 
+                    fwa_base_penalties[player] = 0
+                    print(f"Player {player} has no FWA base points.")
+
+else: 
+    # EVERYONE has no FWA base points.
+    fwa_base_penalties = {player: 0 for player in entries.keys()}
 
 # Sort entries by weight in descending order, then by hit entries, then by loyalty entries 
 entries = {k: v for k, v in sorted(entries.items(), key=lambda item: (item[1], hit_entries[item[0]]), reverse=True)}
@@ -110,7 +116,9 @@ else:
     num_dists = args.num_dists
 
 print("")
-print(f"**Reddit X-ray {month} {year} Weighted Distribution** \n ({num_dists} available bonuses, total) \n ")
+print(f"**Reddit X-ray {month} {year} Weighted Distribution** \n")
+if args.bypass: print(f"({num_dists} available bonuses, total; FWA base penalties ignored)")
+else: print(f"({num_dists} available bonuses, total)")
 
 pool = []
 
@@ -136,6 +144,13 @@ Sned
 Baleus
 DNG
 Plantos
+Vojt
+Anas
+phr*
+YouAreMyBreh
+Hallow Hero
+Rod
+Ascended
 """.strip().split("\n")
 
 eligible = [p for p in entries.keys() if p not in already_received]
