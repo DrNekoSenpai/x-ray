@@ -1,11 +1,7 @@
 wars = [
-    ("SPJBMX Collab 2", "win", "2024/11/13"), 
-    ("Altar of Royals", "loss", "2024/11/15"), 
-    ("Anti Funlord", "loss", "2024/11/17"), 
-    ("Zanth Titans", "loss", "2024/11/21"), 
-    ("Farming Only 2", "win", "2024/11/23"), 
-    ("Christ Farm War", "loss", "2024/11/26"),
-    ("Deadly Sinners", "win", "2024/11/30"),
+    ("Chatrapati...", "loss", "2024/12/12"), 
+    ("Four and Twenty", "win", "2024/12/14"), 
+    ("Eternal Flame", "win", "2024/12/16"),
 ]
 
 import os
