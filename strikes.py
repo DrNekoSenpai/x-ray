@@ -1,5 +1,4 @@
-import pickle, os, re, subprocess 
-
+import pickle, re, subprocess 
 from contextlib import redirect_stdout as redirect
 from io import StringIO
 
@@ -131,7 +130,7 @@ def add_strike():
                 print('[3] War base')
                 print('[4] Base errors')
                 print('[5] Directions not followed')
-                print('[6] Repeat offender in sanctions')
+                print('[6] Sanctions')
                 print('[7] Other')
                 sel = input('Selection: ')
                 try: sel = int(sel)
@@ -276,8 +275,8 @@ def add_strike():
                         players[i].num_strikes += 1
                                     
                 elif sel == 6: 
-                    clan = input('Enter opponent clan name who initiated sanctions against us: ')
-                    players[i].strikes.append(f"(1) Repeat offender in sanctions during war against `{clan}`.")
+                    message = input('Enter sanction message here: ')
+                    players[i].strikes.append(f"(1) Targeted by sanctions; {message}")
                     players[i].num_strikes += 1
 
                 elif sel == 7: 

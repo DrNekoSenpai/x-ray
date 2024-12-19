@@ -62,7 +62,7 @@ permanent_immunities = [
 
 # Timed immunities involve players who will be immune until a given date
 timed_immunities = [
-    ("yashwanth", "2024-11-25")
+    
 ]
 
 # War-specific immunities are for one war only. 
