@@ -39,6 +39,7 @@ with open("lineup.txt", "r", encoding="utf-8") as file:
     if lineup[0] == ":Blank: :Sword: :BarbarianKing: :ArcherQueen: :GrandWarden: :RoyalChampion:":
         lineup.pop(0)
 
+# /stats dump role: @Reddit X-ray query: -f %i;%n;%u
 with open("dump.txt", "r", encoding="utf-8") as file:
     dump = [f.split(";") for f in file.read().splitlines()]
 
@@ -70,8 +71,8 @@ if len(roster) == 30 or len(roster) == 15:
             print(f"")
 
 else: 
-    # List: 2 16 18 20 27 30 36
-    list = [2,16,18,20,27,30,36]
+    # List: 2 5 18 21 22 23 24 26 27 31 33 41 44 50
+    list = [2,5,18,21,22,23,24,26,27,31,33,41,44,50]
     roster = {player: num for player,num in roster.items() if num in list}
 
     class Claim: 

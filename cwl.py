@@ -154,6 +154,8 @@ Ascended
 """.strip().split("\n")
 
 eligible = [p for p in entries.keys() if p not in already_received]
+ineligible = [p for p in entries.keys() if p in already_received]
+
 # Print a warning if there are less eligible people than there are possible distributions. 
 if len(eligible) < num_dists: 
     print(f"Warning: There are only {len(eligible)} eligible people, but {num_dists} distributions are available.")
@@ -181,6 +183,8 @@ for i in range(15, 0, -1):
         for _ in range(i): 
             pool.append(player)
     print("")
+
+print(f"Ineligible: {', '.join(ineligible)}")
 
 print(f"**This month's {num_dists} selected winners are**:")
 for _ in range(num_dists): 

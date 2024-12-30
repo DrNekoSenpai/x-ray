@@ -2,6 +2,10 @@ wars = [
     ("Chatrapati...", "loss", "2024/12/12"), 
     ("Four and Twenty", "win", "2024/12/14"), 
     ("Eternal Flame", "win", "2024/12/16"),
+    ("WAR unlimited15", "loss", "2024/12/21"), 
+    (".CLAN BROTHERS", "loss", "2024/12/23"), 
+    (".trueno farm 07", "loss", "2024/12/25"), 
+    ("PNAYUNDRGROUND3", "loss", "2024/12/27"),
 ]
 
 import os

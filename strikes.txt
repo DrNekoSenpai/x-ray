@@ -9,6 +9,9 @@
 [1] DPK|LLZONE #2LGURGU0V:
 - (1) Targeted by sanctions; scattershot not on edge, traps not enclosed by walls 
 
+[1] Master21 #LVRJC8CY2:
+- (1) Three-starred during a loss war against `trueno farm 07`.
+
 [1] Matanza #G9C8GL2VQ:
 - (1) Targeted by sanctions; th12 using th11 layout 
 
@@ -24,9 +27,6 @@
 [1] Satan #YJU92GY:
 - (1) Targeted by sanctions; firespitters overlapping dark spell factory and dark elixir storage and Bob's hut and workshop
 
-[1] ViperX56 #U2LJ0QVP:
-- (1) Attacked someone else than mirror during a war against `Eternal Flame`.
-
 [1] Vojt #PCJP8QJC:
 - (1) Targeted by sanctions; builder's huts separated by less than 6 tiles
 
@@ -36,8 +36,11 @@
 [1] YouAreMyBreh #8GP2R28JG:
 - (1) Targeted by sanctions; scattershot not on edge 
 
-[1] Zequilla #2UGUPVLLQ:
-- (1) Targeted by sanctions; hero hall not in th section 
+[1] beeche #29Q8CR280:
+- (1) Three-starred during a loss war against `WAR unlimited15`.
+
+[1] brycee #YQUUYVQ0C:
+- (1) Three-starred during a loss war against `WAR unlimited15`.
 
 [1] pg #Q92UQQJCR:
 - (1) Targeted by sanctions; builder's hut separated by less than 6 tiles

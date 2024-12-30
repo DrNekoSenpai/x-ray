@@ -2,84 +2,101 @@
 Satan
 y
 6
+2024-12-17
 firespitters overlapping dark spell factory and dark elixir storage and Bob's hut and workshop
 3
 Protips
 y
 6
+2024-12-17
 builder's huts separated by less than 6 tiles
 3
 pg
 y
 6
+2024-12-17
 builder's hut separated by less than 6 tiles
 3
 Vojt
 y
 6
+2024-12-17
 builder's huts separated by less than 6 tiles
 3
 tylr
 y
 6
+2024-12-17
 builder's huts separated by less than 6 tiles
 3
 W1nter
 y
 6
+2024-12-17
 builder's hut separated by less than 6 tiles 
 3
 Cmdn
 y
 6
+2024-12-17
 hero hall not in th section, helper hut not in th section 
 3
 Baleus
 y
 6
+2024-12-17
 scattershots not on edge 
 3
 YouAreMyBreh
 y
 6
+2024-12-17
 scattershot not on edge 
 3
 phr*
 y
 6
+2024-12-17
 scattershots not on edge, traps not enclosed by walls 
 3
 DPK|LLZONE
 y
 6
+2024-12-17
 scattershot not on edge, traps not enclosed by walls 
 3
 Plantos
 y
 6
+2024-12-17
 bob's hut not in th section 
 3
 Mythos
 y
 6
+2024-12-17
 hero hall not in th section, helper hut not in th section 
 3
 skyeshade
 y
 6
+2024-12-17
 scattershot not on edge 
 3
 Zequilla
 y
 6
+2024-12-17
 hero hall not in th section 
 3
 Matanza
 y
 6
+2024-12-17
 th12 using th11 layout 
 3
 yashwanth
 y
 6
+2024-12-17
 builder's hut not in th section 
