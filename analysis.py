@@ -334,6 +334,7 @@ with open("war_bases.txt", "r", encoding="utf-8") as war_bases_file:
 for log_file in logs: 
     if args.war and log_file != args.war: continue
     if log_file == "arch": continue # This is a folder
+    if log_file == "sanct": continue # This is a folder
 
     with open(f"./logs/{log_file}.txt", "r", encoding="utf-8") as file: 
         lines = file.readlines()
@@ -363,7 +364,6 @@ for log_file in logs:
         continue
 
     if conditional is None: 
-        print(lines[5])
         war_start_date = re.search(time_pattern, lines[5]).group(1)
         war_start_time = re.search(time_pattern, lines[5]).group(2)
         war_start_ampm = re.search(time_pattern, lines[5]).group(3)
@@ -745,7 +745,7 @@ for log_file in logs:
                         one_missed_hit.remove(player_name)
                     else: 
                         one_missed_hit.append(player_name)
-
+            
             for entry in one_missed_hit: 
                 if entry in permanent_immunities or "Unicorn" in entry: 
                     if args.bypass: print(f"Bypass: {entry} missed one hit on a blacklist war, but they are immune")
@@ -780,11 +780,11 @@ for log_file in logs:
                 else: 
                     if conditional == "true": 
                         print(f"Warning: {entry} missed one hit on a blacklist war, which cost us the win but we met the conditional")
-                        file.write(f"3\n{entry}\ny\n1{war_end_date}\n\n{enemy_clan}\ny\nn\n1\n")
+                        file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\ny\nn\n1\n")
                         rules_broken[entry] = True
                     else: 
                         print(f"Warning: {entry} missed one hit on a blacklist war, which cost us the win")
-                        file.write(f"3\n{entry}\ny\n1{war_end_date}\n\n{enemy_clan}\nn\nn\n1\n")
+                        file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\nn\nn\n1\n")
                         rules_broken[entry] = True
 
             for entry in two_missed_hits: 
@@ -819,20 +819,20 @@ for log_file in logs:
                 if victory == "y": 
                     if conditional == "true": 
                         print(f"Warning: {entry} missed two hits on a blacklist war, but we still won and met the conditional")
-                        file.write(f"3\n{entry}\ny\n1{war_end_date}\n\n{enemy_clan}\ny\ny\n2\n")
+                        file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\ny\ny\n2\n")
                         rules_broken[entry] = True
                     else:
                         print(f"Warning: {entry} missed two hits on a blacklist war, but we still won")
-                        file.write(f"3\n{entry}\ny\n1{war_end_date}\n\n{enemy_clan}\nn\ny\n2\n")
+                        file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\nn\ny\n2\n")
                         rules_broken[entry] = True
                 else:
                     if conditional == "true": 
                         print(f"Warning: {entry} missed two hits on a blacklist war, which cost us the win but we met the conditional")
-                        file.write(f"3\n{entry}\ny\n1{war_end_date}\n\n{enemy_clan}\ny\nn\n2\n")
+                        file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\ny\nn\n2\n")
                         rules_broken[entry] = True
                     else:
                         print(f"Warning: {entry} missed two hits on a blacklist war, which cost us the win")
-                        file.write(f"3\n{entry}\ny\n1{war_end_date}\n\n{enemy_clan}\nn\nn\n2\n")
+                        file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\nn\nn\n2\n")
                         rules_broken[entry] = True
 
         # Update each player's last seen date to the date of this war, if it is before this date. 
@@ -899,7 +899,8 @@ with open("player_activity.txt", "w", encoding="utf-8") as file:
         for war in player_activity_dict[player].wars_missed: 
             file.write(f"    - {war}\n")
         file.write(f"  - Last seen in clan: {player_activity_dict[player].last_seen}\n")
-        file.write(f"  - Banked counter: {player_activity_dict[player].banked_counter}\n\n")
+        file.write(f"  - Banked counter: {player_activity_dict[player].banked_counter}\n")
+        file.write(f"  - Wars logged: {player_activity_dict[player].wars_logged}\n\n")
 
 # Dump to be posted in a Discord channel.
 with open("activity_output.txt", "w", encoding="utf-8") as file:

@@ -1,59 +1,63 @@
 **Reddit X-ray**:
 
-[1] Baleus #GYV8Q0U80:
-- (1) Targeted by sanctions; scattershots not on edge 
+[2] Baleus #GYV8Q0U80 -- last strike received on 2024-12-30
+- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
+- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者`; we won, and met the conditional.
 
-[1] Cmdn #8Y9YG2G2Q:
-- (1) Targeted by sanctions; hero hall not in th section, helper hut not in th section 
-
-[1] DPK|LLZONE #2LGURGU0V:
-- (1) Targeted by sanctions; scattershot not on edge, traps not enclosed by walls 
-
-[1] Master21 #LVRJC8CY2:
+[2] Master21 #LVRJC8CY2 -- last strike received on 2024-12-30
 - (1) Three-starred during a loss war against `trueno farm 07`.
+- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者`; we won, and met the conditional.
 
-[1] Matanza #G9C8GL2VQ:
-- (1) Targeted by sanctions; th12 using th11 layout 
+[2] tylr #89YYV8V2 -- last strike received on 2024-12-30
+- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
+- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者`; we won, and met the conditional.
 
-[1] Mythos #GRYRVL9P8:
-- (1) Targeted by sanctions; hero hall not in th section, helper hut not in th section 
+[2] Vojt #PCJP8QJC -- last strike received on 2024-12-30
+- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
+- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者`; we won, and met the conditional.
 
-[1] Plantos #QPV0QV2PU:
-- (1) Targeted by sanctions; bob's hut not in th section 
+[1] eRaZoR #2RVPQR9C2 -- last strike received on 2024-12-30
+- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者`; we won, and met the conditional.
 
-[1] Protips #9QGLLQJQ2:
-- (1) Targeted by sanctions; builder's huts separated by less than 6 tiles
+[1] YOYOMAN12D #P29Y899J -- last strike received on 2024-12-30
+- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者`; we won, and met the conditional.
 
-[1] Satan #YJU92GY:
-- (1) Targeted by sanctions; firespitters overlapping dark spell factory and dark elixir storage and Bob's hut and workshop
-
-[1] Vojt #PCJP8QJC:
-- (1) Targeted by sanctions; builder's huts separated by less than 6 tiles
-
-[1] W1nter #2GP2C8LRY:
-- (1) Targeted by sanctions; builder's hut separated by less than 6 tiles 
-
-[1] YouAreMyBreh #8GP2R28JG:
-- (1) Targeted by sanctions; scattershot not on edge 
-
-[1] beeche #29Q8CR280:
+[1] beeche #29Q8CR280 -- last strike received on 2024-12-21
 - (1) Three-starred during a loss war against `WAR unlimited15`.
 
-[1] brycee #YQUUYVQ0C:
+[1] brycee #YQUUYVQ0C -- last strike received on 2024-12-21
 - (1) Three-starred during a loss war against `WAR unlimited15`.
 
-[1] pg #Q92UQQJCR:
-- (1) Targeted by sanctions; builder's hut separated by less than 6 tiles
+[1] DPK|LLZONE #2LGURGU0V -- last strike received on 2024-12-17
+- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
 
-[1] phr* #8RUL9JCRC:
-- (1) Targeted by sanctions; scattershots not on edge, traps not enclosed by walls 
+[1] Matanza #G9C8GL2VQ -- last strike received on 2024-12-17
+- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
 
-[1] skyeshade #YY2YJ20C9:
-- (1) Targeted by sanctions; scattershot not on edge 
+[1] Mythos #GRYRVL9P8 -- last strike received on 2024-12-17
+- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
 
-[1] tylr #89YYV8V2:
-- (1) Targeted by sanctions; builder's huts separated by less than 6 tiles
+[1] pg #Q92UQQJCR -- last strike received on 2024-12-17
+- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
 
-[1] yashwanth #YQCL028J0:
-- (1) Targeted by sanctions; builder's hut not in th section 
+[1] Plantos #QPV0QV2PU -- last strike received on 2024-12-17
+- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
+
+[1] Protips #9QGLLQJQ2 -- last strike received on 2024-12-17
+- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
+
+[1] Satan #YJU92GY -- last strike received on 2024-12-17
+- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
+
+[1] skyeshade #YY2YJ20C9 -- last strike received on 2024-12-17
+- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
+
+[1] W1nter #2GP2C8LRY -- last strike received on 2024-12-17
+- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
+
+[1] yashwanth #YQCL028J0 -- last strike received on 2024-12-17
+- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
+
+[1] YouAreMyBreh #8GP2R28JG -- last strike received on 2024-12-17
+- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
 

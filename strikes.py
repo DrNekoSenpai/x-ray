@@ -49,6 +49,9 @@ class player():
 
     def num_strikes(self): 
         return sum([strike.value for strike in self.strikes])
+    
+    def most_recent(self): 
+        return self.strikes[-1].date.strftime('%Y-%m-%d') if self.strikes else None
 
 def export_pickle(): 
     with open('player_data.pickle', 'wb') as f:
@@ -216,34 +219,19 @@ def add_strike():
 
                 elif sel == 3: 
                     date = input('Enter date (YYYY-MM-DD): ')
-                    clan = input('Enter name of opponent clan when this player had a war base: ')
-                    sanctions = input('Did sanctions result due to this player having a war base? Y/N: ').lower()
-
-                    if sanctions == 'y': 
-                        players[i].strikes.append(strike(5, datetime.strptime(date, "%Y-%m-%d"), f"Had war base during battle day against `{clan}`, and sanctions resulted from it."))
-
-                    elif sanctions == 'n': 
-                        players[i].strikes.append(strike(3, datetime.strptime(date, "%Y-%m-%d"), f"Had war base during battle day against `{clan}`."))
-
-                    else: 
-                        print('Invalid input entered. No strike will be awarded.')
-                        return
+                    enemy_clan = input('Enter name of opponent clan: ')
+                    players[i].strikes.append(strike(5, datetime.strptime(date, "%Y-%m-%d"), f"Had war base during battle day against `{enemy_clan}` on {date}."))
                     
                 elif sel == 4: 
                     date = input('Enter date (YYYY-MM-DD): ')
-                    num_errors = input('How many base errors did this player have? ')
-                    try: num_errors = int(num_errors)
-                    except: num_errors = 0
+                    hot_mess = input('Did we have five or more base errors? Y/N: ').lower()
+                    enemy_clan = input('Enter name of opponent clan: ')
 
-                    if num_errors <= 0: 
-                        print('Either this player had no base errors, or something went wrong. No strike will be awarded. ')
-                        return
-                    
-                    if num_errors < 5: 
-                        players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Had {num_errors} or less base errors."))
-
-                    else: 
-                        players[i].strikes.append(strike(2, datetime.strptime(date, "%Y-%m-%d"), f"Had {num_errors} or more base errors."))
+                    if hot_mess == 'y': 
+                        players[i].strikes.append(strike(2, datetime.strptime(date, "%Y-%m-%d"), f"Had five or more base errors during a war against `{enemy_clan}` on {date}."))
+                        
+                    else:
+                        players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Had less than five base errors during a war against `{enemy_clan}` on {date}."))
 
                 elif sel == 5: 
                     date = input('Enter date (YYYY-MM-DD): ')
@@ -362,42 +350,59 @@ def output_strikes():
         
         for i in range(len(players)): 
             if players[i].num_strikes() != 0:
-                file.write(f"[{players[i].num_strikes()}] {players[i].name} #{players[i].tag}:\n")
+                file.write(f"[{players[i].num_strikes()}] {players[i].name} #{players[i].tag} -- last strike received on {players[i].most_recent()}\n")
 
                 for j in range(len(players[i].strikes)): 
                     file.write(f"- {players[i].strikes[j].output()}\n")
 
                 file.write('\n')
 
-players = import_pickle()
-while(True): 
-    print('---- Reddit X-ray Strike Automation System ----')
-    print('[1] Add new players')
-    print('[2] Remove a player')
-    print('[3] Award a strike')
-    print('[4] Remove a strike')
-    print('[5] Clear all strikes for a given player')
-    print('[6] Reset all strikes')
-    print('[7] Output strikes list')
-    print('[9] Exit')
-    sel = input('Selection: ')
-    if sel == "": break 
-    
-    try: sel = int(sel)
-    except: continue
+def epoch_timestamp(dt:datetime): 
+    return int(dt.strftime('%Y%m%d')) if dt else 0
 
-    export_pickle()
-    if sel == 1: add_player()
-    elif sel == 2: remove_player()
-    elif sel == 3: add_strike()
-    elif sel == 4: remove_strike()
-    elif sel == 5: remove_all_strikes()
-    elif sel == 6: clear_strikes()
-    elif sel == 7: output_strikes()
-    elif sel == 9: break
+if __name__ == "__main__":
+    players = import_pickle()
 
-    if sel != 9: 
-        players.sort(key = lambda x: (-x.num_strikes(), x.name))
+    # The first thing we should do is go through the list of players and find the players whose strikes have expired. 
+    # To be precise, this is a player whose last strike was more than 30 days ago. 
+    # If so, we should output a message and remove all of their strikes. 
+    for i in range(len(players)):
+        if players[i].strikes and (datetime.now() - players[i].strikes[-1].date).days > 30: 
+            print(f"Player {players[i].name}'s last strike was more than 30 days ago. Clearing all strikes.")
+            players[i].strikes = []
+
+    while(True): 
+        # Sort the list of players; first by number of strikes descending, then by date of last strike descending, then by name ascending.
+        # Not everyone's going to have strikes; if their number of strikes is 0, there's not going to be a last strike. In this case, ignore the date and sort without it. 
+        players.sort(key=lambda x: (
+            -x.num_strikes(),  # Sort by strikes descending
+            -max([epoch_timestamp(strike.date) for strike in x.strikes], default=0),  # Sort by date of last strike descending
+            x.name.lower()  # Sort by name ascending
+        ))
         print('')
 
-    else: break
+        print('---- Reddit X-ray Strike Automation System ----')
+        print('[1] Add new players')
+        print('[2] Remove a player')
+        print('[3] Award a strike')
+        print('[4] Remove a strike')
+        print('[5] Clear all strikes for a given player')
+        print('[6] Reset all strikes')
+        print('[7] Output strikes list')
+        print('[9] Exit')
+        sel = input('Selection: ')
+        if sel == "": break 
+        
+        try: sel = int(sel)
+        except: continue
+
+        export_pickle()
+        if sel == 1: add_player()
+        elif sel == 2: remove_player()
+        elif sel == 3: add_strike()
+        elif sel == 4: remove_strike()
+        elif sel == 5: remove_all_strikes()
+        elif sel == 6: clear_strikes()
+        elif sel == 7: output_strikes()
+
+        else: break

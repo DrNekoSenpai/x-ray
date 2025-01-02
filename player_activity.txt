@@ -1,14 +1,14 @@
 BumblinMumbler: #JCCLVR8R
-  - Wars missed: 7
-    - ('2024-12-27', 'PNAYUNDRGROUND3', 'loss')
+  - Wars missed: 6
+    - ('2024-12-28', 'PNAYUNDRGROUND3', 'loss')
     - ('2024-12-23', '.CLAN BROTHERS', 'loss')
     - ('2024-11-26', 'Christ Farm War', 'loss')
     - ('2024-11-23', 'Farming Only 2', 'win')
     - ('2024-11-21', 'Zanth Titans', 'loss')
     - ('2024-11-17', 'Anti Funlord', 'loss')
-    - ('2024-11-15', 'Altar of Royals', 'loss')
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-21', '2024-12-26']
+  - Last seen in clan: 2024-12-30
+  - Banked counter: []
+  - Wars logged: ['2024-10-17', '2024-10-19', '2024-10-21', '2024-10-23', '2024-10-28', '2024-11-30', '2024-12-12', '2024-12-14', '2024-12-16', '2024-12-21', '2024-12-26', '2024-12-30']
 
 Smitty™: #9LCPQ0QR
   - Wars missed: 5
@@ -17,26 +17,39 @@ Smitty™: #9LCPQ0QR
     - ('2024-12-14', 'Four and Twenty', 'win')
     - ('2024-11-30', 'Deadly Sinners', 'win')
     - ('2024-11-26', 'Christ Farm War', 'loss')
-  - Last seen in clan: 2024-12-27
-  - Banked counter: []
+  - Last seen in clan: 2025-01-01
+  - Banked counter: ['2024-12-30', '2025-01-01']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-21', '2024-12-21', '2024-12-26', '2024-12-28', '2024-12-30', '2025-01-01']
 
 tylr: #89YYV8V2
   - Wars missed: 4
-    - ('2024-12-27', 'PNAYUNDRGROUND3', 'loss')
+    - ('2024-12-28', 'PNAYUNDRGROUND3', 'loss')
     - ('2024-12-26', 'trueno farm 07', 'loss')
     - ('2024-12-23', '.CLAN BROTHERS', 'loss')
     - ('2024-12-21', 'WAR unlimited15', 'loss')
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-12', '2024-12-14', '2024-12-16']
+  - Last seen in clan: 2024-12-30
+  - Banked counter: []
+  - Wars logged: ['2024-12-12', '2024-12-14', '2024-12-16']
 
 Big Daddy T: #9V0PCRR00
   - Wars missed: 4
-    - ('2024-12-27', 'PNAYUNDRGROUND3', 'loss')
+    - ('2024-12-28', 'PNAYUNDRGROUND3', 'loss')
     - ('2024-12-16', 'Eternal Flame', 'win')
     - ('2024-12-14', 'Four and Twenty', 'win')
     - ('2024-11-26', 'Christ Farm War', 'loss')
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-26']
+  - Last seen in clan: 2024-12-30
+  - Banked counter: ['2024-12-26', '2024-12-30']
+  - Wars logged: ['2024-10-17', '2024-10-19', '2024-10-23', '2024-11-13', '2024-11-15', '2024-11-17', '2024-11-21', '2024-11-23', '2024-11-30', '2024-12-12', '2024-12-21', '2024-12-23', '2024-12-26', '2024-12-30']
+
+YOYOMAN12D: #P29Y899J
+  - Wars missed: 4
+    - ('2024-12-28', 'PNAYUNDRGROUND3', 'loss')
+    - ('2024-12-26', 'trueno farm 07', 'loss')
+    - ('2024-12-21', 'WAR unlimited15', 'loss')
+    - ('2024-12-16', 'Eternal Flame', 'win')
+  - Last seen in clan: 2025-01-01
+  - Banked counter: ['2024-12-23', '2025-01-01']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19', '2024-12-23', '2025-01-01']
 
 Master21: #LVRJC8CY2
   - Wars missed: 4
@@ -44,246 +57,289 @@ Master21: #LVRJC8CY2
     - ('2024-12-16', 'Eternal Flame', 'win')
     - ('2024-12-14', 'Four and Twenty', 'win')
     - ('2024-11-26', 'Christ Farm War', 'loss')
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-21', '2024-12-27']
-
-YOYOMAN12D: #P29Y899J
-  - Wars missed: 3
-    - ('2024-12-27', 'PNAYUNDRGROUND3', 'loss')
-    - ('2024-12-26', 'trueno farm 07', 'loss')
-    - ('2024-12-21', 'WAR unlimited15', 'loss')
-  - Last seen in clan: 2024-12-27
-  - Banked counter: []
+  - Last seen in clan: 2024-12-30
+  - Banked counter: ['2024-12-21', '2024-12-28']
+  - Wars logged: ['2024-11-13', '2024-11-15', '2024-11-17', '2024-11-21', '2024-11-23', '2024-11-30', '2024-12-21', '2024-12-28']
 
 Sned: #P2UPPVYL
-  - Wars missed: 2
-    - ('2024-12-27', 'PNAYUNDRGROUND3', 'loss')
+  - Wars missed: 3
+    - ('2024-12-28', 'PNAYUNDRGROUND3', 'loss')
     - ('2024-12-26', 'trueno farm 07', 'loss')
-  - Last seen in clan: 2024-12-27
+    - ('2024-12-14', 'Four and Twenty', 'win')
+  - Last seen in clan: 2025-01-01
   - Banked counter: []
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-21', '2024-10-23', '2024-10-26', '2024-10-28', '2024-12-16', '2024-12-21', '2024-12-23', '2024-12-30', '2024-12-12', '2025-01-01']
 
 Ascended: #QQPRJQ2PQ
-  - Wars missed: 2
+  - Wars missed: 3
     - ('2024-12-23', '.CLAN BROTHERS', 'loss')
     - ('2024-12-21', 'WAR unlimited15', 'loss')
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-27']
+    - ('2024-12-16', 'Eternal Flame', 'win')
+  - Last seen in clan: 2025-01-01
+  - Banked counter: ['2024-12-26', '2025-01-01']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19', '2024-12-28', '2024-12-30', '2024-12-12', '2024-12-26', '2025-01-01']
+
+katsu: #RCUY2PYV
+  - Wars missed: 2
+    - ('2024-12-28', 'PNAYUNDRGROUND3', 'loss')
+    - ('2024-12-14', 'Four and Twenty', 'win')
+  - Last seen in clan: 2024-12-30
+  - Banked counter: ['2024-12-26', '2024-12-30']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-21', '2024-10-26', '2024-10-31', '2024-11-13', '2024-11-15', '2024-11-17', '2024-11-21', '2024-11-26', '2024-11-30', '2024-12-12', '2024-12-16', '2024-12-21', '2024-12-23', '2024-12-26', '2024-12-30']
+
+Hadez: #LRCGJ99Y
+  - Wars missed: 2
+    - ('2024-12-28', 'PNAYUNDRGROUND3', 'loss')
+    - ('2024-12-16', 'Eternal Flame', 'win')
+  - Last seen in clan: 2025-01-01
+  - Banked counter: []
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-21', '2024-10-28', '2024-10-31', '2024-11-13', '2024-12-23', '2024-12-26', '2024-12-30', '2024-12-12', '2024-12-21', '2025-01-01']
+
+Mythos: #GRYRVL9P8
+  - Wars missed: 2
+    - ('2024-12-26', 'trueno farm 07', 'loss')
+    - ('2024-12-21', 'WAR unlimited15', 'loss')
+  - Last seen in clan: 2025-01-01
+  - Banked counter: []
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19', '2024-12-28', '2024-12-30', '2024-12-12', '2024-12-16', '2024-12-23', '2025-01-01']
 
 brycee: #YQUUYVQ0C
   - Wars missed: 2
     - ('2024-12-26', 'trueno farm 07', 'loss')
     - ('2024-12-23', '.CLAN BROTHERS', 'loss')
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-16', '2024-12-27']
+  - Last seen in clan: 2025-01-01
+  - Banked counter: ['2025-01-01']
+  - Wars logged: ['2024-10-15', '2024-10-19', '2024-10-21', '2024-11-21', '2024-11-30', '2024-12-12', '2024-12-16', '2024-12-28', '2024-12-30', '2025-01-01']
 
-katsu: #RCUY2PYV
+Baleus: #GYV8Q0U80
   - Wars missed: 1
-    - ('2024-12-27', 'PNAYUNDRGROUND3', 'loss')
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-26']
-
-Hadez: #LRCGJ99Y
-  - Wars missed: 1
-    - ('2024-12-27', 'PNAYUNDRGROUND3', 'loss')
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-23', '2024-12-26']
-
-skyeshade: #YY2YJ20C9
-  - Wars missed: 1
-    - ('2024-12-27', 'PNAYUNDRGROUND3', 'loss')
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-11-26', '2024-11-30', '2024-12-12']
-
-Mythos: #GRYRVL9P8
-  - Wars missed: 1
-    - ('2024-12-26', 'trueno farm 07', 'loss')
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-27']
+    - ('2024-12-21', 'WAR unlimited15', 'loss')
+  - Last seen in clan: 2025-01-01
+  - Banked counter: ['2025-01-01', '2024-12-23']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19', '2024-12-26', '2024-12-28', '2024-12-16', '2025-01-01', '2024-12-23']
 
 DPK|LLZONE: #2LGURGU0V
   - Wars missed: 1
     - ('2024-12-21', 'WAR unlimited15', 'loss')
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-27']
+  - Last seen in clan: 2024-12-30
+  - Banked counter: ['2024-12-28', '2024-12-30']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19', '2024-11-15', '2024-11-17', '2024-11-21', '2024-11-30', '2024-12-12', '2024-12-14', '2024-12-16', '2024-12-23', '2024-12-26', '2024-12-28', '2024-12-30']
+
+your mama: #2Y88YLL99
+  - Wars missed: 1
+    - ('2024-12-21', 'WAR unlimited15', 'loss')
+  - Last seen in clan: 2025-01-01
+  - Banked counter: ['2025-01-01', '2024-12-23']
+  - Wars logged: ['2024-10-31', '2024-11-13', '2024-11-21', '2024-11-23', '2024-11-26', '2024-11-30', '2024-12-12', '2024-12-14', '2024-12-16', '2024-12-26', '2024-12-28', '2024-12-30', '2025-01-01', '2024-12-23']
 
 Golden Unicorn✨: #LP0R0UUG8
   - Wars missed: 1
-    - ('2024-12-27', 'PNAYUNDRGROUND3', 'loss')
-  - Last seen in clan: 2024-12-27
-  - Banked counter: []
+    - ('2024-12-28', 'PNAYUNDRGROUND3', 'loss')
+  - Last seen in clan: 2024-12-30
+  - Banked counter: ['2024-12-30']
+  - Wars logged: ['2024-12-30']
 
 ViperX56: #U2LJ0QVP
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-10-15', '2024-10-17', '2024-10-19']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19']
 
 Satan: #YJU92GY
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-10-15', '2024-10-17', '2024-10-19']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19']
 
 Kaselcap: #LU2YC0L
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-10-15', '2024-10-17', '2024-10-19']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19']
 
 Hallow Hero: #J92GL89U
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-10-15', '2024-10-17', '2024-10-21']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-21']
 
 Protips: #9QGLLQJQ2
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-10-15', '2024-10-17', '2024-10-19']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19']
 
 pg: #Q92UQQJCR
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-10-15', '2024-10-17', '2024-10-21']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-21']
 
 jy: #8L9QLJJP
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-10-15', '2024-10-17', '2024-10-19']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19']
 
 Vojt: #PCJP8QJC
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-11-21', '2024-11-23', '2024-11-26']
+  - Wars logged: ['2024-11-21', '2024-11-23', '2024-11-26']
 
 RoyalOne: #RV920PR9
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-12-21', '2024-12-23', '2024-12-26']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19', '2024-11-17', '2024-11-23', '2024-11-26', '2024-11-30', '2024-12-12', '2024-12-16', '2024-12-21', '2024-12-23', '2024-12-26']
 
 K.L.A.U.S: #LPYRGCUQC
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-12-14', '2024-12-16', '2024-12-21']
+  - Wars logged: ['2024-11-21', '2024-11-23', '2024-11-26', '2024-12-14', '2024-12-16', '2024-12-21']
 
 Az7777: #QYLURLQ2
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
+  - Wars logged: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 Anas: #92L2PP09R
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
+  - Wars logged: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 W1nter: #2GP2C8LRY
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-11-17', '2024-11-21', '2024-11-23']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19', '2024-11-17', '2024-11-21', '2024-11-23']
 
 Plantos: #QPV0QV2PU
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-27']
+  - Last seen in clan: 2025-01-01
+  - Banked counter: []
+  - Wars logged: ['2024-10-31', '2024-11-15', '2024-11-17', '2024-12-28', '2024-12-30', '2024-12-12', '2025-01-01', '2024-12-14', '2024-12-16']
 
 Hokage: #J2CUYQG8
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: []
+  - Wars logged: ['2024-11-17', '2024-11-21', '2024-11-23', '2024-12-30', '2024-12-12', '2024-12-14', '2025-01-01', '2024-12-16', '2024-12-21']
 
 gdfan75: #PG2Y8RGU
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-11-15', '2024-11-17', '2024-11-21']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-21', '2024-11-15', '2024-11-17', '2024-11-21']
 
 eRaZoR: #2RVPQR9C2
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2024-12-30
   - Banked counter: ['2024-11-13', '2024-11-15', '2024-11-17']
-
-Baleus: #GYV8Q0U80
-  - Wars missed: 0
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-26', '2024-12-27']
+  - Wars logged: ['2024-11-13', '2024-11-15', '2024-11-17']
 
 YouAreMyBreh: #8GP2R28JG
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-10-23', '2024-10-26', '2024-10-31']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-21', '2024-10-23', '2024-10-26', '2024-10-31']
 
 xHead_Bangerx: #YQPVL2G8
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-11-21', '2024-11-23', '2024-11-26']
+  - Wars logged: ['2024-11-21', '2024-11-23', '2024-11-26']
 
 Welli: #Q00RGJVVR
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-12-21', '2024-12-23', '2024-12-26']
+  - Wars logged: ['2024-12-21', '2024-12-23', '2024-12-26']
+
+skyeshade: #YY2YJ20C9
+  - Wars missed: 0
+  - Last seen in clan: 2025-01-01
+  - Banked counter: []
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19', '2024-11-15', '2024-11-17', '2024-11-23', '2024-11-26', '2024-11-30', '2024-12-12', '2024-12-14', '2024-12-16', '2024-12-21', '2025-01-01', '2024-12-23', '2024-12-26']
 
 shadow: #QPJ8UV280
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-12-21', '2024-12-23', '2024-12-26']
+  - Wars logged: ['2024-12-21', '2024-12-23', '2024-12-26']
 
 sanskar: #PL8Y90YGG
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-26', '2024-12-27']
+  - Last seen in clan: 2025-01-01
+  - Banked counter: []
+  - Wars logged: ['2024-11-21', '2024-11-23', '2024-11-30', '2024-12-26', '2024-12-28', '2024-12-30', '2025-01-01', '2024-12-12', '2024-12-14']
 
 Rod: #YLLQRLL0
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-10-15', '2024-10-17', '2024-10-21']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-21']
 
 ImagineWaggons: #90ULVLUC
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-12-21', '2024-12-23', '2024-12-26']
-
-your mama: #2Y88YLL99
-  - Wars missed: 0
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-26', '2024-12-27']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19', '2024-10-31', '2024-11-13', '2024-11-17', '2024-11-21', '2024-11-26', '2024-11-30', '2024-12-12', '2024-12-14', '2024-12-16', '2024-12-21', '2024-12-23', '2024-12-26']
 
 Motz: #G8L8PU8C
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-12-12', '2024-12-14', '2024-12-16']
+  - Wars logged: ['2024-12-12', '2024-12-14', '2024-12-16']
 
 Matanza: #G9C8GL2VQ
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-10-19', '2024-10-21', '2024-10-23']
+  - Wars logged: ['2024-10-19', '2024-10-21', '2024-10-23']
 
 LOGAN911: #YYRLUQ2J2
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-12-12', '2024-12-14', '2024-12-16']
+  - Wars logged: ['2024-12-12', '2024-12-14', '2024-12-16']
 
 heep: #R89QG2QJ
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-12-12', '2024-12-14', '2024-12-16']
+  - Wars logged: ['2024-12-12', '2024-12-14', '2024-12-16']
 
 DNG: #LPV008QQ
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
-  - Banked counter: ['2024-12-27']
+  - Last seen in clan: 2025-01-01
+  - Banked counter: []
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19', '2024-10-31', '2024-11-13', '2024-11-15', '2024-12-28', '2024-12-30', '2024-12-12', '2025-01-01', '2024-12-14', '2024-12-16']
 
 CrazyWaveIT: #YLUL9Q9JG
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-12-12', '2024-12-16', '2024-12-21']
+  - Wars logged: ['2024-10-15', '2024-10-17', '2024-10-19', '2024-12-12', '2024-12-16', '2024-12-21']
 
 beeche: #29Q8CR280
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-10-23', '2024-10-31', '2024-11-13']
+  - Wars logged: ['2024-10-23', '2024-10-31', '2024-11-13']
 
 Asrar: #9RVQ22RCR
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-11-23', '2024-11-26', '2024-11-30']
+  - Wars logged: ['2024-11-23', '2024-11-26', '2024-11-30']
 
 yashwanth: #YQCL028J0
   - Wars missed: 0
-  - Last seen in clan: 2024-12-27
+  - Last seen in clan: 2025-01-01
   - Banked counter: ['2024-11-26', '2024-11-30', '2024-12-12']
+  - Wars logged: ['2024-11-26', '2024-11-30', '2024-12-12']
 
