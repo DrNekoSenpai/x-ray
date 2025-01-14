@@ -2,32 +2,32 @@
 
 [3] Baleus #GYV8Q0U80 -- last strike received on 2025-01-13
 - (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
-- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者`; we won, and met the conditional.
-- (1) Attacked someone else than mirror during a war against `Christ Farm War`.
+- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者` on 2024-12-30; we won, and met the conditional.
+- (1) Attacked someone else than mirror during a war against `Christ Farm War` on 2025-01-13.
 
 [2] Master21 #LVRJC8CY2 -- last strike received on 2024-12-30
-- (1) Three-starred during a loss war against `trueno farm 07`.
-- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者`; we won, and met the conditional.
+- (1) Three-starred during a loss war against `trueno farm 07` on 2024-12-26.
+- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者` on 2024-12-30; we won, and met the conditional.
 
 [2] tylr #89YYV8V2 -- last strike received on 2024-12-30
 - (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
-- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者`; we won, and met the conditional.
+- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者` on 2024-12-30; we won, and met the conditional.
 
 [2] Vojt #PCJP8QJC -- last strike received on 2024-12-30
 - (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
-- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者`; we won, and met the conditional.
+- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者` on 2024-12-30; we won, and met the conditional.
 
 [1] eRaZoR #2RVPQR9C2 -- last strike received on 2024-12-30
-- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者`; we won, and met the conditional.
+- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者` on 2024-12-30; we won, and met the conditional.
 
 [1] YOYOMAN12D #P29Y899J -- last strike received on 2024-12-30
-- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者`; we won, and met the conditional.
+- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者` on 2024-12-30; we won, and met the conditional.
 
 [1] beeche #29Q8CR280 -- last strike received on 2024-12-21
-- (1) Three-starred during a loss war against `WAR unlimited15`.
+- (1) Three-starred during a loss war against `WAR unlimited15` on 2024-12-21.
 
 [1] brycee #YQUUYVQ0C -- last strike received on 2024-12-21
-- (1) Three-starred during a loss war against `WAR unlimited15`.
+- (1) Three-starred during a loss war against `WAR unlimited15` on 2024-12-21.
 
 [1] DPK|LLZONE #2LGURGU0V -- last strike received on 2024-12-17
 - (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.

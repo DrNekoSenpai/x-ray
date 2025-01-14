@@ -1,8 +1,8 @@
 import os, re
 from datetime import datetime, timedelta
 
-for filename in os.listdir("./sanctions/"):
-    with open(f"./sanctions/{filename}", "r", encoding="utf-8") as file: 
+for filename in os.listdir("./logs/sanctions/"):
+    with open(f"./logs/sanctions/{filename}", "r", encoding="utf-8") as file: 
         sanctions = file.read().splitlines()
 
     # #2. Satan: firespitters overlapping dark spell factory and dark elixir storage and Bob's hut and workshop❌️
@@ -37,7 +37,7 @@ for filename in os.listdir("./sanctions/"):
             # Open the corresponding filename and find the name of the clan we faced. 
             enemy_clan_pattern = re.compile(r"War with #[A-Z0-9]{5,9} ‭⁦(.*)⁩‬ starts in \d+ minutes.")
 
-            with open(f"./logs/sanctions/{war}", "r", encoding="utf-8") as file: 
+            with open(f"./logs/{war}", "r", encoding="utf-8") as file: 
                 for line in file: 
                     match = enemy_clan_pattern.match(line)
                     if match: 
