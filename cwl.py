@@ -1,4 +1,4 @@
-import datetime, requests, re, argparse, subprocess, random, openpyxl
+import datetime, re, argparse, subprocess, random, openpyxl, pickle
 
 from contextlib import redirect_stdout as redirect
 from io import StringIO
@@ -31,9 +31,35 @@ if up_to_date() is False:
 parser = argparse.ArgumentParser(description="Calculate weighted distribution for CWL")
 parser.add_argument("--num_dists", "-n", type=int, default=0, help="Number of distributions available")
 parser.add_argument("--bypass", "-b", action="store_true", help="Bypass check for FWA bases; useful if clan earned immunity")
+parser.add_argument("--update", "-u", action="store_true", help="Update distribution history with new data")
 
 # Parse the arguments
 args = parser.parse_args()
+
+if args.update: 
+    # Load distribution history
+    try: 
+        with open("dist_history.pickle", "rb") as f:
+            dist_history = pickle.load(f)
+
+    except FileNotFoundError:
+        dist_history = []
+
+    # Ask how many distributions there were last month
+    num_dists = int(input("How many distributions were available last month? "))
+    print("")
+    for i in range(num_dists): 
+        player = input(f"Player {i+1}: ")
+        # Set date received to 30 days ago
+        date_received = datetime.datetime.now() - datetime.timedelta(days=30)
+        weeks_logged = 0
+        log_dates = []
+        dist_history.append((player, date_received, weeks_logged, log_dates))
+
+    with open("dist_history.pickle", "wb") as f:
+        pickle.dump(dist_history, f)
+
+    exit(0)
 
 with open("cwl-input.txt", "r", encoding="utf-8") as f: 
     cwl = f.readlines()
@@ -122,39 +148,62 @@ else: print(f"({num_dists} available bonuses, total)")
 
 pool = []
 
-already_received = """
-brycee
-K.L.A.U.S
-katsu
-Satan
-BumblinMumbler
-YOYOMAN12D
-W1nter
-Reactorge
-Smitty™
-Mythos
-ViperX56
-pg
-DPK|LLZONE
-skyeshade
-slothnz
-Plantos
-RoyalOne
-Sned
-Baleus
-DNG
-Plantos
-Vojt
-Anas
-phr*
-YouAreMyBreh
-Hallow Hero
-Rod
-Ascended
-""".strip().split("\n")
+class Player: 
+    def __init__(self, name:str, date_received:datetime.datetime, weeks_logged:int, log_dates:list): 
+        self.name = name
+        self.date_received = date_received
+        self.weeks_logged = weeks_logged
+        self.log_dates = log_dates
 
-eligible = [p for p in entries.keys() if p not in already_received]
-ineligible = [p for p in entries.keys() if p in already_received]
+try: 
+    with open("dist_history.pickle", "rb") as f: 
+        dist_history = pickle.load(f)
+
+except FileNotFoundError:
+    dist_history = []
+
+# For all players in the input, add one week per two hits done. If they did seven, add one more.
+# Two hits, one week. Four hits, two weeks. Six hits, three weeks. Seven hits, four weeks.
+
+max_value = 16
+
+for player, hits in hit_entries.items():
+    # First, check if this player already exists in dist_history.
+    if player in [p[0] for p in dist_history]:
+        for i, entry in enumerate(dist_history): 
+            if entry[0] == player: 
+                # Add one week per two hits done. If they did seven, add one more.
+                weeks_logged = entry[2] + (hits // 2)
+                if hits == 7: weeks_logged += 1
+
+                dist_history[i] = (player, entry[1], weeks_logged)
+
+                # Check if the number of weeks elapsed between their receipt date and now, plus the number of weeks logged, is greater than the maximum value.
+
+                if (datetime.datetime.now() - entry[1]).days // 7 + weeks_logged > max_value: 
+                    print(f"Player {player} has hit the threshold.")
+                    print(f"  - Date received: {entry[1].strftime('%Y-%m-%d')}")
+                    print(f"  - Weeks logged: {weeks_logged}")
+                    print(f"  - Weeks elapsed: {(datetime.datetime.now() - entry[1]).days // 7}")
+                    print(f"  - Maximum value: {max_value}")
+
+                    # If the player has hit the threshold, remove them from the list.
+                    dist_history.pop(i)
+
+                else: 
+                    print(f"Player {player}:")
+                    print(f"  - Date received: {entry[1].strftime('%Y-%m-%d')}")
+                    print(f"  - Weeks logged: {weeks_logged}")
+                    print(f"  - Weeks elapsed: {(datetime.datetime.now() - entry[1]).days // 7}")
+                    print(f"  - Maximum value: {max_value}")
+
+                break
+
+with open("dist_history.pickle", "wb") as f: 
+    pickle.dump(dist_history, f)
+
+eligible = [p for p in entries.keys() if p not in dist_history]
+ineligible = [p for p in entries.keys() if p in dist_history]
 
 # Print a warning if there are less eligible people than there are possible distributions. 
 if len(eligible) < num_dists: 
@@ -173,7 +222,7 @@ for i in range(15, 0, -1):
     if len(tier) == 0: continue
     print(f"{i} entries:")
     for player in tier: 
-        if player in already_received: continue
+        if player in dist_history: continue
         print(f"- {player} ({hit_entries[player]} entries from hits", end = "")
         if fwa_base_penalties[player] > 0: 
             print(f", {fwa_base_penalties[player]} entry penalty from FWA bases)", end="")

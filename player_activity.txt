@@ -343,3 +343,15 @@ yashwanth: #YQCL028J0
   - Banked counter: ['2024-11-26', '2024-11-30', '2024-12-12']
   - Wars logged: ['2024-11-26', '2024-11-30', '2024-12-12']
 
+Shomeer: #G2LGL80PL
+  - Wars missed: 0
+  - Last seen in clan: 2024-12-30
+  - Banked counter: []
+  - Wars logged: []
+
+Luke: #LPRPP9LGU
+  - Wars missed: 0
+  - Last seen in clan: 2024-12-30
+  - Banked counter: []
+  - Wars logged: []
+

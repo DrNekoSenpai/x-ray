@@ -1,13 +1,6 @@
 wars = [
-    ("Chatrapati...", "loss", "2024/12/12"), 
-    ("Four and Twenty", "win", "2024/12/14"), 
-    ("Eternal Flame", "win", "2024/12/16"),
-    ("WAR unlimited15", "loss", "2024/12/21"), 
-    (".CLAN BROTHERS", "loss", "2024/12/23"), 
-    (".trueno farm 07", "loss", "2024/12/26"), 
-    ("PNAYUNDRGROUND3", "loss", "2024/12/28"),
-    ("Ｑ 無言 援軍 対戦無 初心者", "blacklist win/true", "2024/12/30"), 
-    ("Dutch Warriors", "win", "2025/01/01")
+    ("Christ Farm War", "win", "2025/01/13"), 
+    ("Mad Serbian's", "blacklist win/true", "2025/01/15")
 ]
 
 import os
@@ -20,7 +13,7 @@ for war in wars:
         continue
 
     with open(f"./logs/{war[2].replace('/', '_')}_{war[0].replace(' ', '_').lower()}.txt", "w") as f: 
-        if "/" in war[1]: 
+        if "blacklist" in war[1]: 
             f.write(f"Win/loss: {war[1].split('/')[0]}\nWar end date: {war[2].replace('/', '-')}\nBlacklist conditional: {war[1].split('/')[1]}\n\n")
         else: 
             f.write(f"Win/loss: {war[1]}\nWar end date: {war[2].replace('/', '-')}\n\n")

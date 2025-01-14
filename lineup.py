@@ -58,7 +58,6 @@ if args.names:
 
 if len(roster) == 30 or len(roster) == 15: 
     # Clan War Leagues
-    war_number = 1
     # War 1: 1 3 4 8 9 12 13 16 18 19 23 24 25 29 
     list = [1,3,4,8,9,12,13,16,18,19,23,24,25,29]
     # For each player in the roster, if their number is in list, print FALSE
@@ -71,8 +70,8 @@ if len(roster) == 30 or len(roster) == 15:
             print(f"")
 
 else: 
-    # List: 17 26 30 31 43 44 45 48
-    list = [17,26,30,31,43,44,45,48]
+    # List: 2 8 9 12 14 17 24 25 27 30 33 38 39 43 44 46 
+    list = [2,8,9,12,14,17,24,25,27,30,33,38,39,43,44,46]
     roster = {player: num for player,num in roster.items() if num in list}
 
     class Claim: 

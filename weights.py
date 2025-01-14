@@ -35,13 +35,12 @@ def is_valid_weight(weight):
     if not args.force_valid: return True
     try:
         numeric_weight = int(weight)
-        return numeric_weight % 200 == 0
+        return numeric_weight % 200 == 0 and numeric_weight <= 34000
     except ValueError:
         return False
 
 def find_storage_capacity_bbox(image):
     boxes = pytesseract.image_to_data(image, output_type=pytesseract.Output.DICT)
-    results = []
 
     for i in range(len(boxes['text'])):
         if 'Storage' in boxes['text'][i] and 'Capacity' in boxes['text'][i+1]:
@@ -110,12 +109,11 @@ cropped_image = image.crop((left, top, right, bottom))
 weight = numeric_ocr(cropped_image)
 
 if not is_valid_weight(weight):
-    print(f"Error: OCR result '{weight}' is not valid. Preprocessing.")
     preprocessed_image = color_to_alpha(cropped_image)
     weight = numeric_ocr(preprocessed_image)
 
 if not is_valid_weight(weight):
-    print(f"Error: OCR result '{weight}' is not valid after preprocessing.")
+    print(f"Error: OCR result '{weight}' is not valid.")
     exit(1)
 
 # Odd case: a weight beginning with "23" should instead be "29", but only if the last recorded value was +/- 1500 from 29000. Otherwise, leave as is.
@@ -123,6 +121,9 @@ if weight.startswith('23'):
     with open('weights.txt', 'r', encoding='utf-8') as file:
         last_weight = file.readlines()[-1].strip()
         if last_weight and abs(int(last_weight) - 29000) < 1500: weight = '29' + weight[2:]
+
+# Odd case: a weight of "13280" should be "32800"
+if weight == '13280': weight = '32800'
 
 if weight: 
     with open('weights.txt', 'r', encoding='utf-8') as file:

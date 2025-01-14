@@ -1,0 +1,4 @@
+Win/loss: blacklist win
+War end date: 2025-01-15
+Blacklist conditional: true
+
