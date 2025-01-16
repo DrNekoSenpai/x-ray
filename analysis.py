@@ -38,6 +38,7 @@ parser.add_argument("--debug", "-d", action="store_true", help="If set to true, 
 parser.add_argument("--log", "-l", action="store_true", help="If set to true, program also outputs log messages. Default: False")
 parser.add_argument("--mirrors", "-m", action="store_true", help="If set to true, program also outputs invalid mirror messages. Default: False")
 parser.add_argument("--war", "-w", type=str, default="", help="If specified, only analyze the war log with the given name. Default: ''")
+parser.add_argument("--update", "-u", action="store_true", help="If set to true, only update player activity logs and exit without analyzing wars. Default: False")
 args = parser.parse_args()
 
 # Permanent immunities are players who are members of Leadership as well as known alts; they cannot be kicked. 
@@ -265,7 +266,7 @@ with open("strikes.txt", "r", encoding="utf-8") as strikes_file:
     # Capture number of strikes, player name, player tag
     # [1] Baleus #GYV8Q0U80:
 
-    strikes_pattern = re.compile(r"\[(\d+)\]\s+(.*)\s+#([A-Z0-9]{5,9}):")
+    strikes_pattern = re.compile(r"\[(\d+)\]\s+(.*)\s+#([A-Z0-9]{5,9})")
     # Find the corresponding player in the player_activity_dict, and set the base value to the number of strikes.
 
     for strike in strikes:
@@ -330,6 +331,11 @@ with open("war_bases.txt", "r", encoding="utf-8") as war_bases_file:
             elif war_type == "FWA" and conditional == "false":
                 file.write(f"3\n{player_name}\ny\n2\n{war_end_date}\n{enemy_clan}\nn\n")
                 print(f"Warning: {player_name} failed to put up a war base during an FWA war against {enemy_clan}")
+
+if args.update: 
+    with open("player_activity.pickle", "wb") as file: 
+        pickle.dump(player_activity_dict, file)
+    exit()
 
 for log_file in logs: 
     if args.war and log_file != args.war: continue
@@ -884,7 +890,7 @@ with open("player_activity.pickle", "wb") as file:
     pickle.dump(player_activity_dict, file)
 
 # Sort the player_activity_dict by the number of wars missed. 
-player_activity_dict = {player: player_activity_dict[player] for player in sorted(player_activity_dict, key=lambda player: len(player_activity_dict[player].wars_missed), reverse=True)}
+player_activity_dict = {player: player_activity_dict[player] for player in sorted(player_activity_dict, key=lambda player: len(player_activity_dict[player].wars_missed) + player_activity_dict[player].base_value, reverse=True)}
 
 # For each player in the player activity dict, sort their wars missed by date descending. 
 for player in player_activity_dict:
@@ -919,8 +925,12 @@ with open("activity_output.txt", "w", encoding="utf-8") as file:
             if wars_missed == 0: continue
             if player_activity_dict[player].name in permanent_immunities: continue
 
-            if wars_missed == 1: file.write(f"{player_activity_dict[player].name}: 1 war missed\n")
-            else: file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")
+            if player_activity_dict[player].base_value != 0: 
+                file.write(f"{player_activity_dict[player].name}: {player_activity_dict[player].base_value + wars_missed} ({player_activity_dict[player].base_value} strikes, {wars_missed} wars missed)\n")
+
+            else: 
+                if wars_missed == 1: file.write(f"{player_activity_dict[player].name}: 1 war missed\n")
+                else: file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")
 
     file.write("\n")
     for player in player_activity_dict: 
