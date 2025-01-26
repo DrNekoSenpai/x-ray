@@ -1,6 +1,10 @@
 wars = [
     ("Christ Farm War", "win", "2025/01/13"), 
-    # ("Mad Serbian's", "blacklist win/true", "2025/01/15")
+    ("Mad Serbian's", "blacklist win/true", "2025/01/15"), 
+    ("BACARRA KigToT", "blacklist win/true", "2025/01/17"),
+    ("MALAYA ALL PRO3", "win", "2025/01/21"), 
+    ("Gabbar", "win", "2025/01/24"),
+    ("MALAYA ALL FARM", "win", "2025/01/26"),
 ]
 
 import os

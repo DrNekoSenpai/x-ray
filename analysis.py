@@ -69,7 +69,7 @@ timed_immunities = [
 
 # War-specific immunities are for one war only. 
 one_war_immunities = [
-    
+    ("Im Rushed", "2025-01-24")
 ]
 
 with open("xray-claims.txt", "r", encoding="utf-8") as file: 
@@ -84,6 +84,7 @@ class Dump:
         self.nickname = nickname
         self.username = username
 
+# /stats dump role: @Reddit X-ray query: -f %i;%n;%u
 with open("dump.txt", "r", encoding="utf-8") as file:
     dump_data = [Dump(user_id, nickname, username) for user_id, nickname, username in [line.split(";") for line in file.readlines()]]
 
