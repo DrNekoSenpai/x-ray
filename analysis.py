@@ -69,7 +69,7 @@ timed_immunities = [
 
 # War-specific immunities are for one war only. 
 one_war_immunities = [
-    ("Im Rushed", "2025-01-24")
+
 ]
 
 with open("xray-claims.txt", "r", encoding="utf-8") as file: 
@@ -633,12 +633,16 @@ for log_file in logs:
                         if time_remaining < 6:
                             if args.bypass: print(f"Bypass: {player_name} hit their mirror #{defender} as well as another base not their mirror #{attacker}, but there are {round(time_remaining, 2)} hours remaining")
 
+                        # Otherwise, check if they hit a base that's within top 10. If so, this counts as a snipe and we should not penalize.
+                        elif int(defender) <= 10: 
+                            if args.bypass and args.snipe: print(f"Bypass: {player_name} hit their mirror #{defender} as well as another base not their mirror #{attacker}, but this appears to be a snipe")
+
                         else:  
                             if (player_immune or not is_main) and args.debug: 
-                                print(f"Debug: {player_name} hit their mirror #{defender} as well as another base not their mirror #{attacker}, with time remaining {round(time_remaining, 2)} hours")
+                                print(f"Debug: {player_name} hit their mirror #{attacker} as well as another base not their mirror #{defender}, with time remaining {round(time_remaining, 2)} hours")
 
                             else:
-                                print(f"Warning: {player_name} hit their mirror #{defender} as well as another base not their mirror #{attacker}, with time remaining {round(time_remaining, 2)} hours")
+                                print(f"Warning: {player_name} hit their mirror #{attacker} as well as another base not their mirror #{defender}, with time remaining {round(time_remaining, 2)} hours")
                                 file.write(f"3\n{player_name}\ny\n5\n{war_end_date}\n2\n{enemy_clan}\n")
                                 rules_broken[player_name] = True
 
@@ -947,6 +951,9 @@ with open("activity_output.txt", "w", encoding="utf-8") as file:
             # Skip this player if they have not missed any wars.
 
             if wars_missed == 0: continue
+
+            # Skip this player if they are immune. 
+            if player_activity_dict[player].name in permanent_immunities: continue
 
             if wars_missed == 1: file.write(f"{player_activity_dict[player].name}: 1 war missed\n")
             else: file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")

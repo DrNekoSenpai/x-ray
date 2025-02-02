@@ -4,14 +4,7 @@
 - (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
 - (1) Attacked someone else than mirror during a war against `Christ Farm War` on 2025-01-13.
 
-[2] Vojt #PCJP8QJC -- last strike received on 2024-12-30
-- (1) Had less than five base errors during a war against `Eternal Flame` on 2024-12-17.
-- (1) Missed two attacks during a blacklist war against `Ｑ 無言 援軍 対戦無 初心者` on 2024-12-30; we won, and met the conditional.
-
 [1] eRaZoR #2RVPQR9C2 -- last strike received on 2025-01-17
-- (1) Missed two attacks during a blacklist war against `BACARRA KigToT` on 2025-01-17; we won, and met the conditional.
-
-[1] heep #R89QG2QJ -- last strike received on 2025-01-17
 - (1) Missed two attacks during a blacklist war against `BACARRA KigToT` on 2025-01-17; we won, and met the conditional.
 
 [1] Shomeer #G2LGL80PL -- last strike received on 2025-01-17

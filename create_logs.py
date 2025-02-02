@@ -5,6 +5,8 @@ wars = [
     ("MALAYA ALL PRO3", "win", "2025/01/21"), 
     ("Gabbar", "win", "2025/01/24"),
     ("MALAYA ALL FARM", "win", "2025/01/26"),
+    ("sidoarjo winner", "win", "2025/01/28"),
+    ("Viminal Hill", "win", "2025/02/01")
 ]
 
 import os
