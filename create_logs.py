@@ -1,21 +1,23 @@
 wars = [
-    ("Christ Farm War", "win", "2025/01/13"), 
-    ("Mad Serbian's", "blacklist win/true", "2025/01/15"), 
-    ("BACARRA KigToT", "blacklist win/true", "2025/01/17"),
-    ("MALAYA ALL PRO3", "win", "2025/01/21"), 
-    ("Gabbar", "win", "2025/01/24"),
-    ("MALAYA ALL FARM", "win", "2025/01/26"),
-    ("sidoarjo winner", "win", "2025/01/28"),
-    ("Viminal Hill", "win", "2025/02/01")
+    ("Pinoy 2.1", "loss", "2025/02/13"),
+    ("Vixen Raiders", "win", "2025/02/15"),
+    ("Zanth Titans", "loss", "2025/02/17"),
+    ("MALAYA ALL PRO3", "win", "2025/02/19"),
 ]
 
-import os
+import os, datetime
     
 for war in wars: 
     # Check if the corresponding file exists. 
     # If so, skip; we only want to create new logs. 
     if os.path.exists(f"./logs/{war[2].replace('/', '_')}_{war[0].replace(' ', '_').lower()}.txt"): 
         print(f"Log for {war[2].replace('/', '_')}_{war[0].replace(' ', '_')} already exists. Skipping...")
+        continue
+
+    # Check if the war end date is in the future. 
+    # If so, skip it. 
+    if datetime.datetime.strptime(war[2], "%Y/%m/%d") > datetime.datetime.now(): 
+        print(f"War {war[0]} ends in the future. Skipping...")
         continue
 
     with open(f"./logs/{war[2].replace('/', '_')}_{war[0].replace(' ', '_').lower()}.txt", "w") as f: 
