@@ -361,7 +361,7 @@ def epoch_timestamp(dt:datetime):
 if __name__ == "__main__":
     players = import_pickle()
 
-    strike_threshold = 30
+    strike_threshold = 60
 
     for i in range(len(players)):
         if players[i].strikes and (datetime.now() - players[i].strikes[-1].date).days > strike_threshold: 
