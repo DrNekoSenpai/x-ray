@@ -5,6 +5,7 @@ from io import StringIO
 # Argument parser
 parser = argparse.ArgumentParser(description='A tool to calculate war weights.')
 parser.add_argument('-f', '--force-valid', action='store_false', help='Force the script to disregard values that are not divisible by 200.')
+parser.add_argument('-s', '--sheet', action='store_true', help='Flag to disable input meant for Google Sheet entry.')
 args = parser.parse_args()
 
 def up_to_date(): 
@@ -121,6 +122,7 @@ if weight.startswith('23'):
     with open('weights.txt', 'r', encoding='utf-8') as file:
         last_weight = file.readlines()[-1].strip()
         if last_weight and abs(int(last_weight) - 29000) < 1500: weight = '29' + weight[2:]
+        elif last_weight and abs(int(last_weight)/5 - 29000) < 1500: weight = '29' + weight[2:]
 
 # Odd case: a weight of "13280" should be "32800"
 if weight == '13280': weight = '32800'
@@ -128,6 +130,8 @@ if weight == '13280': weight = '32800'
 if weight: 
     with open('weights.txt', 'r', encoding='utf-8') as file:
         num_lines = len(file.readlines())
+
+    if args.sheet: weight = int(weight) * 5
 
     print(f"{num_lines + 1}: {weight}")
 

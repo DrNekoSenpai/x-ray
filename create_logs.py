@@ -2,6 +2,8 @@ wars = [
     ("NarniaEmpire™", "win", "2025/03/13"), 
     ("Farmers United", "loss", "2025/03/15"),
     (".CLAN BROTHERS.", "loss", "2025/03/17"),
+    ("Reckless Life", "win", "2025/03/22"), 
+    ("MALAYA ALL PRO3", "loss", "2025/03/24"),   
 ]
 
 import os, datetime
