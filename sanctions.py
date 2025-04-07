@@ -1,5 +1,6 @@
 import os, re
 from datetime import datetime, timedelta
+from analysis import permanent_immunities
 
 for filename in os.listdir("./logs/sanctions/"):
     with open(f"./logs/sanctions/{filename}", "r", encoding="utf-8") as file: 
@@ -49,25 +50,6 @@ for filename in os.listdir("./logs/sanctions/"):
                     break
 
     sanction_pattern = re.compile(r"#\d+\.\s+(?P<name>[^:]+):.*?(?P<symbol>❌|🔥|☠️)")
-
-    permanent_immunities = [ 
-        "Sned",
-        "Sned 2.0",
-        "Sned 3.0",
-        "Sned 4.0",
-        "BumblinMumbler",
-        "BumblinMumbler2",
-        "BumblinMumbler3",
-        "Arcohol",
-        "bran6", 
-        "katsu", 
-        "K.L.A.U.S v2",
-        "Marlec", 
-        "Ascended", 
-        "Smitty™", 
-        "Ligma", 
-        "Sugma"
-    ]
 
     with open(f"./inputs/sanctions_{filename}", "w", encoding="utf-8") as file:
         for sanction in sanctions:

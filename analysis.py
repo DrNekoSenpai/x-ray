@@ -50,8 +50,6 @@ permanent_immunities = [
     "BumblinMumbler",
     "BumblinMumbler2",
     "BumblinMumbler3",
-    "katsu", 
-    "K.L.A.U.S v2",
     "Ascended", 
     "Smitty™", 
     "Ligma", 
