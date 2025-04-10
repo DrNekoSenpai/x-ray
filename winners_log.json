@@ -1,0 +1,168 @@
+{
+    "pg": {
+        "win_date": "2025-02-10",
+        "bonus": [
+            {
+                "month": "2025-03",
+                "hits": 7,
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-04",
+                "hits": 7,
+                "bonus_weeks": 4
+            }
+        ]
+    },
+    "Baleus": {
+        "win_date": "2025-02-10",
+        "bonus": [
+            {
+                "month": "2025-03",
+                "hits": 6,
+                "bonus_weeks": 3
+            },
+            {
+                "month": "2025-04",
+                "hits": 2,
+                "bonus_weeks": 1
+            }
+        ]
+    },
+    "Smitty\u2122": {
+        "win_date": "2025-02-10",
+        "bonus": [
+            {
+                "month": "2025-03",
+                "hits": 6,
+                "bonus_weeks": 3
+            },
+            {
+                "month": "2025-04",
+                "hits": 7,
+                "bonus_weeks": 4
+            }
+        ]
+    },
+    "YouAreMyBreh": {
+        "win_date": "2025-02-10",
+        "bonus": [
+            {
+                "month": "2025-03",
+                "hits": 7,
+                "bonus_weeks": 4
+            }
+        ]
+    },
+    "DNG": {
+        "win_date": "2025-02-10",
+        "bonus": [
+            {
+                "month": "2025-03",
+                "hits": 7,
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-04",
+                "hits": 1,
+                "bonus_weeks": 0
+            }
+        ]
+    },
+    "katsu": {
+        "win_date": "2025-03-11",
+        "bonus": [
+            {
+                "month": "2025-04",
+                "hits": 0,
+                "bonus_weeks": 0
+            }
+        ]
+    },
+    "Luke": {
+        "win_date": "2025-03-11",
+        "bonus": []
+    },
+    "CrazyWaveIT": {
+        "win_date": "2025-03-11",
+        "bonus": [
+            {
+                "month": "2025-04",
+                "hits": 6,
+                "bonus_weeks": 3
+            }
+        ]
+    },
+    "Plantos": {
+        "win_date": "2025-03-11",
+        "bonus": [
+            {
+                "month": "2025-04",
+                "hits": 6,
+                "bonus_weeks": 3
+            }
+        ]
+    },
+    "Ascended": {
+        "win_date": "2025-03-11",
+        "bonus": [
+            {
+                "month": "2025-04",
+                "hits": 5,
+                "bonus_weeks": 2
+            }
+        ]
+    },
+    "Rod": {
+        "win_date": "2025-03-11",
+        "bonus": []
+    },
+    "Dalto": {
+        "win_date": "2025-03-11",
+        "bonus": [
+            {
+                "month": "2025-04",
+                "hits": 7,
+                "bonus_weeks": 4
+            }
+        ]
+    },
+    "K.L.A.U.S": {
+        "win_date": "2025-03-11",
+        "bonus": [
+            {
+                "month": "2025-04",
+                "hits": 7,
+                "bonus_weeks": 4
+            }
+        ]
+    },
+    "Kaselcap": {
+        "win_date": "2025-04-09",
+        "bonus": []
+    },
+    "Sned": {
+        "win_date": "2025-04-09",
+        "bonus": []
+    },
+    "Mythos": {
+        "win_date": "2025-04-09",
+        "bonus": []
+    },
+    "Anas": {
+        "win_date": "2025-04-09",
+        "bonus": []
+    },
+    "Az7777": {
+        "win_date": "2025-04-09",
+        "bonus": []
+    },
+    "Protips": {
+        "win_date": "2025-04-09",
+        "bonus": []
+    },
+    "dhruba.": {
+        "win_date": "2025-04-09",
+        "bonus": []
+    }
+}

@@ -1,276 +1,300 @@
-import datetime, re, argparse, subprocess, random, openpyxl, pickle
+import os
+import json
+import random
+import argparse
+from datetime import datetime, timedelta
 
-from contextlib import redirect_stdout as redirect
-from io import StringIO
+# Constants
+WINNERS_LOG_FILE = "winners_log.json"
+INPUT_FILE = "cwl-input.txt"
+BASE_PENALTY_WEEKS = 27
+WEEKS_PER_MONTH = 4.5  # Approximate weeks in a month
 
-def up_to_date(): 
-    # Return FALSE if there is a new version available.
-    # Return TRUE if the version is up to date.
+def read_players(filename):
+    """
+    Reads player names and hits from a file.
+    Expected file format: one player per line as:
+       player_name, hits
+    Returns a list of tuples: (player_name, int(hits))
+    """
+    players = []
+    if not os.path.exists(filename):
+        print(f"Error: The file '{filename}' was not found.")
+        exit(1)
+    with open(filename, 'r', encoding='utf-8') as file:
+        for line in file:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                name, hits_str = line.rsplit(' ', 1)
+                name = name.strip()
+                hits = int(hits_str.strip())
+                if hits < 0 or hits > 7:
+                    print(f"Warning: {name} has an unexpected number of hits ({hits}). Must be between 0 and 7.")
+                    continue
+                players.append((name, hits))
+            except ValueError:
+                print(f"Skipping invalid formatted line: {line}")
+    return players
+
+def build_entries(players):
+    """
+    Builds a weighted list of entries based on the number of hits.
+    Only players that are eligible (or not logged yet) are considered.
+    Each player appears in the list as many times as their hits.
+    """
+    entries = []
+    for player, hits in players:
+        # Skip players with zero hits
+        if hits <= 0: continue
+        if is_eligible(player): entries.extend([player] * hits)
+
+    return entries
+
+def load_winners_log():
+    """Loads the winners log from file."""
+    if os.path.exists(WINNERS_LOG_FILE):
+        with open(WINNERS_LOG_FILE, 'r', encoding='utf-8') as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                print("Error: Winners log file is corrupt. Starting with an empty log.")
+                return {}
+    else:
+        return {}
+
+def save_winners_log(log):
+    """Saves the winners log to file."""
+    with open(WINNERS_LOG_FILE, 'w', encoding='utf-8') as f:
+        json.dump(log, f, indent=4)
+
+def weeks_elapsed(from_date_str):
+    """Computes weeks elapsed since 'from_date' (YYYY-MM-DD) until today."""
+    win_date = datetime.strptime(from_date_str, "%Y-%m-%d")
+    now = datetime.today()
+    elapsed_days = (now - win_date).days
+    return elapsed_days / 7.0
+
+def total_bonus_for_player(log_record):
+    """Calculates the total bonus weeks for a player's log record."""
+    bonus_entries = log_record.get("bonus", [])
+    return sum(entry.get("bonus_weeks", 0) for entry in bonus_entries)
+
+def is_eligible(player_name):
+    """
+    Determines if a player is eligible to win.
+    A player is ineligible if they appear in the winners log with a penalty period remaining.
+    The penalty is:
+        remaining_weeks = BASE_PENALTY_WEEKS - elapsed_weeks - total_bonus
+    A player is eligible if remaining_weeks is <= 0 or if they are not in the log.
+    """
+    winners_log = load_winners_log()
+    record = winners_log.get(player_name)
+    if not record:
+        return True
+    elapsed = weeks_elapsed(record["win_date"])
+    bonus = total_bonus_for_player(record)
+    remaining = BASE_PENALTY_WEEKS - elapsed - bonus
+    return remaining <= 0
+
+def draw_winners(entries, available_distributions):
+    """
+    Draws winners randomly based on weighted entries.
+    Each player's chance is weighted by the number of hits.
+    Once a player wins, all their entries are removed from the pool.
+    """
+    winners = []
+    current_entries = entries.copy()
+    
+    while available_distributions > 0 and current_entries:
+        winner = random.choice(current_entries)
+        winners.append(winner)
+        # Remove all occurrences of the winning player
+        current_entries = [entry for entry in current_entries if entry != winner]
+        available_distributions -= 1
+    return winners
+
+def record_new_winners(new_winners):
+    """
+    Records new winners in the winners log with today's date.
+    Does not overwrite existing winners.
+    """
+    winners_log = load_winners_log()
+    today_str = datetime.today().strftime("%Y-%m-%d")
+    for winner in new_winners:
+        if winner not in winners_log:
+            winners_log[winner] = {"win_date": today_str, "bonus": []}
+
+    save_winners_log(winners_log)
+
+def update_bonus():
+    """
+    Processes bonus records from INPUT_FILE.
+    Each line should have the format:
+         player_name hits
+
+    This function now clears (wipes) any bonus records in winners_log.json
+    for the same month as provided by the bonus file, so that if the command is run multiple times
+    in the same month, the bonus for that month is refreshed.
+    For each bonus record not already applied, compute:
+         bonus_weeks = (hits // 2) + (1 if hits == 7 else 0)
+    and update the player's log.
+    """
+    if not os.path.exists(INPUT_FILE):
+        print(f"No bonus file '{INPUT_FILE}' found. Nothing to update.")
+        return
+
+    winners_log = load_winners_log()
+    changes_made = False
+
+    # Ask user for current month. If not specified, assume current month.
+    month = input("Enter the month (YYYY-MM) for bonus processing (default is current month): ").strip()
+    if not month: 
+        month = datetime.today().strftime("%Y-%m")
     try:
-        # Fetch the latest changes from the remote repository without merging or pulling
-        # Redirect output, because we don't want to see it.
-        with redirect(StringIO()):
-            subprocess.check_output("git fetch", shell=True)
+        datetime.strptime(month, "%Y-%m")
+    except ValueError:
+        print(f"Invalid month format: {month}. Expected format is YYYY-MM.")
+        return
 
-        # Compare the local HEAD with the remote HEAD
-        local_head = subprocess.check_output("git rev-parse HEAD", shell=True).decode().strip()
-        remote_head = subprocess.check_output("git rev-parse @{u}", shell=True).decode().strip()
+    # Read all bonus records in the bonus file first to know which month(s) we'll be processing.
+    bonus_records = []
+    with open(INPUT_FILE, 'r', encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                name, hits_str = line.rsplit(' ', 1)
+                name = name.strip()
+                hits = int(hits_str.strip())
+                bonus_records.append((name, month, hits))
+            except ValueError:
+                print(f"Skipping invalid bonus line: {line}")
+                continue
 
-        return local_head == remote_head
+    # Create a set of months that are being processed from bonus file.
+    months_to_update = {record[1] for record in bonus_records}
+    
+    # Remove all bonus entries for these months from all players in winners_log.
+    for name, record in winners_log.items():
+        if "bonus" in record:
+            original_count = len(record["bonus"])
+            # Filter out bonus entries that are in the set of months to update.
+            record["bonus"] = [b for b in record["bonus"] if b.get("month") not in months_to_update]
+            if len(record["bonus"]) != original_count:
+                print(f"Cleared bonus records for {name} for months: {months_to_update}")
+                changes_made = True
 
-    except subprocess.CalledProcessError as e:
-        print(f"Error: {e}")
-        return None
+    # Now process each bonus line from the bonus file.
+    for name, month, hits in bonus_records:
+        if name not in winners_log:
+            print(f"Player {name} is not in the winners log; skipping bonus update for them.")
+            continue
 
-if up_to_date() is False:
-    print("Error: the local repository is not up to date. Please pull the latest changes before running this script.")
-    print("To pull the latest changes, simply run the command 'git pull' in this terminal.")
-    exit(1)
+        # Calculate bonus: one week per 2 hits plus an extra week if exactly 7 hits.
+        bonus_weeks = (hits // 2) + (1 if hits == 7 else 0)
+        bonus_entry = {"month": month, "hits": hits, "bonus_weeks": bonus_weeks}
+        winners_log[name].setdefault("bonus", []).append(bonus_entry)
+        print(f"Updated bonus for {name} for month {month}: {bonus_weeks} bonus weeks (from {hits} hits).")
+        changes_made = True
 
-# Create an argument parser
-parser = argparse.ArgumentParser(description="Calculate weighted distribution for CWL")
-parser.add_argument("--num_dists", "-n", type=int, default=0, help="Number of distributions available")
-parser.add_argument("--bypass", "-b", action="store_true", help="Bypass check for FWA bases; useful if clan earned immunity")
-parser.add_argument("--update", "-u", action="store_true", help="Update distribution history with new data")
-parser.add_argument("--winner", "-w", type=str, nargs="+", help="Force a particular player to be selected")
-parser.add_argument("--ineligible", "-i", type=str, nargs="+", help="Force a particular player to be unable to be selected")
-parser.add_argument("--view_history", "-v", action="store_true", help="View distribution history and exit")
+    if changes_made:
+        save_winners_log(winners_log)
+        print("Winners log updated with bonus records.")
+    else:
+        print("No bonus records were updated.")
 
-# Parse the arguments
-args = parser.parse_args()
+def draw_command(available_distributions:int, bypass:bool):
+    """Function to perform the draw winners process."""
+    players = read_players(INPUT_FILE)
+    entries = build_entries(players)
+    if not entries:
+        print("No eligible players available for drawing. Exiting draw process.")
+        return
+    
+    month_year = datetime.today().strftime("%Y-%m")
 
-if args.update: 
-    # Load distribution history
-    try: 
-        with open("dist_history.pickle", "rb") as f:
-            dist_history = pickle.load(f)
+    ineligible_players = []
+    for player, _ in players:
+        if not is_eligible(player):
+            winners_log = load_winners_log()
+            record = winners_log.get(player)
+            elapsed = weeks_elapsed(record["win_date"])
+            bonus = total_bonus_for_player(record)
+            remaining = BASE_PENALTY_WEEKS - elapsed - bonus
+            ineligible_players.append((player, elapsed, bonus, remaining))
 
-    except FileNotFoundError:
-        dist_history = []
+    # Sort by threshold ascending. Those with the least time remaining are listed first.
+    ineligible_players.sort(key=lambda x: x[3])
 
-    # Ask how many distributions there were last month
-    num_dists = int(input("How many distributions were available? "))
-    date_received = input("Date received (YYYY-MM-DD): ")
-    date_received = datetime.datetime.strptime(date_received, "%Y-%m-%d")
+    print("---")
+    
+    winners = draw_winners(entries, available_distributions)
+    if winners:
+        print(f"**Reddit X-ray {month_year} Weighted Distribution**\n({available_distributions} available bonuses, total{'; FWA base penalties ignored' if bypass else ''})\n")
 
-    print("")
-    for i in range(num_dists): 
-        player = input(f"Player {i+1}: ")
+        eligible_players = [player for player in players if is_eligible(player[0])]
+        eligible_players = sorted(eligible_players, key=lambda x: x[1], reverse=True)
 
-        weeks_logged = 0
-        log_dates = []
-        
-        dist_history.append((player, date_received, weeks_logged, log_dates))
-
-    with open("dist_history.pickle", "wb") as f:
-        pickle.dump(dist_history, f)
-
-    exit(0)
-
-if args.view_history:
-    try: 
-        with open("dist_history.pickle", "rb") as f: 
-            dist_history = pickle.load(f)
-
-    except FileNotFoundError: 
-        print("No distribution history found.")
-        exit(0)
-
-    for i, entry in enumerate(dist_history): 
-        print(f"Player {i+1}: {entry[0]}")
-        print(f"  - Date received: {entry[1].strftime('%Y-%m-%d')}")
-        print(f"  - Weeks logged: {entry[2]}")
-        print(f"  - Log dates: {entry[3]}")
+        for num in range(7, 0, -1): 
+            if len([player[0] for player in eligible_players if player[1] == num]) > 0:
+                print(f"{num} entries: {', '.join([player[0] for player in eligible_players if player[1] == num])}")
+            
         print("")
 
-    exit(0)
+        ineligible_players = [player for player in players if not is_eligible(player[0])]
+        print(f"Ineligible:")
+        for player, elapsed, bonus, remaining in ineligible_players:
+            print(f"- {player}: {elapsed:.2f} weeks elapsed, {bonus} bonus weeks, threshold: {remaining:.2f}")
 
-with open("cwl-input.txt", "r", encoding="utf-8") as f: 
-    cwl = f.readlines()
-    cwl = [x.strip().rsplit(" ", 1) for x in cwl]
+        print(f"**This month's {available_distributions} selected winners are:**")
+        for winner in winners:
+            print(f"- {winner}")
 
-players = []
-
-with open(f"xray-minion.txt", "r", encoding="utf-8") as f: 
-    minion = f.readlines()
-    pattern = re.compile(r"#([0-9A-Z]{5,9})\s+\d+\s+(.*)")
-    for line in minion: 
-        match = pattern.match(line)
-        if match: 
-            tag, player = match.groups()
-            player = player.replace("\\", "").strip()
-
-            if player not in [p[1] for p in players]:
-                players.append((player, tag))
-        else: 
-            print(f"Error: {line} does not match pattern")
-
-entries = {}
-hit_entries = {}
-fwa_base_penalties = {}
-
-for player,hits in cwl: 
-    if hits == "0":
-        entries[player] = 0
-        hit_entries[player] = 0
-    else: 
-        entries[player] = int(hits)
-        hit_entries[player] = int(hits)
-
-if not args.bypass: 
-    # Open the war_bases.xlsx file
-    wb = openpyxl.load_workbook("war_bases.xlsx", data_only=True)
-
-    sheet = wb.active
-    data = sheet.iter_rows(values_only=True, max_row=31, max_col=3)
-
-    # For each row... 
-    for row in data:
-        name = row[1]
-        try: points = int(row[2])
-        except: continue # assume header row
-
-        # Find the corresponding player in the list of players
-        for player,tag in players:
-            if player == name: 
-                # Print out the number of points they had, if it's above zero. 
-                if points > 0:
-                    try: 
-                        fwa_base_penalties[player] = points
-                        entries[player] -= points
-
-                    except KeyError: 
-                        # Assume they aren't in the database because they did no hits. Continue. 
-                        continue 
-
-                else: 
-                    fwa_base_penalties[player] = 0
-
-else: 
-    # EVERYONE has no FWA base points.
-    fwa_base_penalties = {player: 0 for player in entries.keys()}
-
-# Sort entries by weight in descending order, then by hit entries, then by loyalty entries 
-entries = {k: v for k, v in sorted(entries.items(), key=lambda item: (item[1], hit_entries[item[0]]), reverse=True)}
-
-month = datetime.datetime.now().strftime("%B")
-year = datetime.datetime.now().year
-
-if args.num_dists == 0: 
-    num_dists = int(input("How many distributions are available? "))
-
-else:
-    num_dists = args.num_dists
-
-pool = []
-
-class Player: 
-    def __init__(self, name:str, date_received:datetime.datetime, weeks_logged:int, log_dates:list): 
-        self.name = name
-        self.date_received = date_received
-        self.weeks_logged = weeks_logged
-        self.log_dates = log_dates
-
-try: 
-    with open("dist_history.pickle", "rb") as f: 
-        dist_history = pickle.load(f)
-
-except FileNotFoundError:
-    dist_history = []
-
-# For all players in the input, add one week per two hits done. If they did seven, add one more.
-# Two hits, one week. Four hits, two weeks. Six hits, three weeks. Seven hits, four weeks.
-
-max_value = 32
-
-for player, hits in hit_entries.items():
-    # First, check if this player already exists in dist_history.
-    if player in [p[0] for p in dist_history]:
-        for i, entry in enumerate(dist_history): 
-            if entry[0] == player: 
-                # Add one week per two hits done. If they did seven, add one more.
-                weeks_logged = entry[2] + (hits // 2)
-                if hits == 7: weeks_logged += 1
-
-                dist_history[i] = (player, entry[1], weeks_logged)
-
-                # Check if the number of weeks elapsed between their receipt date and now, plus the number of weeks logged, is greater than the maximum value.
-
-                if (datetime.datetime.now() - entry[1]).days // 7 + weeks_logged >= max_value: 
-                    print(f"Player {player} has hit the threshold.")
-                    print(f"  - Date received: {entry[1].strftime('%Y-%m-%d')}")
-                    print(f"  - Weeks logged: {weeks_logged}")
-                    print(f"  - Weeks elapsed: {(datetime.datetime.now() - entry[1]).days // 7}")
-                    print(f"  - Maximum value: {max_value}")
-
-                    # If the player has hit the threshold, remove them from the list.
-                    dist_history.pop(i)
-
-                else: 
-                    print(f"Player {player}:")
-                    print(f"  - Date received: {entry[1].strftime('%Y-%m-%d')}")
-                    print(f"  - Weeks logged: {weeks_logged}")
-                    print(f"  - Weeks elapsed: {(datetime.datetime.now() - entry[1]).days // 7}")
-                    print(f"  - Maximum value: {max_value}")
-
-                break
-
-print("")
-print(f"**Reddit X-ray {month} {year} Weighted Distribution**")
-if args.bypass: print(f"({num_dists} available bonuses, total; FWA base penalties ignored)")
-else: print(f"({num_dists} available bonuses, total)")
-print("")
-
-with open("dist_history.pickle", "wb") as f: 
-    pickle.dump(dist_history, f)
-
-eligible = [p for p in entries.keys() if p not in dist_history]
-ineligible = [p for p in entries.keys() if p in dist_history]
-
-# Print a warning if there are less eligible people than there are possible distributions. 
-if len(eligible) < num_dists: 
-    print(f"Warning: There are only {len(eligible)} eligible people, but {num_dists} distributions are available.")
-    print("By default, this means that the following people will receive a distribution:")
-    for player in eligible: 
-        print(f"- {player}")
+        print("---")
         
-    exit(0)
+        # Check if winners have already been recorded for the current month
+        winners_log = load_winners_log()
+        current_month = datetime.today().strftime("%Y-%m")
+        existing_winners = [name for name, record in winners_log.items() if record["win_date"].startswith(current_month)]
 
-entries = {k: v for k, v in entries.items() if k in eligible}
+        if existing_winners:
+            print(f"Winners for {current_month} have already been recorded: {', '.join(existing_winners)}")
+            print("Assuming this is a test run. Exiting without recording winners.")
+            return
 
-for i in range(15, 0, -1): 
-    # Get the tier, that is, all the players who have this amount of entries. 
-    tier = [k for k,v in entries.items() if v == i]
-    if len(tier) == 0: continue
-    print(f"{i} entries: ", end = "")
-    print(f"{', '.join(tier)}")
-    for player in tier: 
-        for _ in range(i): 
-            pool.append(player)
+        confirm = input("Confirm distribution? (y/n): ").strip().lower()
+        if confirm == 'y':
+            record_new_winners(winners)
+            print("Winners recorded successfully.")
 
-print("")
-print(f"Ineligible: {', '.join(ineligible)}")
-print("")
+    else:
+        print("No winners could be selected.")
 
-winners = []
+def main():
+    parser = argparse.ArgumentParser(
+        description="Clan War Leagues Distribution Program",
+        epilog="By default the program performs the 'draw' command if none is specified."
+    )
+    parser.add_argument("--update", "-u", action="store_true", help="Update bonus weeks for players.")
+    parser.add_argument("--bypass", "-b", action="store_true", help="Bypass check for FWA bases; useful if clan earned immunity")
+    args = parser.parse_args()
 
-if args.winner: 
-    # If there was a forced winner, we should remove them from the pool and add them to the list of winners. 
-    winners.extend(args.winner)
+    # Check if we have more than 30 players listed in the input file.
+    # If so, forcefully set bypass flag to true. 
 
-print(f"**This month's {num_dists} selected winners are**:")
+    players = read_players(INPUT_FILE)
+    if len(players) > 30: args.bypass = True
 
-while True:  
-    choice = random.choice(pool)
-    # Remove all instances of this player from the pool.
-    pool = [p for p in pool if p != choice]
+    if args.update: update_bonus()
+    else: 
+        num_distributions = input("How many distributions were available? ")
+        try: num_distributions = int(num_distributions)
+        except: return
+        
+        draw_command(num_distributions, args.bypass)
 
-    if args.ineligible and choice in args.ineligible: continue
-    if choice in winners: continue
-
-    winners.append(choice)
-
-    if len(winners) == num_dists: break
-
-for winner in winners:
-    print(f"- {winner}")
+if __name__ == "__main__":
+    main()

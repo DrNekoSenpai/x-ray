@@ -64,8 +64,6 @@ def import_pickle():
     except: players = []
     return players
 
-players = import_pickle()
-
 def add_player(): 
     # in_str = input('Enter name and tag, separated by spaces: ').strip()
     # if in_str == '': continue
@@ -361,7 +359,7 @@ def epoch_timestamp(dt:datetime):
 if __name__ == "__main__":
     players = import_pickle()
 
-    strike_threshold = 60
+    strike_threshold = 30
 
     for i in range(len(players)):
         if players[i].strikes and (datetime.now() - players[i].strikes[-1].date).days > strike_threshold: 
