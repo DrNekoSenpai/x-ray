@@ -1,13 +1,5 @@
 wars = [
-    ("NarniaEmpire™", "win", "2025/03/13"), 
-    ("Farmers United", "loss", "2025/03/15"),
-    (".CLAN BROTHERS.", "loss", "2025/03/17"),
-    ("Reckless Life", "win", "2025/03/22"), 
-    ("MALAYA ALL PRO3", "loss", "2025/03/24"),
-    ("Deathstar 2", "win", "2025/03/26"),
-    ("Black Pearl 2", "loss", "2025/03/28"),
-    ("Before DawN©", "win", "2025/03/30"),
-    ("Elite Power", "loss", "2025/04/01"),
+    ("sidoarjo winner", "win", "2025/04/13"), 
 ]
 
 import os, datetime

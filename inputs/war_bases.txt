@@ -1,0 +1,1 @@
+Player name; Enemy clan; FWA / blacklist; Sanctions / conditional (boolean); War end date (YYYY-MM-DD)

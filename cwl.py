@@ -244,10 +244,11 @@ def draw_command(available_distributions:int, bypass:bool):
             
         print("")
 
-        ineligible_players = [player for player in players if not is_eligible(player[0])]
         print(f"Ineligible:")
         for player, elapsed, bonus, remaining in ineligible_players:
             print(f"- {player}: {elapsed:.2f} weeks elapsed, {bonus} bonus weeks, threshold: {remaining:.2f}")
+
+        print("")
 
         print(f"**This month's {available_distributions} selected winners are:**")
         for winner in winners:
