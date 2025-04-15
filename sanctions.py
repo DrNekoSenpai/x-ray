@@ -1,35 +1,38 @@
 import os, re
 from datetime import datetime, timedelta
-from analysis import permanent_immunities
+
+# Permanent immunities are players who are members of Leadership as well as known alts; they cannot be kicked. 
+permanent_immunities = [ 
+    "Sned",
+    "Sned 2.0",
+    "Sned 3.0",
+    "Sned 4.0",
+    "BumblinMumbler",
+    "BumblinMumbler2",
+    "BumblinMumbler3",
+    "Ascended", 
+    "Smitty™", 
+    "Ligma", 
+    "Sugma", 
+    "CrazyWaveIT", 
+    "LOGAN911", 
+    "skyeshade", 
+    "Golden Unicorn✨"
+]
 
 for filename in os.listdir("./logs/sanctions/"):
     with open(f"./logs/sanctions/{filename}", "r", encoding="utf-8") as file: 
         sanctions = file.read().splitlines()
 
-    # #2. Satan: firespitters overlapping dark spell factory and dark elixir storage and Bob's hut and workshop❌️
-
-    # Line 3; Dec 17 2024
-    # strftime to %Y-%m-%d format
-
     date = datetime.strptime(sanctions[2], "%b %d %Y").strftime("%Y-%m-%d")
-
-    # Incorrect bases: 20❌
-    # Hot Mess Bases: 00🔥
-    # War Bases: 00☠️
-
-    # We want to match a line with one of these symbols and categorize based on the symbol found. The text isn't important. 
-    # We only need to extract the name and symbol found. Nothing else is important, including the reason. 
-
-    # #2. Satan: firespitters overlapping dark spell factory and dark elixir storage and Bob's hut and workshop❌️
-    # #42. Rising Unicorn✨: war base☠️
+    if datetime.strptime(sanctions[2], "%b %d %Y") < datetime.now() - timedelta(days=60): continue
 
     enemy_clan = None
 
     # Open the logs folder and find the corresponding war. It might not be the exact same date, but we should look up to two days backwards. 
     for war in os.listdir("./logs/"): 
         date_pattern = re.compile(r"\d{4}_\d{2}_\d{2}")
-        # Go through each war and see if it is within two days of the date, one-directional. 
-        # For example, if the sanction date is 2024-12-17, we should look for wars on 2024-12-17, 2024-12-16, and 2024-12-15.
+
         war_date = date_pattern.search(war)
         if not war_date: continue
 
@@ -48,21 +51,34 @@ for filename in os.listdir("./logs/sanctions/"):
                 else: 
                     print("No enemy clan found.")
                     break
+        
+    # Points: 16
+    points_pattern = re.compile(r"Points:\s+(\d+)")
+    num_points = points_pattern.search(sanctions[-1])
 
-    sanction_pattern = re.compile(r"#\d+\.\s+(?P<name>[^:]+):.*?(?P<symbol>❌|🔥|☠️)")
+    if not num_points: continue
+    sanction_value = (int(num_points.group(1)) - 6) // 3
+    
+    if sanction_value < 1: continue
+    elif sanction_value > 3: sanction_value = 3
+
+    sanction_pattern_1 = re.compile(r"#\d+\.\s+(?P<name>[^:]+):(?P<reason>.*?)(?P<symbol>❌|🔥|☠️)")
+    sanction_pattern_2 = re.compile(r"#\d+\s+(?P<name>[^-]+)\s+-(?P<reason>.*?)(?P<symbol>❌|🔥|☠️)")
 
     with open(f"./inputs/sanctions_{filename}", "w", encoding="utf-8") as file:
         for sanction in sanctions:
-            match = sanction_pattern.match(sanction)
-
+            match = sanction_pattern_1.match(sanction)
+            if not match: match = sanction_pattern_2.match(sanction)
             if not match: continue
+
             if match.group("name") in permanent_immunities: continue 
 
-            if match.group("symbol") == "❌":
-                file.write(f"3\n{match.group('name')}\ny\n4\n{date}\nn\n{enemy_clan}\n")
+            player_name = match.group("name").strip()
+            reason = match.group("reason").strip()
+            symbol = match.group("symbol").strip()
 
-            elif match.group("symbol") == "🔥":
-                file.write(f"3\n{match.group('name')}\ny\n4\n{date}\ny\n{enemy_clan}\n")
+            if symbol == "❌" or symbol == "🔥":
+                file.write(f"3\n{match.group('name')}\ny\n4\n{date}\n{enemy_clan}\n")
 
-            elif match.group("symbol") == "☠️":
-                file.write(f"3\n{match.group('name')}\ny\n3\n{date}\n{enemy_clan}\n")
+            elif symbol == "☠️":
+                file.write(f"3\n{match.group('name')}\ny\n3\n{date}\n{enemy_clan}\n{sanction_value}\n")

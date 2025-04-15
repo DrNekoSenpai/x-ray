@@ -7,22 +7,7 @@ if up_to_date() is False:
     print("Error: the local repository is not up to date. Please pull the latest changes before running this script.")
     print("To pull the latest changes, simply run the command 'git pull' in this terminal.")
     exit(1)
-
-if not os.path.exists("./logs/"): os.mkdir("./logs/")
-if not os.path.exists("./inputs/"): os.mkdir("./inputs/")
-
-logs = [file[:-4] for file in os.listdir("./logs/") if not "_input" in file]
-
-parser = argparse.ArgumentParser(description="Analyze war logs for generating strikes.")
-parser.add_argument("--bypass", "-b", action="store_true", help="If set to true, program also outputs bypass messages. Default: False")
-parser.add_argument("--snipe", "-s", action="store_true", help="If set to true, program outputs snipe messages when bypass is also true. Default: False")
-parser.add_argument("--debug", "-d", action="store_true", help="If set to true, program outputs log messages for immune players. Default: False")
-parser.add_argument("--log", "-l", action="store_true", help="If set to true, program also outputs log messages. Default: False")
-parser.add_argument("--mirrors", "-m", action="store_true", help="If set to true, program also outputs invalid mirror messages. Default: False")
-parser.add_argument("--war", "-w", type=str, default="", help="If specified, only analyze the war log with the given name. Default: ''")
-parser.add_argument("--update", "-u", action="store_true", help="If set to true, only update player activity logs and exit without analyzing wars. Default: False")
-args = parser.parse_args()
-
+    
 # Permanent immunities are players who are members of Leadership as well as known alts; they cannot be kicked. 
 permanent_immunities = [ 
     "Sned",
@@ -41,6 +26,21 @@ permanent_immunities = [
     "skyeshade", 
     "Golden Unicorn✨"
 ]
+
+if not os.path.exists("./logs/"): os.mkdir("./logs/")
+if not os.path.exists("./inputs/"): os.mkdir("./inputs/")
+
+logs = [file[:-4] for file in os.listdir("./logs/") if not "_input" in file]
+
+parser = argparse.ArgumentParser(description="Analyze war logs for generating strikes.")
+parser.add_argument("--bypass", "-b", action="store_true", help="If set to true, program also outputs bypass messages. Default: False")
+parser.add_argument("--snipe", "-s", action="store_true", help="If set to true, program outputs snipe messages when bypass is also true. Default: False")
+parser.add_argument("--debug", "-d", action="store_true", help="If set to true, program outputs log messages for immune players. Default: False")
+parser.add_argument("--log", "-l", action="store_true", help="If set to true, program also outputs log messages. Default: False")
+parser.add_argument("--mirrors", "-m", action="store_true", help="If set to true, program also outputs invalid mirror messages. Default: False")
+parser.add_argument("--war", "-w", type=str, default="", help="If specified, only analyze the war log with the given name. Default: ''")
+parser.add_argument("--update", "-u", action="store_true", help="If set to true, only update player activity logs and exit without analyzing wars. Default: False")
+args = parser.parse_args()
 
 # Timed immunities involve players who will be immune until a given date
 timed_immunities = [
@@ -261,7 +261,7 @@ with open("strikes.txt", "r", encoding="utf-8") as strikes_file:
         else: 
             print(f"Error: player {player_name} #{player_tag} not found in player_activity_dict.")
 
-with open("war_bases.txt", "r", encoding="utf-8") as war_bases_file: 
+with open("./inputs/war_bases.txt", "r", encoding="utf-8") as war_bases_file: 
     war_bases = war_bases_file.readlines()
     with open(f"./inputs/war_bases.txt", "w", encoding="utf-8") as file:
         for ind,val in enumerate(war_bases):

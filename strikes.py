@@ -99,8 +99,6 @@ def add_player():
                 found = False
                 for i in range(len(players)):
                     if players[i].name == name:
-                        print(f"Player {name} already exists in the database. Skipping...")
-                            
                         found = True
                         break
 
@@ -216,18 +214,23 @@ def add_strike():
                 elif sel == 3: 
                     date = input('Enter date (YYYY-MM-DD): ')
                     enemy_clan = input('Enter name of opponent clan: ')
-                    players[i].strikes.append(strike(5, datetime.strptime(date, "%Y-%m-%d"), f"Had war base during battle day against `{enemy_clan}` on {date}."))
+                    strike_value = input('How many strikes is this worth? ')
+
+                    try: strike_value = int(strike_value)
+                    except: strike_value = 0
+                    if strike_value == 0: 
+                        print('Invalid number of strikes entered. No strike will be awarded.')
+                        return
+                    elif strike_value > 5:
+                        print('A strike can\'t be worth more than 5 strikes! No strikes will be awarded.')
+                        return
+                    
+                    players[i].strikes.append(strike(strike_value, datetime.strptime(date, "%Y-%m-%d"), f"Had a war base during a war against `{enemy_clan}` on {date}, and sanctions resulted from it."))
                     
                 elif sel == 4: 
                     date = input('Enter date (YYYY-MM-DD): ')
-                    hot_mess = input('Did we have five or more base errors? Y/N: ').lower()
                     enemy_clan = input('Enter name of opponent clan: ')
-
-                    if hot_mess == 'y': 
-                        players[i].strikes.append(strike(2, datetime.strptime(date, "%Y-%m-%d"), f"Had five or more base errors during a war against `{enemy_clan}` on {date}."))
-                        
-                    else:
-                        players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Had less than five base errors during a war against `{enemy_clan}` on {date}."))
+                    players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Base errors were found during a war against {enemy_clan} on {date}, and sanctions resulted from it."))
 
                 elif sel == 5: 
                     date = input('Enter date (YYYY-MM-DD): ')
@@ -360,6 +363,7 @@ if __name__ == "__main__":
     players = import_pickle()
 
     strike_threshold = 30
+    sanction_threshold = 60
 
     for i in range(len(players)):
         if players[i].strikes and (datetime.now() - players[i].strikes[-1].date).days > strike_threshold: 
