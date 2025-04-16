@@ -261,58 +261,6 @@ with open("strikes.txt", "r", encoding="utf-8") as strikes_file:
         else: 
             print(f"Error: player {player_name} #{player_tag} not found in player_activity_dict.")
 
-with open("./inputs/war_bases.txt", "r", encoding="utf-8") as war_bases_file: 
-    war_bases = war_bases_file.readlines()
-    with open(f"./inputs/war_bases.txt", "w", encoding="utf-8") as file:
-        for ind,val in enumerate(war_bases):
-            if ind == 0: continue # Header row
-            # Split the line using semicolon, and remove spaces
-            player_name, enemy_clan, war_type, conditional, war_end_date = [x.strip() for x in val.split(";")]
-
-            player_immune = False
-
-            if player_name in permanent_immunities or "Unicorn" in player_name: 
-                player_immune = True
-
-            for immune, date in timed_immunities:
-                if player_name == immune:
-                    if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year): 
-                        player_immune = True
-
-            for immune, date in one_war_immunities: 
-                if player_name == immune: 
-                    immunity_date = datetime.datetime.strptime(date, "%Y-%m-%d")
-                    war_end = datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year)
-                    if war_end == immunity_date: 
-                        player_immune = True
-                
-            is_main = True
-            for claimer in claims_dictionary: 
-                for account in claims_dictionary[claimer]: 
-                    if account.name == player_name: 
-                        if not account.is_main: 
-                            is_main = False
-
-            if player_immune or not is_main: 
-                print(f"Bypass: {player_name} is immune or not a main account")
-                continue
-
-            if war_type == "blacklist" and conditional == "true": 
-                file.write(f"3\n{player_name}\ny\n2\n{war_end_date}\n{enemy_clan}\ny\n")
-                print(f"Warning: {player_name} failed to put up a war base during a blacklist war against {enemy_clan}, but we met the conditional.")
-
-            elif war_type == "blacklist" and conditional == "false":
-                file.write(f"3\n{player_name}\ny\n2\n{war_end_date}\n{enemy_clan}\nn\n")
-                print(f"Warning: {player_name} failed to put up a war base during a blacklist war against {enemy_clan}")
-
-            elif war_type == "FWA" and conditional == "true":
-                file.write(f"3\n{player_name}\ny\n2\n{war_end_date}\n{enemy_clan}\ny\n")
-                print(f"Warning: {player_name} failed to put up a war base during an FWA war against {enemy_clan}, and sanctions occurred from it.")
-
-            elif war_type == "FWA" and conditional == "false":
-                file.write(f"3\n{player_name}\ny\n2\n{war_end_date}\n{enemy_clan}\nn\n")
-                print(f"Warning: {player_name} failed to put up a war base during an FWA war against {enemy_clan}")
-
 if args.update: 
     with open("player_activity.pickle", "wb") as file: 
         pickle.dump(player_activity_dict, file)
@@ -939,3 +887,11 @@ with open("activity_output.txt", "w", encoding="utf-8") as file:
             else: file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")
 
             file.write(f"  \- Last seen in clan: {player_activity_dict[player].last_seen}\n\n")
+
+# Look in ./inputs and delete all files that are empty
+
+for filename in os.listdir("./inputs"):
+    if filename.endswith(".txt"):
+        filepath = os.path.join("./inputs", filename)
+        if os.path.getsize(filepath) == 0:
+            os.remove(filepath)

@@ -230,7 +230,12 @@ def add_strike():
                 elif sel == 4: 
                     date = input('Enter date (YYYY-MM-DD): ')
                     enemy_clan = input('Enter name of opponent clan: ')
-                    players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Base errors were found during a war against {enemy_clan} on {date}, and sanctions resulted from it."))
+
+                    hot_mess = input('Did this player have a hot mess base? Y/N: ').lower()
+                    if hot_mess == 'y': num_strikes = 2
+                    else: num_strikes = 1
+
+                    players[i].strikes.append(strike(num_strikes, datetime.strptime(date, "%Y-%m-%d"), f"Base errors were found during a war against {enemy_clan} on {date}, and sanctions resulted from it."))
 
                 elif sel == 5: 
                     date = input('Enter date (YYYY-MM-DD): ')
@@ -345,11 +350,13 @@ def clear_strikes():
 
 def output_strikes():
     with open('strikes.txt', 'w', encoding="utf-8") as file: 
-        file.write('**Reddit X-ray**:\n\n')
+        unix_time = int(datetime.now().timestamp())
+        file.write(f"As of <t:{unix_time}:F> (<t:{unix_time}:R>):\n\n")
         
         for i in range(len(players)): 
             if players[i].num_strikes() != 0:
-                file.write(f"[{players[i].num_strikes()}] {players[i].name} #{players[i].tag} -- last strike received on {players[i].most_recent()}\n")
+                _, time_remaining = did_strikes_expire(players[i])
+                file.write(f"[{players[i].num_strikes()}] {players[i].name} #{players[i].tag} -- {time_remaining} days remaining\n")
 
                 for j in range(len(players[i].strikes)): 
                     file.write(f"- {players[i].strikes[j].output()}\n")
@@ -359,15 +366,32 @@ def output_strikes():
 def epoch_timestamp(dt:datetime): 
     return int(dt.strftime('%Y%m%d')) if dt else 0
 
+def did_strikes_expire(player:player): 
+    if not player.strikes: return False, 0
+
+    strikes = sorted(player.strikes, key=lambda x: x.date)
+
+    effective_timer = 60 if "and sanctions resulted from it." in strikes[0].reason else 30
+
+    for i in range(1, len(strikes)): 
+        previous_strike = strikes[i-1]
+        current_strike = strikes[i]
+        elapsed_days = (current_strike.date - previous_strike.date).days
+        
+        if "and sanctions resulted from it." in current_strike.reason: 
+            effective_timer = 60
+        else: 
+            effective_timer = max(effective_timer - elapsed_days, 30)
+
+    elapsed_since_last = (datetime.now() - strikes[-1].date).days
+    return elapsed_since_last > effective_timer, effective_timer - elapsed_since_last
+
 if __name__ == "__main__":
     players = import_pickle()
 
-    strike_threshold = 30
-    sanction_threshold = 60
-
     for i in range(len(players)):
-        if players[i].strikes and (datetime.now() - players[i].strikes[-1].date).days > strike_threshold: 
-            print(f"Player {players[i].name}'s last strike was more than {strike_threshold} days ago. Clearing all strikes.")
+        if did_strikes_expire(players[i])[0]:
+            print(f"Strikes expired for {players[i].name} #{players[i].tag}.")
             players[i].strikes = []
 
     while(True): 
@@ -389,13 +413,14 @@ if __name__ == "__main__":
         print('[6] Reset all strikes')
         print('[7] Output strikes list')
         print('[9] Exit')
+
+        export_pickle()
+
         sel = input('Selection: ')
         if sel == "": break 
         
         try: sel = int(sel)
         except: continue
-
-        export_pickle()
         if sel == 1: add_player()
         elif sel == 2: remove_player()
         elif sel == 3: add_strike()

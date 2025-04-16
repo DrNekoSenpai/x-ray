@@ -36,7 +36,7 @@ for filename in os.listdir("./logs/sanctions/"):
         war_date = date_pattern.search(war)
         if not war_date: continue
 
-        if timedelta(days=2) >= datetime.strptime(war_date.group(), "%Y_%m_%d") - datetime.strptime(sanctions[2], "%b %d %Y") >= timedelta(days=-2):
+        if timedelta(days=2) >= datetime.strptime(sanctions[2], "%b %d %Y") - datetime.strptime(war_date.group(), "%Y_%m_%d") >= timedelta(days=0):
             print(f"Found war on {war_date.group()}")
             # Open the corresponding filename and find the name of the clan we faced. 
             enemy_clan_pattern = re.compile(r"War with #[A-Z0-9]{5,9} ‭⁦(.*)⁩‬ starts in \d+ minutes.")
@@ -77,8 +77,11 @@ for filename in os.listdir("./logs/sanctions/"):
             reason = match.group("reason").strip()
             symbol = match.group("symbol").strip()
 
-            if symbol == "❌" or symbol == "🔥":
-                file.write(f"3\n{match.group('name')}\ny\n4\n{date}\n{enemy_clan}\n")
+            if symbol == "❌":
+                file.write(f"3\n{match.group('name')}\ny\n4\n{date}\n{enemy_clan}\nn\n")
+
+            elif symbol == "🔥":
+                file.write(f"3\n{match.group('name')}\ny\n4\n{date}\n{enemy_clan}\ny\n")
 
             elif symbol == "☠️":
                 file.write(f"3\n{match.group('name')}\ny\n3\n{date}\n{enemy_clan}\n{sanction_value}\n")

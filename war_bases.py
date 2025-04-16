@@ -1,4 +1,4 @@
-import os, pyautogui, cv2, numpy as np, pytesseract, time, re, argparse
+import os, pyautogui, cv2, numpy as np, pytesseract, argparse
 
 if not os.path.exists("./screenshots/war"): os.makedirs("./screenshots/war")
 if not os.path.exists("./screenshots/fwa"): os.makedirs("./screenshots/fwa")
@@ -98,15 +98,5 @@ def create_stitched_image():
 
     return base, stitched_abc
 
-while(True): 
-    num = len(os.listdir(path)) + 1
-    base, image = create_stitched_image()
-    # base = re.match(r"(\d+)/\d+", base).group(1)
-    # base = base.split("/")[0] if "/" in base else base
-    # print(base)
-    cv2.imwrite(f"{path}{num}.png", image)
-    # if "50" not in base and args.auto: 
-    #     pyautogui.click(right_arrow_button)
-    #     time.sleep(2)
-    # else:
-    #     break
+base, image = create_stitched_image()
+cv2.imwrite(path + f"{base.replace('/', '_')}.png", image)
