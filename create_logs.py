@@ -2,6 +2,7 @@ wars = [
     ("sidoarjo winner", "win", "2025/04/13"), 
     ("Millenium", "win", "2025/04/15"),
     ("War Farmers 28", "loss", "2025/04/17"),
+    ("#ShireBeachPub", "loss", "2025/04/19"),
 ]
 
 import os, datetime

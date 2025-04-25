@@ -395,11 +395,10 @@ if __name__ == "__main__":
             players[i].strikes = []
 
     while(True): 
-        # Sort the list of players; first by number of strikes descending, then by date of last strike descending, then by name ascending.
-        # Not everyone's going to have strikes; if their number of strikes is 0, there's not going to be a last strike. In this case, ignore the date and sort without it. 
+        # Sort the list of players; first by number of strikes descending, then by time remaining until expiration, then by name ascending.
         players.sort(key=lambda x: (
             -x.num_strikes(),  # Sort by strikes descending
-            -max([epoch_timestamp(strike.date) for strike in x.strikes], default=0),  # Sort by date of last strike descending
+            -did_strikes_expire(x)[1], # Sort by time remaining until expiration (integer)
             x.name.lower()  # Sort by name ascending
         ))
         print('')

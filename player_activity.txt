@@ -1,5 +1,6 @@
 LOGAN911: #YYRLUQ2J2
-  - Wars missed: 7
+  - Wars missed: 8
+    - ('2025-04-17', 'War Farmers 28', 'loss')
     - ('2025-04-01', 'Elite Power', 'loss')
     - ('2025-03-28', 'Black Pearl 2', 'loss')
     - ('2025-03-26', 'Deathstar 2', 'win')
@@ -7,19 +8,20 @@ LOGAN911: #YYRLUQ2J2
     - ('2025-03-22', 'Reckless Life', 'win')
     - ('2025-03-15', 'Farmers United', 'loss')
     - ('2025-03-13', 'NarniaEmpire™', 'win')
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-15']
   - Wars logged: ['2025-04-13', '2025-03-17', '2025-03-30', '2025-04-15']
 
 Sned: #P2UPPVYL
-  - Wars missed: 6
+  - Wars missed: 7
+    - ('2025-04-17', 'War Farmers 28', 'loss')
     - ('2025-04-13', 'sidoarjo winner', 'win')
     - ('2025-03-30', 'Before DawN©', 'win')
     - ('2025-03-28', 'Black Pearl 2', 'loss')
     - ('2025-03-26', 'Deathstar 2', 'win')
     - ('2025-03-24', 'MALAYA ALL PRO3', 'loss')
     - ('2025-03-17', '.CLAN BROTHERS', 'loss')
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-01', '2025-04-15']
   - Wars logged: ['2025-03-13', '2025-03-15', '2025-03-22', '2025-04-01', '2025-04-15']
 
@@ -44,23 +46,15 @@ Im Rushed: #YVQU9CJUP
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-04-01', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-30']
 
 sl: #Y2PVRYVC
-  - Wars missed: 4
+  - Wars missed: 5
+    - ('2025-04-17', 'War Farmers 28', 'loss')
     - ('2025-04-15', '"Millenium"', 'win')
     - ('2025-04-13', 'sidoarjo winner', 'win')
     - ('2025-04-01', 'Elite Power', 'loss')
     - ('2025-03-24', 'MALAYA ALL PRO3', 'loss')
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-03-30']
   - Wars logged: ['2025-03-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-26', '2025-03-28', '2025-03-30']
-
-BumblinMumbler: #JCCLVR8R
-  - Wars missed: 3
-    - ('2025-03-22', 'Reckless Life', 'win')
-    - ('2025-03-17', '.CLAN BROTHERS', 'loss')
-    - ('2025-03-15', 'Farmers United', 'loss')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-01', '2025-04-15']
-  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-15']
 
 Plantos: #QPV0QV2PU
   - Wars missed: 0
@@ -68,303 +62,314 @@ Plantos: #QPV0QV2PU
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
-Ascended: #QQPRJQ2PQ
-  - Wars missed: 3
-    - ('2025-04-13', 'sidoarjo winner', 'win')
-    - ('2025-04-01', 'Elite Power', 'loss')
-    - ('2025-03-13', 'NarniaEmpire™', 'win')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-03-30', '2025-04-15']
-  - Wars logged: ['2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-15']
+Master21: #LVRJC8CY2
+  - Wars missed: 2
+    - ('2025-04-17', 'War Farmers 28', 'loss')
+    - ('2025-04-15', '"Millenium"', 'win')
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-13']
+  - Wars logged: ['2025-04-13']
 
-yashwanth: #YQCL028J0
+CrazyWaveIT: #YLUL9Q9JG
   - Wars missed: 3
+    - ('2025-04-17', 'War Farmers 28', 'loss')
+    - ('2025-04-01', 'Elite Power', 'loss')
     - ('2025-03-24', 'MALAYA ALL PRO3', 'loss')
-    - ('2025-03-22', 'Reckless Life', 'win')
-    - ('2025-03-15', 'Farmers United', 'loss')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-01', '2025-04-15']
-  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-17', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-15']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: []
+  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-03-28', '2025-03-30', '2025-03-17', '2025-03-22', '2025-03-26', '2025-04-15']
 
 Kaselcap: #LU2YC0L
   - Wars missed: 1
     - ('2025-03-15', 'Farmers United', 'loss')
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-17']
+  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-15', '2025-04-17']
+
+BumblinMumbler: #JCCLVR8R
+  - Wars missed: 2
+    - ('2025-03-17', '.CLAN BROTHERS', 'loss')
+    - ('2025-03-15', 'Farmers United', 'loss')
+  - Last seen in clan: 2025-04-17
   - Banked counter: []
-  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-15']
+  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-15', '2025-04-17']
 
 Smitty™: #9LCPQ0QR
   - Wars missed: 2
     - ('2025-03-28', 'Black Pearl 2', 'loss')
     - ('2025-03-26', 'Deathstar 2', 'win')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: []
-  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-04-01', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-30', '2025-04-15']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-17']
+  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-04-01', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-30', '2025-04-15', '2025-04-17']
+
+RoyalOne: #RV920PR9
+  - Wars missed: 2
+    - ('2025-04-17', 'War Farmers 28', 'loss')
+    - ('2025-04-13', 'sidoarjo winner', 'win')
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-15']
+  - Wars logged: ['2025-03-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-15']
+
+gdfan75: #PG2Y8RGU
+  - Wars missed: 1
+    - ('2025-04-17', 'War Farmers 28', 'loss')
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
+  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 Big Daddy T: #9V0PCRR00
   - Wars missed: 1
     - ('2025-03-26', 'Deathstar 2', 'win')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-15']
-  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-03-30', '2025-04-01', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-28', '2025-04-15']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-15', '2025-04-17']
+  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-03-30', '2025-04-01', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-28', '2025-04-15', '2025-04-17']
+
+Ascended: #QQPRJQ2PQ
+  - Wars missed: 2
+    - ('2025-04-13', 'sidoarjo winner', 'win')
+    - ('2025-03-13', 'NarniaEmpire™', 'win')
+  - Last seen in clan: 2025-04-17
+  - Banked counter: []
+  - Wars logged: ['2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-15', '2025-04-17']
 
 slothnz: #G80JGVGQY
   - Wars missed: 1
     - ('2025-04-01', 'Elite Power', 'loss')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-15']
-  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-15']
-
-Master21: #LVRJC8CY2
-  - Wars missed: 1
-    - ('2025-04-15', '"Millenium"', 'win')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-13']
-  - Wars logged: ['2025-04-13']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-15', '2025-04-17']
+  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-15', '2025-04-17']
 
 Baleus: #GYV8Q0U80
   - Wars missed: 2
     - ('2025-04-01', 'Elite Power', 'loss')
     - ('2025-03-13', 'NarniaEmpire™', 'win')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: []
-  - Wars logged: ['2025-04-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-15']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-17']
+  - Wars logged: ['2025-04-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-15', '2025-04-17']
 
-CrazyWaveIT: #YLUL9Q9JG
+yashwanth: #YQCL028J0
   - Wars missed: 2
-    - ('2025-04-01', 'Elite Power', 'loss')
-    - ('2025-03-24', 'MALAYA ALL PRO3', 'loss')
-  - Last seen in clan: 2025-04-15
+    - ('2025-03-22', 'Reckless Life', 'win')
+    - ('2025-03-15', 'Farmers United', 'loss')
+  - Last seen in clan: 2025-04-17
   - Banked counter: []
-  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-03-28', '2025-03-30', '2025-03-17', '2025-03-22', '2025-03-26', '2025-04-15']
+  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-17', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-15', '2025-04-17']
 
 Good: #QRVRV92V8
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 pg: #Q92UQQJCR
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 Vojt: #PCJP8QJC
   - Wars missed: 1
     - ('2025-04-15', '"Millenium"', 'win')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-01']
-  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-01', '2025-04-17']
+  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-17']
 
-RoyalOne: #RV920PR9
+Az7777: #QYLURLQ2
   - Wars missed: 1
-    - ('2025-04-13', 'sidoarjo winner', 'win')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-15']
-  - Wars logged: ['2025-03-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-15']
-
-gdfan75: #PG2Y8RGU
-  - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+    - ('2025-04-17', 'War Farmers 28', 'loss')
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 xHead_Bangerx: #YQPVL2G8
   - Wars missed: 1
     - ('2025-03-24', 'MALAYA ALL PRO3', 'loss')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-15']
-  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-03-28', '2025-03-30', '2025-04-01', '2025-03-17', '2025-03-22', '2025-03-26', '2025-04-15']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-15', '2025-04-17']
+  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-03-28', '2025-03-30', '2025-04-01', '2025-03-17', '2025-03-22', '2025-03-26', '2025-04-15', '2025-04-17']
 
 Welli: #Q00RGJVVR
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 sanskar: #PL8Y90YGG
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 Rod: #YLLQRLL0
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 Mythos: #GRYRVL9P8
   - Wars missed: 1
     - ('2025-03-13', 'NarniaEmpire™', 'win')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-15']
-  - Wars logged: ['2025-04-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-15']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-15', '2025-04-17']
+  - Wars logged: ['2025-04-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-15', '2025-04-17']
 
 Motz: #G8L8PU8C
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 Hona: #QV8UJGVQR
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 your mama: #2Y88YLL99
   - Wars missed: 1
     - ('2025-04-13', 'sidoarjo winner', 'win')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-15']
-  - Wars logged: ['2025-03-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-15']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-15', '2025-04-17']
+  - Wars logged: ['2025-03-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-15', '2025-04-17']
 
 skyeshade: #YY2YJ20C9
   - Wars missed: 1
     - ('2025-03-28', 'Black Pearl 2', 'loss')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-15']
-  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-04-01', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-30', '2025-04-15']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-15', '2025-04-17']
+  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15', '2025-04-01', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-30', '2025-04-15', '2025-04-17']
 
 DNG: #LPV008QQ
   - Wars missed: 1
     - ('2025-03-13', 'NarniaEmpire™', 'win')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-15']
-  - Wars logged: ['2025-04-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-15']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-15', '2025-04-17']
+  - Wars logged: ['2025-04-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-15', '2025-04-17']
 
 dhruba.: #Y89GC9PR8
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 Asrar: #9RVQ22RCR
   - Wars missed: 1
     - ('2025-04-13', 'sidoarjo winner', 'win')
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-15']
-  - Wars logged: ['2025-03-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-15']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-15', '2025-04-17']
+  - Wars logged: ['2025-03-13', '2025-03-15', '2025-03-17', '2025-03-22', '2025-03-24', '2025-03-26', '2025-03-28', '2025-03-30', '2025-04-01', '2025-04-15', '2025-04-17']
 
 ViperX56: #U2LJ0QVP
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 Satan: #YJU92GY
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 avixd: #LURVUPJ2C
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-15']
-  - Wars logged: ['2025-04-15']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-15', '2025-04-17']
+  - Wars logged: ['2025-04-15', '2025-04-17']
 
 Protips: #9QGLLQJQ2
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 jy: #8L9QLJJP
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 Sham: #9QGJ2RC2V
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-13', '2025-04-15']
-  - Wars logged: ['2025-04-13', '2025-04-15']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-13', '2025-04-15', '2025-04-17']
+  - Wars logged: ['2025-04-13', '2025-04-15', '2025-04-17']
 
 K.L.A.U.S: #LPYRGCUQC
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 bran6: #Y8P82GJJ
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-13', '2025-04-15']
-  - Wars logged: ['2025-04-13', '2025-04-15']
-
-Az7777: #QYLURLQ2
-  - Wars missed: 0
-  - Last seen in clan: 2025-04-15
-  - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
-  - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-13', '2025-04-15', '2025-04-17']
+  - Wars logged: ['2025-04-13', '2025-04-15', '2025-04-17']
 
 Anas: #92L2PP09R
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 W1nter: #2GP2C8LRY
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 ImagineWaggons: #90ULVLUC
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 shadow: #QPJ8UV280
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 Matanza: #G9C8GL2VQ
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 ᶦᶰᵈ—͟͞乃L҉ΛƆҜ╰‿╯: #8RV0YC0PC
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 Dalto: #U8J0QYG
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 beeche: #29Q8CR280
   - Wars missed: 0
-  - Last seen in clan: 2025-04-15
+  - Last seen in clan: 2025-04-17
   - Banked counter: ['2025-04-13', '2025-03-13', '2025-03-15']
   - Wars logged: ['2025-04-13', '2025-03-13', '2025-03-15']
 
 Cmdn: #8Y9YG2G2Q
   - Wars missed: 0
-  - Last seen in clan: 2025-04-01
-  - Banked counter: []
-  - Wars logged: []
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-17']
+  - Wars logged: ['2025-04-17']
 
 hype: #2GRPGV892
   - Wars missed: 0
-  - Last seen in clan: 2025-04-01
-  - Banked counter: []
-  - Wars logged: []
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-17']
+  - Wars logged: ['2025-04-17']
 
 3STAR Warrior: #2R00YUCQY
   - Wars missed: 0
-  - Last seen in clan: 2025-04-01
-  - Banked counter: []
-  - Wars logged: []
+  - Last seen in clan: 2025-04-17
+  - Banked counter: ['2025-04-17']
+  - Wars logged: ['2025-04-17']
 
