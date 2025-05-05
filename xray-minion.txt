@@ -4,11 +4,11 @@
 #Q92UQQJCR   17 pg
 #LU2YC0L     17 Kaselcap
 #JCCLVR8R    17 BumblinMumbler
-#LURVUPJ2C   17 avixd
 #PCJP8QJC    16 Vojt
 #9LCPQ0QR    16 Smitty™
 #9QGLLQJQ2   16 Protips
 #8L9QLJJP    16 jy
+#9V0PCRR00   16 Big Daddy T
 #9QGJ2RC2V   15 Sham
 #RV920PR9    15 RoyalOne
 #QPV0QV2PU   15 Plantos
@@ -16,7 +16,7 @@
 #PG2Y8RGU    15 gdfan75
 #8Y9YG2G2Q   15 Cmdn
 #Y8P82GJJ    15 bran6
-#9V0PCRR00   15 Big Daddy T
+#GYV8Q0U80   15 Baleus
 #QYLURLQ2    15 Az7777
 #QQPRJQ2PQ   15 Ascended
 #92L2PP09R   15 Anas
@@ -32,7 +32,6 @@
 #90ULVLUC    14 ImagineWaggons
 #2GRPGV892   14 hype
 #QV8UJGVQR   14 Hona
-#GYV8Q0U80   14 Baleus
 #2R00YUCQY   14 3STAR Warrior
 #2Y88YLL99   13 your mama
 #YY2YJ20C9   13 skyeshade
@@ -47,4 +46,5 @@
 #9RVQ22RCR   13 Asrar
 #YQCL028J0   12 yashwanth
 #QRVRV92V8   12 Good
-#CVYG8LU     0 appable
+#CVYG8LU     12 appable
+#28LYU9JY    0 Truthful Lies

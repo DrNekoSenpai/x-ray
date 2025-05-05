@@ -35,17 +35,23 @@ def is_valid_weight(w, force_valid):
 
 # Preprocess image for OCR: grayscale, threshold, invert
 def preprocess(img_pil):
+    # 1) Convert to gray and threshold
     gray = cv2.cvtColor(np.array(img_pil), cv2.COLOR_BGR2GRAY)
-    thresh = cv2.adaptiveThreshold(
-        gray, 255,
-        cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
-        cv2.THRESH_BINARY, 11, 2
-    )
-    return cv2.bitwise_not(thresh)
+    _, bw = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+
+    # 2) Upscale by 3×
+    h, w = bw.shape
+    big = cv2.resize(bw, (w*3, h*3), interpolation=cv2.INTER_CUBIC)
+
+    # 3) Morphological opening to smooth corners
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3,3))
+    clean = cv2.morphologyEx(big, cv2.MORPH_OPEN, kernel)
+
+    return clean
 
 # OCR digits only with Tesseract psm 7
 def ocr_digits(img):
-    config = r'--oem 3 --psm 7 -c tessedit_char_whitelist=0123456789'
+    config = r'--oem 3 --psm 7 -c tessedit_char_whitelist=0123456789/'
     return pytesseract.image_to_string(img, config=config).strip()[:5]
 
 # OCR arbitrary text (with optional whitelist)
@@ -96,6 +102,8 @@ def main():
 
     # Convert for sheet if needed
     final = int(weight) * (5 if args.sheet else 1)
+
+    print(f"{len(lines) + 1}: {final}")
 
     # Append only weight to file
     with open('weights.txt', 'a', encoding='utf-8') as f:

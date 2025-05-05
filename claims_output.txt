@@ -1,6 +1,3 @@
-avixd: 1 account in Reddit X-ray
-  - avixd (17) -- (main)
-
 Kaselcap | CST: 1 account in Reddit X-ray
   - Kaselcap (17) -- (main)
 
@@ -79,9 +76,6 @@ Hona: 1 account in Reddit X-ray
 imaginewaggons: 1 account in Reddit X-ray
   - ImagineWaggons (14) -- (main)
 
-Master21: 1 account in Reddit X-ray
-  - Master21 (14) -- (main)
-
 Rod: 1 account in Reddit X-ray
   - Rod (14) -- (main)
 
@@ -144,7 +138,4 @@ yashwanth: 1 account in Reddit X-ray
 
 Good: 1 account in Reddit X-ray
   - Good (12) -- (main)
-
-<473784917780725762>: 1 account in Reddit X-ray
-  - sl (11) -- (main)
 
