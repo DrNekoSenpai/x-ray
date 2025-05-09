@@ -5,8 +5,8 @@ import argparse
 from datetime import datetime, timedelta
 
 # Constants
-WINNERS_LOG_FILE = "winners_log.json"
-INPUT_FILE = "cwl-input.txt"
+WINNERS_LOG_FILE = "./outputs/winners_log.json"
+INPUT_FILE = "./inputs/cwl-input.txt"
 BASE_PENALTY_WEEKS = 27
 WEEKS_PER_MONTH = 4.5  # Approximate weeks in a month
 
@@ -275,10 +275,7 @@ def draw_command(available_distributions:int, bypass:bool):
         print("No winners could be selected.")
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Clan War Leagues Distribution Program",
-        epilog="By default the program performs the 'draw' command if none is specified."
-    )
+    parser = argparse.ArgumentParser(description="CWL Selection Tool")
     parser.add_argument("--update", "-u", action="store_true", help="Update bonus weeks for players.")
     parser.add_argument("--bypass", "-b", action="store_true", help="Bypass check for FWA bases; useful if clan earned immunity")
     args = parser.parse_args()

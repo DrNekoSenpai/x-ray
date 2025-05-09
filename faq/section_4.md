@@ -1,7 +1,0 @@
-Strikes are how we enforce the rules. You can see the most recent strikes awarded in #strikes, and what actions incur strikes. Gaining one or two is okay - or even four. However, as soon as you gain five, you'll be kicked from the clan until the next CWL ends. 
-
-If you disobey the rules in a way that makes you disruptive to the clan's well-being - whether it's having a war base set during a FWA war, hitting a base that's not your own, or three-starring during a loss war, you will receive strikes. Therefore, try not to do this and you'll be fine.
-
-It has, up until recently, been the case that missed hits factor into strikes. This has recently been revised. While there is no set threshold for being kicked due to inactivity, you can still be removed from the clan if room must be made for an incoming player. Inactivity is tracked over time, and inactive accounts may be de-prioritized when space is needed. 
-
-Internally, we track the number of wars you miss, and when space is needed, we will kick an account with the highest inactivity. However, we do want to also prioritize active engagement. Each war where you complete your hits correctly and without strikes will count towards banking a war against inactivity. When you have three such banked wars, you will reduce your score by one. You may request your score directly from me through direct message or by opening a ticket. 

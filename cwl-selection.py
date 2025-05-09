@@ -71,7 +71,7 @@ def main():
             args.no_bench = []
 
     # Load and filter signups
-    names = load_signups("./cwl-responses.xlsx")
+    names = load_signups("./inputs/cwl-responses.xlsx")
     total = len(names)
 
     bench_count = total - 30
@@ -81,7 +81,7 @@ def main():
         sys.exit(1)
 
     # Previous bench handling
-    bench_file = Path(f"{args.output_prefix}_bench.txt")
+    bench_file = Path(f"./outputs/{args.output_prefix}_bench.txt")
 
     # Prepare forced lists
     forced_bench = args.bench or []
@@ -113,7 +113,7 @@ def main():
     play = [n for n in names if n not in bench]
 
     # Write outputs
-    write_list(Path(f"{args.output_prefix}_play.txt"), bench, play)
+    write_list(Path(f"./outputs/{args.output_prefix}_play.txt"), bench, play)
 
     # Summary
     print(f"Total 'All 7 wars' signups: {total}")

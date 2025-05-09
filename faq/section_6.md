@@ -1,5 +1,0 @@
-FWA clans always spin at a certain, pre-determined time. All 500 FWA clans spin at the exact same time, so that we match against only other FWA clans. We (as members of Leadership) know this time, but we are not permitted to tell you when we're going to spin. This is so that you don't potentially leak this time to blacklisted clans. 
-
-Blacklisted clans try to hijack our spin times, so that they can snipe a FWA clan and get an easy win. Obviously, we do not think very highly of them, and so whenever we match a blacklisted clan, we all switch to war bases and try as hard as we can to deny them the win. 
-
-This is much easier said than done, however, due to a couple people missing attacks, or wasting their attacks for no reason. We have no tolerance for people who miss attacks or waste attacks during blacklisted wars. People who do this automatically gain 5 strikes, and are kicked from the clan.

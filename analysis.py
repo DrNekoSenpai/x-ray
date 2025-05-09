@@ -1,4 +1,5 @@
 import os, re, datetime, argparse, subprocess, pickle
+import pandas as pd
 from contextlib import redirect_stdout as redirect
 from io import StringIO
 from strikes import up_to_date
@@ -27,8 +28,8 @@ permanent_immunities = [
     "Golden Unicorn✨"
 ]
 
-if not os.path.exists("./logs/"): os.mkdir("./logs/")
-if not os.path.exists("./inputs/"): os.mkdir("./inputs/")
+if not os.path.exists("./strikes/logs/"): os.mkdir("./strikes/logs/")
+if not os.path.exists("./strikes/inputs/"): os.mkdir("./strikes/inputs/")
 
 logs = [file[:-4] for file in os.listdir("./logs/") if not "_input" in file]
 
@@ -52,75 +53,46 @@ one_war_immunities = [
 
 ]
 
-with open("xray-claims.txt", "r", encoding="utf-8") as file: 
-    xray_claims = file.readlines()
-
-with open("xray-minion.txt", "r", encoding="utf-8") as file:
-    xray_data = file.readlines()
-
-class Dump:
-    def __init__(self, user_id, nickname, username): 
-        self.user_id = user_id
-        self.nickname = nickname
-        self.username = username
-
-# /stats dump role: @Reddit X-ray query: -f %i;%n;%u
-with open("dump.txt", "r", encoding="utf-8") as file:
-    dump_data = [Dump(user_id, nickname, username) for user_id, nickname, username in [line.split(";") for line in file.readlines()]]
-
-# 15 #P2UPPVYL    ‭⁦Sned      ⁩‬ Sned | PST
-claims_pattern = re.compile(r"(\d{1,2})\s+#([A-Z0-9]{5,9})\s+‭⁦(.*)⁩‬(.*)")
-
-# #P2UPPVYL    15 Sned
-full_account_name_pattern = re.compile(r"([A-Z0-9]{5,9})\s+\d{1,2}\s+(.*)")
-
 class Claim: 
-    def __init__(self, town_hall:int, tag:str, name:str, is_main:bool, clan:str): 
-        self.tag = tag
-        self.town_hall = town_hall
+    def __init__(self, displayname:str, username:str, id:int, name:str, tag:str, in_clan:bool=False): 
+        self.displayname = displayname
+        self.username = username
+        self.id = id
         self.name = name
-        self.is_main = is_main
-        self.clan = clan
+        self.tag = tag
+        self.in_clan = in_clan
+        self.is_main = False
 
 claims_dictionary = {}
+xray_claims = pd.read_excel("xray-members.xlsx", sheet_name=0)
 
-for claim in xray_claims: 
-    claim_th, claim_tag, claim_name, claimer = re.search(claims_pattern, claim).groups()
+for _, row in xray_claims.iterrows():
+    claim_displayname = row['DisplayName']
+    claim_username = row['Username']
+    claim_id = int(row['ID'])
+    claim_name = row['Name']
+    claim_tag = row['Tag']
+    claim_clan = row['Clan']
 
-    claim_th = int(claim_th)
-    claim_tag = claim_tag.strip()
-    claim_name = claim_name.strip()
-    claimer = claimer.strip()
+    # Remove unwanted characters from claim_name and claim_displayname
+    if "\\" in claim_name:
+        claim_name = claim_name.replace("\\", "")
+    if "\\" in claim_displayname:
+        claim_displayname = claim_displayname.replace("\\", "")
 
-    # Check if the claimer follows a format of <@321138998414409729>
-    # In this case, we need to replace this with the actual username as specified in the Dump.
-     
-    if re.match(r"<@.*>", claimer): 
-        user_id = claimer[2:-1]
-        for user in dump_data: 
-            if user.user_id == user_id: 
-                claimer = user.nickname
-                break
-
-    if "\\" in claim_name: claim_name = claim_name.replace("\\", "")
-
-    # Remove @ from claimer name 
-    if "@" in claimer: claimer = claimer.replace("@", "")
-    if "\\" in claimer: claimer = claimer.replace("\\", "")
-
-    for account in xray_data: 
-        account_tag, account_name = re.search(full_account_name_pattern, account).groups()
-
-        account_tag = account_tag.strip()
-        account_name = account_name.strip()
-        
-        if "’" in account_name: account_name = account_name.replace("’", "'")
-        if "\\" in account_name: account_name = account_name.replace("\\", "")
-
-        if account_tag == claim_tag: 
-            if claimer not in claims_dictionary: claims_dictionary[claimer] = []
-            claims_dictionary[claimer].append(Claim(claim_th, claim_tag, account_name, False, "Reddit X-ray"))
-            break
+    # Add the claim to the claims_dictionary
+    if claim_username not in claims_dictionary:
+        claims_dictionary[claim_username] = []
+    claims_dictionary[claim_username].append(
+        Claim(
+            displayname=claim_displayname,
+            username=claim_username,
+            id=claim_id,
+            name=claim_name,
+            tag=claim_tag,
+            in_clan=(claim_clan == "Reddit X-ray")
+        )
+    )
 
 known_mains = ["Marlec", "Plantos"]
 
@@ -128,7 +100,7 @@ num_alts_xray = 0
 
 for claimer in claims_dictionary: 
     for claim in claims_dictionary[claimer]:
-        accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.clan == "Reddit X-ray"]
+        accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.in_clan]
         num_accounts_xray = len(accounts_xray)
 
         known_main = False
@@ -154,40 +126,32 @@ for claimer in claims_dictionary:
                     account.is_main = True
                     break
 
-            if len([account for account in accounts_xray if account.is_main]) == 0:
-                # At this point, we have still not identified a main account. 
-                # Set the account with the highest town hall level as the main account.
-                main_account = max(accounts_xray, key=lambda account: account.town_hall)
-                main_account.is_main = True
-
-                claims_dictionary[claimer] = [main_account] + [account for account in accounts_xray if account.tag != main_account.tag]
-
             else: 
                 claims_dictionary[claimer] = [account for account in accounts_xray if account.is_main] + [account for account in accounts_xray if not account.is_main]
 
 for claimer in claims_dictionary:
     for claim in claims_dictionary[claimer]: 
-        if not claim.is_main and claim.clan == "Reddit X-ray": num_alts_xray += 1
+        if not claim.is_main and claim.in_clan: num_alts_xray += 1
 
-# Sort the claims dictionary, first by the town hall of the main account descending, then by the number of known alts ascending.
-claims_dictionary = {claimer: claims_dictionary[claimer] for claimer in sorted(claims_dictionary, key=lambda claimer: (max([account.town_hall for account in claims_dictionary[claimer] if account.is_main]), len([account for account in claims_dictionary[claimer] if not account.is_main])), reverse=True)}
+# Sort the claims dictionary by the number of known alts ascending.
+claims_dictionary = dict(sorted(claims_dictionary.items(), key=lambda item: len(item[1]), reverse=True))
 
-with open("num_alts.txt", "w", encoding="utf-8") as file:
+with open("./outputs/num_alts.txt", "w", encoding="utf-8") as file:
     unix_time = int(datetime.datetime.now().timestamp())
     file.write(f"As of <t:{unix_time}:F> (<t:{unix_time}:R>):\n\n")
     file.write(f"Number of alts in Reddit X-ray: {num_alts_xray}\n")
     for claimer in claims_dictionary: 
         for claim in claims_dictionary[claimer]: 
-            if not claim.is_main and claim.clan == "Reddit X-ray": 
+            if not claim.is_main and claim.in_clan:
                 main = [account for account in claims_dictionary[claimer] if account.is_main][0]
                 alt_name = claim.name.replace('_', '\_')
                 main_name = main.name.replace('_', '\_')
 
-                file.write(f"  \- {alt_name} ({claim.town_hall}) -- main: {main_name}\n")
+                file.write(f"  \- {alt_name} -- main: {main_name}\n")
 
-with open("claims_output.txt", "w", encoding="utf-8") as file:
+with open("./outputs/claims_output.txt", "w", encoding="utf-8") as file:
     for claimer in claims_dictionary: 
-        accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.clan == "Reddit X-ray"]
+        accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.in_clan]
         num_accounts_xray = len(accounts_xray)
 
         if num_accounts_xray == 1: file.write(f"{claimer}: {num_accounts_xray} account in Reddit X-ray")
@@ -196,7 +160,7 @@ with open("claims_output.txt", "w", encoding="utf-8") as file:
         file.write("\n")
         
         for account in accounts_xray: 
-            file.write(f"  - {account.name} ({account.town_hall})")
+            file.write(f"  - {account.name}")
             if account.is_main: file.write(" -- (main)")
             file.write("\n")
 
@@ -224,47 +188,41 @@ except:
     print(f"Error: no such file 'player_activity.pickle' was found. Creating a new one.")
     player_activity_dict = {}
 
-for claim in xray_data: 
-    account_tag, account_name = re.search(full_account_name_pattern, claim).groups()
+try: 
+    with open("player_activity.pickle", "rb") as file: 
+        player_activity_dict = pickle.load(file)
+except FileNotFoundError:
+    # Assume no such file exists, create a new one. 
+    print(f"Error: no such file 'player_activity.pickle' was found. Creating a new one.")
+    player_activity_dict = {}
 
-    account_tag = account_tag.strip()
-    account_name = account_name.strip()
+for user in claims_dictionary: 
+    # Only update their last seen date if they are in the clan.
+    for claim in claims_dictionary[user]: 
+        if not claim.in_clan: continue
 
-    if "’" in account_name: account_name = account_name.replace("’", "'")
-    if "\\" in account_name: account_name = account_name.replace("\\", "")
+        if claim.tag not in player_activity_dict:
+            player_activity_dict[claim.tag] = player_activity(claim.name, claim.tag)
 
-    if account_tag not in player_activity_dict: 
-        player_activity_dict[account_tag] = player_activity(account_name, account_tag)
-        print(f"Player {account_name} #{account_tag} added to player_activity_dict.")
+        player_activity_dict[claim.tag].last_seen = f"{datetime.datetime.now():%Y-%m-%d}"
+        player_activity_dict[claim.tag].base_value = 0
 
-# Set ALL player base values to zero. 
-for player in player_activity_dict:
-    player_activity_dict[player].base_value = 0
-
-with open("strikes.txt", "r", encoding="utf-8") as strikes_file: 
-    strikes = strikes_file.readlines()
-
-    # Capture number of strikes, player name, player tag
-    # [1] Baleus #GYV8Q0U80:
-
+with open("./outputs/strikes.txt", "r", encoding="utf-8") as file: 
+    strikes = file.readlines()
     strikes_pattern = re.compile(r"\[(\d+)\]\s+(.*)\s+#([A-Z0-9]{5,9})")
-    # Find the corresponding player in the player_activity_dict, and set the base value to the number of strikes.
 
-    for strike in strikes:
-        # Not every line is going to match this pattern. Skip those that don't. 
+    for strike in strikes: 
         if not re.match(strikes_pattern, strike): continue
-        num_strikes, player_name, player_tag = re.search(strikes_pattern, strike).groups()
+        num_strikes, name, tag = re.match(strikes_pattern, strike).groups()
 
-        if player_tag in player_activity_dict: 
-            player_activity_dict[player_tag].base_value = int(num_strikes)
-            print(f"Player {player_name} #{player_tag} has {num_strikes} strikes.")
-        else: 
-            print(f"Error: player {player_name} #{player_tag} not found in player_activity_dict.")
+        if tag in player_activity_dict: 
+            player_activity_dict[tag].base_value = int(num_strikes)
 
-if args.update: 
+if args.update:
     with open("player_activity.pickle", "wb") as file: 
         pickle.dump(player_activity_dict, file)
     exit()
+
 
 for log_file in logs: 
     if args.war and log_file != args.war: continue
@@ -401,7 +359,7 @@ for log_file in logs:
             log.append((player_name, number, None, None, None))
             one_missed_hit.append(player_name)
 
-    with open(f"./inputs/{log_file}.txt", "w", encoding="utf-8") as file: 
+    with open(f"./strikes/inputs/{log_file}.txt", "w", encoding="utf-8") as file: 
         if win_loss == "win" or win_loss == "loss": 
             snipe_count = {}
             rules_broken = {player_name: False for player_name in [entry[0] for entry in log]}
@@ -808,6 +766,7 @@ for log_file in logs:
     # press any key to continue 
     input("Press any key to continue...\n")
 
+
 # Check for players who have not been seen in one month. That is, 30 days. 
 to_be_deleted = []
 for player in player_activity_dict:
@@ -818,6 +777,7 @@ for player in player_activity_dict:
 
 for player in to_be_deleted:
     del player_activity_dict[player]
+
 
 with open("player_activity.pickle", "wb") as file:
     pickle.dump(player_activity_dict, file)
@@ -830,7 +790,7 @@ for player in player_activity_dict:
     player_activity_dict[player].wars_missed = sorted(player_activity_dict[player].wars_missed, key=lambda war: datetime.datetime.strptime(war[0], "%Y-%m-%d"), reverse=True)
 
 # Manual backup dump. 
-with open("player_activity.txt", "w", encoding="utf-8") as file:
+with open("./outputs/player_activity.txt", "w", encoding="utf-8") as file:
     # Format: player name, player tag
     for player in player_activity_dict:
         file.write(f"{player_activity_dict[player].name}: #{player_activity_dict[player].tag}\n")
@@ -842,15 +802,22 @@ with open("player_activity.txt", "w", encoding="utf-8") as file:
         file.write(f"  - Wars logged: {player_activity_dict[player].wars_logged}\n\n")
 
 # Dump to be posted in a Discord channel.
-with open("activity_output.txt", "w", encoding="utf-8") as file:
+with open("./outputs/activity_output.txt", "w", encoding="utf-8") as file:
     file.write(f"As of <t:{unix_time}:F> (<t:{unix_time}:R>):\n\n")
     for player in player_activity_dict: 
-        # First, print out all the players that are in the clan; that is, are in xray-data. 
+        # First, print out all the players that are in the clan; that is, whose in_clan values are set to True. 
+        # We need to find the player in the other dictionary; claims_dictionary. 
+
         player_found = False 
-        for item in xray_data:
-            if player_activity_dict[player].name in item: 
-                player_found = True
-                break
+        for claimer in claims_dictionary:
+            for account in claims_dictionary[claimer]: 
+                if account.name == player_activity_dict[player].name:
+                    # Check if this player is in the clan.
+                    if account.in_clan: 
+                        player_found = True
+                        break
+
+                if player_found: break
 
         if player_found: 
             wars_missed = len(player_activity_dict[player].wars_missed)
@@ -866,15 +833,21 @@ with open("activity_output.txt", "w", encoding="utf-8") as file:
                 else: file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")
 
     file.write("\n")
-    for player in player_activity_dict: 
-        # Next, print out all the players that are not in the clan; that is, are not in xray-data. 
-        player_found = False 
-        for item in xray_data:
-            if player_activity_dict[player].name in item: 
-                player_found = True
-                break
 
-        if not player_found: 
+    for player in player_activity_dict: 
+        # Next, print out all the players that are not in the clan; that is, whose in_clan values are set to False. 
+        player_found = False 
+        for claimer in claims_dictionary:
+            for account in claims_dictionary[claimer]: 
+                if account.name == player_activity_dict[player].name:
+                    # Check if this player is in the clan.
+                    if not account.in_clan: 
+                        player_found = True
+                        break
+                    
+                if player_found: break
+
+        if player_found: 
             wars_missed = len(player_activity_dict[player].wars_missed)
             # Skip this player if they have not missed any wars.
 
@@ -890,8 +863,8 @@ with open("activity_output.txt", "w", encoding="utf-8") as file:
 
 # Look in ./inputs and delete all files that are empty
 
-for filename in os.listdir("./inputs"):
+for filename in os.listdir("./strikes/inputs"):
     if filename.endswith(".txt"):
-        filepath = os.path.join("./inputs", filename)
+        filepath = os.path.join("./strikes/inputs", filename)
         if os.path.getsize(filepath) == 0:
             os.remove(filepath)
