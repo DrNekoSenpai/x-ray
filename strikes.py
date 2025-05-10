@@ -140,7 +140,8 @@ def add_strike():
                 print('[4] Base errors')
                 print('[5] Directions not followed')
                 print('[6] Sanctions')
-                print('[7] Other')
+                print('[7] CWL strikes')
+                print('[8] Other')
                 sel = input('Selection: ')
                 try: sel = int(sel)
                 except: sel = 0
@@ -275,6 +276,12 @@ def add_strike():
 
                 elif sel == 7: 
                     date = input('Enter date (YYYY-MM-DD): ')
+                    month = datetime.strptime(date, "%Y-%m-%d").strftime("%B")
+                    year = datetime.strptime(date, "%Y-%m-%d").year
+                    players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Was not eligible for CWL distribution due to missed hits or FWA bases, during week of {month} {year}."))
+
+                elif sel == 8: 
+                    date = input('Enter date (YYYY-MM-DD): ')
                     clan = input('Enter opponent clan name for when this player disobeyed instructions: ')
                     message = input('Enter strike message here. Use <clan> to substitute the opponent clan name: ')
                     message = message.split('<clan>')
@@ -349,7 +356,7 @@ def clear_strikes():
             players[i].strikes = []
 
 def output_strikes():
-    with open('strikes.txt', 'w', encoding="utf-8") as file: 
+    with open('./outputs/strikes.txt', 'w', encoding="utf-8") as file: 
         unix_time = int(datetime.now().timestamp())
         file.write(f"As of <t:{unix_time}:F> (<t:{unix_time}:R>):\n\n")
         
@@ -371,7 +378,7 @@ def did_strikes_expire(player:player):
 
     strikes = sorted(player.strikes, key=lambda x: x.date)
 
-    effective_timer = 60 if "and sanctions resulted from it." in strikes[0].reason else 30
+    effective_timer = 90 if "and sanctions resulted from it." in strikes[0].reason else 45
 
     for i in range(1, len(strikes)): 
         previous_strike = strikes[i-1]
@@ -379,9 +386,9 @@ def did_strikes_expire(player:player):
         elapsed_days = (current_strike.date - previous_strike.date).days
         
         if "and sanctions resulted from it." in current_strike.reason: 
-            effective_timer = 60
+            effective_timer = 90
         else: 
-            effective_timer = max(effective_timer - elapsed_days, 30)
+            effective_timer = max(effective_timer - elapsed_days, 45)
 
     elapsed_since_last = (datetime.now() - strikes[-1].date).days
     return elapsed_since_last > effective_timer, effective_timer - elapsed_since_last

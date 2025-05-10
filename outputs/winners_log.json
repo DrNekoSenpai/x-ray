@@ -11,6 +11,11 @@
                 "month": "2025-04",
                 "hits": 7,
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-05",
+                "hits": 7,
+                "bonus_weeks": 4
             }
         ]
     },
@@ -26,6 +31,11 @@
                 "month": "2025-04",
                 "hits": 2,
                 "bonus_weeks": 1
+            },
+            {
+                "month": "2025-05",
+                "hits": 7,
+                "bonus_weeks": 4
             }
         ]
     },
@@ -66,6 +76,11 @@
                 "month": "2025-04",
                 "hits": 1,
                 "bonus_weeks": 0
+            },
+            {
+                "month": "2025-05",
+                "hits": 7,
+                "bonus_weeks": 4
             }
         ]
     },
@@ -90,6 +105,11 @@
                 "month": "2025-04",
                 "hits": 6,
                 "bonus_weeks": 3
+            },
+            {
+                "month": "2025-05",
+                "hits": 7,
+                "bonus_weeks": 4
             }
         ]
     },
@@ -110,18 +130,34 @@
                 "month": "2025-04",
                 "hits": 5,
                 "bonus_weeks": 2
+            },
+            {
+                "month": "2025-05",
+                "hits": 7,
+                "bonus_weeks": 4
             }
         ]
     },
     "Rod": {
         "win_date": "2025-03-11",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-05",
+                "hits": 7,
+                "bonus_weeks": 4
+            }
+        ]
     },
     "Dalto": {
         "win_date": "2025-03-11",
         "bonus": [
             {
                 "month": "2025-04",
+                "hits": 7,
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-05",
                 "hits": 7,
                 "bonus_weeks": 4
             }
@@ -134,35 +170,112 @@
                 "month": "2025-04",
                 "hits": 7,
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-05",
+                "hits": 4,
+                "bonus_weeks": 2
             }
         ]
     },
     "Kaselcap": {
         "win_date": "2025-04-09",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-05",
+                "hits": 7,
+                "bonus_weeks": 4
+            }
+        ]
     },
     "Sned": {
         "win_date": "2025-04-09",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-05",
+                "hits": 6,
+                "bonus_weeks": 3
+            }
+        ]
     },
     "Mythos": {
         "win_date": "2025-04-09",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-05",
+                "hits": 6,
+                "bonus_weeks": 3
+            }
+        ]
     },
     "Anas": {
         "win_date": "2025-04-09",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-05",
+                "hits": 7,
+                "bonus_weeks": 4
+            }
+        ]
     },
     "Az7777": {
         "win_date": "2025-04-09",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-05",
+                "hits": 7,
+                "bonus_weeks": 4
+            }
+        ]
     },
     "Protips": {
         "win_date": "2025-04-09",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-05",
+                "hits": 7,
+                "bonus_weeks": 4
+            }
+        ]
     },
     "dhruba.": {
         "win_date": "2025-04-09",
+        "bonus": []
+    },
+    "Sham": {
+        "win_date": "2025-05-09",
+        "bonus": []
+    },
+    "Truthful Lies": {
+        "win_date": "2025-05-09",
+        "bonus": []
+    },
+    "Vojt": {
+        "win_date": "2025-05-09",
+        "bonus": []
+    },
+    "Dhruba": {
+        "win_date": "2025-05-09",
+        "bonus": []
+    },
+    "appable": {
+        "win_date": "2025-05-09",
+        "bonus": []
+    },
+    "Welli": {
+        "win_date": "2025-05-09",
+        "bonus": []
+    },
+    "Good": {
+        "win_date": "2025-05-09",
+        "bonus": []
+    },
+    "slothnz": {
+        "win_date": "2025-05-09",
+        "bonus": []
+    },
+    "ImagineWaggons": {
+        "win_date": "2025-05-09",
         "bonus": []
     }
 }

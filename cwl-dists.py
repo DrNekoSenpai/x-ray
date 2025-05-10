@@ -1,7 +1,4 @@
-import os
-import json
-import random
-import argparse
+import os, json, random, argparse, pandas as pd
 from datetime import datetime, timedelta
 
 # Constants
@@ -14,13 +11,14 @@ def read_players(filename):
     """
     Reads player names and hits from a file.
     Expected file format: one player per line as:
-       player_name, hits
+       player_name hits
     Returns a list of tuples: (player_name, int(hits))
     """
     players = []
     if not os.path.exists(filename):
         print(f"Error: The file '{filename}' was not found.")
         exit(1)
+
     with open(filename, 'r', encoding='utf-8') as file:
         for line in file:
             line = line.strip()
@@ -29,21 +27,61 @@ def read_players(filename):
             try:
                 name, hits_str = line.rsplit(' ', 1)
                 name = name.strip()
-                hits = int(hits_str.strip())
-                if hits < 0 or hits > 7:
-                    print(f"Warning: {name} has an unexpected number of hits ({hits}). Must be between 0 and 7.")
-                    continue
-                players.append((name, hits))
+                hits_done, hits_total = hits_str.split('/')
+
+                players.append((name, int(hits_total), int(hits_done)))
+
             except ValueError:
                 print(f"Skipping invalid formatted line: {line}")
+
     return players
 
-def build_entries(players):
+def build_entries(players, bypass:bool=False):
     """
     Builds a weighted list of entries based on the number of hits.
     Only players that are eligible (or not logged yet) are considered.
     Each player appears in the list as many times as their hits.
     """
+    if not bypass:
+        # Open the war_bases.xlsx file and check column B for the number of points.
+        # Deduct the number of points from the total number of hits (entries).
+        war_bases_file = "./inputs/war_bases.xlsx"
+        if not os.path.exists(war_bases_file):
+            print(f"Error: The file '{war_bases_file}' was not found.")
+            exit(1)
+        
+        month_year = datetime.today().strftime("%Y-%m")
+        with open(f"./strikes/cwl-{month_year}.txt", 'w', encoding='utf-8') as f:
+            f.write("")
+
+        try:
+            war_bases_data = pd.read_excel(war_bases_file, usecols=["Player Name", "Points"], engine="openpyxl")
+            war_bases_dict = dict(zip(war_bases_data["Player Name"], war_bases_data["Points"]))
+
+            # Deduct points from players' hits based on their individual entries in war_bases.xlsx
+            for i, (player, hits_total, hits_done) in enumerate(players):
+                player_points = war_bases_dict.get(player, 0)  # Default to 0 if player not found
+
+                if hits_done == 0: adjusted_hits = -1
+                else: 
+                    hits = 5 - hits_total + hits_done
+                    adjusted_hits = hits - player_points
+
+                players[i] = (player, adjusted_hits)
+
+                # If player has negative hits, write in "./strikes/cwl_{month}.txt" and then remove them from the list. 
+                if adjusted_hits < 0:
+                    month_year = datetime.today().strftime("%Y-%m")
+                    strikes_file = f"./strikes/cwl-{month_year}.txt"
+                    date = datetime.today().strftime("%Y-%m-%d")
+                    with open(strikes_file, 'a', encoding='utf-8') as strikes_f:
+                        strikes_f.write(f"3\n{player}\ny\n7\n{date}\n")
+                    players[i] = (player, 0)
+
+        except Exception as e:
+            print(f"Error processing war bases file: {e}")
+            exit(1)
+                      
     entries = []
     for player, hits in players:
         # Skip players with zero hits
@@ -137,8 +175,15 @@ def update_bonus():
     This function now clears (wipes) any bonus records in winners_log.json
     for the same month as provided by the bonus file, so that if the command is run multiple times
     in the same month, the bonus for that month is refreshed.
+
+                name, hits_str = line.rsplit(' ', 1)
+                name = name.strip()
+                hits_done, hits_total = hits_str.split('/')
+
     For each bonus record not already applied, compute:
-         bonus_weeks = (hits // 2) + (1 if hits == 7 else 0)
+        hits = 7 - number of hits missed
+        bonus_weeks = (hits // 2) + (1 if hits == 7 else 0)
+
     and update the player's log.
     """
     if not os.path.exists(INPUT_FILE):
@@ -167,8 +212,9 @@ def update_bonus():
                 continue
             try:
                 name, hits_str = line.rsplit(' ', 1)
+                hits_used, hits_total = hits_str.split('/')
                 name = name.strip()
-                hits = int(hits_str.strip())
+                hits = 7 - int(hits_total) + int(hits_used)
                 bonus_records.append((name, month, hits))
             except ValueError:
                 print(f"Skipping invalid bonus line: {line}")
@@ -209,13 +255,12 @@ def update_bonus():
 def draw_command(available_distributions:int, bypass:bool):
     """Function to perform the draw winners process."""
     players = read_players(INPUT_FILE)
-    entries = build_entries(players)
+    entries = build_entries(players, bypass)
     if not entries:
         print("No eligible players available for drawing. Exiting draw process.")
         return
     
     month_year = datetime.today().strftime("%Y-%m")
-
     ineligible_players = []
     for player, _ in players:
         if not is_eligible(player):
@@ -284,7 +329,6 @@ def main():
     # If so, forcefully set bypass flag to true. 
 
     players = read_players(INPUT_FILE)
-    if len(players) > 30: args.bypass = True
 
     if args.update: update_bonus()
     else: 

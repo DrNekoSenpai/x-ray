@@ -31,7 +31,7 @@ permanent_immunities = [
 if not os.path.exists("./strikes/logs/"): os.mkdir("./strikes/logs/")
 if not os.path.exists("./strikes/inputs/"): os.mkdir("./strikes/inputs/")
 
-logs = [file[:-4] for file in os.listdir("./logs/") if not "_input" in file]
+logs = [file[:-4] for file in os.listdir("./strikes/logs/") if not "_input" in file]
 
 parser = argparse.ArgumentParser(description="Analyze war logs for generating strikes.")
 parser.add_argument("--bypass", "-b", action="store_true", help="If set to true, program also outputs bypass messages. Default: False")
@@ -229,7 +229,7 @@ for log_file in logs:
     if log_file == "arch": continue # This is a folder
     if log_file == "sanct": continue # This is a folder
 
-    with open(f"./logs/{log_file}.txt", "r", encoding="utf-8") as file: 
+    with open(f"./strikes/logs/{log_file}.txt", "r", encoding="utf-8") as file: 
         lines = file.readlines()
 
     hit_pattern = re.compile(r":(\d{2})::\d{2}::Sword::(\d{2})::\d{2}:(:Star:|:FadedStar:|:Blank:)(:Star:|:FadedStar:|:Blank:)(:Star:|:FadedStar:|:Blank:):\d{2,3}:[💥]? .{2}(.*).{2}")
