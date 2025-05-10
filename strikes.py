@@ -2,6 +2,8 @@ import pickle, re, subprocess
 from contextlib import redirect_stdout as redirect
 from io import StringIO
 from datetime import datetime
+from dataclasses import dataclass, field
+from typing import List
 
 def up_to_date(): 
     # Return FALSE if there is a new version available.
@@ -27,20 +29,16 @@ if up_to_date() is False:
     print("To pull the latest changes, simply run the command 'git pull' in this terminal.")
     exit(1)
 
-class strike(): 
-    def __init__(self, value:int, date:datetime, reason:str):
-        self.value = value
-        self.date = date
-        self.reason = reason
+@dataclass
+class Strike:
+    value: int
+    date: datetime
 
-    def output(self): 
-        return f"({self.value}) {self.reason}"
-
-class player():
-    def __init__(self, name, tag):
-        self.name = name
-        self.tag = tag
-        self.strikes = []
+@dataclass
+class Player:
+    name: str
+    tag: str
+    strikes: List[Strike] = field(default_factory=list)
 
     def output(self):
         print(f'Name: {self.name}')
@@ -48,7 +46,7 @@ class player():
         print(f'Strikes: {self.num_strikes()}')
 
     def num_strikes(self): 
-        return sum([strike.value for strike in self.strikes])
+        return sum(x.value for x in self.strikes)
     
     def most_recent(self): 
         return self.strikes[-1].date.strftime('%Y-%m-%d') if self.strikes else None
@@ -71,7 +69,7 @@ def add_player():
     # for i in range(len(players)): 
     #     if players[i].name.lower().startswith(in_str[0].lower()): 
     #         print('This player already exists! Duplicates are not allowed.')
-    # p = player(in_str[0], in_str[1].upper())
+    # p = Player(in_str[0], in_str[1].upper())
     # players.append(p)
 
     # Open the file and read the contents, line by line
@@ -104,7 +102,7 @@ def add_player():
 
                 # If the player does not exist, add them to the database
                 if not found:
-                    p = player(name, tag)
+                    p = Player(name, tag)
                     players.append(p)
                     print(f"Added player {name} #{tag} to the database.")
 	
@@ -174,28 +172,28 @@ def add_strike():
                     # If this player didn't have a war base, award three strikes if we lose.
 
                     if conditional == 'y' and win == 'y' and num == 2:
-                        players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Missed two attacks during a blacklist war against `{clan}` on {date}; we won, and met the conditional."))
+                        players[i].strikes.append(Strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Missed two attacks during a blacklist war against `{clan}` on {date}; we won, and met the conditional."))
 
                     elif conditional == 'y' and win == 'y' and num == 1:
                         continue
 
                     elif conditional == 'y' and win == 'n' and num == 2:
-                        players[i].strikes.append(strike(2, datetime.strptime(date, "%Y-%m-%d"), f"Missed two attacks during a blacklist war against `{clan}` on {date}; we lost, but met the conditional."))
+                        players[i].strikes.append(Strike(2, datetime.strptime(date, "%Y-%m-%d"), f"Missed two attacks during a blacklist war against `{clan}` on {date}; we lost, but met the conditional."))
 
                     elif conditional == 'y' and win == 'n' and num == 1:
-                        players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Missed one attack during a blacklist war against `{clan}` on {date}; we lost, but met the conditional."))
+                        players[i].strikes.append(Strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Missed one attack during a blacklist war against `{clan}` on {date}; we lost, but met the conditional."))
 
                     elif conditional == 'n' and win == 'y' and num == 2:
-                        players[i].strikes.append(strike(2, datetime.strptime(date, "%Y-%m-%d"), f"Missed two attacks during a blacklist war against `{clan}` on {date}; we won."))
+                        players[i].strikes.append(Strike(2, datetime.strptime(date, "%Y-%m-%d"), f"Missed two attacks during a blacklist war against `{clan}` on {date}; we won."))
 
                     elif conditional == 'n' and win == 'y' and num == 1:
                         continue
 
                     elif conditional == 'n' and win == 'n' and num == 2:
-                        players[i].strikes.append(strike(5, datetime.strptime(date, "%Y-%m-%d"), f"Missed two attacks during a blacklist war against `{clan}` on {date}; we lost."))
+                        players[i].strikes.append(Strike(5, datetime.strptime(date, "%Y-%m-%d"), f"Missed two attacks during a blacklist war against `{clan}` on {date}; we lost."))
 
                     elif conditional == 'n' and win == 'n' and num == 1:
-                        players[i].strikes.append(strike(2, datetime.strptime(date, "%Y-%m-%d"), f"Missed one attack during a blacklist war against `{clan}` on {date}; we lost."))
+                        players[i].strikes.append(Strike(2, datetime.strptime(date, "%Y-%m-%d"), f"Missed one attack during a blacklist war against `{clan}` on {date}; we lost."))
 
                     else:
                         print('Invalid input entered. No strike will be awarded.')
@@ -207,10 +205,10 @@ def add_strike():
                     conditional = input("Did we meet the conditional for reduced strikes? Y/N: ").lower()
 
                     if conditional == 'y': 
-                        players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"FWA base during blacklist war against `{clan}`; we won, and met the conditional on {date}."))
+                        players[i].strikes.append(Strike(1, datetime.strptime(date, "%Y-%m-%d"), f"FWA base during blacklist war against `{clan}`; we won, and met the conditional on {date}."))
 
                     elif conditional == 'n':
-                        players[i].strikes.append(strike(3, datetime.strptime(date, "%Y-%m-%d"), f"FWA base during blacklist war against `{clan}`; we won, but didn't meet the conditional on {date}."))
+                        players[i].strikes.append(Strike(3, datetime.strptime(date, "%Y-%m-%d"), f"FWA base during blacklist war against `{clan}`; we won, but didn't meet the conditional on {date}."))
 
                 elif sel == 3: 
                     date = input('Enter date (YYYY-MM-DD): ')
@@ -226,7 +224,7 @@ def add_strike():
                         print('A strike can\'t be worth more than 5 strikes! No strikes will be awarded.')
                         return
                     
-                    players[i].strikes.append(strike(strike_value, datetime.strptime(date, "%Y-%m-%d"), f"Had a war base during a war against `{enemy_clan}` on {date}, and sanctions resulted from it."))
+                    players[i].strikes.append(Strike(strike_value, datetime.strptime(date, "%Y-%m-%d"), f"Had a war base during a war against `{enemy_clan}` on {date}, and sanctions resulted from it."))
                     
                 elif sel == 4: 
                     date = input('Enter date (YYYY-MM-DD): ')
@@ -236,7 +234,7 @@ def add_strike():
                     if hot_mess == 'y': num_strikes = 2
                     else: num_strikes = 1
 
-                    players[i].strikes.append(strike(num_strikes, datetime.strptime(date, "%Y-%m-%d"), f"Base errors were found during a war against {enemy_clan} on {date}, and sanctions resulted from it."))
+                    players[i].strikes.append(Strike(num_strikes, datetime.strptime(date, "%Y-%m-%d"), f"Base errors were found during a war against {enemy_clan} on {date}, and sanctions resulted from it."))
 
                 elif sel == 5: 
                     date = input('Enter date (YYYY-MM-DD): ')
@@ -255,30 +253,30 @@ def add_strike():
 
                     elif sel == 1: 
                         clan = input('Enter opponent clan name for when this player three-starred during a loss war: ')
-                        players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Three-starred during a loss war against `{clan}` on {date}."))
+                        players[i].strikes.append(Strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Three-starred during a loss war against `{clan}` on {date}."))
 
                     elif sel == 2:
                         clan = input('Enter opponent clan name for when this player attacked someone else than mirror: ')
-                        players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Attacked someone else than mirror during a war against `{clan}` on {date}."))
+                        players[i].strikes.append(Strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Attacked someone else than mirror during a war against `{clan}` on {date}."))
 
                     elif sel == 3:
                         clan = input('Enter opponent clan name for when this player sniped twice instead of attacking mirror: ')
-                        players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Sniped twice instead of attacking mirror during a war against `{clan}` on {date}."))
+                        players[i].strikes.append(Strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Sniped twice instead of attacking mirror during a war against `{clan}` on {date}."))
 
                     elif sel == 4:
                         clan = input('Enter opponent clan name for when this player sniped once and didn\'t use other hit: ')
-                        players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Sniped once and didn't use other hit during a war against `{clan}` on {date}."))
+                        players[i].strikes.append(Strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Sniped once and didn't use other hit during a war against `{clan}` on {date}."))
                                     
                 elif sel == 6: 
                     date = input('Enter date (YYYY-MM-DD): ')
                     message = input('Enter sanction message here: ')
-                    players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Targeted by sanctions on {date}; {message}"))
+                    players[i].strikes.append(Strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Targeted by sanctions on {date}; {message}"))
 
                 elif sel == 7: 
                     date = input('Enter date (YYYY-MM-DD): ')
                     month = datetime.strptime(date, "%Y-%m-%d").strftime("%B")
                     year = datetime.strptime(date, "%Y-%m-%d").year
-                    players[i].strikes.append(strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Was not eligible for CWL distribution due to missed hits or FWA bases, during week of {month} {year}."))
+                    players[i].strikes.append(Strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Was not eligible for CWL distribution due to missed hits or FWA bases, during week of {month} {year}."))
 
                 elif sel == 8: 
                     date = input('Enter date (YYYY-MM-DD): ')
@@ -297,7 +295,7 @@ def add_strike():
                         print('A strike can\'t be worth more than 5 strikes! No strikes will be awarded.')
                         return
                     else: 
-                        players[i].strikes.append(strike(n, datetime.strptime(date, "%Y-%m-%d"), f"{message}"))
+                        players[i].strikes.append(Strike(n, datetime.strptime(date, "%Y-%m-%d"), f"{message}"))
                 return
                 
     if not found: 
@@ -373,7 +371,7 @@ def output_strikes():
 def epoch_timestamp(dt:datetime): 
     return int(dt.strftime('%Y%m%d')) if dt else 0
 
-def did_strikes_expire(player:player): 
+def did_strikes_expire(player:Player): 
     if not player.strikes: return False, 0
 
     strikes = sorted(player.strikes, key=lambda x: x.date)

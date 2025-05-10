@@ -1,7 +1,7 @@
-import os, re, datetime, argparse, subprocess, pickle
+import os, re, datetime, argparse, pickle
+from dataclasses import dataclass
+from datetime import date
 import pandas as pd
-from contextlib import redirect_stdout as redirect
-from io import StringIO
 from strikes import up_to_date
 
 if up_to_date() is False:
@@ -9,8 +9,9 @@ if up_to_date() is False:
     print("To pull the latest changes, simply run the command 'git pull' in this terminal.")
     exit(1)
     
-# Permanent immunities are players who are members of Leadership as well as known alts; they cannot be kicked. 
-permanent_immunities = [ 
+# Immunities is a list of either player names only, or player names and dates. 
+immunities = [
+    # Permanent immunities are players who are members of Leadership as well as known alts; they cannot be kicked. 
     "Sned",
     "Sned 2.0",
     "Sned 3.0",
@@ -27,6 +28,14 @@ permanent_immunities = [
     "skyeshade", 
     "Golden Unicorn✨"
 ]
+                
+# Permanent immunities: name only, immune forever
+# One war immunities: name and one date, immune for one war
+# Timed immunities: name and two dates, immune between date range inclusive 
+
+permanent_immunities = [name for name in immunities if type(name) == str]
+one_war_immunities = [name for name in immunities if type(name) == tuple and len(name) == 2]
+timed_immunities = [name for name in immunities if type(name) == tuple and len(name) == 3]
 
 if not os.path.exists("./strikes/logs/"): os.mkdir("./strikes/logs/")
 if not os.path.exists("./strikes/inputs/"): os.mkdir("./strikes/inputs/")
@@ -43,25 +52,15 @@ parser.add_argument("--war", "-w", type=str, default="", help="If specified, onl
 parser.add_argument("--update", "-u", action="store_true", help="If set to true, only update player activity logs and exit without analyzing wars. Default: False")
 args = parser.parse_args()
 
-# Timed immunities involve players who will be immune until a given date
-timed_immunities = [
-    
-]
-
-# War-specific immunities are for one war only. 
-one_war_immunities = [
-
-]
-
+@dataclass
 class Claim: 
-    def __init__(self, displayname:str, username:str, id:int, name:str, tag:str, in_clan:bool=False): 
-        self.displayname = displayname
-        self.username = username
-        self.id = id
-        self.name = name
-        self.tag = tag
-        self.in_clan = in_clan
-        self.is_main = False
+    displayname: str
+    username: str
+    id: int
+    name: str
+    tag: str
+    in_clan: bool = False
+    is_main: bool = False
 
 claims_dictionary = {}
 xray_claims = pd.read_excel("xray-members.xlsx", sheet_name=0)
@@ -644,7 +643,7 @@ for log_file in logs:
                         one_missed_hit.append(player_name)
             
             for entry in one_missed_hit: 
-                if entry in permanent_immunities or "Unicorn" in entry: 
+                if entry in permanent_immunities: 
                     if args.bypass: print(f"Bypass: {entry} missed one hit on a blacklist war, but they are immune")
                     continue
 
