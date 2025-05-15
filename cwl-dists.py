@@ -289,9 +289,36 @@ def draw_command(available_distributions:int, bypass:bool):
             
         print("")
 
-        print(f"Ineligible:")
+        print(f"Ineligible (all values in weeks):")
+        longest_player_name = max(len(player[0]) for player in ineligible_players)
+        if longest_player_name < 11: longest_player_name = 11
+
+        print(f"╔══{'═'*longest_player_name}╤═════════╤═══════╤═══════════╗")
+        print(f"║ Player name{' ' * (longest_player_name - 11)} │ Elapsed │ Bonus │ Remaining ║")
+
         for player, elapsed, bonus, remaining in ineligible_players:
-            print(f"- {player}: {elapsed:.2f} weeks elapsed, {bonus} bonus weeks, threshold: {remaining:.2f}")
+            print(f"║ {player:<{longest_player_name}} │ {elapsed:<7.2f} │ {bonus:<5} │ {remaining:<9.2f} ║")
+
+        print(f"╚══{'═'*longest_player_name}╧═════════╧═══════╧═══════════╝")
+
+        # Ineligible (all values in weeks):
+        # ╔═════════════╤═════════╤═══════╤═══════════╗
+        # ║ Player name │ Elapsed │ Bonus │ Remaining ║
+        # ║ pg          │ 12.57   │ 12    │ 2.4       ║
+        # ║ Baleus      │ 12.57   │ 8     │ 6.43      ║
+        # ║ DNG         │ 12.57   │ 8     │ 6.43      ║
+        # ║ Dalto       │ 8.43    │ 8     │ 10.57     ║
+        # ║ CrazyWaveIT │ 8.43    │ 7     │ 11.57     ║
+        # ║ Ascended    │ 8.43    │ 6     │ 12.57     ║
+        # ║ K.L.A.U.S   │ 8.43    │ 6     │ 12.57     ║
+        # ║ Rod         │ 8.43    │ 4     │ 14.57     ║
+        # ║ Kaselcap    │ 4.29    │ 4     │ 18.71     ║
+        # ║ Protips     │ 4.29    │ 4     │ 18.71     ║
+        # ║ Anas        │ 4.29    │ 4     │ 18.71     ║
+        # ║ Az7777      │ 4.29    │ 4     │ 18.71     ║
+        # ║ Sned        │ 4.29    │ 3     │ 19.71     ║
+        # ║ Mythos      │ 4.29    │ 3     │ 19.71     ║
+        # ╚═════════════╧═════════╧═══════╧═══════════╝
 
         print("")
 
