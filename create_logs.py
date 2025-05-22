@@ -1,13 +1,10 @@
 wars = [
-    ("sidoarjo winner", "win", "2025/04/13"), 
-    ("Millenium", "win", "2025/04/15"),
-    ("War Farmers 28", "loss", "2025/04/17"),
-    ("#ShireBeachPub", "loss", "2025/04/19"),
-    ("Téam Pokémon", "loss", "2025/04/21"),
-    ("players key", "loss", "2025/04/23"),
-    ("Phantoms", "loss", "2025/04/25"),
-    ("PlaneClashers", "loss", "2025/04/27"),
-    ("Web Rage Farm 7", "win", "2025/04/30"),
+    ("envy", "loss", "2025/05/13"), 
+    ("#ShireBeachPub", "loss", "2025/05/15"),
+    ("Holder Origins", "win", "2025/05/17"),
+    ("Deathstar +++", "win", "2025/05/19"),
+    ("Elite Power", "win", "2025/05/21"),
+    ("Farmwars", "loss", "2025/05/23"),
 ]
 
 import os, datetime

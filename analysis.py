@@ -135,19 +135,6 @@ for claimer in claims_dictionary:
 # Sort the claims dictionary by the number of known alts ascending.
 claims_dictionary = dict(sorted(claims_dictionary.items(), key=lambda item: len(item[1]), reverse=True))
 
-with open("./outputs/num_alts.txt", "w", encoding="utf-8") as file:
-    unix_time = int(datetime.datetime.now().timestamp())
-    file.write(f"As of <t:{unix_time}:F> (<t:{unix_time}:R>):\n\n")
-    file.write(f"Number of alts in Reddit X-ray: {num_alts_xray}\n")
-    for claimer in claims_dictionary: 
-        for claim in claims_dictionary[claimer]: 
-            if not claim.is_main and claim.in_clan:
-                main = [account for account in claims_dictionary[claimer] if account.is_main][0]
-                alt_name = claim.name.replace('_', '\_')
-                main_name = main.name.replace('_', '\_')
-
-                file.write(f"  \- {alt_name} -- main: {main_name}\n")
-
 with open("./outputs/claims_output.txt", "w", encoding="utf-8") as file:
     for claimer in claims_dictionary: 
         accounts_xray = [claim for claim in claims_dictionary[claimer] if claim.in_clan]
@@ -800,6 +787,8 @@ with open("./outputs/player_activity.txt", "w", encoding="utf-8") as file:
         file.write(f"  - Banked counter: {player_activity_dict[player].banked_counter}\n")
         file.write(f"  - Wars logged: {player_activity_dict[player].wars_logged}\n\n")
 
+import time
+unix_time = int(time.time())
 # Dump to be posted in a Discord channel.
 with open("./outputs/activity_output.txt", "w", encoding="utf-8") as file:
     file.write(f"As of <t:{unix_time}:F> (<t:{unix_time}:R>):\n\n")

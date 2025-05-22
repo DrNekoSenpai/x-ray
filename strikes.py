@@ -4,6 +4,7 @@ from io import StringIO
 from datetime import datetime
 from dataclasses import dataclass, field
 from typing import List
+import pandas as pd
 
 def up_to_date(): 
     # Return FALSE if there is a new version available.
@@ -33,6 +34,10 @@ if up_to_date() is False:
 class Strike:
     value: int
     date: datetime
+    reason: str
+
+    def output(self): 
+        return f"({self.value}) {self.reason}"
 
 @dataclass
 class Player:
@@ -63,48 +68,18 @@ def import_pickle():
     return players
 
 def add_player(): 
-    # in_str = input('Enter name and tag, separated by spaces: ').strip()
-    # if in_str == '': continue
-    # in_str = in_str.rsplit(' ', 1)
-    # for i in range(len(players)): 
-    #     if players[i].name.lower().startswith(in_str[0].lower()): 
-    #         print('This player already exists! Duplicates are not allowed.')
-    # p = Player(in_str[0], in_str[1].upper())
-    # players.append(p)
+    xray_members = pd.read_excel('xray-members.xlsx', sheet_name=0)
+    for _, row in xray_members.iterrows():
+        player_name = row['Name']
+        player_tag = row['Tag']
 
-    # Open the file and read the contents, line by line
-    with open(f'xray-minion.txt', 'r', encoding='utf-8', errors='replace') as file:
-        for line in file: 
-            # Line format: 
-            # #P2UPPVYL    15 Senpai™
-            # Tag is 7-9 alphanumeric characters long 
-            # The number is 1-2 digits long, and is the town hall level -- we can ignore this
-            # Everything else is the name 
-            # We can use regex to extract the tag and name
-            match = re.search(r"#([0-9A-Z]{5,9})\s+\d+\s+(.*)", line)
-            if match:
-                # Extract the tag and name
-                tag = match.group(1)
-                name = match.group(2)
+        player_clan = row['Clan']
+        if not player_clan == 'Reddit X-ray': continue
 
-                if "’" in name: name = name.replace("’", "'")
-                if "™" in name: name = name.replace("™", "")
-                if "✨" in name: name = name.replace("✨", "")
-                if "\\" in name: name = name.replace("\\", "")
-                if "\~" in name: name = name.replace("\~", "~")
-
-                # Check if the player already exists in the database
-                found = False
-                for i in range(len(players)):
-                    if players[i].name == name:
-                        found = True
-                        break
-
-                # If the player does not exist, add them to the database
-                if not found:
-                    p = Player(name, tag)
-                    players.append(p)
-                    print(f"Added player {name} #{tag} to the database.")
+        p = Player(player_name, player_tag)
+        if p not in players:
+            players.append(p)
+            print(f"Added player: {player_name} with tag {player_tag}")
 	
 def remove_player(): 
     name = input('Enter name of player to remove: ')
@@ -361,7 +336,7 @@ def output_strikes():
         for i in range(len(players)): 
             if players[i].num_strikes() != 0:
                 _, time_remaining = did_strikes_expire(players[i])
-                file.write(f"[{players[i].num_strikes()}] {players[i].name} #{players[i].tag} -- {time_remaining} days remaining\n")
+                file.write(f"[{players[i].num_strikes()}] {players[i].name} {players[i].tag} -- {time_remaining} days remaining\n")
 
                 for j in range(len(players[i].strikes)): 
                     file.write(f"- {players[i].strikes[j].output()}\n")
@@ -376,7 +351,7 @@ def did_strikes_expire(player:Player):
 
     strikes = sorted(player.strikes, key=lambda x: x.date)
 
-    effective_timer = 90 if "and sanctions resulted from it." in strikes[0].reason else 45
+    effective_timer = 80 if "and sanctions resulted from it." in strikes[0].reason else 40
 
     for i in range(1, len(strikes)): 
         previous_strike = strikes[i-1]
@@ -384,9 +359,9 @@ def did_strikes_expire(player:Player):
         elapsed_days = (current_strike.date - previous_strike.date).days
         
         if "and sanctions resulted from it." in current_strike.reason: 
-            effective_timer = 90
+            effective_timer = 80
         else: 
-            effective_timer = max(effective_timer - elapsed_days, 45)
+            effective_timer = max(effective_timer - elapsed_days, 40)
 
     elapsed_since_last = (datetime.now() - strikes[-1].date).days
     return elapsed_since_last > effective_timer, effective_timer - elapsed_since_last
