@@ -90,10 +90,14 @@ def main():
         weight = ocr_digits(crop)
     if not is_valid_weight(weight, args.force_valid):
         print(f"Error: OCR result '{weight}' is not valid.")
+        # Show both images for debugging
+        cv2.imshow('Processed', proc)
+        cv2.imshow('Original', np.array(crop))
+        cv2.waitKey(0)
         exit(1)
 
     # Read last weight
-    with open('weights.txt', 'r', encoding='utf-8') as f:
+    with open('./outputs/weights.txt', 'r', encoding='utf-8') as f:
         lines = f.read().splitlines()
         last_weight = lines[-1].strip() if lines else ''
 
@@ -106,7 +110,7 @@ def main():
     print(f"{len(lines) + 1}: {final}")
 
     # Append only weight to file
-    with open('weights.txt', 'a', encoding='utf-8') as f:
+    with open('./outputs/weights.txt', 'a', encoding='utf-8') as f:
         if lines:
             f.write('\n')
         f.write(str(final))

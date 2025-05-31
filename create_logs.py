@@ -5,6 +5,10 @@ wars = [
     ("Deathstar +++", "win", "2025/05/19"),
     ("Elite Power", "win", "2025/05/21"),
     ("Farmwars", "loss", "2025/05/23"),
+    ("RISE FWA", "loss", "2025/05/25"),
+    ("PlaneClashers", "win", "2025/05/27"),
+    ("players key", "win", "2025/05/30"),
+    ("Deadly Sinners", "loss", "2025/06/01")
 ]
 
 import os, datetime

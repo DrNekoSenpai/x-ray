@@ -1,10 +1,11 @@
-As of <t:1747950517:F> (<t:1747950517:R>):
+As of <t:1748721570:F> (<t:1748721570:R>):
 
-Cmdn: 6 wars missed
-K.L.A.U.S: 5 (1 strikes, 4 wars missed)
+K.L.A.U.S: 6 (1 strikes, 5 wars missed)
 RoyalOne: 4 (1 strikes, 3 wars missed)
+Mythos: 3 wars missed
 Big Daddy T: 2 (1 strikes, 1 wars missed)
-bran6: 2 wars missed
-Mythos: 2 wars missed
-Asrar: 1 war missed
+Sham: 1 war missed
+bran6: 1 war missed
+Az7777: 1 war missed
+ImagineWaggons: 1 war missed
 

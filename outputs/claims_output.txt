@@ -34,9 +34,8 @@ _yamiya_: 1 account in Reddit X-ray
 napalm360: 1 account in Reddit X-ray
   - NagaStoleMyBike -- (main)
 
-9t9candraj0930: 2 accounts in Reddit X-ray
-  - 3STAR Warrior
-  - Brow2H
+9t9candraj0930: 1 account in Reddit X-ray
+  - 3STAR Warrior -- (main)
 
 pi314ever: 1 account in Reddit X-ray
   - pi314ever -- (main)
@@ -106,9 +105,6 @@ kaselcap: 1 account in Reddit X-ray
 
 asrar_malik: 1 account in Reddit X-ray
   - Asrar -- (main)
-
-cmdnking: 1 account in Reddit X-ray
-  - Cmdn -- (main)
 
 therealvo1t: 1 account in Reddit X-ray
   - Vojt -- (main)
