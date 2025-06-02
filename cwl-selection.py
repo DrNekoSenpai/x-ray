@@ -27,10 +27,16 @@ def load_prev_bench(path: Path) -> list[str]:
         return []
     return [line.strip() for line in path.read_text(encoding='utf-8').splitlines() if line.strip()]
 
-def write_list(path: Path, bench: list[str], play: list[str]) -> None:
+def write_list(path: str, bench: list[str], play: list[str]) -> None:
     """Write a list of names to a file, one per line."""
-    path.write_text("Players to be benched:\n  - " + "\n  - ".join(bench), encoding='utf-8')
-    path.write_text("\nPlayers to play:\n  - " + "\n  - ".join(play), encoding='utf-8')
+    
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write("Benched Players:\n")
+        for name in bench:
+            f.write(f"- {name}\n")
+        f.write("\nRostered Players:\n")
+        for name in play:
+            f.write(f"- {name}\n")
 
 def prompt_list(prompt: str) -> list[str]:
     """Prompt the user to enter names one per line, ending with a blank line."""
@@ -112,8 +118,11 @@ def main():
     bench = list(dict.fromkeys(forced_bench + random_bench))
     play = [n for n in names if n not in bench]
 
+    print(bench)
+    print(play)
+
     # Write outputs
-    write_list(Path(f"./outputs/{args.output_prefix}_play.txt"), bench, play)
+    write_list(f"./outputs/{args.output_prefix}_play.txt", bench, play)
 
     # Summary
     print(f"Total 'All 7 wars' signups: {total}")
