@@ -350,6 +350,7 @@ def main():
     parser = argparse.ArgumentParser(description="CWL Selection Tool")
     parser.add_argument("--update", "-u", action="store_true", help="Update bonus weeks for players.")
     parser.add_argument("--bypass", "-b", action="store_true", help="Bypass check for FWA bases; useful if clan earned immunity")
+    parser.add_argument("--distributions", "-d", type=int, help="Number of distributions available", required=False)
     args = parser.parse_args()
 
     # Check if we have more than 30 players listed in the input file.
@@ -359,7 +360,10 @@ def main():
 
     if args.update: update_bonus()
     else: 
-        num_distributions = input("How many distributions were available? ")
+        if args.distributions is not None:
+            num_distributions = args.distributions
+        else: 
+            num_distributions = input("How many distributions were available? ")
         try: num_distributions = int(num_distributions)
         except: return
         
