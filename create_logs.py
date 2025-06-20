@@ -1,14 +1,9 @@
 wars = [
-    ("envy", "loss", "2025/05/13"), 
-    ("#ShireBeachPub", "loss", "2025/05/15"),
-    ("Holder Origins", "win", "2025/05/17"),
-    ("Deathstar +++", "win", "2025/05/19"),
-    ("Elite Power", "win", "2025/05/21"),
-    ("Farmwars", "loss", "2025/05/23"),
-    ("RISE FWA", "loss", "2025/05/25"),
-    ("PlaneClashers", "win", "2025/05/27"),
-    ("players key", "win", "2025/05/30"),
-    ("Deadly Sinners", "loss", "2025/06/01")
+    ("3ASTARDOS FARM", "win", "2025/06/13"), 
+    ("MARVELS", "loss", "2025/06/15"),
+    ("Red Alert", "loss", "2025/06/17"), 
+    ("BD LORD$", "loss", "2025/06/19"),
+    ("trueno farm 07", "win", "2025/06/21"),
 ]
 
 import os, datetime
