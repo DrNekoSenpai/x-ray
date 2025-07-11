@@ -277,8 +277,10 @@ def draw_command(available_distributions:int, bypass:bool):
     print("---")
     
     winners = draw_winners(entries, available_distributions)
+    month = datetime.today().strftime("%B")
+    year = datetime.today().strftime("%Y")
     if winners:
-        print(f"**Reddit X-ray {month_year} Weighted Distribution**\n({available_distributions} available bonuses, total{'; FWA base penalties ignored' if bypass else ''})\n")
+        print(f"**Reddit X-ray {month} {year} Weighted Distribution**\n({available_distributions} available bonuses, total{'; FWA base penalties ignored' if bypass else ''})\n")
 
         eligible_players = [player for player in players if is_eligible(player[0])]
         eligible_players = sorted(eligible_players, key=lambda x: x[1], reverse=True)
@@ -289,7 +291,7 @@ def draw_command(available_distributions:int, bypass:bool):
             
         print("")
 
-        print(f"Ineligible (all values in weeks):")
+        print(f"Ineligible (all values in weeks): ```")
         longest_player_name = max(len(player[0]) for player in ineligible_players)
         if longest_player_name < 11: longest_player_name = 11
 
@@ -299,7 +301,7 @@ def draw_command(available_distributions:int, bypass:bool):
         for player, elapsed, bonus, remaining in ineligible_players:
             print(f"║ {player:<{longest_player_name}} │ {elapsed:<7.2f} │ {bonus:<5} │ {remaining:<9.2f} ║")
 
-        print(f"╚══{'═'*longest_player_name}╧═════════╧═══════╧═══════════╝")
+        print(f"╚══{'═'*longest_player_name}╧═════════╧═══════╧═══════════╝ ```")
 
         # Ineligible (all values in weeks):
         # ╔═════════════╤═════════╤═══════╤═══════════╗

@@ -4,6 +4,9 @@ wars = [
     ("Red Alert", "loss", "2025/06/17"), 
     ("BD LORD$", "loss", "2025/06/19"),
     ("trueno farm 07", "win", "2025/06/21"),
+    ("BEST WAR CLAN", "loss", "2025/06/23"),
+    ("The Deadlands", "win", "2025/06/25"),
+    ("Deathstar +++", "win", "2025/06/27"),
 ]
 
 import os, datetime

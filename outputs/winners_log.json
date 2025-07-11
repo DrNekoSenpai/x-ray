@@ -21,6 +21,11 @@
                 "month": "2025-06",
                 "hits": 7,
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
+                "hits": 7,
+                "bonus_weeks": 4
             }
         ]
     },
@@ -61,6 +66,11 @@
                 "month": "2025-06",
                 "hits": 7,
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
+                "hits": 7,
+                "bonus_weeks": 4
             }
         ]
     },
@@ -94,6 +104,11 @@
             },
             {
                 "month": "2025-06",
+                "hits": 7,
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
                 "hits": 7,
                 "bonus_weeks": 4
             }
@@ -130,6 +145,11 @@
                 "month": "2025-06",
                 "hits": 7,
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
+                "hits": 7,
+                "bonus_weeks": 4
             }
         ]
     },
@@ -160,6 +180,11 @@
                 "month": "2025-06",
                 "hits": 7,
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
+                "hits": 7,
+                "bonus_weeks": 4
             }
         ]
     },
@@ -175,6 +200,11 @@
                 "month": "2025-06",
                 "hits": 6,
                 "bonus_weeks": 3
+            },
+            {
+                "month": "2025-07",
+                "hits": 7,
+                "bonus_weeks": 4
             }
         ]
     },
@@ -193,6 +223,11 @@
             },
             {
                 "month": "2025-06",
+                "hits": 7,
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
                 "hits": 7,
                 "bonus_weeks": 4
             }
@@ -245,6 +280,11 @@
                 "month": "2025-06",
                 "hits": 6,
                 "bonus_weeks": 3
+            },
+            {
+                "month": "2025-07",
+                "hits": 6,
+                "bonus_weeks": 3
             }
         ]
     },
@@ -260,6 +300,11 @@
                 "month": "2025-06",
                 "hits": 5,
                 "bonus_weeks": 2
+            },
+            {
+                "month": "2025-07",
+                "hits": 3,
+                "bonus_weeks": 1
             }
         ]
     },
@@ -273,6 +318,11 @@
             },
             {
                 "month": "2025-06",
+                "hits": 7,
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
                 "hits": 7,
                 "bonus_weeks": 4
             }
@@ -290,6 +340,11 @@
                 "month": "2025-06",
                 "hits": 7,
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
+                "hits": 6,
+                "bonus_weeks": 3
             }
         ]
     },
@@ -303,6 +358,11 @@
             },
             {
                 "month": "2025-06",
+                "hits": 7,
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
                 "hits": 7,
                 "bonus_weeks": 4
             }
@@ -319,6 +379,11 @@
                 "month": "2025-06",
                 "hits": 6,
                 "bonus_weeks": 3
+            },
+            {
+                "month": "2025-07",
+                "hits": 6,
+                "bonus_weeks": 3
             }
         ]
     },
@@ -329,6 +394,11 @@
                 "month": "2025-06",
                 "hits": 7,
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
+                "hits": 7,
+                "bonus_weeks": 4
             }
         ]
     },
@@ -337,6 +407,11 @@
         "bonus": [
             {
                 "month": "2025-06",
+                "hits": 7,
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
                 "hits": 7,
                 "bonus_weeks": 4
             }
@@ -353,6 +428,11 @@
                 "month": "2025-06",
                 "hits": 7,
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
+                "hits": 7,
+                "bonus_weeks": 4
             }
         ]
     },
@@ -363,6 +443,11 @@
                 "month": "2025-06",
                 "hits": 7,
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
+                "hits": 6,
+                "bonus_weeks": 3
             }
         ]
     },
@@ -371,6 +456,11 @@
         "bonus": [
             {
                 "month": "2025-06",
+                "hits": 7,
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
                 "hits": 7,
                 "bonus_weeks": 4
             }
@@ -387,15 +477,56 @@
                 "month": "2025-06",
                 "hits": 7,
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-07",
+                "hits": 6,
+                "bonus_weeks": 3
             }
         ]
     },
     "SirFluffyy": {
         "win_date": "2025-06-11",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-07",
+                "hits": 7,
+                "bonus_weeks": 4
+            }
+        ]
     },
     "pi314ever": {
         "win_date": "2025-06-11",
+        "bonus": [
+            {
+                "month": "2025-07",
+                "hits": 7,
+                "bonus_weeks": 4
+            }
+        ]
+    },
+    "LOGAN911": {
+        "win_date": "2025-07-11",
+        "bonus": []
+    },
+    "Marlec": {
+        "win_date": "2025-07-11",
+        "bonus": []
+    },
+    "Limit?": {
+        "win_date": "2025-07-11",
+        "bonus": []
+    },
+    "hype": {
+        "win_date": "2025-07-11",
+        "bonus": []
+    },
+    "BumblinMumbler": {
+        "win_date": "2025-07-11",
+        "bonus": []
+    },
+    "Satan": {
+        "win_date": "2025-07-11",
         "bonus": []
     }
 }
