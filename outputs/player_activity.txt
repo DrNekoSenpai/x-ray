@@ -193,6 +193,13 @@ Vojt: #PCJP8QJC
   - Banked counter: ['2025-05-23', '2025-05-25', '2025-05-27']
   - Wars logged: ['2025-03-13', '2025-03-15', '2025-03-17', '2025-04-19', '2025-04-21', '2025-04-23', '2025-04-25', '2025-04-13', '2025-04-17', '2025-04-29', '2025-04-30', '2025-05-13', '2025-05-15', '2025-05-17', '2025-05-21', '2025-05-23', '2025-05-25', '2025-05-27']
 
+Smitty™: #9LCPQ0QR
+  - Wars missed: 1
+    - ('2025-06-25', 'The Deadlands', 'win')
+  - Last seen in clan: 2025-06-27
+  - Banked counter: []
+  - Wars logged: ['2025-03-13', '2025-03-15', '2025-03-17', '2025-04-01', '2025-04-13', '2025-04-15', '2025-04-17', '2025-04-19', '2025-04-21', '2025-06-13', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-23', '2025-06-27']
+
 gdfan75: #PG2Y8RGU
   - Wars missed: 0
   - Last seen in clan: 2025-06-27
@@ -257,12 +264,6 @@ Satan: #YJU92GY
   - Last seen in clan: 2025-06-27
   - Banked counter: ['2025-03-13', '2025-03-15', '2025-03-17']
   - Wars logged: ['2025-03-13', '2025-03-15', '2025-03-17']
-
-Smitty™: #9LCPQ0QR
-  - Wars missed: 0
-  - Last seen in clan: 2025-06-27
-  - Banked counter: []
-  - Wars logged: ['2025-03-13', '2025-03-15', '2025-03-17', '2025-04-01', '2025-04-13', '2025-04-15', '2025-04-17', '2025-04-19', '2025-04-21', '2025-06-13', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-23', '2025-06-27']
 
 Protips: #9QGLLQJQ2
   - Wars missed: 0
@@ -608,7 +609,7 @@ DNG: ##LPV008QQ
 
 Coolguyagent: ##2GP2C8LRY
   - Wars missed: 0
-  - Last seen in clan: 2025-06-29
+  - Last seen in clan: 2025-07-15
   - Banked counter: []
   - Wars logged: []
 
@@ -641,4 +642,16 @@ Limit?: ##LGPGYJGQG
   - Last seen in clan: 2025-06-27
   - Banked counter: ['2025-06-23', '2025-06-25', '2025-06-27']
   - Wars logged: ['2025-06-23', '2025-06-25', '2025-06-27']
+
+Marlec: ##LVQ9PPQVY
+  - Wars missed: 0
+  - Last seen in clan: 2025-07-15
+  - Banked counter: []
+  - Wars logged: []
+
+BumblinMumbler2: ##YPQ2UJUQR
+  - Wars missed: 0
+  - Last seen in clan: 2025-07-15
+  - Banked counter: []
+  - Wars logged: []
 

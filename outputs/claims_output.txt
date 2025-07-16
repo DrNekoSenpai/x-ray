@@ -7,24 +7,20 @@ simptzy: 1 account in Reddit X-ray
 wolverine911: 1 account in Reddit X-ray
   - LOGAN911 -- (main)
 
-snedpie: 1 account in Reddit X-ray
-  - Sned -- (main)
+isaacsmith_x: 1 account in Reddit X-ray
+  - Smitty™ -- (main)
+
+.marlec: 1 account in Reddit X-ray
+  - Marlec -- (main)
 
 zep_5yr: 1 account in Reddit X-ray
   - Anas -- (main)
-
-bumblinmumbler: 1 account in Reddit X-ray
-  - BumblinMumbler -- (main)
 
 hyype99: 1 account in Reddit X-ray
   - hype -- (main)
 
 uppercasename: 1 account in Reddit X-ray
   - Ascended -- (main)
-
-isaacsmith_x: 2 accounts in Reddit X-ray
-  - Smitty™
-  - Ligma
 
 _yamiya_: 1 account in Reddit X-ray
   - xHead_Bangerx -- (main)
@@ -38,8 +34,13 @@ napalm360: 1 account in Reddit X-ray
 pi314ever: 1 account in Reddit X-ray
   - pi314ever -- (main)
 
-cherryyy___: 1 account in Reddit X-ray
-  - K.L.A.U.S -- (main)
+bumblinmumbler: 2 accounts in Reddit X-ray
+  - BumblinMumbler2
+  - BumblinMumbler
+
+snedpie: 2 accounts in Reddit X-ray
+  - Sned
+  - Sned 2.0
 
 mikadochii: 1 account in Reddit X-ray
   - skyeshade -- (main)
@@ -101,9 +102,6 @@ _._sloth_._: 1 account in Reddit X-ray
 supreme.3: 1 account in Reddit X-ray
   - RoyalOne -- (main)
 
-kaselcap: 1 account in Reddit X-ray
-  - Kaselcap -- (main)
-
 asrar_malik: 1 account in Reddit X-ray
   - Asrar -- (main)
 
@@ -112,9 +110,6 @@ therealvo1t: 1 account in Reddit X-ray
 
 titanlim: 1 account in Reddit X-ray
   - your mama -- (main)
-
-crazywaveit: 1 account in Reddit X-ray
-  - CrazyWaveIT -- (main)
 
 motz3012: 1 account in Reddit X-ray
   - Motz -- (main)
@@ -125,7 +120,7 @@ siriusbluu: 1 account in Reddit X-ray
 rodmk: 1 account in Reddit X-ray
   - Rod -- (main)
 
-fischusmaximus: 1 account in Reddit X-ray
+wellenreiter2006: 1 account in Reddit X-ray
   - Welli -- (main)
 
 sirfluffyy: 1 account in Reddit X-ray
