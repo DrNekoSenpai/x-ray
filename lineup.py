@@ -41,47 +41,28 @@ if args.names:
         print(f"{player}")
     exit(0)
 
-if len(roster) == 30 or len(roster) == 15: 
-    # Clan War Leagues
-    # War 1: 1 3 4 8 9 12 13 16 18 19 23 24 25 29 
-    list = [1,3,4,8,9,12,13,16,18,19,23,24,25,29]
-    # For each player in the roster, if their number is in list, print FALSE
-    # Otherwise, print a new line
-    
-    for player,num in roster.items():
-        if num in list: 
-            print(f"FALSE")
-        else:
-            print(f"")
+list = [int(x) for x in "1 2 4 6 8 11 12 14 17 18 20 22 23 24 25 26 27 28 29 30 31 32 33 34 ".split( )]
+roster = {player: num for player,num in roster.items() if num in list}
 
-else: 
-    # List: 14 15 23 
-    list = [14,15,23]
-    roster = {player: num for player,num in roster.items() if num in list}
+class Claim: 
+    def __init__(self, name, discord_id): 
+        self.name = name
+        self.discord_id = discord_id
 
-    class Claim: 
-        def __init__(self, name, discord_id): 
-            self.name = name
-            self.discord_id = discord_id
+for player,num in roster.items():
+    discord_id = player_roster.get(player, None)[0]
+    if discord_id is not None: 
+        print(f"{num}. {player} <@{discord_id}>")
 
-    # Unicorn✨ | AST: 1 account in Reddit X-ray, 0 accounts in Faint Outlaws
-    # Account for plural forms
-    discord_name_pattern = re.compile(r"(.*): \d+ account(s)? in Reddit X-ray")
+print("")
 
-    for player,num in roster.items():
-        discord_id = player_roster.get(player, None)[0]
-        if discord_id is not None: 
-            print(f"{num}. {player} <@{discord_id}>")
-
-    print("")
-
-    count = 0
-    for player,num in roster.items(): 
-        discord_id = player_roster.get(player, None)
-        if discord_id is not None:
-            count += 1
-            if count == 5: 
-                print(f"@{player}")
-                count = 0
-            else: 
-                print(f"@{player}", end=" ")
+count = 0
+for player,num in roster.items(): 
+    discord_id = player_roster.get(player, None)
+    if discord_id is not None:
+        count += 1
+        if count == 5: 
+            print(f"@{player}")
+            count = 0
+        else: 
+            print(f"@{player}", end=" ")

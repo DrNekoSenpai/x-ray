@@ -7,6 +7,10 @@ wars = [
     ("BEST WAR CLAN", "loss", "2025/06/23"),
     ("The Deadlands", "win", "2025/06/25"),
     ("Deathstar +++", "win", "2025/06/27"),
+    ("RSCM Warriors", "blacklist win/true", "2025/06/30"),
+    ("clasher_clan", "win", "2025/07/02"),
+    (".CLAN BROTHERS", "win", "2025/07/17"), 
+    ("IMPERIO ROMANO", "blacklist loss/true", "2025/07/19"),
 ]
 
 import os, datetime
