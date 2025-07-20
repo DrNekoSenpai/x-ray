@@ -1,35 +1,50 @@
-As of <t:1752913481:F> (<t:1752913481:R>):
+As of <t:1752996338:F> (<t:1752996338:R>):
 
-[3] NagaStoleMyBike #9V2GRVGU -- 32 days remaining
+[3] NagaStoleMyBike #9V2GRVGU -- 39 days remaining
 - (1) Was not eligible for CWL distribution due to missed hits or FWA bases, during week of June 2025.
 - (1) Was not eligible for CWL distribution due to missed hits or FWA bases, during week of July 2025.
-- (1) Missed two attacks during a blacklist war against `Rscm Warriors` on 2025-06-30; we won, and met the conditional.
+- (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[2] Big Daddy T #9V0PCRR00 -- 2 days remaining
-- (1) Base errors were found during a war against sidoarjo winner on 2025-04-13, and sanctions resulted from it.
-- (1) Was not eligible for CWL distribution due to missed hits or FWA bases, during week of June 2025.
-
-[1] RoyalOne #RV920PR9 -- 32 days remaining
+[2] RoyalOne #RV920PR9 -- 39 days remaining
 - (1) Was not eligible for CWL distribution due to missed hits or FWA bases, during week of July 2025.
+- (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] Mythos #GRYRVL9P8 -- 21 days remaining
-- (1) Missed two attacks during a blacklist war against `Rscm Warriors` on 2025-06-30; we won, and met the conditional.
+[1] Anas #92L2PP09R -- 39 days remaining
+- (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] Protips #9QGLLQJQ2 -- 21 days remaining
-- (1) Missed two attacks during a blacklist war against `Rscm Warriors` on 2025-06-30; we won, and met the conditional.
+[1] Asrar #9RVQ22RCR -- 39 days remaining
+- (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] Sham #9QGJ2RC2V -- 21 days remaining
-- (1) Missed two attacks during a blacklist war against `Rscm Warriors` on 2025-06-30; we won, and met the conditional.
+[1] Carsonn #YYG92PY8Q -- 39 days remaining
+- (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] SirFluffyy #900088PR9 -- 21 days remaining
-- (1) Missed two attacks during a blacklist war against `Rscm Warriors` on 2025-06-30; we won, and met the conditional.
+[1] DNG #LPV008QQ -- 39 days remaining
+- (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] Vojt #PCJP8QJC -- 10 days remaining
+[1] Limit? #LGPGYJGQG -- 39 days remaining
+- (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
+
+[1] Matanza #G9C8GL2VQ -- 39 days remaining
+- (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
+
+[1] Mythos #GRYRVL9P8 -- 39 days remaining
+- (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
+
+[1] Rod #YLLQRLL0 -- 39 days remaining
+- (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
+
+[1] Sham #9QGJ2RC2V -- 39 days remaining
+- (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
+
+[1] xHead_Bangerx #YQPVL2G8 -- 39 days remaining
+- (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
+
+[1] yashwanth #YQCL028J0 -- 39 days remaining
+- (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
+
+[1] Vojt #PCJP8QJC -- 9 days remaining
 - (1) Three-starred during a loss war against `BD LORD$` on 2025-06-19.
 
-[1] Az7777 #QYLURLQ2 -- 6 days remaining
-- (1) Three-starred during a loss war against `MARVELS` on 2025-06-15.
-
-[1] Kaselcap #LU2YC0L -- 6 days remaining
-- (1) Three-starred during a loss war against `MARVELS` on 2025-06-15.
+[1] Big Daddy T #9V0PCRR00 -- 1 days remaining
+- (1) Was not eligible for CWL distribution due to missed hits or FWA bases, during week of June 2025.
 

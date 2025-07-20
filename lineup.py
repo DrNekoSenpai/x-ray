@@ -41,7 +41,8 @@ if args.names:
         print(f"{player}")
     exit(0)
 
-list = [int(x) for x in "1 2 4 6 8 11 12 14 17 18 20 22 23 24 25 26 27 28 29 30 31 32 33 34 ".split( )]
+list = "6 7 14 15 16 21 22 34 37 41 42"
+list = [int(x) for x in list.split( )]
 roster = {player: num for player,num in roster.items() if num in list}
 
 class Claim: 

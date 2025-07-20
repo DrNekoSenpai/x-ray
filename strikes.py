@@ -57,12 +57,12 @@ class Player:
         return self.strikes[-1].date.strftime('%Y-%m-%d') if self.strikes else None
 
 def export_pickle(): 
-    with open('player_data.pickle', 'wb') as f:
+    with open('strikes_data.pickle', 'wb') as f:
         pickle.dump(players, f)
 
 def import_pickle(): 
     try: 
-        with open('player_data.pickle', 'rb') as f: 
+        with open('strikes_data.pickle', 'rb') as f: 
             players = pickle.load(f)
     except: players = []
     return players
@@ -146,17 +146,8 @@ def add_strike():
                     # If we lost, and this player missed one attack, award two strikes.
                     # If this player didn't have a war base, award three strikes if we lose.
 
-                    if conditional == 'y' and win == 'y' and num == 2:
-                        players[i].strikes.append(Strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Missed two attacks during a blacklist war against `{clan}` on {date}; we won, and met the conditional."))
-
-                    elif conditional == 'y' and win == 'y' and num == 1:
-                        continue
-
-                    elif conditional == 'y' and win == 'n' and num == 2:
-                        players[i].strikes.append(Strike(2, datetime.strptime(date, "%Y-%m-%d"), f"Missed two attacks during a blacklist war against `{clan}` on {date}; we lost, but met the conditional."))
-
-                    elif conditional == 'y' and win == 'n' and num == 1:
-                        players[i].strikes.append(Strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Missed one attack during a blacklist war against `{clan}` on {date}; we lost, but met the conditional."))
+                    if conditional == 'y' and win == 'n':
+                        players[i].strikes.append(Strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Missed at least one attack during a blacklist war against `{clan}` on {date}; we lost, but met the conditional."))
 
                     elif conditional == 'n' and win == 'y' and num == 2:
                         players[i].strikes.append(Strike(2, datetime.strptime(date, "%Y-%m-%d"), f"Missed two attacks during a blacklist war against `{clan}` on {date}; we won."))

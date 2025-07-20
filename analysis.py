@@ -26,7 +26,8 @@ immunities = [
     "CrazyWaveIT", 
     "LOGAN911", 
     "skyeshade", 
-    "Golden Unicorn✨"
+    "Golden Unicorn✨", 
+    ("Mythos", "2025-07-10", "2025-07-19")
 ]
                 
 # Permanent immunities: name only, immune forever
@@ -166,20 +167,20 @@ class player_activity:
         self.wars_logged = [] # Same as banked counter, but is not wiped when the reset hits. 
 
 try: 
-    with open("player_activity.pickle", "rb") as file: 
+    with open("activity_data.pickle", "rb") as file: 
         player_activity_dict = pickle.load(file)
 
 except:
     # Assume no such file exists, create a new one. 
-    print(f"Error: no such file 'player_activity.pickle' was found. Creating a new one.")
+    print(f"Error: no such file 'activity_data.pickle' was found. Creating a new one.")
     player_activity_dict = {}
 
 try: 
-    with open("player_activity.pickle", "rb") as file: 
+    with open("activity_data.pickle", "rb") as file: 
         player_activity_dict = pickle.load(file)
 except FileNotFoundError:
     # Assume no such file exists, create a new one. 
-    print(f"Error: no such file 'player_activity.pickle' was found. Creating a new one.")
+    print(f"Error: no such file 'activity_data.pickle' was found. Creating a new one.")
     player_activity_dict = {}
 
 for user in claims_dictionary: 
@@ -195,17 +196,20 @@ for user in claims_dictionary:
 
 with open("./outputs/strikes.txt", "r", encoding="utf-8") as file: 
     strikes = file.readlines()
-    strikes_pattern = re.compile(r"\[(\d+)\]\s+(.*)\s+#([A-Z0-9]{5,9})")
+    strikes_pattern = re.compile(r"\[(\d+)\]\s+(.*)\s+(#[A-Z0-9]{5,9})")
 
     for strike in strikes: 
-        if not re.match(strikes_pattern, strike): continue
-        num_strikes, name, tag = re.match(strikes_pattern, strike).groups()
+        if not re.search(strikes_pattern, strike): continue
+        num_strikes, name, tag = re.search(strikes_pattern, strike).groups()
 
         if tag in player_activity_dict: 
             player_activity_dict[tag].base_value = int(num_strikes)
 
+for player in player_activity_dict:
+    print(player, player_activity_dict[player].name, player_activity_dict[player].tag, player_activity_dict[player].base_value, player_activity_dict[player].last_seen)
+
 if args.update:
-    with open("player_activity.pickle", "wb") as file: 
+    with open("activity_data.pickle", "wb") as file: 
         pickle.dump(player_activity_dict, file)
     exit()
 
@@ -365,9 +369,10 @@ for log_file in logs:
                 if player_name in permanent_immunities: 
                     player_immune = True
 
-                for immune, date in timed_immunities:
+                for immune, begin_date, end_date in timed_immunities:
                     if player_name == immune:
-                        if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year): 
+                        # if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year): 
+                        if datetime.datetime.strptime(begin_date, "%Y-%m-%d") <= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year) <= datetime.datetime.strptime(end_date, "%Y-%m-%d"):
                             player_immune = True
 
                 for immune, date in one_war_immunities: 
@@ -628,56 +633,17 @@ for log_file in logs:
                         one_missed_hit.remove(player_name)
                     else: 
                         one_missed_hit.append(player_name)
-            
-            for entry in one_missed_hit: 
-                if entry in permanent_immunities: 
-                    if args.bypass: print(f"Bypass: {entry} missed one hit on a blacklist war, but they are immune")
-                    continue
 
-                for immune, date in timed_immunities:
-                    if player_name == immune:
-                        if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year): 
-                            if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
-                            player_immune = True
+            missed_hits = one_missed_hit + two_missed_hits
 
-                for immune, date in one_war_immunities: 
-                    if player_name == immune: 
-                        immunity_date = datetime.datetime.strptime(date, "%Y-%m-%d")
-                        war_end = datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year)
-                        if war_end == immunity_date: 
-                            if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
-                            player_immune = True
-
-                is_main = True
-                for claimer in claims_dictionary:
-                    for account in claims_dictionary[claimer]: 
-                        if account.name == entry: 
-                            if not account.is_main: 
-                                is_main = False
-                if not is_main: 
-                    if args.bypass: print(f"Bypass: {entry} missed one hit on a blacklist war, but they are not a main account")
-                    continue
-
-                if victory == "y": 
-                    if args.bypass: print(f"Bypass: {entry} missed one hit on a blacklist war, but we won anyway")
-                else: 
-                    if conditional == "true": 
-                        print(f"Warning: {entry} missed one hit on a blacklist war, which cost us the win but we met the conditional")
-                        file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\ny\nn\n1\n")
-                        rules_broken[entry] = True
-                    else: 
-                        print(f"Warning: {entry} missed one hit on a blacklist war, which cost us the win")
-                        file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\nn\nn\n1\n")
-                        rules_broken[entry] = True
-
-            for entry in two_missed_hits: 
+            for entry in missed_hits: 
                 if entry in permanent_immunities or "Unicorn" in entry: 
                     if args.bypass: print(f"Bypass: {entry} missed two hits on a blacklist war, but they are immune")
                     continue
 
-                for immune, date in timed_immunities:
+                for immune, begin_date, end_date in timed_immunities:
                     if player_name == immune:
-                        if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year): 
+                        if datetime.datetime.strptime(begin_date, "%Y-%m-%d") <= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year) <= datetime.datetime.strptime(end_date, "%Y-%m-%d"):
                             if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
                             player_immune = True
 
@@ -696,25 +662,24 @@ for log_file in logs:
                             if not account.is_main: 
                                 is_main = False
                 if not is_main: 
-                    if args.bypass: print(f"Bypass: {entry} missed two hits on a blacklist war, but they are not a main account")
+                    if args.bypass: print(f"Bypass: {entry} missed at least one hit on a blacklist war, but they are not a main account")
                     continue
 
                 if victory == "y": 
                     if conditional == "true": 
-                        print(f"Warning: {entry} missed two hits on a blacklist war, but we still won and met the conditional")
-                        file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\ny\ny\n2\n")
+                        # update activity data, but no strikes
                         rules_broken[entry] = True
                     else:
-                        print(f"Warning: {entry} missed two hits on a blacklist war, but we still won")
+                        print(f"Warning: {entry} missed at least one hit on a blacklist war, but we still won")
                         file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\nn\ny\n2\n")
                         rules_broken[entry] = True
                 else:
                     if conditional == "true": 
-                        print(f"Warning: {entry} missed two hits on a blacklist war, which cost us the win but we met the conditional")
+                        print(f"Warning: {entry} missed at least one hit on a blacklist war, which cost us the win but we met the conditional")
                         file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\ny\nn\n2\n")
                         rules_broken[entry] = True
                     else:
-                        print(f"Warning: {entry} missed two hits on a blacklist war, which cost us the win")
+                        print(f"Warning: {entry} missed at least one hit on a blacklist war, which cost us the win")
                         file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\nn\nn\n2\n")
                         rules_broken[entry] = True
 
@@ -765,7 +730,7 @@ for player in to_be_deleted:
     del player_activity_dict[player]
 
 
-with open("player_activity.pickle", "wb") as file:
+with open("activity_data.pickle", "wb") as file:
     pickle.dump(player_activity_dict, file)
 
 # Sort the player_activity_dict by the number of wars missed. 
