@@ -73,8 +73,7 @@ def add_player():
         player_name = row['Name']
         player_tag = row['Tag']
 
-        player_clan = row['Clan']
-        if not player_clan == 'Reddit X-ray': continue
+        if type(player_tag) is float: continue
 
         p = Player(player_name, player_tag)
         if p not in players:

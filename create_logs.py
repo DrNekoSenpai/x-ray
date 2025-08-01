@@ -11,6 +11,12 @@ wars = [
     ("clasher_clan", "win", "2025/07/02"),
     (".CLAN BROTHERS", "win", "2025/07/17"), 
     ("IMPERIO ROMANO", "blacklist loss/true", "2025/07/19"),
+    ("Phantoms", "win", "2025/07/21"),
+    ("Elite Power", "win", "2025/07/23"),
+    ("Web Rage Farm 7", "win", "2025/07/26"),
+    ("trueno farm 07", "loss", "2025/07/28"),
+    ("sidoarjo winner", "win", "2025/07/30"),
+    ("BItukOnZ", "loss", "2025/08/01"),
 ]
 
 import os, datetime

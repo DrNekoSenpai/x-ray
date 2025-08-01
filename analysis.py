@@ -74,11 +74,19 @@ for _, row in xray_claims.iterrows():
     claim_tag = row['Tag']
     claim_clan = row['Clan']
 
+    if type(claim_name) is float: continue 
+
     # Remove unwanted characters from claim_name and claim_displayname
-    if "\\" in claim_name:
-        claim_name = claim_name.replace("\\", "")
-    if "\\" in claim_displayname:
-        claim_displayname = claim_displayname.replace("\\", "")
+
+    try: 
+        if "\\" in claim_name:
+            claim_name = claim_name.replace("\\", "")
+        if "\\" in claim_displayname:
+            claim_displayname = claim_displayname.replace("\\", "")
+
+    except Exception as e:
+        print(f"Error processing claim: {claim_name} ({claim_username}) - {e}")
+        exit(1)
 
     # Add the claim to the claims_dictionary
     if claim_username not in claims_dictionary:
@@ -744,7 +752,7 @@ for player in player_activity_dict:
 with open("./outputs/player_activity.txt", "w", encoding="utf-8") as file:
     # Format: player name, player tag
     for player in player_activity_dict:
-        file.write(f"{player_activity_dict[player].name}: #{player_activity_dict[player].tag}\n")
+        file.write(f"{player_activity_dict[player].name}: {player_activity_dict[player].tag}\n")
         file.write(f"  - Wars missed: {len(player_activity_dict[player].wars_missed)}\n")
         for war in player_activity_dict[player].wars_missed: 
             file.write(f"    - {war}\n")

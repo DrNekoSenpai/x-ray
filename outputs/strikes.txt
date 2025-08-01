@@ -1,50 +1,52 @@
-As of <t:1752996338:F> (<t:1752996338:R>):
+As of <t:1754035433:F> (<t:1754035433:R>):
 
-[3] NagaStoleMyBike #9V2GRVGU -- 39 days remaining
+[3] NagaStoleMyBike #9V2GRVGU -- 27 days remaining
 - (1) Was not eligible for CWL distribution due to missed hits or FWA bases, during week of June 2025.
 - (1) Was not eligible for CWL distribution due to missed hits or FWA bases, during week of July 2025.
 - (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[2] RoyalOne #RV920PR9 -- 39 days remaining
+[2] SirFluffyy #900088PR9 -- 31 days remaining
+- (1) Attacked someone else than mirror during a war against `Phantoms` on 2025-07-21.
+- (1) Attacked someone else than mirror during a war against `Elite Power` on 2025-07-23.
+
+[2] Az7777 #QYLURLQ2 -- 27 days remaining
+- (1) Three-starred during a loss war against `MARVELS` on 2025-06-15.
+- (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
+
+[2] RoyalOne #RV920PR9 -- 27 days remaining
 - (1) Was not eligible for CWL distribution due to missed hits or FWA bases, during week of July 2025.
 - (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] Anas #92L2PP09R -- 39 days remaining
+[1] Anas #92L2PP09R -- 27 days remaining
 - (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] Asrar #9RVQ22RCR -- 39 days remaining
+[1] Asrar #9RVQ22RCR -- 27 days remaining
 - (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] Carsonn #YYG92PY8Q -- 39 days remaining
+[1] Carsonn #YYG92PY8Q -- 27 days remaining
 - (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] DNG #LPV008QQ -- 39 days remaining
+[1] DNG #LPV008QQ -- 27 days remaining
 - (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] Limit? #LGPGYJGQG -- 39 days remaining
+[1] Limit? #LGPGYJGQG -- 27 days remaining
 - (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] Matanza #G9C8GL2VQ -- 39 days remaining
+[1] Matanza #G9C8GL2VQ -- 27 days remaining
 - (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] Mythos #GRYRVL9P8 -- 39 days remaining
+[1] Mythos #GRYRVL9P8 -- 27 days remaining
 - (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] Rod #YLLQRLL0 -- 39 days remaining
+[1] Rod #YLLQRLL0 -- 27 days remaining
 - (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] Sham #9QGJ2RC2V -- 39 days remaining
+[1] Sham #9QGJ2RC2V -- 27 days remaining
 - (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] xHead_Bangerx #YQPVL2G8 -- 39 days remaining
+[1] xHead_Bangerx #YQPVL2G8 -- 27 days remaining
 - (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
 
-[1] yashwanth #YQCL028J0 -- 39 days remaining
+[1] yashwanth #YQCL028J0 -- 27 days remaining
 - (1) Missed at least one attack during a blacklist war against `IMPERIO ROMANO` on 2025-07-19; we lost, but met the conditional.
-
-[1] Vojt #PCJP8QJC -- 9 days remaining
-- (1) Three-starred during a loss war against `BD LORD$` on 2025-06-19.
-
-[1] Big Daddy T #9V0PCRR00 -- 1 days remaining
-- (1) Was not eligible for CWL distribution due to missed hits or FWA bases, during week of June 2025.
 
