@@ -26,6 +26,7 @@ def read_players(filename):
                 continue
             try:
                 name, hits_str = line.rsplit(' ', 1)
+                
                 name = name.strip()
                 hits_done, hits_total = hits_str.split('/')
 
@@ -119,22 +120,29 @@ def total_bonus_for_player(log_record):
     bonus_entries = log_record.get("bonus", [])
     return sum(entry.get("bonus_weeks", 0) for entry in bonus_entries)
 
+def remaining_weeks_for_record(record):
+    elapsed = weeks_elapsed(record["win_date"])
+    bonus = total_bonus_for_player(record)
+    return BASE_PENALTY_WEEKS - elapsed - bonus
+
 def is_eligible(player_name):
     """
-    Determines if a player is eligible to win.
-    A player is ineligible if they appear in the winners log with a penalty period remaining.
-    The penalty is:
-        remaining_weeks = BASE_PENALTY_WEEKS - elapsed_weeks - total_bonus
-    A player is eligible if remaining_weeks is <= 0 or if they are not in the log.
+    A player is eligible if they are not in the winners log, or their penalty has elapsed.
+    If the penalty has elapsed, remove them from the log immediately.
     """
     winners_log = load_winners_log()
     record = winners_log.get(player_name)
     if not record:
         return True
-    elapsed = weeks_elapsed(record["win_date"])
-    bonus = total_bonus_for_player(record)
-    remaining = BASE_PENALTY_WEEKS - elapsed - bonus
-    return remaining <= 0
+
+    remaining = remaining_weeks_for_record(record)
+    if remaining <= 0:
+        # Purge this single player and persist
+        del winners_log[player_name]
+        save_winners_log(winners_log)
+        return True
+
+    return False
 
 def draw_winners(entries, available_distributions):
     """
@@ -166,6 +174,26 @@ def record_new_winners(new_winners):
 
     save_winners_log(winners_log)
 
+def purge_reeligible_players():
+    """
+    Remove any players from the winners log whose remaining penalty weeks <= 0.
+    This ensures the log only contains *currently* ineligible players.
+    """
+    log = load_winners_log()
+    to_delete = []
+    for name, record in list(log.items()):
+        try:
+            if remaining_weeks_for_record(record) <= 0:
+                to_delete.append(name)
+        except Exception:
+            # If a record is malformed, err on the side of cleaning it up
+            to_delete.append(name)
+
+    if to_delete:
+        for name in to_delete:
+            del log[name]
+        save_winners_log(log)
+
 def update_bonus():
     """
     Processes bonus records from INPUT_FILE.
@@ -190,6 +218,7 @@ def update_bonus():
         print(f"No bonus file '{INPUT_FILE}' found. Nothing to update.")
         return
 
+    purge_reeligible_players()
     winners_log = load_winners_log()
     changes_made = False
 
@@ -212,10 +241,12 @@ def update_bonus():
                 continue
             try:
                 name, hits_str = line.rsplit(' ', 1)
+
                 hits_used, hits_total = hits_str.split('/')
                 name = name.strip()
-                hits = 7 - int(hits_total) + int(hits_used)
-                bonus_records.append((name, month, hits))
+
+                bonus_records.append((name, month, hits_used, hits_total))
+
             except ValueError:
                 print(f"Skipping invalid bonus line: {line}")
                 continue
@@ -234,16 +265,33 @@ def update_bonus():
                 changes_made = True
 
     # Now process each bonus line from the bonus file.
-    for name, month, hits in bonus_records:
+    for name, month, hits_used, hits_total in bonus_records:
         if name not in winners_log:
             print(f"Player {name} is not in the winners log; skipping bonus update for them.")
             continue
 
-        # Calculate bonus: one week per 2 hits plus an extra week if exactly 7 hits.
-        bonus_weeks = (hits // 2) + (1 if hits == 7 else 0)
-        bonus_entry = {"month": month, "hits": hits, "bonus_weeks": bonus_weeks}
+        # Convert hits_used and hits_total to integers.
+        try:
+            hits_used = int(hits_used)
+            hits_total = int(hits_total)
+
+        except ValueError:
+            print(f"Invalid hits format for {name}: '{hits_used}/{hits_total}'. Skipping bonus update.")
+            continue
+
+        # Scale bonus weeks based on percentage of hits used. 
+        # No hits = 0 weeks, 25% of hits used = 1 week, 50% = 2 weeks, 75% = 3 weeks, 100% = 4 weeks.
+
+        percentage_of_hits = hits_used / hits_total if hits_total > 0 else 0
+        if percentage_of_hits < 0.25: bonus_weeks = 0
+        elif percentage_of_hits < 0.5: bonus_weeks = 1
+        elif percentage_of_hits < 0.75: bonus_weeks = 2
+        elif percentage_of_hits < 1.0: bonus_weeks = 3
+        else: bonus_weeks = 4
+
+        bonus_entry = {"month": month, "bonus_weeks": bonus_weeks}
         winners_log[name].setdefault("bonus", []).append(bonus_entry)
-        print(f"Updated bonus for {name} for month {month}: {bonus_weeks} bonus weeks (from {hits} hits).")
+        print(f"Updated bonus for {name} for month {month}: {bonus_weeks} bonus weeks.")
         changes_made = True
 
     if changes_made:
@@ -254,6 +302,8 @@ def update_bonus():
 
 def draw_command(available_distributions:int, bypass:bool):
     """Function to perform the draw winners process."""
+    purge_reeligible_players()
+
     players = read_players(INPUT_FILE)
     entries = build_entries(players, bypass)
     if not entries:

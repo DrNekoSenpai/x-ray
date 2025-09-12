@@ -1,497 +1,18 @@
 {
-    "pg": {
-        "win_date": "2025-02-10",
-        "bonus": [
-            {
-                "month": "2025-03",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-04",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-05",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Baleus": {
-        "win_date": "2025-02-10",
-        "bonus": [
-            {
-                "month": "2025-03",
-                "hits": 6,
-                "bonus_weeks": 3
-            },
-            {
-                "month": "2025-04",
-                "hits": 2,
-                "bonus_weeks": 1
-            },
-            {
-                "month": "2025-05",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Smitty\u2122": {
-        "win_date": "2025-02-10",
-        "bonus": [
-            {
-                "month": "2025-03",
-                "hits": 6,
-                "bonus_weeks": 3
-            },
-            {
-                "month": "2025-04",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "YouAreMyBreh": {
-        "win_date": "2025-02-10",
-        "bonus": [
-            {
-                "month": "2025-03",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "DNG": {
-        "win_date": "2025-02-10",
-        "bonus": [
-            {
-                "month": "2025-03",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-04",
-                "hits": 1,
-                "bonus_weeks": 0
-            },
-            {
-                "month": "2025-05",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "katsu": {
-        "win_date": "2025-03-11",
-        "bonus": [
-            {
-                "month": "2025-04",
-                "hits": 0,
-                "bonus_weeks": 0
-            }
-        ]
-    },
-    "Luke": {
-        "win_date": "2025-03-11",
-        "bonus": []
-    },
-    "CrazyWaveIT": {
-        "win_date": "2025-03-11",
-        "bonus": [
-            {
-                "month": "2025-04",
-                "hits": 6,
-                "bonus_weeks": 3
-            },
-            {
-                "month": "2025-05",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Plantos": {
-        "win_date": "2025-03-11",
-        "bonus": [
-            {
-                "month": "2025-04",
-                "hits": 6,
-                "bonus_weeks": 3
-            }
-        ]
-    },
-    "Ascended": {
-        "win_date": "2025-03-11",
-        "bonus": [
-            {
-                "month": "2025-04",
-                "hits": 5,
-                "bonus_weeks": 2
-            },
-            {
-                "month": "2025-05",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Rod": {
-        "win_date": "2025-03-11",
-        "bonus": [
-            {
-                "month": "2025-05",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-06",
-                "hits": 6,
-                "bonus_weeks": 3
-            },
-            {
-                "month": "2025-07",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Dalto": {
-        "win_date": "2025-03-11",
-        "bonus": [
-            {
-                "month": "2025-04",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-05",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "K.L.A.U.S": {
-        "win_date": "2025-03-11",
-        "bonus": [
-            {
-                "month": "2025-04",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-05",
-                "hits": 4,
-                "bonus_weeks": 2
-            },
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Kaselcap": {
-        "win_date": "2025-04-09",
-        "bonus": [
-            {
-                "month": "2025-05",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Sned": {
-        "win_date": "2025-04-09",
-        "bonus": [
-            {
-                "month": "2025-05",
-                "hits": 6,
-                "bonus_weeks": 3
-            },
-            {
-                "month": "2025-06",
-                "hits": 6,
-                "bonus_weeks": 3
-            },
-            {
-                "month": "2025-07",
-                "hits": 6,
-                "bonus_weeks": 3
-            }
-        ]
-    },
-    "Mythos": {
-        "win_date": "2025-04-09",
-        "bonus": [
-            {
-                "month": "2025-05",
-                "hits": 6,
-                "bonus_weeks": 3
-            },
-            {
-                "month": "2025-06",
-                "hits": 5,
-                "bonus_weeks": 2
-            },
-            {
-                "month": "2025-07",
-                "hits": 3,
-                "bonus_weeks": 1
-            }
-        ]
-    },
-    "Anas": {
-        "win_date": "2025-04-09",
-        "bonus": [
-            {
-                "month": "2025-05",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Az7777": {
-        "win_date": "2025-04-09",
-        "bonus": [
-            {
-                "month": "2025-05",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 6,
-                "bonus_weeks": 3
-            }
-        ]
-    },
-    "Protips": {
-        "win_date": "2025-04-09",
-        "bonus": [
-            {
-                "month": "2025-05",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "dhruba.": {
-        "win_date": "2025-04-09",
-        "bonus": []
-    },
-    "Sham": {
-        "win_date": "2025-05-09",
-        "bonus": [
-            {
-                "month": "2025-06",
-                "hits": 6,
-                "bonus_weeks": 3
-            },
-            {
-                "month": "2025-07",
-                "hits": 6,
-                "bonus_weeks": 3
-            }
-        ]
-    },
-    "Truthful Lies": {
-        "win_date": "2025-05-09",
-        "bonus": [
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Vojt": {
-        "win_date": "2025-05-09",
-        "bonus": [
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Dhruba": {
-        "win_date": "2025-05-09",
-        "bonus": []
-    },
-    "appable": {
-        "win_date": "2025-05-09",
-        "bonus": [
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Welli": {
-        "win_date": "2025-05-09",
-        "bonus": [
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 6,
-                "bonus_weeks": 3
-            }
-        ]
-    },
-    "Good": {
-        "win_date": "2025-05-09",
-        "bonus": [
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 7,
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "slothnz": {
-        "win_date": "2025-05-09",
-        "bonus": []
-    },
-    "ImagineWaggons": {
-        "win_date": "2025-05-09",
-        "bonus": [
-            {
-                "month": "2025-06",
-                "hits": 7,
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-07",
-                "hits": 6,
-                "bonus_weeks": 3
-            }
-        ]
-    },
     "SirFluffyy": {
         "win_date": "2025-06-11",
         "bonus": [
             {
                 "month": "2025-07",
-                "hits": 7,
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-08",
+                "bonus_weeks": 3
+            },
+            {
+                "month": "2025-09",
+                "bonus_weeks": 0
             }
         ]
     },
@@ -500,33 +21,170 @@
         "bonus": [
             {
                 "month": "2025-07",
-                "hits": 7,
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-08",
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-09",
+                "bonus_weeks": 4
+            }
+        ]
+    },
+    "Smitty\u2122": {
+        "win_date": "2025-06-11",
+        "bonus": [
+            {
+                "month": "2025-07",
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-08",
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-09",
                 "bonus_weeks": 4
             }
         ]
     },
     "LOGAN911": {
         "win_date": "2025-07-11",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-08",
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-09",
+                "bonus_weeks": 3
+            }
+        ]
     },
     "Marlec": {
         "win_date": "2025-07-11",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-08",
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-09",
+                "bonus_weeks": 2
+            }
+        ]
     },
     "Limit?": {
         "win_date": "2025-07-11",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-08",
+                "bonus_weeks": 3
+            },
+            {
+                "month": "2025-09",
+                "bonus_weeks": 1
+            }
+        ]
     },
     "hype": {
         "win_date": "2025-07-11",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-09",
+                "bonus_weeks": 3
+            }
+        ]
     },
     "BumblinMumbler": {
         "win_date": "2025-07-11",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-08",
+                "bonus_weeks": 3
+            },
+            {
+                "month": "2025-09",
+                "bonus_weeks": 3
+            }
+        ]
     },
     "Satan": {
         "win_date": "2025-07-11",
+        "bonus": [
+            {
+                "month": "2025-08",
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-09",
+                "bonus_weeks": 4
+            }
+        ]
+    },
+    "CrazyWaveIT": {
+        "win_date": "2025-07-11",
+        "bonus": [
+            {
+                "month": "2025-08",
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-09",
+                "bonus_weeks": 1
+            }
+        ]
+    },
+    "RoyalOne": {
+        "win_date": "2025-08-11",
+        "bonus": [
+            {
+                "month": "2025-09",
+                "bonus_weeks": 3
+            }
+        ]
+    },
+    "Dalto": {
+        "win_date": "2025-08-11",
+        "bonus": [
+            {
+                "month": "2025-09",
+                "bonus_weeks": 4
+            }
+        ]
+    },
+    "sanskar": {
+        "win_date": "2025-09-10",
+        "bonus": []
+    },
+    "Motz": {
+        "win_date": "2025-09-10",
+        "bonus": []
+    },
+    "Ascended": {
+        "win_date": "2025-09-10",
+        "bonus": []
+    },
+    "K.L.A.U.S": {
+        "win_date": "2025-09-10",
+        "bonus": []
+    },
+    "Protips": {
+        "win_date": "2025-09-10",
+        "bonus": []
+    },
+    "Truthful Lies": {
+        "win_date": "2025-09-10",
+        "bonus": []
+    },
+    "Vojt": {
+        "win_date": "2025-09-10",
+        "bonus": []
+    },
+    "Mythos": {
+        "win_date": "2025-09-10",
         "bonus": []
     }
 }

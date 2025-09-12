@@ -1,5 +1,7 @@
 Sned 2.0: #L9Y9J88LL
-  - Wars missed: 12
+  - Wars missed: 14
+    - ('2025-08-13', 'TE-warriors', 'win')
+    - ('2025-08-01', 'BItukOnZ', 'loss')
     - ('2025-07-30', 'sidoarjo winner', 'win')
     - ('2025-07-28', 'trueno farm 07', 'loss')
     - ('2025-07-26', 'Web Rage Farm 7', 'win')
@@ -12,12 +14,14 @@ Sned 2.0: #L9Y9J88LL
     - ('2025-06-17', 'Red Alert', 'loss')
     - ('2025-06-15', 'MARVELS', 'loss')
     - ('2025-06-13', '3ASTARDOS FARM', 'win')
-  - Last seen in clan: 2025-07-30
+  - Last seen in clan: 2025-08-13
   - Banked counter: ['2025-07-19']
   - Wars logged: ['2025-07-19']
 
 Ligma: #2PCJ8RVYG
-  - Wars missed: 9
+  - Wars missed: 11
+    - ('2025-08-13', 'TE-warriors', 'win')
+    - ('2025-08-01', 'BItukOnZ', 'loss')
     - ('2025-07-30', 'sidoarjo winner', 'win')
     - ('2025-07-28', 'trueno farm 07', 'loss')
     - ('2025-07-26', 'Web Rage Farm 7', 'win')
@@ -27,12 +31,14 @@ Ligma: #2PCJ8RVYG
     - ('2025-06-25', 'The Deadlands', 'win')
     - ('2025-06-23', 'BEST WAR CLAN', 'loss')
     - ('2025-06-21', 'trueno farm 07', 'win')
-  - Last seen in clan: 2025-07-30
+  - Last seen in clan: 2025-08-13
   - Banked counter: ['2025-06-30', '2025-07-02']
   - Wars logged: ['2025-06-30', '2025-07-02']
 
 yashwanth: #YQCL028J0
-  - Wars missed: 8
+  - Wars missed: 10
+    - ('2025-08-13', 'TE-warriors', 'win')
+    - ('2025-08-01', 'BItukOnZ', 'loss')
     - ('2025-07-30', 'sidoarjo winner', 'win')
     - ('2025-07-28', 'trueno farm 07', 'loss')
     - ('2025-07-26', 'Web Rage Farm 7', 'win')
@@ -41,12 +47,27 @@ yashwanth: #YQCL028J0
     - ('2025-07-17', '.CLAN BROTHERS', 'win')
     - ('2025-06-27', 'Deathstar +++', 'win')
     - ('2025-06-15', 'MARVELS', 'loss')
-  - Last seen in clan: 2025-07-30
+  - Last seen in clan: 2025-08-13
   - Banked counter: ['2025-06-30', '2025-07-02']
   - Wars logged: ['2025-06-13', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-23', '2025-06-25', '2025-06-30', '2025-07-02']
 
-Sned: #P2UPPVYL
+xHead_Bangerx: #YQPVL2G8
   - Wars missed: 8
+    - ('2025-08-13', 'TE-warriors', 'win')
+    - ('2025-08-01', 'BItukOnZ', 'loss')
+    - ('2025-07-30', 'sidoarjo winner', 'win')
+    - ('2025-07-28', 'trueno farm 07', 'loss')
+    - ('2025-07-26', 'Web Rage Farm 7', 'win')
+    - ('2025-07-23', 'Elite Power', 'win')
+    - ('2025-07-21', 'Phantoms', 'win')
+    - ('2025-07-17', '.CLAN BROTHERS', 'win')
+  - Last seen in clan: 2025-08-13
+  - Banked counter: []
+  - Wars logged: ['2025-06-13', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-23', '2025-06-25', '2025-06-27', '2025-06-30', '2025-07-02']
+
+Sned: #P2UPPVYL
+  - Wars missed: 9
+    - ('2025-08-13', 'TE-warriors', 'win')
     - ('2025-07-30', 'sidoarjo winner', 'win')
     - ('2025-07-28', 'trueno farm 07', 'loss')
     - ('2025-07-26', 'Web Rage Farm 7', 'win')
@@ -55,24 +76,27 @@ Sned: #P2UPPVYL
     - ('2025-06-23', 'BEST WAR CLAN', 'loss')
     - ('2025-06-21', 'trueno farm 07', 'win')
     - ('2025-06-13', '3ASTARDOS FARM', 'win')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: []
-  - Wars logged: ['2025-07-19', '2025-07-21', '2025-07-23', '2025-06-15', '2025-06-17', '2025-06-19', '2025-06-25', '2025-06-27', '2025-06-30']
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-08-01']
+  - Wars logged: ['2025-07-19', '2025-07-21', '2025-07-23', '2025-06-15', '2025-06-17', '2025-06-19', '2025-06-25', '2025-06-27', '2025-06-30', '2025-08-01']
 
-xHead_Bangerx: #YQPVL2G8
-  - Wars missed: 6
+BumblinMumbler2: #YPQ2UJUQR
+  - Wars missed: 8
+    - ('2025-08-13', 'TE-warriors', 'win')
+    - ('2025-08-01', 'BItukOnZ', 'loss')
     - ('2025-07-30', 'sidoarjo winner', 'win')
     - ('2025-07-28', 'trueno farm 07', 'loss')
     - ('2025-07-26', 'Web Rage Farm 7', 'win')
     - ('2025-07-23', 'Elite Power', 'win')
     - ('2025-07-21', 'Phantoms', 'win')
     - ('2025-07-17', '.CLAN BROTHERS', 'win')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: []
-  - Wars logged: ['2025-06-13', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-23', '2025-06-25', '2025-06-27', '2025-06-30', '2025-07-02']
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-19']
+  - Wars logged: ['2025-07-19']
 
 BumblinMumbler: #JCCLVR8R
-  - Wars missed: 7
+  - Wars missed: 8
+    - ('2025-08-13', 'TE-warriors', 'win')
     - ('2025-07-30', 'sidoarjo winner', 'win')
     - ('2025-07-28', 'trueno farm 07', 'loss')
     - ('2025-07-26', 'Web Rage Farm 7', 'win')
@@ -80,294 +104,284 @@ BumblinMumbler: #JCCLVR8R
     - ('2025-07-21', 'Phantoms', 'win')
     - ('2025-07-17', '.CLAN BROTHERS', 'win')
     - ('2025-06-13', '3ASTARDOS FARM', 'win')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-02']
-  - Wars logged: ['2025-07-19', '2025-06-15', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-23', '2025-06-25', '2025-06-27', '2025-06-30', '2025-07-02']
-
-BumblinMumbler2: #YPQ2UJUQR
-  - Wars missed: 6
-    - ('2025-07-30', 'sidoarjo winner', 'win')
-    - ('2025-07-28', 'trueno farm 07', 'loss')
-    - ('2025-07-26', 'Web Rage Farm 7', 'win')
-    - ('2025-07-23', 'Elite Power', 'win')
-    - ('2025-07-21', 'Phantoms', 'win')
-    - ('2025-07-17', '.CLAN BROTHERS', 'win')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-19']
-  - Wars logged: ['2025-07-19']
-
-Sham: #9QGJ2RC2V
-  - Wars missed: 4
-    - ('2025-07-28', 'trueno farm 07', 'loss')
-    - ('2025-07-23', 'Elite Power', 'win')
-    - ('2025-06-27', 'Deathstar +++', 'win')
-    - ('2025-06-25', 'The Deadlands', 'win')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-06-23', '2025-07-02']
-  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-26', '2025-07-30', '2025-06-13', '2025-06-15', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-23', '2025-07-02']
-
-NagaStoleMyBike: #9V2GRVGU
-  - Wars missed: 2
-    - ('2025-06-27', 'Deathstar +++', 'win')
-    - ('2025-06-23', 'BEST WAR CLAN', 'loss')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-30']
-  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-23', '2025-07-02', '2025-07-26', '2025-07-28', '2025-07-30']
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-02', '2025-08-01']
+  - Wars logged: ['2025-07-19', '2025-06-15', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-23', '2025-06-25', '2025-06-27', '2025-06-30', '2025-07-02', '2025-08-01']
 
 Mythos: #GRYRVL9P8
-  - Wars missed: 3
+  - Wars missed: 4
+    - ('2025-08-01', 'BItukOnZ', 'loss')
     - ('2025-07-17', '.CLAN BROTHERS', 'win')
     - ('2025-07-02', 'clasher_clan', 'win')
     - ('2025-06-23', 'BEST WAR CLAN', 'loss')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-06-27']
-  - Wars logged: ['2025-07-21', '2025-07-23', '2025-07-26', '2025-07-28', '2025-07-30', '2025-06-13', '2025-06-17', '2025-06-19', '2025-06-25', '2025-06-27']
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-06-27', '2025-08-13']
+  - Wars logged: ['2025-07-21', '2025-07-23', '2025-07-26', '2025-07-28', '2025-07-30', '2025-06-13', '2025-06-17', '2025-06-19', '2025-06-25', '2025-06-27', '2025-08-13']
+
+NagaStoleMyBike: #9V2GRVGU
+  - Wars missed: 1
+    - ('2025-06-27', 'Deathstar +++', 'win')
+  - Last seen in clan: 2025-08-13
+  - Banked counter: []
+  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-23', '2025-07-02', '2025-07-26', '2025-07-28', '2025-07-30', '2025-08-01', '2025-08-13']
+
+Sham: #9QGJ2RC2V
+  - Wars missed: 3
+    - ('2025-07-28', 'trueno farm 07', 'loss')
+    - ('2025-07-23', 'Elite Power', 'win')
+    - ('2025-06-27', 'Deathstar +++', 'win')
+  - Last seen in clan: 2025-08-13
+  - Banked counter: []
+  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-26', '2025-07-30', '2025-06-13', '2025-06-15', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-23', '2025-07-02', '2025-08-13']
 
 RoyalOne: #RV920PR9
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: []
-  - Wars logged: ['2025-07-21', '2025-07-23', '2025-07-26', '2025-07-28', '2025-07-30', '2025-06-13', '2025-06-15', '2025-06-17', '2025-06-19']
+  - Wars missed: 2
+    - ('2025-08-01', 'BItukOnZ', 'loss')
+    - ('2025-07-17', '.CLAN BROTHERS', 'win')
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-08-13']
+  - Wars logged: ['2025-07-21', '2025-07-23', '2025-07-26', '2025-07-28', '2025-07-30', '2025-06-13', '2025-06-15', '2025-06-17', '2025-06-19', '2025-08-13']
+
+SirFluffyy: #900088PR9
+  - Wars missed: 1
+    - ('2025-07-28', 'trueno farm 07', 'loss')
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-08-01', '2025-08-13']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-26', '2025-07-30', '2025-06-13', '2025-06-15', '2025-06-17', '2025-06-19', '2025-06-21', '2025-08-01', '2025-08-13']
+
+Carsonn: #YYG92PY8Q
+  - Wars missed: 1
+    - ('2025-08-01', 'BItukOnZ', 'loss')
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-30', '2025-08-13']
+  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-26', '2025-06-19', '2025-06-21', '2025-06-23', '2025-07-30', '2025-08-13']
+
+CrazyWaveIT: #YLUL9Q9JG
+  - Wars missed: 2
+    - ('2025-07-30', 'sidoarjo winner', 'win')
+    - ('2025-07-21', 'Phantoms', 'win')
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-08-01', '2025-08-13']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-23', '2025-07-26', '2025-06-13', '2025-06-15', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-23', '2025-06-25', '2025-06-27', '2025-08-01', '2025-08-13']
 
 Asrar: #9RVQ22RCR
   - Wars missed: 1
     - ('2025-07-30', 'sidoarjo winner', 'win')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-06-17', '2025-06-19', '2025-06-21']
-  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-23', '2025-07-26', '2025-07-28', '2025-06-13', '2025-06-17', '2025-06-19', '2025-06-21']
-
-Motz: #G8L8PU8C
-  - Wars missed: 2
-    - ('2025-07-26', 'Web Rage Farm 7', 'win')
-    - ('2025-06-25', 'The Deadlands', 'win')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-06-27', '2025-07-02']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-07-23', '2025-07-30', '2025-06-13', '2025-06-17', '2025-06-21', '2025-06-23', '2025-06-27', '2025-07-02']
-
-Big Daddy T: #9V0PCRR00
-  - Wars missed: 2
-    - ('2025-07-17', '.CLAN BROTHERS', 'win')
-    - ('2025-06-23', 'BEST WAR CLAN', 'loss')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-02']
-  - Wars logged: ['2025-07-19', '2025-07-21', '2025-07-23', '2025-07-26', '2025-07-28', '2025-07-30', '2025-06-15', '2025-06-19', '2025-06-21', '2025-06-25', '2025-06-27', '2025-06-30', '2025-07-02']
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-08-01', '2025-08-13']
+  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-23', '2025-07-26', '2025-07-28', '2025-06-13', '2025-06-17', '2025-06-19', '2025-06-21', '2025-08-01', '2025-08-13']
 
 Rod: #YLLQRLL0
   - Wars missed: 1
     - ('2025-07-30', 'sidoarjo winner', 'win')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-06-17', '2025-06-19', '2025-06-21']
-  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-23', '2025-07-26', '2025-06-13', '2025-06-15', '2025-06-17', '2025-06-19', '2025-06-21']
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-08-01', '2025-08-13']
+  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-23', '2025-07-26', '2025-06-13', '2025-06-15', '2025-06-17', '2025-06-19', '2025-06-21', '2025-08-01', '2025-08-13']
 
 Welli: #Q00RGJVVR
   - Wars missed: 2
     - ('2025-07-26', 'Web Rage Farm 7', 'win')
     - ('2025-06-27', 'Deathstar +++', 'win')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-02']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-07-30', '2025-07-23', '2025-07-28', '2025-06-15', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-23', '2025-06-30', '2025-07-02']
-
-SirFluffyy: #900088PR9
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: []
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-26', '2025-07-30', '2025-06-13', '2025-06-15', '2025-06-17', '2025-06-19', '2025-06-21']
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-02', '2025-08-13']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-07-30', '2025-07-23', '2025-07-28', '2025-06-15', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-23', '2025-06-30', '2025-07-02', '2025-08-13']
 
 DNG: #LPV008QQ
   - Wars missed: 1
     - ('2025-07-28', 'trueno farm 07', 'loss')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-06-30', '2025-07-02']
-  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-23', '2025-07-26', '2025-07-30', '2025-06-13', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-30', '2025-07-02']
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-08-13']
+  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-23', '2025-07-26', '2025-07-30', '2025-06-13', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-30', '2025-07-02', '2025-08-01', '2025-08-13']
 
 Good: #QRVRV92V8
   - Wars missed: 1
     - ('2025-07-30', 'sidoarjo winner', 'win')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: []
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-07-23', '2025-07-26', '2025-06-13', '2025-06-15', '2025-06-17', '2025-06-19']
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-08-01', '2025-08-13']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-07-23', '2025-07-26', '2025-06-13', '2025-06-15', '2025-06-17', '2025-06-19', '2025-08-01', '2025-08-13']
 
 Limit?: #LGPGYJGQG
   - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-17', '2025-07-21', '2025-07-23']
-  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-23']
+  - Last seen in clan: 2025-08-13
+  - Banked counter: []
+  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-23', '2025-07-26', '2025-07-28', '2025-07-30']
 
 Anas: #92L2PP09R
   - Wars missed: 0
-  - Last seen in clan: 2025-07-30
+  - Last seen in clan: 2025-08-13
   - Banked counter: ['2025-06-25', '2025-06-27', '2025-06-30']
   - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-23', '2025-06-25', '2025-06-27', '2025-06-30']
 
 skyeshade: #YY2YJ20C9
   - Wars missed: 1
     - ('2025-07-02', 'clasher_clan', 'win')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-30']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-06-25', '2025-06-27', '2025-06-30', '2025-07-23', '2025-07-26', '2025-07-28', '2025-07-30']
-
-Carsonn: #YYG92PY8Q
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-06-19', '2025-06-21', '2025-06-23']
-  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-26', '2025-06-19', '2025-06-21', '2025-06-23']
-
-Matanza: #G9C8GL2VQ
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-17', '2025-07-21', '2025-07-23']
-  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-23']
-
-CrazyWaveIT: #YLUL9Q9JG
-  - Wars missed: 1
-    - ('2025-07-30', 'sidoarjo winner', 'win')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: []
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-23', '2025-07-26', '2025-06-13', '2025-06-15', '2025-06-17', '2025-06-19', '2025-06-21', '2025-06-23', '2025-06-25', '2025-06-27']
-
-your mama: #2Y88YLL99
-  - Wars missed: 1
-    - ('2025-07-21', 'Phantoms', 'win')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: []
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-23', '2025-07-26', '2025-07-28', '2025-07-30', '2025-06-13', '2025-06-17', '2025-06-19']
-
-shadow: #QPJ8UV280
-  - Wars missed: 1
-    - ('2025-06-25', 'The Deadlands', 'win')
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-30']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-06-21', '2025-06-27', '2025-06-30', '2025-07-02', '2025-07-23', '2025-07-26', '2025-07-30']
-
-Marlec: #LVQ9PPQVY
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
-
-LOGAN911: #YYRLUQ2J2
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-26', '2025-07-30']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-06-30', '2025-07-02', '2025-07-23', '2025-07-26', '2025-07-30']
-
-.:BEAST:.: #P9G9RCGC2
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-30']
-  - Wars logged: ['2025-07-30']
-
-hype: #2GRPGV892
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
-
-Sphinx: #P8VUQU0RJ
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-21', '2025-07-23', '2025-07-26']
-  - Wars logged: ['2025-07-21', '2025-07-23', '2025-07-26']
-
-Ascended: #QQPRJQ2PQ
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
-
-Smitty™: #9LCPQ0QR
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-06-30', '2025-07-02', '2025-07-23']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-06-30', '2025-07-02', '2025-07-23']
-
-pi314ever: #CGYV8LYR
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
-
-pg: #Q92UQQJCR
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-30', '2025-08-13']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-06-25', '2025-06-27', '2025-06-30', '2025-07-23', '2025-07-26', '2025-07-28', '2025-07-30', '2025-08-13']
 
 Satan: #YJU92GY
   - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
-
-ERDNUSSFLIP: #99Q0R0YQ9
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
-
-Dalto: #U8J0QYG
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
-
-ViperX56: #U2LJ0QVP
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
-  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
-
-Truthful Lies: #28LYU9JY
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
+  - Last seen in clan: 2025-08-13
   - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
   - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
 
 ImagineWaggons: #90ULVLUC
   - Wars missed: 0
-  - Last seen in clan: 2025-07-30
+  - Last seen in clan: 2025-08-13
   - Banked counter: ['2025-06-19', '2025-06-21', '2025-06-23']
   - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-06-19', '2025-06-21', '2025-06-23']
 
+Matanza: #G9C8GL2VQ
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-17', '2025-07-21', '2025-07-23']
+  - Wars logged: ['2025-07-17', '2025-07-21', '2025-07-23']
+
+your mama: #2Y88YLL99
+  - Wars missed: 1
+    - ('2025-07-21', 'Phantoms', 'win')
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-08-13']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-23', '2025-07-26', '2025-07-28', '2025-07-30', '2025-06-13', '2025-06-17', '2025-06-19', '2025-08-13']
+
+Motz: #G8L8PU8C
+  - Wars missed: 1
+    - ('2025-07-26', 'Web Rage Farm 7', 'win')
+  - Last seen in clan: 2025-08-13
+  - Banked counter: []
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-07-23', '2025-07-30', '2025-06-13', '2025-06-17', '2025-06-21', '2025-06-23', '2025-06-27', '2025-07-02', '2025-08-13']
+
+Big Daddy T: #9V0PCRR00
+  - Wars missed: 1
+    - ('2025-07-17', '.CLAN BROTHERS', 'win')
+  - Last seen in clan: 2025-08-13
+  - Banked counter: []
+  - Wars logged: ['2025-07-19', '2025-07-21', '2025-07-23', '2025-07-26', '2025-07-28', '2025-07-30', '2025-06-15', '2025-06-19', '2025-06-21', '2025-06-25', '2025-06-27', '2025-06-30', '2025-07-02', '2025-08-01', '2025-08-13']
+
+beeche: #29Q8CR280
+  - Wars missed: 1
+    - ('2025-07-17', '.CLAN BROTHERS', 'win')
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-08-01', '2025-08-13']
+  - Wars logged: ['2025-07-19', '2025-07-21', '2025-07-23', '2025-07-26', '2025-07-30', '2025-06-13', '2025-06-17', '2025-06-19', '2025-06-21', '2025-08-01', '2025-08-13']
+
+Marlec: #LVQ9PPQVY
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
+
+LOGAN911: #YYRLUQ2J2
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-26', '2025-07-30', '2025-08-01']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-06-30', '2025-07-02', '2025-07-23', '2025-07-26', '2025-07-30', '2025-08-01']
+
+.:BEAST:.: #P9G9RCGC2
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-30', '2025-08-01', '2025-08-13']
+  - Wars logged: ['2025-07-30', '2025-08-01', '2025-08-13']
+
+hype: #2GRPGV892
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
+
+Sphinx: #P8VUQU0RJ
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-21', '2025-07-23', '2025-07-26']
+  - Wars logged: ['2025-07-21', '2025-07-23', '2025-07-26']
+
+Ascended: #QQPRJQ2PQ
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
+
+Smitty™: #9LCPQ0QR
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-06-30', '2025-07-02', '2025-07-23']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-06-30', '2025-07-02', '2025-07-23']
+
+pi314ever: #CGYV8LYR
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
+
+pg: #Q92UQQJCR
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
+
+ERDNUSSFLIP: #99Q0R0YQ9
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
+
+Dalto: #U8J0QYG
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
+
+ViperX56: #U2LJ0QVP
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
+
+Truthful Lies: #28LYU9JY
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
+
 Protips: #9QGLLQJQ2
   - Wars missed: 0
-  - Last seen in clan: 2025-07-30
+  - Last seen in clan: 2025-08-13
   - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
   - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
 
 gdfan75: #PG2Y8RGU
   - Wars missed: 0
-  - Last seen in clan: 2025-07-30
+  - Last seen in clan: 2025-08-13
   - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
   - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
 
 jy: #8L9QLJJP
   - Wars missed: 0
-  - Last seen in clan: 2025-07-30
+  - Last seen in clan: 2025-08-13
   - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
   - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
 
 slothnz: #G80JGVGQY
   - Wars missed: 0
-  - Last seen in clan: 2025-07-30
+  - Last seen in clan: 2025-08-13
   - Banked counter: ['2025-06-19', '2025-06-21', '2025-06-23']
   - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-06-19', '2025-06-21', '2025-06-23']
 
 Vojt: #PCJP8QJC
   - Wars missed: 0
-  - Last seen in clan: 2025-07-30
+  - Last seen in clan: 2025-08-13
   - Banked counter: ['2025-07-17', '2025-07-19', '2025-07-21']
   - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21']
 
+shadow: #QPJ8UV280
+  - Wars missed: 0
+  - Last seen in clan: 2025-08-13
+  - Banked counter: []
+  - Wars logged: ['2025-07-17', '2025-07-19', '2025-07-21', '2025-06-21', '2025-06-27', '2025-06-30', '2025-07-02', '2025-07-23', '2025-07-26', '2025-07-30', '2025-08-01', '2025-08-13']
+
 Coolguyagent: #2GP2C8LRY
   - Wars missed: 0
-  - Last seen in clan: 2025-08-01
+  - Last seen in clan: 2025-08-15
   - Banked counter: []
   - Wars logged: []
-
-beeche: #29Q8CR280
-  - Wars missed: 0
-  - Last seen in clan: 2025-07-30
-  - Banked counter: []
-  - Wars logged: ['2025-07-19', '2025-07-21', '2025-07-23', '2025-07-26', '2025-07-30', '2025-06-13', '2025-06-17', '2025-06-19', '2025-06-21']
 

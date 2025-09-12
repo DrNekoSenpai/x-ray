@@ -17,6 +17,8 @@ wars = [
     ("trueno farm 07", "loss", "2025/07/28"),
     ("sidoarjo winner", "win", "2025/07/30"),
     ("BItukOnZ", "loss", "2025/08/01"),
+    ("TE-warriors", "win", "2025/08/13"),
+    ("Farmwars", "loss", "2025/08/17"),
 ]
 
 import os, datetime
