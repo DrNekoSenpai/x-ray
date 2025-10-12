@@ -1,5 +1,7 @@
 import os, json, random, argparse, pandas as pd
 from datetime import datetime, timedelta
+from openpyxl import load_workbook
+from openpyxl.utils import get_column_letter
 
 # Constants
 WINNERS_LOG_FILE = "./outputs/winners_log.json"
@@ -43,45 +45,50 @@ def build_entries(players, bypass:bool=False):
     Only players that are eligible (or not logged yet) are considered.
     Each player appears in the list as many times as their hits.
     """
-    if not bypass:
-        # Open the war_bases.xlsx file and check column B for the number of points.
-        # Deduct the number of points from the total number of hits (entries).
-        war_bases_file = "./inputs/war_bases.xlsx"
-        if not os.path.exists(war_bases_file):
-            print(f"Error: The file '{war_bases_file}' was not found.")
-            exit(1)
-        
-        month_year = datetime.today().strftime("%Y-%m")
-        with open(f"./strikes/inputs/cwl-{month_year}.txt", 'w', encoding='utf-8') as f:
-            f.write("")
+    
+    # Open the war_bases.xlsx file and check column B for the number of points.
+    # Deduct the number of points from the total number of hits (entries).
+    war_bases_file = "./inputs/war_bases.xlsx"
+    if not os.path.exists(war_bases_file):
+        print(f"Error: The file '{war_bases_file}' was not found.")
+        exit(1)
+    
+    month_year = datetime.today().strftime("%Y-%m")
+    with open(f"./strikes/inputs/cwl-{month_year}.txt", 'w', encoding='utf-8') as f:
+        f.write("")
 
-        try:
-            war_bases_data = pd.read_excel(war_bases_file, usecols=["Player Name", "Points"], engine="openpyxl")
-            war_bases_dict = dict(zip(war_bases_data["Player Name"], war_bases_data["Points"]))
+    try:
+        war_bases_data = pd.read_excel(war_bases_file, usecols=["Player Name", "Points"], engine="openpyxl")
+        war_bases_dict = dict(zip(war_bases_data["Player Name"], war_bases_data["Points"]))
 
-            # Deduct points from players' hits based on their individual entries in war_bases.xlsx
-            for i, (player, hits_total, hits_done) in enumerate(players):
-                player_points = war_bases_dict.get(player, 0)  # Default to 0 if player not found
+        # Deduct points from players' hits based on their individual entries in war_bases.xlsx
+        for i, (player, hits_total, hits_done) in enumerate(players):
+            player_points = war_bases_dict.get(player, 0)  # Default to 0 if player not found
+            if bypass: player_points = 0
 
-                if hits_done == 0: adjusted_hits = -1
-                else: 
-                    hits = 5 - hits_total + hits_done
-                    adjusted_hits = hits - player_points
+            if hits_done == 0: adjusted_hits = -1
+            else: 
+                hits = 5 - hits_total + hits_done
+                adjusted_hits = hits - player_points
 
-                players[i] = (player, adjusted_hits)
+            # Check if hits done is less than 3. If so, player entries are capped at number of hits done. 
+            if hits_done < 3 and adjusted_hits > hits_done:
+                adjusted_hits = hits_done
 
-                # If player has zero or hits, write in "./strikes/cwl_{month}.txt" and then remove them from the list. 
-                if adjusted_hits <= 0:
-                    month_year = datetime.today().strftime("%Y-%m")
-                    strikes_file = f"./strikes/inputs/cwl-{month_year}.txt"
-                    date = datetime.today().strftime("%Y-%m-%d")
-                    with open(strikes_file, 'a', encoding='utf-8') as strikes_f:
-                        strikes_f.write(f"3\n{player}\ny\n7\n{date}\n")
-                    players[i] = (player, 0)
+            players[i] = (player, int(adjusted_hits))
 
-        except Exception as e:
-            print(f"Error processing war bases file: {e}")
-            exit(1)
+            # If player has zero or hits, write in "./strikes/cwl_{month}.txt" and then remove them from the list. 
+            if adjusted_hits <= 0:
+                month_year = datetime.today().strftime("%Y-%m")
+                strikes_file = f"./strikes/inputs/cwl-{month_year}.txt"
+                date = datetime.today().strftime("%Y-%m-%d")
+                with open(strikes_file, 'a', encoding='utf-8') as strikes_f:
+                    strikes_f.write(f"3\n{player}\ny\n7\n{date}\n")
+                players[i] = (player, 0)
+
+    except Exception as e:
+        print(f"Error processing war bases file: {e}")
+        exit(1)
                       
     entries = []
     for player, hits in players:
@@ -321,6 +328,13 @@ def draw_command(available_distributions:int, bypass:bool):
             remaining = BASE_PENALTY_WEEKS - elapsed - bonus
             ineligible_players.append((player, elapsed, bonus, remaining))
 
+    track = pity_track(players, ineligible_players)
+    # For each player in the pity track, if their value is set to TRUE, their entries must double 
+    for i, (player, hits) in enumerate(players):
+        if track.get(player):
+            print(f"Pity track: Doubling entries for {player} who has {hits} hits.")
+            players[i] = (player, hits * 2)
+
     # Sort by threshold ascending. Those with the least time remaining are listed first.
     ineligible_players.sort(key=lambda x: x[3])
 
@@ -335,7 +349,7 @@ def draw_command(available_distributions:int, bypass:bool):
         eligible_players = [player for player in players if is_eligible(player[0])]
         eligible_players = sorted(eligible_players, key=lambda x: x[1], reverse=True)
 
-        for num in range(7, 0, -1): 
+        for num in range(12, 0, -1): 
             if len([player[0] for player in eligible_players if player[1] == num]) > 0:
                 print(f"{num} entries: {', '.join([player[0] for player in eligible_players if player[1] == num])}")
             
@@ -352,25 +366,6 @@ def draw_command(available_distributions:int, bypass:bool):
             print(f"║ {player:<{longest_player_name}} │ {elapsed:<7.2f} │ {bonus:<5} │ {remaining:<9.2f} ║")
 
         print(f"╚══{'═'*longest_player_name}╧═════════╧═══════╧═══════════╝ ```")
-
-        # Ineligible (all values in weeks):
-        # ╔═════════════╤═════════╤═══════╤═══════════╗
-        # ║ Player name │ Elapsed │ Bonus │ Remaining ║
-        # ║ pg          │ 12.57   │ 12    │ 2.4       ║
-        # ║ Baleus      │ 12.57   │ 8     │ 6.43      ║
-        # ║ DNG         │ 12.57   │ 8     │ 6.43      ║
-        # ║ Dalto       │ 8.43    │ 8     │ 10.57     ║
-        # ║ CrazyWaveIT │ 8.43    │ 7     │ 11.57     ║
-        # ║ Ascended    │ 8.43    │ 6     │ 12.57     ║
-        # ║ K.L.A.U.S   │ 8.43    │ 6     │ 12.57     ║
-        # ║ Rod         │ 8.43    │ 4     │ 14.57     ║
-        # ║ Kaselcap    │ 4.29    │ 4     │ 18.71     ║
-        # ║ Protips     │ 4.29    │ 4     │ 18.71     ║
-        # ║ Anas        │ 4.29    │ 4     │ 18.71     ║
-        # ║ Az7777      │ 4.29    │ 4     │ 18.71     ║
-        # ║ Sned        │ 4.29    │ 3     │ 19.71     ║
-        # ║ Mythos      │ 4.29    │ 3     │ 19.71     ║
-        # ╚═════════════╧═════════╧═══════╧═══════════╝
 
         print("")
 
@@ -397,6 +392,93 @@ def draw_command(available_distributions:int, bypass:bool):
 
     else:
         print("No winners could be selected.")
+
+def pity_track(players, ineligible_players):
+    wb = load_workbook("pity_track.xlsx", data_only=True)
+    ws = wb.active 
+
+    header = [cell.value for cell in ws[1]]
+    current_month = datetime.today().strftime("%B %Y")
+
+    last_col = ws.max_column
+    last_month = ws.cell(row=1, column=last_col).value
+
+    if last_month != current_month:
+        new_col_index = last_col + 1
+        ws.cell(row=1, column=new_col_index, value=current_month)
+        print(f"Added new column for {current_month} at {get_column_letter(new_col_index)}1")
+        last_col = new_col_index
+
+    # Previous code above...
+    # Build lowercase name lookup for sheet rows
+    name_to_row = {}
+    for row in ws.iter_rows(min_row=2):
+        name_cell = row[0]
+        if name_cell.value:
+            name_to_row[str(name_cell.value).strip().lower()] = name_cell.row
+
+    # Check for missing players 
+    for player, *_ in players:
+        pname = player.strip().lower()
+        if pname not in name_to_row:
+            # New player: append at the bottom
+            new_row = ws.max_row + 1
+            ws.cell(row=new_row, column=1, value=player)
+            # Mark all previous months as "Not in clan"
+            for col_idx in range(2, last_col):
+                ws.cell(row=new_row, column=col_idx, value="Not in clan")
+                
+            print(f"Added new player row for {player} (auto-filled previous months as 'Not in clan').")
+
+            # Add to lookup for potential future updates
+            name_to_row[pname] = new_row
+
+    # Now mark ineligible players
+    for player, *_ in ineligible_players:
+        pname = player.strip().lower()
+        row_idx = name_to_row.get(pname)
+
+        if row_idx:
+            ws.cell(row=row_idx, column=last_col, value="Ineligible")
+        else:
+            print(f"Warning: Player {player} not found in pity_track.xlsx")
+
+    # Convert all datetime objects in header to be date strings; i.e. datetime.datetime(2025, 7, 1, 0, 0) -> "7/1/2025"
+    for col_idx, cell_value in enumerate(header, start=1):
+        if isinstance(cell_value, datetime):
+            ws.cell(row=1, column=col_idx, value=f"{cell_value.month}/{cell_value.day}/{cell_value.year}")
+
+    pity_track = {}
+    pity_counts = {}
+    for player, *_ in players:
+        if player in [p[0] for p in ineligible_players]: continue
+        pity_counts[player] = 0
+        # Find the player’s row
+        for row in ws.iter_rows(min_row=2):
+            name = str(row[0].value).strip() if row[0].value else ""
+            if name.lower() == player.lower():
+                # Work backward from (current_month - 1)
+                for col in range(last_col - 1, 1, -1):
+                    cell_val = row[col-1].value
+                    if cell_val in (None, "", 0):
+                        pity_counts[player] += 1
+                    else:
+                        break
+                break
+
+        print(f"{player}: {pity_counts[player]} contiguous blanks")
+        pity_track[player] = True if pity_counts[player] >= 3 else False
+
+    # Check if winners have already been recorded for the current month
+    winners_log = load_winners_log()
+    current_month = datetime.today().strftime("%Y-%m")
+    existing_winners = [name for name, record in winners_log.items() if record["win_date"].startswith(current_month)]
+
+    if not existing_winners:
+        wb.save("pity_track.xlsx")
+        print("Pity sheet updated successfully.")
+
+    return pity_track
 
 def main():
     parser = argparse.ArgumentParser(description="CWL Selection Tool")

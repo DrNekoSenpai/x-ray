@@ -16,40 +16,6 @@
             }
         ]
     },
-    "pi314ever": {
-        "win_date": "2025-06-11",
-        "bonus": [
-            {
-                "month": "2025-07",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-08",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-09",
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Smitty\u2122": {
-        "win_date": "2025-06-11",
-        "bonus": [
-            {
-                "month": "2025-07",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-08",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-09",
-                "bonus_weeks": 4
-            }
-        ]
-    },
     "LOGAN911": {
         "win_date": "2025-07-11",
         "bonus": [
@@ -59,6 +25,10 @@
             },
             {
                 "month": "2025-09",
+                "bonus_weeks": 3
+            },
+            {
+                "month": "2025-10",
                 "bonus_weeks": 3
             }
         ]
@@ -72,6 +42,10 @@
             },
             {
                 "month": "2025-09",
+                "bonus_weeks": 2
+            },
+            {
+                "month": "2025-10",
                 "bonus_weeks": 2
             }
         ]
@@ -95,6 +69,10 @@
             {
                 "month": "2025-09",
                 "bonus_weeks": 3
+            },
+            {
+                "month": "2025-10",
+                "bonus_weeks": 2
             }
         ]
     },
@@ -108,6 +86,10 @@
             {
                 "month": "2025-09",
                 "bonus_weeks": 3
+            },
+            {
+                "month": "2025-10",
+                "bonus_weeks": 4
             }
         ]
     },
@@ -120,6 +102,10 @@
             },
             {
                 "month": "2025-09",
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-10",
                 "bonus_weeks": 4
             }
         ]
@@ -134,6 +120,10 @@
             {
                 "month": "2025-09",
                 "bonus_weeks": 1
+            },
+            {
+                "month": "2025-10",
+                "bonus_weeks": 2
             }
         ]
     },
@@ -143,6 +133,10 @@
             {
                 "month": "2025-09",
                 "bonus_weeks": 3
+            },
+            {
+                "month": "2025-10",
+                "bonus_weeks": 2
             }
         ]
     },
@@ -152,6 +146,10 @@
             {
                 "month": "2025-09",
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-10",
+                "bonus_weeks": 2
             }
         ]
     },
@@ -161,30 +159,85 @@
     },
     "Motz": {
         "win_date": "2025-09-10",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-10",
+                "bonus_weeks": 2
+            }
+        ]
     },
     "Ascended": {
         "win_date": "2025-09-10",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-10",
+                "bonus_weeks": 4
+            }
+        ]
     },
     "K.L.A.U.S": {
         "win_date": "2025-09-10",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-10",
+                "bonus_weeks": 4
+            }
+        ]
     },
     "Protips": {
         "win_date": "2025-09-10",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-10",
+                "bonus_weeks": 4
+            }
+        ]
     },
     "Truthful Lies": {
         "win_date": "2025-09-10",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-10",
+                "bonus_weeks": 4
+            }
+        ]
     },
     "Vojt": {
         "win_date": "2025-09-10",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-10",
+                "bonus_weeks": 3
+            }
+        ]
     },
     "Mythos": {
         "win_date": "2025-09-10",
+        "bonus": [
+            {
+                "month": "2025-10",
+                "bonus_weeks": 2
+            }
+        ]
+    },
+    "Rod": {
+        "win_date": "2025-10-10",
+        "bonus": []
+    },
+    "Rious": {
+        "win_date": "2025-10-10",
+        "bonus": []
+    },
+    "ERDNUSSFLIP": {
+        "win_date": "2025-10-10",
+        "bonus": []
+    },
+    "pg": {
+        "win_date": "2025-10-10",
+        "bonus": []
+    },
+    "Vicream": {
+        "win_date": "2025-10-10",
         "bonus": []
     }
 }
