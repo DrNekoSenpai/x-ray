@@ -14,20 +14,14 @@ immunities = [
     # Permanent immunities are players who are members of Leadership as well as known alts; they cannot be kicked. 
     "Sned",
     "Sned 2.0",
-    "Sned 3.0",
-    "Sned 4.0",
     "BumblinMumbler",
     "BumblinMumbler2",
-    "BumblinMumbler3",
     "Ascended", 
     "Smitty™", 
     "Ligma", 
-    "Sugma", 
     "CrazyWaveIT", 
     "LOGAN911", 
     "skyeshade", 
-    "Golden Unicorn✨", 
-    ("Mythos", "2025-07-10", "2025-07-19")
 ]
                 
 # Permanent immunities: name only, immune forever
@@ -51,6 +45,7 @@ parser.add_argument("--log", "-l", action="store_true", help="If set to true, pr
 parser.add_argument("--mirrors", "-m", action="store_true", help="If set to true, program also outputs invalid mirror messages. Default: False")
 parser.add_argument("--war", "-w", type=str, default="", help="If specified, only analyze the war log with the given name. Default: ''")
 parser.add_argument("--update", "-u", action="store_true", help="If set to true, only update player activity logs and exit without analyzing wars. Default: False")
+parser.add_argument("--inactivity", "-i", action="store_true", help="If set to true, only calculate inactivity and skip strikes entirely.")
 args = parser.parse_args()
 
 @dataclass
@@ -172,6 +167,7 @@ class player_activity:
         # Set last seen to 14 days before today, so that we can catch any players who haven't been seen in a while.
         self.last_seen = f"{datetime.datetime.now() - datetime.timedelta(days=14):%Y-%m-%d}"
         self.banked_counter = []
+        self.mirror_tolerance = 0
         self.wars_logged = [] # Same as banked counter, but is not wiped when the reset hits. 
 
 try: 
@@ -201,6 +197,7 @@ for user in claims_dictionary:
 
         player_activity_dict[claim.tag].last_seen = f"{datetime.datetime.now():%Y-%m-%d}"
         player_activity_dict[claim.tag].base_value = 0
+        player_activity_dict[claim.tag].mirror_tolerance = 0
 
 with open("./outputs/strikes.txt", "r", encoding="utf-8") as file: 
     strikes = file.readlines()
@@ -235,9 +232,9 @@ for log_file in logs:
     win_loss_pattern = re.compile(r"Win/loss: (win|loss|blacklist win|blacklist loss)")
     conditional_pattern = re.compile(r"Blacklist conditional: (true|false)")
     war_end_date_pattern = re.compile(r"War end date: (\d{4}-\d{2}-\d{2})")
+    enemy_clan_pattern = re.compile(r"Enemy clan: (.*)")
 
     time_pattern = re.compile(r"(\d{4}-\d{2}-\d{2}) (\d{1,2}:\d{2}) ([AP]M)")
-    enemy_clan_pattern = re.compile(r"War with #[A-Z0-9]{5,9} ‭⁦(.*)⁩‬ starts in \d+ minutes.")
 
     try: 
         win_loss = re.search(win_loss_pattern, lines[0]).group(1)
@@ -254,32 +251,20 @@ for log_file in logs:
         print("Blacklist conditional: (true|false) -- only if the war is a blacklist war")
         continue
 
-    if conditional is None: 
-        war_start_date = re.search(time_pattern, lines[5]).group(1)
-        war_start_time = re.search(time_pattern, lines[5]).group(2)
-        war_start_ampm = re.search(time_pattern, lines[5]).group(3)
-        war_start_datetime_str = f"{war_start_date} {war_start_time} {war_start_ampm}"
-        war_start = datetime.datetime.strptime(war_start_datetime_str, "%Y-%m-%d %I:%M %p") + datetime.timedelta(minutes=59)
-
-        print(f"War start: {war_start}")
-        enemy_clan = re.search(enemy_clan_pattern, lines[6]).group(1)
-
-    else: 
+    if not args.inactivity: 
         war_start_date = re.search(time_pattern, lines[6]).group(1)
         war_start_time = re.search(time_pattern, lines[6]).group(2)
         war_start_ampm = re.search(time_pattern, lines[6]).group(3)
         war_start_datetime_str = f"{war_start_date} {war_start_time} {war_start_ampm}"
         war_start = datetime.datetime.strptime(war_start_datetime_str, "%Y-%m-%d %I:%M %p") + datetime.timedelta(minutes=59)
-
         print(f"War start: {war_start}")
-        enemy_clan = re.search(enemy_clan_pattern, lines[7]).group(1)
 
-    if enemy_clan: 
-        print(f"Enemy clan: {enemy_clan}")
-    else:
-        print("Error: enemy clan not found")
-        exit()
-
+    else: 
+        end_time = "12:00:00 AM"
+        war_start = datetime.datetime.strptime(f"{war_end_date} {end_time}", "%Y-%m-%d %I:%M:%S %p") - datetime.timedelta(hours=23)
+    
+    enemy_clan = re.search(enemy_clan_pattern, lines[2]).group(1)
+    
     attack_list = None
 
     time_elapsed = 0
@@ -403,8 +388,20 @@ for log_file in logs:
                 if not is_main and not args.debug: 
                     invalid_mirror.append(defender)
                     continue
+                
+                # Find the player in the player_activity_dict and check their mirror_tolerance value. 
+                p = next((player_activity_dict[tag] for tag in player_activity_dict if player_activity_dict[tag].name == player_name), None)
+                mirror_tolerance = p.mirror_tolerance if p else 0
 
-                mirror = attacker == defender
+                if attacker == defender: mirror = True
+                else: 
+                    tolerance = abs(int(attacker) - int(defender))
+                    if tolerance <= 2 and mirror_tolerance == 0: 
+                        mirror = True 
+                        p.mirror_tolerance = 3
+                    else: 
+                        mirror = False 
+
                 if mirror: 
                     # Check if the player three-starred their mirror on a loss.
                     if win_loss == "loss" and stars > 2:
@@ -721,7 +718,7 @@ for log_file in logs:
                             print(f"Bank: {player} did not break any rules this war, and has inactivity value of {len(player_activity_dict[player_tag].wars_missed)}. Removing oldest war missed.")
                             player_activity_dict[player_tag].wars_missed.pop(0)
                             player_activity_dict[player_tag].banked_counter = []
-
+                            
     # press any key to continue 
     input("Press any key to continue...\n")
 

@@ -487,9 +487,6 @@ def main():
     parser.add_argument("--distributions", "-d", type=int, help="Number of distributions available", required=False)
     args = parser.parse_args()
 
-    # Check if we have more than 30 players listed in the input file.
-    # If so, forcefully set bypass flag to true. 
-
     players = read_players(INPUT_FILE)
 
     if args.update: update_bonus()
