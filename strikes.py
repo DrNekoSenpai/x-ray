@@ -241,7 +241,7 @@ def add_strike():
                     date = input('Enter date (YYYY-MM-DD): ')
                     month = datetime.strptime(date, "%Y-%m-%d").strftime("%B")
                     year = datetime.strptime(date, "%Y-%m-%d").year
-                    players[i].strikes.append(Strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Was not eligible for CWL distribution due to missed hits or FWA bases, during week of {month} {year}."))
+                    players[i].strikes.append(Strike(1, datetime.strptime(date, "%Y-%m-%d"), f"Was not eligible for CWL distribution due to missed hits, during week of {month} {year}."))
 
                 elif sel == 8: 
                     date = input('Enter date (YYYY-MM-DD): ')

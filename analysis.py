@@ -21,7 +21,7 @@ immunities = [
     "Ligma", 
     "CrazyWaveIT", 
     "LOGAN911", 
-    "skyeshade", 
+    "skyeshade"
 ]
                 
 # Permanent immunities: name only, immune forever
@@ -209,9 +209,6 @@ with open("./outputs/strikes.txt", "r", encoding="utf-8") as file:
 
         if tag in player_activity_dict: 
             player_activity_dict[tag].base_value = int(num_strikes)
-
-for player in player_activity_dict:
-    print(player, player_activity_dict[player].name, player_activity_dict[player].tag, player_activity_dict[player].base_value, player_activity_dict[player].last_seen)
 
 if args.update:
     with open("activity_data.pickle", "wb") as file: 
@@ -761,7 +758,9 @@ import time
 unix_time = int(time.time())
 # Dump to be posted in a Discord channel.
 with open("./outputs/activity_output.txt", "w", encoding="utf-8") as file:
-    file.write(f"As of <t:{unix_time}:F> (<t:{unix_time}:R>):\n\n")
+    file.write(f"As of <t:{unix_time}:F> (<t:{unix_time}:R>):\n```\n")
+    inactive_players = []
+
     for player in player_activity_dict: 
         # First, print out all the players that are in the clan; that is, whose in_clan values are set to True. 
         # We need to find the player in the other dictionary; claims_dictionary. 
@@ -779,18 +778,28 @@ with open("./outputs/activity_output.txt", "w", encoding="utf-8") as file:
 
         if player_found: 
             wars_missed = len(player_activity_dict[player].wars_missed)
+            base_value = player_activity_dict[player].base_value
+            pname = player_activity_dict[player].name
 
             if wars_missed == 0: continue
             if player_activity_dict[player].name in permanent_immunities: continue
 
-            if player_activity_dict[player].base_value != 0: 
-                file.write(f"{player_activity_dict[player].name}: {player_activity_dict[player].base_value + wars_missed} ({player_activity_dict[player].base_value} strikes, {wars_missed} wars missed)\n")
+            most_recent_missed_war = max(player_activity_dict[player].wars_missed, key=lambda war: datetime.datetime.strptime(war[0], "%Y-%m-%d"))[0]
+            missed_timedelta = (datetime.datetime.now() - datetime.datetime.strptime(most_recent_missed_war, "%Y-%m-%d")).days
+            # If the most recent missed war was more than 30 days ago, skip them. 
+            # if missed_timedelta > 30: continue
 
-            else: 
-                if wars_missed == 1: file.write(f"{player_activity_dict[player].name}: 1 war missed\n")
-                else: file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")
+            inactive_players.append((pname, base_value + wars_missed, missed_timedelta))
 
-    file.write("\n")
+    longest_player_name = max(len(p[0]) for p in inactive_players)
+
+    file.write(f"╔══{'═'*longest_player_name}╤═════════════╤═════════════╗\n")
+    file.write(f"║ Player name{' ' * (longest_player_name - 11)} │ Wars missed │ Most recent ║\n")
+
+    for pname, value, missed_timedelta in inactive_players:
+        file.write(f"║ {pname:<{longest_player_name}} │ {value:<11} │ {' ' if missed_timedelta < 10 else ''}{missed_timedelta} days ago ║\n")
+
+    file.write(f"╚══{'═'*longest_player_name}╧═════════════╧═════════════╝ ```")
 
     for player in player_activity_dict: 
         # Next, print out all the players that are not in the clan; that is, whose in_clan values are set to False. 

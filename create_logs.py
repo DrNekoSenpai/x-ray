@@ -1,12 +1,7 @@
 wars = [
-    ("Clash Club", "loss", "2025/09/26"), 
-    ("NN2", "win", "2025/09/28"), 
-    ("sidoarjo warrior", "loss", "2025/09/30"), 
-    ("AUS", "win", "2025/10/01"), 
-    ("BEST WAR CLAN", "win", "2025/10/15"), 
-    ("VenatusVictim", "win", "2025/10/17"),
-    ("Melayu Members", "loss", "2025/10/19"),
-    ("Blood Oath", "win", "2025/10/21")
+    ("sidoarjo winner", "win", "2025/10/30"),
+    ("Blast Nation", "loss", "2025/11/13"), 
+    
 ]
 
 import os, datetime

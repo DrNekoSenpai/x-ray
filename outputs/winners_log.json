@@ -1,55 +1,4 @@
 {
-    "SirFluffyy": {
-        "win_date": "2025-06-11",
-        "bonus": [
-            {
-                "month": "2025-07",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-08",
-                "bonus_weeks": 3
-            },
-            {
-                "month": "2025-09",
-                "bonus_weeks": 0
-            }
-        ]
-    },
-    "LOGAN911": {
-        "win_date": "2025-07-11",
-        "bonus": [
-            {
-                "month": "2025-08",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-09",
-                "bonus_weeks": 3
-            },
-            {
-                "month": "2025-10",
-                "bonus_weeks": 3
-            }
-        ]
-    },
-    "Marlec": {
-        "win_date": "2025-07-11",
-        "bonus": [
-            {
-                "month": "2025-08",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-09",
-                "bonus_weeks": 2
-            },
-            {
-                "month": "2025-10",
-                "bonus_weeks": 2
-            }
-        ]
-    },
     "Limit?": {
         "win_date": "2025-07-11",
         "bonus": [
@@ -73,56 +22,9 @@
             {
                 "month": "2025-10",
                 "bonus_weeks": 2
-            }
-        ]
-    },
-    "BumblinMumbler": {
-        "win_date": "2025-07-11",
-        "bonus": [
-            {
-                "month": "2025-08",
-                "bonus_weeks": 3
             },
             {
-                "month": "2025-09",
-                "bonus_weeks": 3
-            },
-            {
-                "month": "2025-10",
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Satan": {
-        "win_date": "2025-07-11",
-        "bonus": [
-            {
-                "month": "2025-08",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-09",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-10",
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "CrazyWaveIT": {
-        "win_date": "2025-07-11",
-        "bonus": [
-            {
-                "month": "2025-08",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-09",
-                "bonus_weeks": 1
-            },
-            {
-                "month": "2025-10",
+                "month": "2025-11",
                 "bonus_weeks": 2
             }
         ]
@@ -137,6 +39,10 @@
             {
                 "month": "2025-10",
                 "bonus_weeks": 2
+            },
+            {
+                "month": "2025-11",
+                "bonus_weeks": 3
             }
         ]
     },
@@ -172,6 +78,10 @@
             {
                 "month": "2025-10",
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-11",
+                "bonus_weeks": 4
             }
         ]
     },
@@ -180,6 +90,10 @@
         "bonus": [
             {
                 "month": "2025-10",
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-11",
                 "bonus_weeks": 4
             }
         ]
@@ -190,6 +104,10 @@
             {
                 "month": "2025-10",
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2025-11",
+                "bonus_weeks": 4
             }
         ]
     },
@@ -198,6 +116,10 @@
         "bonus": [
             {
                 "month": "2025-10",
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2025-11",
                 "bonus_weeks": 4
             }
         ]
@@ -208,6 +130,10 @@
             {
                 "month": "2025-10",
                 "bonus_weeks": 3
+            },
+            {
+                "month": "2025-11",
+                "bonus_weeks": 4
             }
         ]
     },
@@ -217,27 +143,80 @@
             {
                 "month": "2025-10",
                 "bonus_weeks": 2
+            },
+            {
+                "month": "2025-11",
+                "bonus_weeks": 0
             }
         ]
     },
     "Rod": {
         "win_date": "2025-10-10",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-11",
+                "bonus_weeks": 3
+            }
+        ]
     },
     "Rious": {
         "win_date": "2025-10-10",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-11",
+                "bonus_weeks": 4
+            }
+        ]
     },
     "ERDNUSSFLIP": {
         "win_date": "2025-10-10",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-11",
+                "bonus_weeks": 4
+            }
+        ]
     },
     "pg": {
         "win_date": "2025-10-10",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2025-11",
+                "bonus_weeks": 4
+            }
+        ]
     },
     "Vicream": {
         "win_date": "2025-10-10",
+        "bonus": [
+            {
+                "month": "2025-11",
+                "bonus_weeks": 2
+            }
+        ]
+    },
+    "Smitty\u2122": {
+        "win_date": "2025-11-10",
+        "bonus": []
+    },
+    "Sned": {
+        "win_date": "2025-11-10",
+        "bonus": []
+    },
+    "Anas": {
+        "win_date": "2025-11-10",
+        "bonus": []
+    },
+    "ImagineWaggons": {
+        "win_date": "2025-11-10",
+        "bonus": []
+    },
+    "Taycid": {
+        "win_date": "2025-11-10",
+        "bonus": []
+    },
+    "CrazyWaveIT": {
+        "win_date": "2025-11-10",
         "bonus": []
     }
 }

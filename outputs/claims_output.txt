@@ -1,12 +1,6 @@
 .marlec: 1 account in Reddit X-ray
   - Marlec -- (main)
 
-wolverine911: 1 account in Reddit X-ray
-  - LOGAN911 -- (main)
-
-serzicc: 1 account in Reddit X-ray
-  - Smitty™ -- (main)
-
 snedpie: 1 account in Reddit X-ray
   - Sned -- (main)
 
@@ -22,6 +16,16 @@ hyype99: 1 account in Reddit X-ray
 uppercasename: 1 account in Reddit X-ray
   - Ascended -- (main)
 
+eyezic_x: 2 accounts in Reddit X-ray
+  - Smitty™
+  - Ligma
+
+redking347: 1 account in Reddit X-ray
+  - redking -- (main)
+
+napalm360: 1 account in Reddit X-ray
+  - NagaStoleMyBike -- (main)
+
 cherryyy___: 1 account in Reddit X-ray
   - K.L.A.U.S -- (main)
 
@@ -34,26 +38,20 @@ tsabakalos: 1 account in Reddit X-ray
 mikadochii: 1 account in Reddit X-ray
   - skyeshade -- (main)
 
-redking347: 1 account in Reddit X-ray
-  - redking -- (main)
-
 tacobandito: 1 account in Reddit X-ray
   - pg -- (main)
 
 jmac4173: 1 account in Reddit X-ray
   - Satan -- (main)
 
-shamm._.: 1 account in Reddit X-ray
-  - Sham -- (main)
-
 flippi7125: 1 account in Reddit X-ray
   - ERDNUSSFLIP -- (main)
 
+dr.stone0476: 1 account in Reddit X-ray
+  - Dr. Stone -- (main)
+
 apollo2093: 1 account in Reddit X-ray
   - Apollo -- (main)
-
-dalto9: 1 account in Reddit X-ray
-  - Dalto -- (main)
 
 kg_gunslinger: 1 account in Reddit X-ray
   - Mythos -- (main)
@@ -63,9 +61,6 @@ viperx56: 1 account in Reddit X-ray
 
 osiris8282: 1 account in Reddit X-ray
   - osiris8282 -- (main)
-
-saiyanrazor.: 1 account in Reddit X-ray
-  - sanskar -- (main)
 
 truthfullies: 1 account in Reddit X-ray
   - Truthful Lies -- (main)
@@ -124,9 +119,6 @@ motz3012: 1 account in Reddit X-ray
 vicream: 1 account in Reddit X-ray
   - Vicream -- (main)
 
-cschwingg: 1 account in Reddit X-ray
-  - chxpel -- (main)
-
 jordan.org: 1 account in Reddit X-ray
   - jerrb -- (main)
 
@@ -147,4 +139,10 @@ w1nter_cga: 1 account in Reddit X-ray
 
 beeche: 1 account in Reddit X-ray
   - beeche -- (main)
+
+paperkurane: 1 account in Reddit X-ray
+  - Kurane -- (main)
+
+irockudigme: 1 account in Reddit X-ray
+  - RipexFruit -- (main)
 

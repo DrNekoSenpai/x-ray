@@ -29,6 +29,29 @@ def load_data(xray_path: str, cwl_path: str):
     
     return xray_df, cwl_df
 
+def _levenshtein(a: str, b: str) -> int:
+    # classic DP; good enough for short clan names
+    if a == b:
+        return 0
+    la, lb = len(a), len(b)
+    if la == 0:
+        return lb
+    if lb == 0:
+        return la
+
+    dp = list(range(lb + 1))
+    for i in range(1, la + 1):
+        prev = dp[0]
+        dp[0] = i
+        for j in range(1, lb + 1):
+            temp = dp[j]
+            if a[i - 1] == b[j - 1]:
+                dp[j] = prev
+            else:
+                dp[j] = 1 + min(prev, dp[j], dp[j - 1])
+            prev = temp
+    return dp[lb]
+
 def find_missing_members(xray_df: pd.DataFrame, cwl_df: pd.DataFrame):
     """
     Identify CWL "In-Game Name" entries that are NOT present in X-ray "Name".
@@ -72,8 +95,23 @@ def find_missing_members(xray_df: pd.DataFrame, cwl_df: pd.DataFrame):
     cwl_name_set  = set(cwl_names)
     
     # Find all CWL names that are not in X-ray member names
-    missing_names = {name for name in cwl_name_set if name not in xray_name_set}
-    
+    missing_names = set()
+
+    for cwl_name in cwl_names:
+        # exact case-insensitive match first
+        if cwl_name in xray_name_set:
+            continue
+
+        # --- NEW: fuzzy check against ALL xray names
+        # take minimum edit distance; if < 3, treat as matched
+        min_dist = min(_levenshtein(cwl_name, xname) for xname in xray_names)
+        if min_dist < 3:
+            # close enough, don't mark missing
+            continue
+
+        # if we got here, it's genuinely missing
+        missing_names.add(cwl_name)
+
     return missing_names
 
 def main():

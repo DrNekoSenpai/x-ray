@@ -1,20 +1,20 @@
-As of <t:1761197978:F> (<t:1761197978:R>):
-
-sanskar: 6 wars missed
-david: 6 (2 strikes, 4 wars missed)
-chxpel: 5 wars missed
-Marlec: 4 wars missed
-K.L.A.U.S: 3 wars missed
-Sham: 3 wars missed
-Dalto: 3 wars missed
-Mythos: 3 wars missed
-ImagineWaggons: 2 (1 strikes, 1 wars missed)
-Carsonn: 2 wars missed
-Motz: 2 wars missed
-shadow: 2 wars missed
-DNG: 2 wars missed
-hype: 1 war missed
-jy: 1 war missed
-RoyalOne: 1 war missed
-jerrb: 1 war missed
-
+As of <t:1763113449:F> (<t:1763113449:R>):
+```
+╔═════════════════╤═════════════╤═════════════╗
+║ Player name     │ Wars missed │ Most recent ║
+║ Mythos          │ 5           │  1 days ago ║
+║ david           │ 5           │ 26 days ago ║
+║ Motz            │ 4           │  1 days ago ║
+║ shadow          │ 4           │  1 days ago ║
+║ Marlec          │ 3           │ 26 days ago ║
+║ K.L.A.U.S       │ 3           │ 24 days ago ║
+║ jerrb           │ 3           │  1 days ago ║
+║ NagaStoleMyBike │ 3           │ 44 days ago ║
+║ ImagineWaggons  │ 2           │ 45 days ago ║
+║ Carsonn         │ 2           │ 19 days ago ║
+║ RoyalOne        │ 2           │ 15 days ago ║
+║ Vicream         │ 2           │  1 days ago ║
+║ DNG             │ 2           │ 24 days ago ║
+║ RipexFruit      │ 2           │  1 days ago ║
+║ ChrisThe7th     │ 1           │  1 days ago ║
+╚═════════════════╧═════════════╧═════════════╝ ```

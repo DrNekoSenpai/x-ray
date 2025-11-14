@@ -46,50 +46,33 @@ def build_entries(players, bypass:bool=False):
     Each player appears in the list as many times as their hits.
     """
     
-    # Open the war_bases.xlsx file and check column B for the number of points.
-    # Deduct the number of points from the total number of hits (entries).
-    war_bases_file = "./inputs/war_bases.xlsx"
-    if not os.path.exists(war_bases_file):
-        print(f"Error: The file '{war_bases_file}' was not found.")
-        exit(1)
-    
     month_year = datetime.today().strftime("%Y-%m")
     with open(f"./strikes/inputs/cwl-{month_year}.txt", 'w', encoding='utf-8') as f:
         f.write("")
 
-    try:
-        war_bases_data = pd.read_excel(war_bases_file, usecols=["Player Name", "Points"], engine="openpyxl")
-        war_bases_dict = dict(zip(war_bases_data["Player Name"], war_bases_data["Points"]))
+    for i, (player, hits_total, hits_done) in enumerate(players):
+        player_points = 0
 
-        # Deduct points from players' hits based on their individual entries in war_bases.xlsx
-        for i, (player, hits_total, hits_done) in enumerate(players):
-            player_points = war_bases_dict.get(player, 0)  # Default to 0 if player not found
-            if bypass: player_points = 0
+        if hits_done == 0: adjusted_hits = -1
+        else: 
+            hits = 5 - hits_total + hits_done
+            adjusted_hits = hits - player_points
 
-            if hits_done == 0: adjusted_hits = -1
-            else: 
-                hits = 5 - hits_total + hits_done
-                adjusted_hits = hits - player_points
+        # Check if hits done is less than 3. If so, player entries are capped at number of hits done. 
+        if hits_done < 3 and adjusted_hits > hits_done:
+            adjusted_hits = hits_done
 
-            # Check if hits done is less than 3. If so, player entries are capped at number of hits done. 
-            if hits_done < 3 and adjusted_hits > hits_done:
-                adjusted_hits = hits_done
+        players[i] = (player, int(adjusted_hits))
 
-            players[i] = (player, int(adjusted_hits))
+        # If player has zero or hits, write in "./strikes/cwl_{month}.txt" and then remove them from the list. 
+        if adjusted_hits <= 0:
+            month_year = datetime.today().strftime("%Y-%m")
+            strikes_file = f"./strikes/inputs/cwl-{month_year}.txt"
+            date = datetime.today().strftime("%Y-%m-%d")
+            with open(strikes_file, 'a', encoding='utf-8') as strikes_f:
+                strikes_f.write(f"3\n{player}\ny\n7\n{date}\n")
+            players[i] = (player, 0)
 
-            # If player has zero or hits, write in "./strikes/cwl_{month}.txt" and then remove them from the list. 
-            if adjusted_hits <= 0:
-                month_year = datetime.today().strftime("%Y-%m")
-                strikes_file = f"./strikes/inputs/cwl-{month_year}.txt"
-                date = datetime.today().strftime("%Y-%m-%d")
-                with open(strikes_file, 'a', encoding='utf-8') as strikes_f:
-                    strikes_f.write(f"3\n{player}\ny\n7\n{date}\n")
-                players[i] = (player, 0)
-
-    except Exception as e:
-        print(f"Error processing war bases file: {e}")
-        exit(1)
-                      
     entries = []
     for player, hits in players:
         # Skip players with zero hits
@@ -344,7 +327,7 @@ def draw_command(available_distributions:int, bypass:bool):
     month = datetime.today().strftime("%B")
     year = datetime.today().strftime("%Y")
     if winners:
-        print(f"**Reddit X-ray {month} {year} Weighted Distribution**\n({available_distributions} available bonuses, total{'; FWA base penalties ignored' if bypass else ''})\n")
+        print(f"**Reddit X-ray {month} {year} Weighted Distribution**\n({available_distributions} available bonuses, total)\n")
 
         eligible_players = [player for player in players if is_eligible(player[0])]
         eligible_players = sorted(eligible_players, key=lambda x: x[1], reverse=True)
