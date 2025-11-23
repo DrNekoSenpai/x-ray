@@ -1,406 +1,300 @@
-LOGAN911: #YYRLUQ2J2
-  - Wars missed: 8
-    - ('2025-10-26', 'ClashManiac-jp', 'loss')
-    - ('2025-10-21', 'Blood Oath', 'win')
-    - ('2025-10-19', 'Melayu Members', 'loss')
-    - ('2025-10-17', 'VenatusVictim', 'win')
-    - ('2025-10-01', 'AUS', 'win')
-    - ('2025-09-30', 'sidoarjo warrior', 'loss')
-    - ('2025-09-28', 'NN2', 'win')
-    - ('2025-09-26', 'Clash Club', 'loss')
-  - Last seen in clan: 2025-10-21
-  - Banked counter: []
-  - Wars logged: []
-
-sanskar: #PL8Y90YGG
-  - Wars missed: 7
-    - ('2025-10-26', 'ClashManiac-jp', 'loss')
-    - ('2025-10-21', 'Blood Oath', 'win')
-    - ('2025-10-19', 'Melayu Members', 'loss')
-    - ('2025-10-17', 'VenatusVictim', 'win')
-    - ('2025-10-01', 'AUS', 'win')
-    - ('2025-09-28', 'NN2', 'win')
-    - ('2025-09-26', 'Clash Club', 'loss')
-  - Last seen in clan: 2025-10-21
-  - Banked counter: ['2025-09-30']
-  - Wars logged: ['2025-09-30']
-
-Sham: #9QGJ2RC2V
-  - Wars missed: 5
-    - ('2025-10-30', 'sidoarjo winner', 'win')
-    - ('2025-10-26', 'ClashManiac-jp', 'loss')
-    - ('2025-10-21', 'Blood Oath', 'win')
-    - ('2025-09-28', 'NN2', 'win')
-    - ('2025-09-26', 'Clash Club', 'loss')
-  - Last seen in clan: 2025-10-30
-  - Banked counter: ['2025-10-19']
-  - Wars logged: ['2025-09-30', '2025-10-01', '2025-10-17', '2025-10-19']
-
-Mythos: #GRYRVL9P8
-  - Wars missed: 4
-    - ('2025-11-13', 'Blast Nation', 'loss')
-    - ('2025-10-21', 'Blood Oath', 'win')
-    - ('2025-09-30', 'sidoarjo warrior', 'loss')
-    - ('2025-09-26', 'Clash Club', 'loss')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-19', '2025-10-30']
-  - Wars logged: ['2025-09-28', '2025-10-01', '2025-10-17', '2025-10-19', '2025-10-30']
-
-david: #UPJL9QQ
-  - Wars missed: 4
-    - ('2025-10-19', 'Melayu Members', 'loss')
-    - ('2025-10-17', 'VenatusVictim', 'win')
-    - ('2025-09-30', 'sidoarjo warrior', 'loss')
-    - ('2025-09-26', 'Clash Club', 'loss')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-01']
-  - Wars logged: ['2025-10-01']
-
-chxpel: #YL8ULJC9
-  - Wars missed: 5
-    - ('2025-10-21', 'Blood Oath', 'win')
-    - ('2025-10-19', 'Melayu Members', 'loss')
-    - ('2025-10-17', 'VenatusVictim', 'win')
-    - ('2025-10-01', 'AUS', 'win')
-    - ('2025-09-26', 'Clash Club', 'loss')
-  - Last seen in clan: 2025-10-21
-  - Banked counter: ['2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-28', '2025-09-30']
-
-Dalto: #U8J0QYG
-  - Wars missed: 4
-    - ('2025-10-26', 'ClashManiac-jp', 'loss')
-    - ('2025-10-21', 'Blood Oath', 'win')
-    - ('2025-10-19', 'Melayu Members', 'loss')
-    - ('2025-10-17', 'VenatusVictim', 'win')
-  - Last seen in clan: 2025-10-21
-  - Banked counter: ['2025-10-01']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30', '2025-10-01']
-
-Motz: #G8L8PU8C
-  - Wars missed: 4
-    - ('2025-11-13', 'Blast Nation', 'loss')
-    - ('2025-10-30', 'sidoarjo winner', 'win')
-    - ('2025-10-19', 'Melayu Members', 'loss')
-    - ('2025-09-28', 'NN2', 'win')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: []
-  - Wars logged: ['2025-09-26', '2025-09-30', '2025-10-01', '2025-10-17', '2025-10-21', '2025-10-26']
-
-shadow: #QPJ8UV280
-  - Wars missed: 4
-    - ('2025-11-13', 'Blast Nation', 'loss')
-    - ('2025-10-30', 'sidoarjo winner', 'win')
-    - ('2025-09-28', 'NN2', 'win')
-    - ('2025-09-26', 'Clash Club', 'loss')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: []
-  - Wars logged: ['2025-09-30', '2025-10-01', '2025-10-17', '2025-10-19', '2025-10-21', '2025-10-26']
-
-Marlec: #LVQ9PPQVY
-  - Wars missed: 3
-    - ('2025-10-19', 'Melayu Members', 'loss')
-    - ('2025-10-17', 'VenatusVictim', 'win')
-    - ('2025-09-26', 'Clash Club', 'loss')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: []
-  - Wars logged: ['2025-09-28', '2025-10-01', '2025-10-21', '2025-10-26', '2025-10-30', '2025-11-13']
-
-K.L.A.U.S: #LPYRGCUQC
-  - Wars missed: 3
-    - ('2025-10-21', 'Blood Oath', 'win')
-    - ('2025-10-19', 'Melayu Members', 'loss')
-    - ('2025-09-26', 'Clash Club', 'loss')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-11-13']
-  - Wars logged: ['2025-09-28', '2025-09-30', '2025-10-01', '2025-10-17', '2025-10-26', '2025-10-30', '2025-11-13']
-
-jerrb: #QURLUVVRP
-  - Wars missed: 3
-    - ('2025-11-13', 'Blast Nation', 'loss')
-    - ('2025-10-26', 'ClashManiac-jp', 'loss')
-    - ('2025-10-19', 'Melayu Members', 'loss')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: []
-  - Wars logged: ['2025-10-17', '2025-10-21', '2025-10-30']
-
-NagaStoleMyBike: #9V2GRVGU
-  - Wars missed: 3
-    - ('2025-10-01', 'AUS', 'win')
-    - ('2025-09-30', 'sidoarjo warrior', 'loss')
-    - ('2025-09-28', 'NN2', 'win')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-11-13']
-  - Wars logged: ['2025-09-26', '2025-11-13']
+RipexFruit: #QRLVLRLQC
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-17', '2025-11-01', '2025-11-22']
+  - Wars logged: ['2025-11-17', '2025-11-01', '2025-11-22']
 
 ImagineWaggons: #90ULVLUC
-  - Wars missed: 1
-    - ('2025-09-30', 'sidoarjo warrior', 'loss')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-30', '2025-11-13']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-10-01', '2025-10-17', '2025-10-21', '2025-10-26', '2025-10-30', '2025-11-13']
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
 
-Carsonn: #YYG92PY8Q
-  - Wars missed: 2
-    - ('2025-10-26', 'ClashManiac-jp', 'loss')
-    - ('2025-09-26', 'Clash Club', 'loss')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: []
-  - Wars logged: ['2025-09-30', '2025-10-01', '2025-10-17', '2025-10-19', '2025-10-21', '2025-11-13']
+david: #UPJL9QQ
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-15']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-15']
 
-RoyalOne: #RV920PR9
-  - Wars missed: 2
-    - ('2025-10-30', 'sidoarjo winner', 'win')
-    - ('2025-10-21', 'Blood Oath', 'win')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-26', '2025-11-13']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30', '2025-10-01', '2025-10-17', '2025-10-19', '2025-10-26', '2025-11-13']
-
-Vicream: #8YUL2LC0
-  - Wars missed: 2
-    - ('2025-11-13', 'Blast Nation', 'loss')
-    - ('2025-10-26', 'ClashManiac-jp', 'loss')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-21']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30', '2025-10-01', '2025-10-17', '2025-10-19', '2025-10-21']
-
-DNG: #LPV008QQ
-  - Wars missed: 2
-    - ('2025-10-21', 'Blood Oath', 'win')
-    - ('2025-10-01', 'AUS', 'win')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-30', '2025-11-13']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30', '2025-10-19', '2025-10-17', '2025-10-26', '2025-10-30', '2025-11-13']
-
-RipexFruit: #QRLVLRLQC
-  - Wars missed: 1
-    - ('2025-11-13', 'Blast Nation', 'loss')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-30']
-  - Wars logged: ['2025-10-30']
-
-ChrisThe7th: #YR9YQP02C
-  - Wars missed: 1
-    - ('2025-11-13', 'Blast Nation', 'loss')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-17', '2025-10-19', '2025-10-21']
-  - Wars logged: ['2025-10-17', '2025-10-19', '2025-10-21']
-
-CrazyWaveIT: #YLUL9Q9JG
-  - Wars missed: 1
-    - ('2025-10-01', 'AUS', 'win')
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-26', '2025-11-13']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30', '2025-10-19', '2025-10-17', '2025-10-21', '2025-10-26', '2025-11-13']
-
-Ligma: #2PCJ8RVYG
-  - Wars missed: 1
-    - ('2025-11-13', 'Blast Nation', 'loss')
-  - Last seen in clan: 2025-11-13
+.S.T.E.E.Z.O.: #20RYRRGL8
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
   - Banked counter: []
   - Wars logged: []
-
-Smitty™: #9LCPQ0QR
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-Sned: #P2UPPVYL
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: []
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30', '2025-10-01', '2025-10-17', '2025-10-19', '2025-10-21', '2025-10-26', '2025-11-13']
-
-Anas: #92L2PP09R
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-BumblinMumbler: #JCCLVR8R
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-hype: #2GRPGV892
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: []
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-10-01', '2025-10-17', '2025-10-19', '2025-10-21', '2025-10-26', '2025-10-30', '2025-11-13']
-
-Ascended: #QQPRJQ2PQ
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-Taycid: #CQGRV8L0
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-17', '2025-10-19', '2025-10-21']
-  - Wars logged: ['2025-10-17', '2025-10-19', '2025-10-21']
-
-skyeshade: #YY2YJ20C9
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: []
-  - Wars logged: ['2025-09-28', '2025-09-30', '2025-10-01', '2025-10-17', '2025-10-19', '2025-10-21', '2025-10-26', '2025-10-30', '2025-11-13']
-
-redking: #QQLLUPVV
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-17', '2025-10-19', '2025-10-21']
-  - Wars logged: ['2025-10-17', '2025-10-19', '2025-10-21']
-
-pg: #Q92UQQJCR
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-Satan: #YJU92GY
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-ERDNUSSFLIP: #99Q0R0YQ9
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-Apollo: #9GGGQP0V
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-17', '2025-10-19', '2025-10-21']
-  - Wars logged: ['2025-10-17', '2025-10-19', '2025-10-21']
-
-ViperX56: #U2LJ0QVP
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-osiris8282: #Y828RV982
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-Truthful Lies: #28LYU9JY
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-Protips: #9QGLLQJQ2
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-gdfan75: #PG2Y8RGU
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: []
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30', '2025-10-01', '2025-10-17', '2025-10-19', '2025-10-21', '2025-10-30', '2025-11-13']
-
-Aurora: #JJCL2J8V
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-Matanza: #G9C8GL2VQ
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-BB Crazy: #2YPJYLJRR
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-17', '2025-10-19', '2025-10-21']
-  - Wars logged: ['2025-10-17', '2025-10-19', '2025-10-21']
-
-jy: #8L9QLJJP
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: []
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30', '2025-10-01', '2025-10-17', '2025-10-19', '2025-10-26', '2025-10-30', '2025-11-13']
-
-slothnz: #G80JGVGQY
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: []
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30', '2025-10-01', '2025-10-17', '2025-10-19', '2025-10-21', '2025-10-26', '2025-11-13']
-
-⚡ TANJIRO ⚡: #8LR8LULVU
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-17', '2025-10-19', '2025-10-21']
-  - Wars logged: ['2025-10-17', '2025-10-19', '2025-10-21']
-
-Rious: #VPYVYCYU
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-Vojt: #PCJP8QJC
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: []
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30', '2025-10-01', '2025-10-17', '2025-10-19', '2025-10-21', '2025-10-26', '2025-11-13']
-
-your mama: #2Y88YLL99
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-Rod: #YLLQRLL0
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
-
-Welli: #Q00RGJVVR
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
 
 Coolguyagent: #2GP2C8LRY
   - Wars missed: 0
-  - Last seen in clan: 2025-11-14
+  - Last seen in clan: 2025-11-23
   - Banked counter: []
   - Wars logged: []
 
-beeche: #29Q8CR280
+NagaStoleMyBike: #9V2GRVGU
   - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-09-26', '2025-09-28', '2025-09-30']
-  - Wars logged: ['2025-09-26', '2025-09-28', '2025-09-30']
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Genghis Khan: #P2GR2RCG
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19']
+  - Wars logged: ['2025-11-22', '2025-11-19']
 
 Dr. Stone: #LQ2P0CQGU
   - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-10-30', '2025-11-13']
-  - Wars logged: ['2025-10-30', '2025-11-13']
-
-Icebreaker261: #QYJV899P9
-  - Wars missed: 0
-  - Last seen in clan: 2025-11-14
-  - Banked counter: ['2025-10-26']
-  - Wars logged: ['2025-10-26']
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
 
 Kurane: #Q0R8YPGVP
   - Wars missed: 0
-  - Last seen in clan: 2025-11-13
-  - Banked counter: ['2025-11-13']
-  - Wars logged: ['2025-11-13']
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Marlec: #LVQ9PPQVY
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Smitty™: #9LCPQ0QR
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Sned: #P2UPPVYL
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-15', '2025-10-28', '2025-10-24']
+  - Wars logged: ['2025-11-15', '2025-10-28', '2025-10-24']
+
+Anas: #92L2PP09R
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+BumblinMumbler: #JCCLVR8R
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+hype: #2GRPGV892
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-15', '2025-11-01']
+  - Wars logged: ['2025-11-22', '2025-11-15', '2025-11-01']
+
+Ascended: #QQPRJQ2PQ
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+redking: #QQLLUPVV
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+K.L.A.U.S: #LPYRGCUQC
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-15']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-15']
+
+Taycid: #CQGRV8L0
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+ChrisThe7th: #YR9YQP02C
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-01', '2025-10-30', '2025-10-28']
+  - Wars logged: ['2025-11-01', '2025-10-30', '2025-10-28']
+
+skyeshade: #YY2YJ20C9
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+pg: #Q92UQQJCR
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Satan: #YJU92GY
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+ERDNUSSFLIP: #99Q0R0YQ9
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Apollo: #9GGGQP0V
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+ViperX56: #U2LJ0QVP
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+osiris8282: #Y828RV982
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Truthful Lies: #28LYU9JY
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Protips: #9QGLLQJQ2
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+gdfan75: #PG2Y8RGU
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Aurora: #JJCL2J8V
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-19', '2025-11-17', '2025-11-15']
+  - Wars logged: ['2025-11-19', '2025-11-17', '2025-11-15']
+
+Carsonn: #YYG92PY8Q
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Matanza: #G9C8GL2VQ
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-15']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-15']
+
+BB Crazy: #2YPJYLJRR
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+jy: #8L9QLJJP
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+slothnz: #G80JGVGQY
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+RoyalOne: #RV920PR9
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-19', '2025-11-17', '2025-11-15']
+  - Wars logged: ['2025-11-19', '2025-11-17', '2025-11-15']
+
+⚡ TANJIRO ⚡: #8LR8LULVU
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+CrazyWaveIT: #YLUL9Q9JG
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Rious: #VPYVYCYU
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Vojt: #PCJP8QJC
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+your mama: #2Y88YLL99
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Motz: #G8L8PU8C
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-15', '2025-10-28', '2025-10-24']
+  - Wars logged: ['2025-11-15', '2025-10-28', '2025-10-24']
+
+Vicream: #8YUL2LC0
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+jerrb: #QURLUVVRP
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Rod: #YLLQRLL0
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+Welli: #Q00RGJVVR
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+shadow: #QPJ8UV280
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+DNG: #LPV008QQ
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
+
+beeche: #29Q8CR280
+  - Wars missed: 0
+  - Last seen in clan: 2025-11-23
+  - Banked counter: ['2025-11-22', '2025-11-19', '2025-11-17']
+  - Wars logged: ['2025-11-22', '2025-11-19', '2025-11-17']
 

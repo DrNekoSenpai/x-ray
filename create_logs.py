@@ -1,26 +1,24 @@
-wars = [
-    ("sidoarjo winner", "win", "2025/10/30"),
-    ("Blast Nation", "loss", "2025/11/13"), 
-    
-]
+import os, datetime, json
+with open("war-log.json", "r", encoding="utf-8") as file: 
+    wars = json.load(file)
 
-import os, datetime
+for war in wars:  
+    print(war, wars[war])
+    war_date = war
+    win_loss, enemy_clan = wars[war] 
 
-for war in wars: 
-    # Check if the corresponding file exists. 
-    # If so, skip; we only want to create new logs. 
-    if os.path.exists(f"./strikes/logs/{war[2].replace('/', '_')}_{war[0].replace(' ', '_').lower()}.txt"): 
-        print(f"Log for {war[2].replace('/', '_')}_{war[0].replace(' ', '_')} already exists. Skipping...")
+    if os.path.exists(f"./strikes/logs/{war_date.replace('/', '_')}_{enemy_clan.replace(' ', '_').lower()}.txt"): 
+        print(f"Log for {war_date.replace('/', '_')}_{enemy_clan.replace(' ', '_')} already exists. Skipping...")
         continue
 
     # Check if the war end date is in the future. 
     # If so, skip it. 
-    if datetime.datetime.strptime(war[2], "%Y/%m/%d") > datetime.datetime.now(): 
-        print(f"War {war[0]} ends in the future. Skipping...")
+    if datetime.datetime.strptime(war_date, "%Y-%m-%d") > datetime.datetime.now(): 
+        print(f"War {enemy_clan} ends in the future. Skipping...")
         continue
 
-    with open(f"./strikes/logs/{war[2].replace('/', '_')}_{war[0].replace(' ', '_').lower()}.txt", "w") as f: 
-        if "blacklist" in war[1]: 
-            f.write(f"Win/loss: {war[1].split('/')[0]}\nWar end date: {war[2].replace('/', '-')}\nBlacklist conditional: {war[1].split('/')[1]}\nEnemy clan: {war[0]}\n\n")
+    with open(f"./strikes/logs/{war_date.replace('/', '_')}_{enemy_clan.replace(' ', '_').lower()}.txt", "w") as f: 
+        if "blacklist" in win_loss: 
+            f.write(f"Win/loss: {win_loss.split('/')[0]}\nWar end date: {war_date.replace('/', '-')}\nBlacklist conditional: {win_loss.split('/')[1]}\nEnemy clan: {enemy_clan}\n\n")
         else: 
-            f.write(f"Win/loss: {war[1]}\nWar end date: {war[2].replace('/', '-')}\nEnemy clan: {war[0]}\n\n")
+            f.write(f"Win/loss: {win_loss}\nWar end date: {war_date.replace('/', '-')}\nEnemy clan: {enemy_clan}\n\n")

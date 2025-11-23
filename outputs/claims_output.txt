@@ -1,6 +1,9 @@
 .marlec: 1 account in Reddit X-ray
   - Marlec -- (main)
 
+eyezic_x: 1 account in Reddit X-ray
+  - Smitty™ -- (main)
+
 snedpie: 1 account in Reddit X-ray
   - Sned -- (main)
 
@@ -16,15 +19,14 @@ hyype99: 1 account in Reddit X-ray
 uppercasename: 1 account in Reddit X-ray
   - Ascended -- (main)
 
-eyezic_x: 2 accounts in Reddit X-ray
-  - Smitty™
-  - Ligma
-
 redking347: 1 account in Reddit X-ray
   - redking -- (main)
 
 napalm360: 1 account in Reddit X-ray
   - NagaStoleMyBike -- (main)
+
+wackymctacky: 1 account in Reddit X-ray
+  - Genghis Khan -- (main)
 
 cherryyy___: 1 account in Reddit X-ray
   - K.L.A.U.S -- (main)
@@ -52,9 +54,6 @@ dr.stone0476: 1 account in Reddit X-ray
 
 apollo2093: 1 account in Reddit X-ray
   - Apollo -- (main)
-
-kg_gunslinger: 1 account in Reddit X-ray
-  - Mythos -- (main)
 
 viperx56: 1 account in Reddit X-ray
   - ViperX56 -- (main)
@@ -115,6 +114,9 @@ titanlim: 1 account in Reddit X-ray
 
 motz3012: 1 account in Reddit X-ray
   - Motz -- (main)
+
+k.steezo: 1 account in Reddit X-ray
+  - .S.T.E.E.Z.O. -- (main)
 
 vicream: 1 account in Reddit X-ray
   - Vicream -- (main)

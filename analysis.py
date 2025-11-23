@@ -1,7 +1,7 @@
-import os, re, datetime, argparse, pickle
+import os, re, datetime, argparse, pickle, time, json, pandas as pd
 from dataclasses import dataclass
 from datetime import date
-import pandas as pd
+from collections import defaultdict
 from strikes import up_to_date
 
 if up_to_date() is False:
@@ -20,22 +20,8 @@ immunities = [
     "Smitty™", 
     "Ligma", 
     "CrazyWaveIT", 
-    "LOGAN911", 
     "skyeshade"
 ]
-                
-# Permanent immunities: name only, immune forever
-# One war immunities: name and one date, immune for one war
-# Timed immunities: name and two dates, immune between date range inclusive 
-
-permanent_immunities = [name for name in immunities if type(name) == str]
-one_war_immunities = [name for name in immunities if type(name) == tuple and len(name) == 2]
-timed_immunities = [name for name in immunities if type(name) == tuple and len(name) == 3]
-
-if not os.path.exists("./strikes/logs/"): os.mkdir("./strikes/logs/")
-if not os.path.exists("./strikes/inputs/"): os.mkdir("./strikes/inputs/")
-
-logs = [file[:-4] for file in os.listdir("./strikes/logs/") if not "_input" in file]
 
 parser = argparse.ArgumentParser(description="Analyze war logs for generating strikes.")
 parser.add_argument("--bypass", "-b", action="store_true", help="If set to true, program also outputs bypass messages. Default: False")
@@ -58,8 +44,34 @@ class Claim:
     in_clan: bool = False
     is_main: bool = False
 
+# Assert that "xray-members.xlsx" and "attack-log.xlsx" exist and their last edited timestamps are within 48 hours of each other
+xray_path = "./inputs/xray-members.xlsx"
+attack_log_path = "./inputs/attack-log.xlsx"
+missed_hits_path = "./inputs/missed-hits.xlsx"
+
+if not os.path.exists(xray_path):
+    raise FileNotFoundError(f"Error: '{xray_path}' does not exist.")
+
+if not os.path.exists(attack_log_path):
+    raise FileNotFoundError(f"Error: '{attack_log_path}' does not exist.")
+
+if not os.path.exists(missed_hits_path): 
+    raise FileNotFoundError(f"Error: '{missed_hits_path}' does not exist.")
+
+xray_mtime = os.path.getmtime(xray_path)
+attack_log_mtime = os.path.getmtime(attack_log_path)
+missed_hits_mtime = os.path.getmtime(missed_hits_path)
+
+time_difference = abs(xray_mtime - attack_log_mtime)
+if time_difference > 48 * 3600: 
+    raise ValueError("Error: The last edited timestamps of 'xray-members.xlsx' and 'attack-log.xlsx' differ by more than 48 hours.")
+
+time_difference = abs(xray_mtime - missed_hits_mtime)
+if time_difference > 48 * 3600: 
+    raise ValueError("Error: The last edited timestamps of 'xray-members.xlsx' and 'missed-hits.xlsx' differ by more than 48 hours.")
+
 claims_dictionary = {}
-xray_claims = pd.read_excel("xray-members.xlsx", sheet_name=0)
+xray_claims = pd.read_excel(xray_path, sheet_name=0)
 
 for _, row in xray_claims.iterrows():
     claim_displayname = row['DisplayName']
@@ -215,176 +227,129 @@ if args.update:
         pickle.dump(player_activity_dict, file)
     exit()
 
+attack_log = pd.read_excel(attack_log_path, sheet_name = 0)
+attack_log["War Start Time"] = (
+    pd.to_datetime(attack_log["War Start Time"], utc=True)
+    .dt.tz_convert(None)     # drop UTC
+    .dt.date                 # use only the date
+)
 
-for log_file in logs: 
-    if args.war and log_file != args.war: continue
-    if log_file == "arch": continue # This is a folder
-    if log_file == "sanct": continue # This is a folder
+unique_wars = attack_log[["Enemy Clan Name", "War Start Time"]].drop_duplicates()
+unique_wars = list(unique_wars.itertuples(index=False, name=None))
+# Drop any war that is older than 40 days old
+current_date = datetime.datetime.now().date()
+unique_wars = [
+    (war, war_start) for war, war_start in unique_wars
+    if (current_date - war_start).days <= 40
+]
 
-    with open(f"./strikes/logs/{log_file}.txt", "r", encoding="utf-8") as file: 
-        lines = file.readlines()
+accounts_in_clan = [player_activity_dict[player].name for player in player_activity_dict]
+logs = [f"{war_start.strftime('%Y')}_{war_start.strftime('%m')}_{war_start.strftime('%d')}_{war.lower().replace(' ', '_')}" for war, war_start in unique_wars]
 
-    hit_pattern = re.compile(r":(\d{2})::\d{2}::Sword::(\d{2})::\d{2}:(:Star:|:FadedStar:|:Blank:)(:Star:|:FadedStar:|:Blank:)(:Star:|:FadedStar:|:Blank:):\d{2,3}:[💥]? .{2}(.*).{2}")
+def get_war_status(enemy_clan, war_start):
+    war_log_path = "war-log.json"
+    war_key = f"{war_start}"
 
-    win_loss_pattern = re.compile(r"Win/loss: (win|loss|blacklist win|blacklist loss)")
-    conditional_pattern = re.compile(r"Blacklist conditional: (true|false)")
-    war_end_date_pattern = re.compile(r"War end date: (\d{4}-\d{2}-\d{2})")
-    enemy_clan_pattern = re.compile(r"Enemy clan: (.*)")
+    # Load existing war log if it exists
+    if os.path.exists(war_log_path):
+        with open(war_log_path, "r", encoding="utf-8") as file:
+            war_log = json.load(file)
+    else:
+        war_log = {}
 
-    time_pattern = re.compile(r"(\d{4}-\d{2}-\d{2}) (\d{1,2}:\d{2}) ([AP]M)")
+    # Check if the war status is already recorded
+    if war_key in war_log: return war_log[war_key][0]
 
-    try: 
-        win_loss = re.search(win_loss_pattern, lines[0]).group(1)
-        war_end_date = re.search(war_end_date_pattern, lines[1]).group(1)
+    # Query user for war status
+    print(f"Status for war against '{enemy_clan}' on {war_start} not found.")
+    winloss = input("Enter the war status (e.g., win, loss, mismatch, blacklist win, blacklist loss):").strip().lower()
 
-        if "blacklist" in win_loss: conditional = re.search(conditional_pattern, lines[2]).group(1)
-        else: conditional = None # Not applicable
+    if "blacklist" in winloss: 
+        conditional = input("Blacklist conditional (true/false): ").strip.lower()
+        winloss = f"{winloss}/{conditional}"
 
-    except: 
-        print(f"Error: {log_file} is not formatted correctly. Please check the log file and try again.")
-        print(f"Usage: {log_file} should have the following format: ")
-        print("Win/loss: (win|loss|blacklist win|blacklist loss)")
-        print("War end date: (yyyy-mm-dd)")
-        print("Blacklist conditional: (true|false) -- only if the war is a blacklist war")
+    # Save the new status to the war log
+    war_log[war_key] = (winloss, enemy_clan) 
+    with open(war_log_path, "w", encoding="utf-8") as file:
+        json.dump(war_log, file, indent=4)
+
+    return winloss
+
+for enemy_clan, war_start in unique_wars: 
+    enemy_clan:str 
+    war_start:datetime.datetime
+
+    war_end_date = (war_start + datetime.timedelta(days=2)).strftime("%Y-%m-%d")
+    if datetime.datetime.strptime(war_end_date, "%Y-%m-%d").date() > current_date: 
+        print(f"War against {enemy_clan} ends in the future, skipping...")
         continue
 
-    if not args.inactivity: 
-        war_start_date = re.search(time_pattern, lines[6]).group(1)
-        war_start_time = re.search(time_pattern, lines[6]).group(2)
-        war_start_ampm = re.search(time_pattern, lines[6]).group(3)
-        war_start_datetime_str = f"{war_start_date} {war_start_time} {war_start_ampm}"
-        war_start = datetime.datetime.strptime(war_start_datetime_str, "%Y-%m-%d %I:%M %p") + datetime.timedelta(minutes=59)
-        print(f"War start: {war_start}")
-
     else: 
-        end_time = "12:00:00 AM"
-        war_start = datetime.datetime.strptime(f"{war_end_date} {end_time}", "%Y-%m-%d %I:%M:%S %p") - datetime.timedelta(hours=23)
-    
-    enemy_clan = re.search(enemy_clan_pattern, lines[2]).group(1)
-    
-    attack_list = None
-
-    time_elapsed = 0
+        print(f"\nWar against {enemy_clan}:")
 
     log = []
-
     invalid_mirror = []
-
     one_missed_hit = []
     two_missed_hits = []
 
-    war_start_announcement = True
-    
-    for line in lines:
-        # Check for timestamp using pattern
-        match = time_pattern.search(line)
-        if match: 
-            if war_start_announcement: 
-                war_start_announcement = False
-                continue
+    win_loss = get_war_status(enemy_clan, war_start)
+    if "/" in win_loss: win_loss, conditional = win_loss.split("/")
+    else: conditional = None
 
-            timestamp_date = match.group(1)
-            timestamp_time = match.group(2)
-            timestamp_ampm = match.group(3)
-            timestamp_str = f"{timestamp_date} {timestamp_time} {timestamp_ampm}"
+    if win_loss is None: 
+        print(f"War against {enemy_clan} not recorded -- fix?")
+        continue 
 
-            timestamp = datetime.datetime.strptime(timestamp_str, "%Y-%m-%d %I:%M %p")
+    for _, row in attack_log.iterrows(): 
+        if row["Enemy Clan Name"] != enemy_clan: continue 
+        if row["Name"] not in accounts_in_clan: continue 
+        if abs((row["War Start Time"] - war_start).days) > 5: continue
 
-            time_remaining = 24 - (timestamp - war_start).total_seconds() / 3600
+        pname = row["Name"]
+        attacker = row["Position"]
+        defender = row["Defender Position"]
+        stars = row["Stars"]
+        attack_order = row["Attack Order"]
 
-        match = hit_pattern.search(line)
-        if match:
-            attacker = match.group(1)
-            defender = match.group(2)
-            star1 = match.group(3)
-            star2 = match.group(4)
-            star3 = match.group(5)
-            stars = len([star for star in [star1, star2, star3] if star != ":Blank:"])
-            player_name = match.group(6)
-            
-            if "’" in player_name: player_name = player_name.replace("’", "'")
-            if "\_" in player_name: player_name = player_name.replace("\_", "_")
-            if "\~" in player_name: player_name = player_name.replace("\~", "~")
-            
-            log.append((player_name, attacker, defender, stars, time_remaining))
+        log.append((pname, attacker, defender, stars, attack_order))
 
-        if "2 Missed Attacks" in line.strip(): 
-            attack_list = 2
-            continue
-        
-        if "1 Missed Attack" in line.strip():
-            attack_list = 1
-            continue
+    # Sort log by attack order ascending 
+    log = sorted(log, key=lambda log: log[4])
+    matches = [log_file for log_file in logs if enemy_clan.lower().replace(" ", "_") in log_file]
 
-        if attack_list == 2: 
-            number, player_name = line[1:].strip().split(" ", 1)
-            number = int(number.replace(":", ""))
-            
-            if "’" in player_name: player_name = player_name.replace("’", "'")
-            if "\_" in player_name: player_name = player_name.replace("\_", "_")
-            if "\~" in player_name: player_name = player_name.replace("\~", "~")
+    if len(matches) == 1: log_file = matches[0]
+    else: 
+        war_start_dates = [datetime.datetime.strptime(log[:10], "%Y_%m_%d") for log in matches]
+        date_distance = [abs((war_date.date() - war_start).days) for war_date in war_start_dates]
+        idx = date_distance.index(min(date_distance))
+        log_file = matches[idx]
 
-            log.append((player_name, number, None, None, None))
-            log.append((player_name, number, None, None, None))
-            two_missed_hits.append(player_name)
+    with open(f"./strikes/{log_file}.txt", "w", encoding="utf-8") as file: 
+        rules_broken = {player_name: False for player_name in [entry[0] for entry in log]}
+        player_entries = {player_name: [entry for entry in log if entry[0] == player_name] for player_name in [entry[0] for entry in log]}
 
-        if attack_list == 1:
-            number, player_name = line[1:].strip().split(" ", 1)
-            number = int(number.replace(":", ""))
-
-            if "’" in player_name: player_name = player_name.replace("’", "'")
-            if "\_" in player_name: player_name = player_name.replace("\_", "_")
-            if "\~" in player_name: player_name = player_name.replace("\~", "~")
-
-            log.append((player_name, number, None, None, None))
-            one_missed_hit.append(player_name)
-
-    with open(f"./strikes/inputs/{log_file}.txt", "w", encoding="utf-8") as file: 
-        if win_loss == "win" or win_loss == "loss": 
+        if win_loss in ["win", "loss"]: 
             snipe_count = {}
             rules_broken = {player_name: False for player_name in [entry[0] for entry in log]}
 
             # FWA war
             for entry in log: 
-                player_name, attacker, defender, stars, time_remaining = entry
+                player_name, attacker, defender, stars, attack_order = entry
 
                 if defender is None: # Missed hit, skip for now 
                     continue
 
-                if args.log: print(f"Player: {player_name}, Attacker: {attacker}, Defender: {defender}, Stars: {stars}, Time Remaining: {time_remaining:.2f}")
+                if args.log: print(f"Player: {player_name}, Attacker: {attacker}, Defender: {defender}, Stars: {stars}")
                 if args.mirrors: print(f"Invalid Mirrors: {invalid_mirror}")
 
                 player_immune = False
 
-                if player_name in permanent_immunities: 
+                if player_name in immunities: 
                     player_immune = True
-
-                for immune, begin_date, end_date in timed_immunities:
-                    if player_name == immune:
-                        # if datetime.datetime.strptime(date, "%Y-%m-%d") >= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year): 
-                        if datetime.datetime.strptime(begin_date, "%Y-%m-%d") <= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year) <= datetime.datetime.strptime(end_date, "%Y-%m-%d"):
-                            player_immune = True
-
-                for immune, date in one_war_immunities: 
-                    if player_name == immune: 
-                        immunity_date = datetime.datetime.strptime(date, "%Y-%m-%d")
-                        war_end = datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year)
-                        if war_end == immunity_date: 
-                            player_immune = True
-                    
-                is_main = True
-                for claimer in claims_dictionary: 
-                    for account in claims_dictionary[claimer]: 
-                        if account.name == player_name: 
-                            if not account.is_main: 
-                                is_main = False
 
                 if player_immune and not args.debug: 
                     invalid_mirror.append(defender)
                     continue 
-                if not is_main and not args.debug: 
-                    invalid_mirror.append(defender)
-                    continue
                 
                 # Find the player in the player_activity_dict and check their mirror_tolerance value. 
                 p = next((player_activity_dict[tag] for tag in player_activity_dict if player_activity_dict[tag].name == player_name), None)
@@ -419,15 +384,12 @@ for log_file in logs:
                     # If not, check if they hit another base because less than four hours remain in the war.
                     # If none of these are true, additionally penalize them for hitting a base not their mirror.
 
-                    if (player_immune or not is_main) and args.debug: 
+                    if player_immune and args.debug: 
                         if attacker in [entry[2] for entry in log if entry[1] == attacker]:
                             print(f"Debug: {player_name} three-starred a base not their mirror #{defender} on a loss, but they already hit their mirror")
 
                         elif attacker in invalid_mirror:
                             print(f"Debug: {player_name} three-starred a base not their mirror #{defender} on a loss, but their mirror was already taken")
-
-                        elif time_remaining < 6:
-                            print(f"Debug: {player_name} three-starred a base not their mirror #{defender} on a loss, but there are {round(time_remaining, 2)} hours remaining")
 
                         else: 
                             print(f"Debug: {player_name} three-starred on a loss")
@@ -441,11 +403,6 @@ for log_file in logs:
 
                         elif attacker in invalid_mirror:
                             print(f"Warning: {player_name} three-starred a base not their mirror #{defender} on a loss, but their mirror was already taken")
-                            file.write(f"3\n{player_name}\ny\n5\n{war_end_date}\n1\n{enemy_clan}\n")
-                            rules_broken[player_name] = True
-
-                        elif time_remaining < 6: 
-                            print(f"Warning: {player_name} three-starred a base not their mirror #{defender} on a loss, but there are {round(time_remaining, 2)} hours remaining")
                             file.write(f"3\n{player_name}\ny\n5\n{war_end_date}\n1\n{enemy_clan}\n")
                             rules_broken[player_name] = True
 
@@ -469,7 +426,7 @@ for log_file in logs:
 
                     # Check if they have sniped twice.
                     if snipe_count[player_name] >= 2:
-                        if (player_immune or not is_main) and args.debug: 
+                        if player_immune and args.debug: 
                             print(f"Debug: {player_name} appears to have sniped twice.")
                             
                         else: 
@@ -489,7 +446,7 @@ for log_file in logs:
                         snipe_count[player_name] = 1
 
                     if snipe_count[player_name] >= 2:
-                        if (player_immune or not is_main) and args.debug: 
+                        if player_immune and args.debug: 
                             print(f"Debug: {player_name} appears to have sniped twice.")
 
                         else:
@@ -506,25 +463,6 @@ for log_file in logs:
                         invalid_mirror.append(defender)
 
                     else: 
-                        # In this case, they hit their mirror as well as another base that's not their mirror nor a snipe. 
-                        # Check if they did this when there's less than four hours remaining in the war.
-
-                        if time_remaining < 6:
-                            if args.bypass: print(f"Bypass: {player_name} hit their mirror #{defender} as well as another base not their mirror #{attacker}, but there are {round(time_remaining, 2)} hours remaining")
-
-                        # Otherwise, check if they hit a base that's within top 10. If so, this counts as a snipe and we should not penalize.
-                        elif int(defender) <= 10: 
-                            if args.bypass and args.snipe: print(f"Bypass: {player_name} hit their mirror #{defender} as well as another base not their mirror #{attacker}, but this appears to be a snipe")
-
-                        else:  
-                            if (player_immune or not is_main) and args.debug: 
-                                print(f"Debug: {player_name} hit their mirror #{attacker} as well as another base not their mirror #{defender}, with time remaining {round(time_remaining, 2)} hours")
-
-                            else:
-                                print(f"Warning: {player_name} hit their mirror #{attacker} as well as another base not their mirror #{defender}, with time remaining {round(time_remaining, 2)} hours")
-                                file.write(f"3\n{player_name}\ny\n5\n{war_end_date}\n2\n{enemy_clan}\n")
-                                rules_broken[player_name] = True
-
                         invalid_mirror.append(defender)
 
                 else: 
@@ -544,13 +482,8 @@ for log_file in logs:
                         if args.bypass and args.snipe: print(f"Bypass: {player_name} hit someone not their own mirror #{defender}, but this appears to be a snipe")
                         continue
 
-                    # Check if there are less than four hours remaining in the war.
-                    if time_remaining < 6:
-                        if args.bypass: print(f"Bypass: {player_name} hit someone not their own mirror #{defender}, but there are {round(time_remaining, 2)} hours remaining")
-                        invalid_mirror.append(defender)
-
                     else:
-                        if (player_immune or not is_main) and args.debug: 
+                        if player_immune and args.debug: 
                             print(f"Debug: {player_name} hit someone not their own mirror #{defender}")
 
                         else:
@@ -617,80 +550,31 @@ for log_file in logs:
 
                         rules_broken[entry] = True
 
-        elif win_loss == "blacklist win" or win_loss == "blacklist loss":
-            victory = "y" if win_loss.split(" ")[1] == "win" else "n"
-            one_missed_hit = []
-            two_missed_hits = []
+            # Check snipes 
+            # for player_name, entry in player_entries.items(): 
+            #     snipe_count = 0
 
-            rules_broken = {player_name: False for player_name in [entry[0] for entry in log]}
+            #     for hit in entry: 
+            #         pname, attacker, defender, stars, attack_order = hit
 
-            for entry in log: 
-                player_name, attacker, defender, stars, time_remaining = entry
-                # If there is ONE instance of a given player in the log with None as defender, they missed one hit. 
-                # If there are TWO instances of a given player in the log with None as defender, they missed two hits.
+            #         invalid_mirror = 
 
-                if defender is None:
-                    if player_name in one_missed_hit: 
-                        two_missed_hits.append(player_name)
-                        one_missed_hit.remove(player_name)
-                    else: 
-                        one_missed_hit.append(player_name)
+            #         if attacker in invalid_mirror: continue 
+            #         if int(attacker) > 5 and int(defender) <= 5 and stars < 2: 
+            #             snipe_count += 1
 
-            missed_hits = one_missed_hit + two_missed_hits
+            #     if snipe_count == 2: 
+            #         print(f"Warning: {player_name} appears to have sniped twice.")
+            #         file.write(f"3\n{player_name}\ny\n5\n{war_end_date}\n3\n{enemy_clan}\n")
+            #         rules_broken[player_name] = True
 
-            for entry in missed_hits: 
-                if entry in permanent_immunities or "Unicorn" in entry: 
-                    if args.bypass: print(f"Bypass: {entry} missed two hits on a blacklist war, but they are immune")
-                    continue
-
-                for immune, begin_date, end_date in timed_immunities:
-                    if player_name == immune:
-                        if datetime.datetime.strptime(begin_date, "%Y-%m-%d") <= datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year) <= datetime.datetime.strptime(end_date, "%Y-%m-%d"):
-                            if args.bypass: print(f"Bypass: {player_name} is immune until {date}") 
-                            player_immune = True
-
-                for immune, date in one_war_immunities: 
-                    if player_name == immune: 
-                        immunity_date = datetime.datetime.strptime(date, "%Y-%m-%d")
-                        war_end = datetime.datetime.strptime(war_end_date, "%Y-%m-%d").replace(year = datetime.datetime.now().year)
-                        if war_end == immunity_date: 
-                            if args.bypass: print(f"Bypass: {player_name} has a one-war immunity.") 
-                            player_immune = True
-
-                is_main = True
-                for claimer in claims_dictionary:
-                    for account in claims_dictionary[claimer]: 
-                        if account.name == entry: 
-                            if not account.is_main: 
-                                is_main = False
-                if not is_main: 
-                    if args.bypass: print(f"Bypass: {entry} missed at least one hit on a blacklist war, but they are not a main account")
-                    continue
-
-                if victory == "y": 
-                    if conditional == "true": 
-                        # update activity data, but no strikes
-                        rules_broken[entry] = True
-                    else:
-                        print(f"Warning: {entry} missed at least one hit on a blacklist war, but we still won")
-                        file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\nn\ny\n2\n")
-                        rules_broken[entry] = True
-                else:
-                    if conditional == "true": 
-                        print(f"Warning: {entry} missed at least one hit on a blacklist war, which cost us the win but we met the conditional")
-                        file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\ny\nn\n2\n")
-                        rules_broken[entry] = True
-                    else:
-                        print(f"Warning: {entry} missed at least one hit on a blacklist war, which cost us the win")
-                        file.write(f"3\n{entry}\ny\n1\n{war_end_date}\n{enemy_clan}\nn\nn\n2\n")
-                        rules_broken[entry] = True
+        elif win_loss in ["blacklist win", "blacklist loss"]: pass
 
         # Update each player's last seen date to the date of this war, if it is before this date. 
         for player in player_activity_dict:
-            # First, we do need to check if this player was seen this war; if they were in the clan. 
+            last_seen_value = player_activity_dict[player].last_seen
             if player_activity_dict[player].name in [entry[0] for entry in log]:
-                # Update date with format yyyy-mm-dd
-                player_activity_dict[player].last_seen = f"{datetime.datetime.strptime(war_end_date, '%Y-%m-%d').strftime('%Y-%m-%d')}"
+                player_activity_dict[player].last_seen = last_seen_value if datetime.datetime.strptime(last_seen_value, '%Y-%m-%d').date() > war_start else f"{war_start.strftime('%Y-%m-%d')}"
 
         # If player didn't break rules this war, check if they have any wars missed. If so, remove the oldest one. 
         for player in rules_broken: 
@@ -717,8 +601,7 @@ for log_file in logs:
                             player_activity_dict[player_tag].banked_counter = []
                             
     # press any key to continue 
-    input("Press any key to continue...\n")
-
+    input("Press any key to continue...")
 
 # Check for players who have not been seen in one month. That is, 30 days. 
 to_be_deleted = []
@@ -730,7 +613,6 @@ for player in player_activity_dict:
 
 for player in to_be_deleted:
     del player_activity_dict[player]
-
 
 with open("activity_data.pickle", "wb") as file:
     pickle.dump(player_activity_dict, file)
@@ -754,7 +636,6 @@ with open("./outputs/player_activity.txt", "w", encoding="utf-8") as file:
         file.write(f"  - Banked counter: {player_activity_dict[player].banked_counter}\n")
         file.write(f"  - Wars logged: {player_activity_dict[player].wars_logged}\n\n")
 
-import time
 unix_time = int(time.time())
 # Dump to be posted in a Discord channel.
 with open("./outputs/activity_output.txt", "w", encoding="utf-8") as file:
@@ -782,7 +663,7 @@ with open("./outputs/activity_output.txt", "w", encoding="utf-8") as file:
             pname = player_activity_dict[player].name
 
             if wars_missed == 0: continue
-            if player_activity_dict[player].name in permanent_immunities: continue
+            if player_activity_dict[player].name in immunities: continue
 
             most_recent_missed_war = max(player_activity_dict[player].wars_missed, key=lambda war: datetime.datetime.strptime(war[0], "%Y-%m-%d"))[0]
             missed_timedelta = (datetime.datetime.now() - datetime.datetime.strptime(most_recent_missed_war, "%Y-%m-%d")).days
@@ -821,7 +702,7 @@ with open("./outputs/activity_output.txt", "w", encoding="utf-8") as file:
             if wars_missed == 0: continue
 
             # Skip this player if they are immune. 
-            if player_activity_dict[player].name in permanent_immunities: continue
+            if player_activity_dict[player].name in immunities: continue
 
             if wars_missed == 1: file.write(f"{player_activity_dict[player].name}: 1 war missed\n")
             else: file.write(f"{player_activity_dict[player].name}: {wars_missed} wars missed\n")
@@ -830,8 +711,8 @@ with open("./outputs/activity_output.txt", "w", encoding="utf-8") as file:
 
 # Look in ./inputs and delete all files that are empty
 
-for filename in os.listdir("./strikes/inputs"):
+for filename in os.listdir("./strikes"):
     if filename.endswith(".txt"):
-        filepath = os.path.join("./strikes/inputs", filename)
+        filepath = os.path.join("./strikes", filename)
         if os.path.getsize(filepath) == 0:
             os.remove(filepath)
