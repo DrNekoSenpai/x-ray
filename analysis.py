@@ -227,7 +227,8 @@ if args.update:
         pickle.dump(player_activity_dict, file)
     exit()
 
-attack_log = pd.read_excel(attack_log_path, sheet_name = 0)
+
+attack_log = pd.read_excel(attack_log_path, sheet_name=0)
 attack_log["War Start Time"] = (
     pd.to_datetime(attack_log["War Start Time"], utc=True)
     .dt.tz_convert(None)     # drop UTC
@@ -243,11 +244,16 @@ unique_wars = [
     if (current_date - war_start).days <= 40
 ]
 
+missed_hits_log = pd.read_excel(missed_hits_path, sheet_name=0)
+missed_hits = {unique_war[0]: None for unique_war in unique_wars}
+# missed_hits = {missed_hits_log["Enemy Clan"]: {missed_hits_log["Name"]: int(missed_hits_log["Missed"])}}
+print(missed_hits)
+
 accounts_in_clan = [player_activity_dict[player].name for player in player_activity_dict]
 logs = [f"{war_start.strftime('%Y')}_{war_start.strftime('%m')}_{war_start.strftime('%d')}_{war.lower().replace(' ', '_')}" for war, war_start in unique_wars]
 
 def get_war_status(enemy_clan, war_start):
-    war_log_path = "war-log.json"
+    war_log_path = "./inputs/war-log.json"
     war_key = f"{war_start}"
 
     # Load existing war log if it exists

@@ -47,7 +47,7 @@ def build_entries(players, bypass:bool=False):
     """
     
     month_year = datetime.today().strftime("%Y-%m")
-    with open(f"./strikes/inputs/cwl-{month_year}.txt", 'w', encoding='utf-8') as f:
+    with open(f"./strikes/cwl-{month_year}.txt", 'w', encoding='utf-8') as f:
         f.write("")
 
     for i, (player, hits_total, hits_done) in enumerate(players):
@@ -67,7 +67,7 @@ def build_entries(players, bypass:bool=False):
         # If player has zero or hits, write in "./strikes/cwl_{month}.txt" and then remove them from the list. 
         if adjusted_hits <= 0:
             month_year = datetime.today().strftime("%Y-%m")
-            strikes_file = f"./strikes/inputs/cwl-{month_year}.txt"
+            strikes_file = f"./strikes/cwl-{month_year}.txt"
             date = datetime.today().strftime("%Y-%m-%d")
             with open(strikes_file, 'a', encoding='utf-8') as strikes_f:
                 strikes_f.write(f"3\n{player}\ny\n7\n{date}\n")
@@ -377,7 +377,7 @@ def draw_command(available_distributions:int, bypass:bool):
         print("No winners could be selected.")
 
 def pity_track(players, ineligible_players):
-    wb = load_workbook("pity_track.xlsx", data_only=True)
+    wb = load_workbook("./inputs/pity_track.xlsx", data_only=True)
     ws = wb.active 
 
     header = [cell.value for cell in ws[1]]
