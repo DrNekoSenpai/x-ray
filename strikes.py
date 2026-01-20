@@ -68,7 +68,7 @@ def import_pickle():
     return players
 
 def add_player(): 
-    xray_members = pd.read_excel('xray-members.xlsx', sheet_name=0)
+    xray_members = pd.read_excel('./inputs/xray-members.xlsx', sheet_name=0)
     for _, row in xray_members.iterrows():
         player_name = row['Name']
         player_tag = row['Tag']

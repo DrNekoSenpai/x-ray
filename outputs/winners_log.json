@@ -1,47 +1,4 @@
 {
-    "Limit?": {
-        "win_date": "2025-07-11",
-        "bonus": [
-            {
-                "month": "2025-08",
-                "bonus_weeks": 3
-            },
-            {
-                "month": "2025-09",
-                "bonus_weeks": 1
-            }
-        ]
-    },
-    "RoyalOne": {
-        "win_date": "2025-08-11",
-        "bonus": [
-            {
-                "month": "2025-09",
-                "bonus_weeks": 3
-            },
-            {
-                "month": "2025-10",
-                "bonus_weeks": 2
-            },
-            {
-                "month": "2025-11",
-                "bonus_weeks": 3
-            }
-        ]
-    },
-    "Dalto": {
-        "win_date": "2025-08-11",
-        "bonus": [
-            {
-                "month": "2025-09",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-10",
-                "bonus_weeks": 2
-            }
-        ]
-    },
     "sanskar": {
         "win_date": "2025-09-10",
         "bonus": []
@@ -56,91 +13,10 @@
             {
                 "month": "2025-12",
                 "bonus_weeks": 0
-            }
-        ]
-    },
-    "Ascended": {
-        "win_date": "2025-09-10",
-        "bonus": [
-            {
-                "month": "2025-10",
-                "bonus_weeks": 4
             },
             {
-                "month": "2025-11",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-12",
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "K.L.A.U.S": {
-        "win_date": "2025-09-10",
-        "bonus": [
-            {
-                "month": "2025-10",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-11",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-12",
-                "bonus_weeks": 3
-            }
-        ]
-    },
-    "Protips": {
-        "win_date": "2025-09-10",
-        "bonus": [
-            {
-                "month": "2025-10",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-11",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-12",
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Truthful Lies": {
-        "win_date": "2025-09-10",
-        "bonus": [
-            {
-                "month": "2025-10",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-11",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-12",
-                "bonus_weeks": 4
-            }
-        ]
-    },
-    "Vojt": {
-        "win_date": "2025-09-10",
-        "bonus": [
-            {
-                "month": "2025-10",
-                "bonus_weeks": 3
-            },
-            {
-                "month": "2025-11",
-                "bonus_weeks": 4
-            },
-            {
-                "month": "2025-12",
-                "bonus_weeks": 3
+                "month": "2026-01",
+                "bonus_weeks": 0
             }
         ]
     },
@@ -167,6 +43,10 @@
             {
                 "month": "2025-12",
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2026-01",
+                "bonus_weeks": 4
             }
         ]
     },
@@ -179,6 +59,10 @@
             },
             {
                 "month": "2025-12",
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2026-01",
                 "bonus_weeks": 4
             }
         ]
@@ -193,6 +77,10 @@
             {
                 "month": "2025-12",
                 "bonus_weeks": 4
+            },
+            {
+                "month": "2026-01",
+                "bonus_weeks": 4
             }
         ]
     },
@@ -205,6 +93,10 @@
             },
             {
                 "month": "2025-12",
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2026-01",
                 "bonus_weeks": 4
             }
         ]
@@ -219,6 +111,10 @@
             {
                 "month": "2025-12",
                 "bonus_weeks": 1
+            },
+            {
+                "month": "2026-01",
+                "bonus_weeks": 0
             }
         ]
     },
@@ -227,6 +123,10 @@
         "bonus": [
             {
                 "month": "2025-12",
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2026-01",
                 "bonus_weeks": 4
             }
         ]
@@ -237,6 +137,10 @@
             {
                 "month": "2025-12",
                 "bonus_weeks": 2
+            },
+            {
+                "month": "2026-01",
+                "bonus_weeks": 2
             }
         ]
     },
@@ -245,6 +149,10 @@
         "bonus": [
             {
                 "month": "2025-12",
+                "bonus_weeks": 4
+            },
+            {
+                "month": "2026-01",
                 "bonus_weeks": 4
             }
         ]
@@ -255,6 +163,10 @@
             {
                 "month": "2025-12",
                 "bonus_weeks": 1
+            },
+            {
+                "month": "2026-01",
+                "bonus_weeks": 0
             }
         ]
     },
@@ -264,6 +176,10 @@
             {
                 "month": "2025-12",
                 "bonus_weeks": 2
+            },
+            {
+                "month": "2026-01",
+                "bonus_weeks": 3
             }
         ]
     },
@@ -273,12 +189,21 @@
             {
                 "month": "2025-12",
                 "bonus_weeks": 2
+            },
+            {
+                "month": "2026-01",
+                "bonus_weeks": 2
             }
         ]
     },
     "osiris8282": {
         "win_date": "2025-12-11",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2026-01",
+                "bonus_weeks": 4
+            }
+        ]
     },
     "Apollo": {
         "win_date": "2025-12-11",
@@ -286,18 +211,62 @@
     },
     "DNG": {
         "win_date": "2025-12-11",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2026-01",
+                "bonus_weeks": 3
+            }
+        ]
     },
     "NagaStoleMyBike": {
         "win_date": "2025-12-11",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2026-01",
+                "bonus_weeks": 1
+            }
+        ]
     },
     "Welli": {
         "win_date": "2025-12-11",
-        "bonus": []
+        "bonus": [
+            {
+                "month": "2026-01",
+                "bonus_weeks": 3
+            }
+        ]
     },
     "redking": {
         "win_date": "2025-12-11",
+        "bonus": [
+            {
+                "month": "2026-01",
+                "bonus_weeks": 4
+            }
+        ]
+    },
+    "Marlec": {
+        "win_date": "2026-01-11",
+        "bonus": []
+    },
+    "RoyalOne": {
+        "win_date": "2026-01-11",
+        "bonus": []
+    },
+    "Dr. Stone": {
+        "win_date": "2026-01-11",
+        "bonus": []
+    },
+    "Vojt": {
+        "win_date": "2026-01-11",
+        "bonus": []
+    },
+    "Protips": {
+        "win_date": "2026-01-11",
+        "bonus": []
+    },
+    "BumblinMumbler": {
+        "win_date": "2026-01-11",
         "bonus": []
     }
 }

@@ -1,9 +1,6 @@
 .marlec: 1 account in Reddit X-ray
   - Marlec -- (main)
 
-eyezic_x: 1 account in Reddit X-ray
-  - Smitty™ -- (main)
-
 snedpie: 1 account in Reddit X-ray
   - Sned -- (main)
 
@@ -19,11 +16,18 @@ hyype99: 1 account in Reddit X-ray
 uppercasename: 1 account in Reddit X-ray
   - Ascended -- (main)
 
+eyezic_x: 2 accounts in Reddit X-ray
+  - Smitty™
+  - Ligma
+
 redking347: 1 account in Reddit X-ray
   - redking -- (main)
 
-napalm360: 1 account in Reddit X-ray
-  - NagaStoleMyBike -- (main)
+bounce_04: 1 account in Reddit X-ray
+  - Bounce_04 -- (main)
+
+dr.stone0476: 1 account in Reddit X-ray
+  - Dr. Stone -- (main)
 
 wackymctacky: 1 account in Reddit X-ray
   - Genghis Khan -- (main)
@@ -33,9 +37,6 @@ cherryyy___: 1 account in Reddit X-ray
 
 taycid: 1 account in Reddit X-ray
   - Taycid -- (main)
-
-tsabakalos: 1 account in Reddit X-ray
-  - ChrisThe7th -- (main)
 
 mikadochii: 1 account in Reddit X-ray
   - skyeshade -- (main)
@@ -49,14 +50,11 @@ jmac4173: 1 account in Reddit X-ray
 flippi7125: 1 account in Reddit X-ray
   - ERDNUSSFLIP -- (main)
 
-dr.stone0476: 1 account in Reddit X-ray
-  - Dr. Stone -- (main)
-
-apollo2093: 1 account in Reddit X-ray
-  - Apollo -- (main)
-
 viperx56: 1 account in Reddit X-ray
   - ViperX56 -- (main)
+
+reee5669: 1 account in Reddit X-ray
+  - ryan_L -- (main)
 
 osiris8282: 1 account in Reddit X-ray
   - osiris8282 -- (main)
@@ -88,9 +86,6 @@ swagman8008: 1 account in Reddit X-ray
 dwigt3665: 1 account in Reddit X-ray
   - jy -- (main)
 
-_._sloth_._: 1 account in Reddit X-ray
-  - slothnz -- (main)
-
 .deltazero: 1 account in Reddit X-ray
   - david -- (main)
 
@@ -100,9 +95,6 @@ supreme.3: 1 account in Reddit X-ray
 trulygreg520: 1 account in Reddit X-ray
   - ⚡ TANJIRO ⚡ -- (main)
 
-terntenodo: 1 account in Reddit X-ray
-  - CrazyWaveIT -- (main)
-
 riousb: 1 account in Reddit X-ray
   - Rious -- (main)
 
@@ -111,6 +103,9 @@ therealvo1t: 1 account in Reddit X-ray
 
 titanlim: 1 account in Reddit X-ray
   - your mama -- (main)
+
+crazywaveit: 1 account in Reddit X-ray
+  - CrazyWaveIT -- (main)
 
 motz3012: 1 account in Reddit X-ray
   - Motz -- (main)
@@ -142,9 +137,12 @@ w1nter_cga: 1 account in Reddit X-ray
 beeche: 1 account in Reddit X-ray
   - beeche -- (main)
 
-paperkurane: 1 account in Reddit X-ray
-  - Kurane -- (main)
+akshayanand8122: 1 account in Reddit X-ray
+  - ÍâmGrøØt -- (main)
 
-irockudigme: 1 account in Reddit X-ray
-  - RipexFruit -- (main)
+cyclone9874: 1 account in Reddit X-ray
+  - koshal -- (main)
+
+redshift.base.eth: 1 account in Reddit X-ray
+  - S4VAGE_B5 -- (main)
 

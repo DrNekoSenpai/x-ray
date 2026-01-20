@@ -271,11 +271,12 @@ def get_war_status(enemy_clan, war_start):
     winloss = input("Enter the war status (e.g., win, loss, mismatch, blacklist win, blacklist loss):").strip().lower()
 
     if "blacklist" in winloss: 
-        conditional = input("Blacklist conditional (true/false): ").strip.lower()
+        conditional = input("Blacklist conditional (true/false): ").strip().lower()
         winloss = f"{winloss}/{conditional}"
 
     # Save the new status to the war log
     war_log[war_key] = (winloss, enemy_clan) 
+
     with open(war_log_path, "w", encoding="utf-8") as file:
         json.dump(war_log, file, indent=4)
 
@@ -297,6 +298,7 @@ for enemy_clan, war_start in unique_wars:
     invalid_mirror = []
     one_missed_hit = []
     two_missed_hits = []
+    war_ids = []
 
     win_loss = get_war_status(enemy_clan, war_start)
     if "/" in win_loss: win_loss, conditional = win_loss.split("/")
@@ -318,9 +320,52 @@ for enemy_clan, war_start in unique_wars:
         attack_order = row["Attack Order"]
 
         log.append((pname, attacker, defender, stars, attack_order))
+        war_ids.append(row.get("War ID", None))
 
     # Sort log by attack order ascending 
     log = sorted(log, key=lambda log: log[4])
+
+
+    # Pull missed-hit info for this war from missed-hits.xlsx (by War ID).
+    # Note: players who missed both hits may have *no* entries in `log`, so we use the missed-hits sheet.
+    try:
+        war_id = None
+        war_ids_clean = [wid for wid in war_ids if pd.notna(wid)]
+        if war_ids_clean:
+            war_id = pd.Series(war_ids_clean).mode().iloc[0]
+
+        if war_id is not None:
+            mh_rows = missed_hits_log[missed_hits_log["War ID"] == war_id]
+
+            # Build missed-hit lists using tags (more reliable than names)
+            for _, mh_row in mh_rows.iterrows():
+                missed = mh_row.get("Missed", 0)
+                try:
+                    missed = int(missed)
+                except Exception:
+                    continue
+
+                tag = str(mh_row.get("Tag", "")).strip()
+                if not tag:
+                    continue
+                if not tag.startswith("#"):
+                    tag = "#" + tag
+
+                # Prefer name from our roster (player_activity_dict) to avoid name-formatting mismatches.
+                pname_mh = player_activity_dict[tag].name if tag in player_activity_dict else str(mh_row.get("Name", "")).strip()
+                if not pname_mh:
+                    continue
+
+                if missed == 1:
+                    one_missed_hit.append(pname_mh)
+                elif missed >= 2:
+                    two_missed_hits.append(pname_mh)
+
+            # Deduplicate while preserving order
+            one_missed_hit[:] = list(dict.fromkeys(one_missed_hit))
+            two_missed_hits[:] = list(dict.fromkeys(two_missed_hits))
+    except Exception as e:
+        print(f"Warning: failed to ingest missed-hits.xlsx for war against {enemy_clan} on {war_start}: {e}")
     matches = [log_file for log_file in logs if enemy_clan.lower().replace(" ", "_") in log_file]
 
     if len(matches) == 1: log_file = matches[0]
@@ -499,62 +544,69 @@ for enemy_clan, war_start in unique_wars:
 
                         invalid_mirror.append(defender)
 
-            for entry in one_missed_hit: 
-                for log_entry in log:
-                    if log_entry[0] == entry and log_entry[2] is None: continue
 
-                    if log_entry[0] == entry: 
-                        mirror = log_entry[1] == log_entry[2]
-                        if not mirror and int(log_entry[2]) < 6: 
-                            if args.bypass: print(f"Bypass: #{log_entry[1]} {entry} missed one hit, and used the other to snipe")
-                            continue
+            # Apply missed-hit penalties.
+            # NOTE: `two_missed_hits` players may have zero attacks in `log`, so handle them without needing a log_entry.
 
-                        print(f"Warning: {entry} missed one hit, and used the other to snipe")
-                        
-                        # Find the player in the player_activity_dict. If they don't exist, throw an error and exit. 
-                        # However, player_activity_dict is a dictionary categorized by player tag, not player name.
-                        # We need to find the player tag of the player name in the log.
-
-                        player_exists = False 
-                        for player_tag in player_activity_dict:
-                            if player_activity_dict[player_tag].name == entry: 
-                                player_exists = True
-                                break
-
-                        if not player_exists:
-                            # If the player doesn't exist, assume they were removed from the roster.
-                            print(f"Error: {entry} not found in player_activity_dict. Continuing.") 
-                            continue
-                        
-                        # Format: Date of war end, enemy clan, win/loss
-                        war_data = (war_end_date, enemy_clan, win_loss)
-
-                        # Check if we already added this war. If so, ignore it.
-                        if not war_data in player_activity_dict[player_tag].wars_missed:
-                            player_activity_dict[player_tag].wars_missed.append(war_data)
-
-                        rules_broken[entry] = True
+            def _tag_for_name(_name: str):
+                return next((t for t in player_activity_dict if player_activity_dict[t].name == _name), None)
 
             for entry in two_missed_hits:
-                for log_entry in log:
-                    if log_entry[0] == entry:
-                        player_exists = False
-                        for player_tag in player_activity_dict:
-                            if player_activity_dict[player_tag].name == entry: 
-                                player_exists = True
-                                break
+                player_tag = _tag_for_name(entry)
+                if not player_tag:
+                    print(f"Error: {entry} not found in player_activity_dict. Continuing.")
+                    continue
 
-                        if not player_exists:
-                            print(f"Error: {entry} not found in player_activity_dict. Continuing.")
-                            continue
+                war_data = (war_end_date, enemy_clan, win_loss)
+                print(f"Warning: {entry} missed two hits")
 
-                        war_data = (war_end_date, enemy_clan, win_loss)
-                        print(f"Warning: {entry} missed two hits")
+                if war_data not in player_activity_dict[player_tag].wars_missed:
+                    player_activity_dict[player_tag].wars_missed.append(war_data)
 
-                        if not war_data in player_activity_dict[player_tag].wars_missed:
-                            player_activity_dict[player_tag].wars_missed.append(war_data)
+                rules_broken[entry] = True
 
-                        rules_broken[entry] = True
+            for entry in one_missed_hit:
+                # Try to find their recorded hit(s) for snipe-bypass logic.
+                player_hits = [le for le in log if le[0] == entry and le[2] is not None]
+
+                # If we can't find a hit at all, still count the missed hit.
+                if not player_hits:
+                    player_tag = _tag_for_name(entry)
+                    if not player_tag:
+                        print(f"Error: {entry} not found in player_activity_dict. Continuing.")
+                        continue
+
+                    war_data = (war_end_date, enemy_clan, win_loss)
+                    print(f"Warning: {entry} missed one hit")
+
+                    if war_data not in player_activity_dict[player_tag].wars_missed:
+                        player_activity_dict[player_tag].wars_missed.append(war_data)
+
+                    rules_broken[entry] = True
+                    continue
+
+                for log_entry in player_hits:
+                    mirror = log_entry[1] == log_entry[2]
+
+                    # If their one attack was a low-base snipe and we allow bypass, don't penalize the missed hit.
+                    if (not mirror) and int(log_entry[2]) < 6:
+                        if args.bypass:
+                            print(f"Bypass: #{log_entry[1]} {entry} missed one hit, and used the other to snipe")
+                        break
+
+                    player_tag = _tag_for_name(entry)
+                    if not player_tag:
+                        print(f"Error: {entry} not found in player_activity_dict. Continuing.")
+                        break
+
+                    war_data = (war_end_date, enemy_clan, win_loss)
+                    print(f"Warning: {entry} missed one hit")
+
+                    if war_data not in player_activity_dict[player_tag].wars_missed:
+                        player_activity_dict[player_tag].wars_missed.append(war_data)
+
+                    rules_broken[entry] = True
+                    break
 
             # Check snipes 
             # for player_name, entry in player_entries.items(): 
@@ -668,7 +720,7 @@ with open("./outputs/activity_output.txt", "w", encoding="utf-8") as file:
             base_value = player_activity_dict[player].base_value
             pname = player_activity_dict[player].name
 
-            if wars_missed == 0: continue
+            if (wars_missed + base_value) == 0: continue
             if player_activity_dict[player].name in immunities: continue
 
             most_recent_missed_war = max(player_activity_dict[player].wars_missed, key=lambda war: datetime.datetime.strptime(war[0], "%Y-%m-%d"))[0]
@@ -678,15 +730,19 @@ with open("./outputs/activity_output.txt", "w", encoding="utf-8") as file:
 
             inactive_players.append((pname, base_value + wars_missed, missed_timedelta))
 
-    longest_player_name = max(len(p[0]) for p in inactive_players)
 
-    file.write(f"╔══{'═'*longest_player_name}╤═════════════╤═════════════╗\n")
-    file.write(f"║ Player name{' ' * (longest_player_name - 11)} │ Wars missed │ Most recent ║\n")
+    if not inactive_players:
+        file.write("No inactive players found.```")
+    else:
+        longest_player_name = max(len(p[0]) for p in inactive_players)
 
-    for pname, value, missed_timedelta in inactive_players:
-        file.write(f"║ {pname:<{longest_player_name}} │ {value:<11} │ {' ' if missed_timedelta < 10 else ''}{missed_timedelta} days ago ║\n")
+        file.write(f"╔══{'═'*longest_player_name}╤═════════════╤═════════════╗\n")
+        file.write(f"║ Player name{' ' * (longest_player_name - 11)} │ Wars missed │ Most recent ║\n")
 
-    file.write(f"╚══{'═'*longest_player_name}╧═════════════╧═════════════╝ ```")
+        for pname, value, missed_timedelta in inactive_players:
+            file.write(f"║ {pname:<{longest_player_name}} │ {value:<11} │ {' ' if missed_timedelta < 10 else ''}{missed_timedelta} days ago ║\n")
+
+        file.write(f"╚══{'═'*longest_player_name}╧═════════════╧═════════════╝ ```")
 
     for player in player_activity_dict: 
         # Next, print out all the players that are not in the clan; that is, whose in_clan values are set to False. 

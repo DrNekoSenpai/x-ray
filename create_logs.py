@@ -1,5 +1,5 @@
 import os, datetime, json
-with open("war-log.json", "r", encoding="utf-8") as file: 
+with open("./inputs/war-log.json", "r", encoding="utf-8") as file: 
     wars = json.load(file)
 
 for war in wars:  

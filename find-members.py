@@ -114,11 +114,26 @@ def find_missing_members(xray_df: pd.DataFrame, cwl_df: pd.DataFrame):
 
     return missing_names
 
+# If a file exists called "Reddit X-ray [Discord Members].xlsx", delete "xray-members.xlsx" and rename that file to "xray-members.xlsx"
+# If a file exists called "X-ray CWL Participation Form (Responses).xlsx", delete "cwl-responses.xlsx" and rename that file to "cwl-responses.xlsx"
+def rename_input(): 
+    import os
+
+    if os.path.exists("./inputs/Reddit X-ray [Discord Members].xlsx"):
+        if os.path.exists("./inputs/xray-members.xlsx"): os.remove("./inputs/xray-members.xlsx")
+        os.rename("./inputs/Reddit X-ray [Discord Members].xlsx", "./inputs/xray-members.xlsx")
+
+    if os.path.exists("./inputs/X-ray CWL Participation Form (Responses).xlsx"):
+        if os.path.exists("./inputs/cwl-responses.xlsx"): os.remove("./inputs/cwl-responses.xlsx")
+        os.rename("./inputs/X-ray CWL Participation Form (Responses).xlsx", "./inputs/cwl-responses.xlsx")
+
 def main():
     # --- CONFIGURE FILE PATHS HERE ---
-    xray_path = "xray-members.xlsx"
+    xray_path = "./inputs/xray-members.xlsx"
     cwl_path  = "./inputs/cwl-responses.xlsx"
     # ---------------------------------
+
+    rename_input()
     
     # Load data
     try:
